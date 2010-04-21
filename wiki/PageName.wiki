@@ -4,6 +4,7 @@
 
 
 Test
+!image
 
 Add your content here.
 
