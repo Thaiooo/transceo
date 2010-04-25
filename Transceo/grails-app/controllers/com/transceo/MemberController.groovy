@@ -1,18 +1,30 @@
 package com.transceo
 
 class MemberController {
+	def mailService
+	
 	def init = {
-		println "test " + params
 		render(view:"/subscribe/register", model:[])		
 	}
 	
 	def register = {
-		println "test2 " + params
-		def member = new Member(params)
+		def Member member = new Member(params)
+		member.subscribeDate = new Date()
+		
 		if(member.validate()){
 			member.save()
-			println "Yes"
+			
+			// Send mail
+			mailService.sendMail {
+				to "quoc.thai.phan@gmail.com"
+				from "quoc.thai.phan@gmail.com"
+				subject "Hello Thai"
+				body "This is a test"
+			}
+			
+			redirect(uri:"/")
+		}else{
+			render(view:"/subscribe/register", model:[member: member])
 		}
-		render(view:"/subscribe/register", model:[member: member])		
 	}
 }

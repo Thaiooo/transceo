@@ -10,17 +10,23 @@ class Member extends Customer {
 	String street
 	String city
 	Integer postal
+	Date subscribeDate
 	Set<Member> sponsorships
 	
 	static hasMany = [ sponsorships: Member]
+	
+	static mapping = {
+		version true
+	}
 	
 	static constraints = {
 		password(nullable: false, blank:false)
 		eMail(nullable: false, blank:false, email:true)
 		street(nullable: false, blank:false)
 		city(nullable: false, blank:false)
-		postal(nullable: false, blank:false)
-		number(nullable: false, blank:false)
+		postal(nullable: false)
+		number(nullable: false)
+		subscribeDate(nullable: false)
 		sponsorships(nullable: true)
 	}	                   
 }
