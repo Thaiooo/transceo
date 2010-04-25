@@ -5,7 +5,7 @@ class Administrator {
 	String passwword
 	
 	static constraints = {
-		login(nullable: true, blank: true)
-		password(nullable: true, blank: true)
+		login(nullable: false, blank:false)
+		passwword(nullable: false, blank:false)
 	}
 }
