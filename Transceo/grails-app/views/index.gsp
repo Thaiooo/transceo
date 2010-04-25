@@ -4,6 +4,7 @@
 		<meta name="layout" content="main" />		
     </head>
     <body>
-    	Test
-    </body>
+    	Test<br/>
+		<g:link controller="member" action="init">Register</g:link>
+	</body>
 </html>
