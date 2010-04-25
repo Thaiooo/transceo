@@ -21,5 +21,6 @@ class Member extends Customer {
 		city(nullable: false, blank:false)
 		postal(nullable: false, blank:false)
 		number(nullable: false, blank:false)
+		sponsorships(nullable: true)
 	}	                   
 }
