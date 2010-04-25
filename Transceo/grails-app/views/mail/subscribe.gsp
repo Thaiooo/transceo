@@ -1,3 +1,3 @@
 hello!
 
-http://localhost:8080/Transceo/member/activate?id=${memmber.activationId}
+http://localhost:8080/Transceo/member/activate?id=${member.activationId}
