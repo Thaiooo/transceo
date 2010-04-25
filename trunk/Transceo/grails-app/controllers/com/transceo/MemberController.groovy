@@ -8,6 +8,11 @@ class MemberController {
 	
 	def register = {
 		println "test2 " + params
-		render(view:"/subscribe/register", model:[])		
+		def member = new Member(params)
+		if(member.validate()){
+			member.save()
+			println "Yes"
+		}
+		render(view:"/subscribe/register", model:[member: member])		
 	}
 }
