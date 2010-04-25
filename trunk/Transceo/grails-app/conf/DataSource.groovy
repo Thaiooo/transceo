@@ -1,3 +1,5 @@
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.ShowSystemMenuAction;
+
 dataSource {
 	pooled = true
 	username = "sa"
@@ -12,11 +14,13 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			dbCreate = "create-drop" // one of 'create', 'create-drop','update'
+			// one of 'create', 'create-drop','update'
+			// dbCreate = "create-drop" 
 			driverClassName = "com.mysql.jdbc.Driver"
 			url = "jdbc:mysql://localhost/transceo"
 			username = "transceo"
 			password = "transceo"
+			loggingSql = "true"
 		}
 	}
 	test {
