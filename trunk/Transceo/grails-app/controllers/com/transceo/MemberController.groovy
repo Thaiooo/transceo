@@ -3,7 +3,6 @@ package com.transceo
 import org.apache.commons.lang.StringUtils;
 
 class MemberController {
-	def mailService
 	def memberService
 	
 	def init = {
