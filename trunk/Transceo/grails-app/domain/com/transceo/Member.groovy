@@ -11,6 +11,7 @@ class Member extends Customer {
 	String city
 	Integer postal
 	Date subscribeDate
+	Long activationId
 	Set<Member> sponsorships
 	
 	static hasMany = [ sponsorships: Member]
@@ -28,5 +29,6 @@ class Member extends Customer {
 		number(nullable: false)
 		subscribeDate(nullable: false)
 		sponsorships(nullable: true)
+		activationId(nullable: false)
 	}	                   
 }
