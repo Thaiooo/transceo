@@ -6,7 +6,7 @@ drop table if exists member;
 drop table if exists member_member;
 create table administrator (id bigint not null auto_increment, version bigint not null, passwword varchar(255) not null, login varchar(255) not null, primary key (id));
 create table customer (id bigint not null auto_increment, version bigint not null, last_name varchar(255) not null, phone_number varchar(255) not null, first_name varchar(255) not null, primary key (id));
-create table member (id bigint not null, postal integer not null, street varchar(255) not null, number integer not null, password varchar(255) not null, city varchar(255) not null, e_mail varchar(255) not null, active bit not null, subscribe_date datetime not null, primary key (id));
+create table member (id bigint not null, postal integer not null, street varchar(255) not null, number integer not null, password varchar(255) not null, city varchar(255) not null, e_mail varchar(255) not null, active bit not null, subscribe_date datetime not null, activation_id bigint not null, primary key (id));
 create table member_member (member_sponsorships_id bigint, member_id bigint);
 alter table member_member add index FKA2D5BBDFDE24C296 (member_id), add constraint FKA2D5BBDFDE24C296 foreign key (member_id) references member (id);
 alter table member_member add index FKA2D5BBDFF4EB33CE (member_sponsorships_id), add constraint FKA2D5BBDFF4EB33CE foreign key (member_sponsorships_id) references member (id);
