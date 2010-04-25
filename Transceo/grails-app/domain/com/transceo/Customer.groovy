@@ -6,8 +6,8 @@ class Customer {
 	String phoneNumber
 	
 	static constraints = {
-		firstName(nullable: true, blank: true)
-		lastName(nullable: true, blank: true)
-		phoneNumber(nullable: true, blank: true)
+		firstName(nullable: false, blank:false)
+		lastName(nullable: false, blank:false)
+		phoneNumber(nullable: false, blank:false)
 	}
 }
