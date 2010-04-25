@@ -10,16 +10,16 @@ class Member extends Customer {
 	String street
 	String city
 	Integer postal
-	Set<Member> sponsorships = new HashSet<Member>()
+	Set<Member> sponsorships
 	
 	static hasMany = [ sponsorships: Member]
 	
 	static constraints = {
-		password(nullable: false)		
-		eMail(nullable: false, blank: false, email:true, unique: true)
-		number(nullable: true, blank: true)
-		street(nullable: true, blank: true)
-		city(nullable: true, blank: true)
-		postal(nullable: true, blank: true)
-	}
+		password(nullable: false, blank:false)
+		eMail(nullable: false, blank:false, email:true)
+		street(nullable: false, blank:false)
+		city(nullable: false, blank:false)
+		postal(nullable: false, blank:false)
+		number(nullable: false, blank:false)
+	}	                   
 }
