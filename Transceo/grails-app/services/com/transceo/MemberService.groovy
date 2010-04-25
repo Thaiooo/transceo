@@ -1,8 +1,8 @@
 package com.transceo
 
 class MemberService {
-	
 	static transactional = true
+	def mailService
 	
 	def int activate(Long activationId) {
 		def member = Member.findByActivationId(activationId)
@@ -35,5 +35,18 @@ class MemberService {
 			}
 		}
 		return member
+	}
+	
+	def deleteExpireActivation () {
+		def gc = new GregorianCalendar()
+		gc.add(Calendar.DAY_OF_YEAR, -30)
+		
+		def c = Member.createCriteria()
+		def results = c { 
+			eq("active", true) 
+			le ("subscribeDate", gc.time)
+		}
+		
+		results.each(){ it.delete() }	
 	}
 }
