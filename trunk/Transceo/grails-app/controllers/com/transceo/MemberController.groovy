@@ -7,19 +7,30 @@ class MemberController {
 		render(view:"/subscribe/register", model:[])		
 	}
 	
+	def activate = {
+		println params
+		def member = Member.findByActivationId(params.id)
+		member.active = true
+		member.save()		
+		redirect(uri:"/")
+	}
+	
 	def register = {
 		def Member member = new Member(params)
 		member.subscribeDate = new Date()
+		member.activationId = member.subscribeDate.getTime()
 		
 		if(member.validate()){
 			member.save()
 			
 			// Send mail
 			mailService.sendMail {
-				to "quoc.thai.phan@gmail.com"
-				from "quoc.thai.phan@gmail.com"
-				subject "Hello Thai"
-				body "This is a test"
+				to member.eMail
+				from "no-reply@transceo.com"
+				subject "Activate your account"
+				body( view:"/mail/subscribe", 
+				plugin:"email-confirmation", 
+				model:[member:member])
 			}
 			
 			redirect(uri:"/")
