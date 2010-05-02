@@ -29,8 +29,9 @@ class Member extends Customer {
 		postal(nullable: false)
 		number(nullable: false)
 		subscribeDate(nullable: false)
+		activationId(nullable: false)
+		
 		friends(nullable: true)
 		sponsor(nullable: true)
-		activationId(nullable: false)
 	}	                   
 }
