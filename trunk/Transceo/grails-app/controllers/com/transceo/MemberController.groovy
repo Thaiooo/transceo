@@ -71,17 +71,8 @@ class MemberController {
 		flash.message = "You can only edit yourself"
 		
 		def mails = []
-		if(StringUtils.isNotBlank(params.email1)){
-			mails.add(params.email1)
-		}
-		if(StringUtils.isNotBlank(params.email2)){
-			mails.add(params.email2)
-		}
-		if(StringUtils.isNotBlank(params.email3)){
-			mails.add(params.email3)
-		}
-		if(StringUtils.isNotBlank(params.email4)){
-			mails.add(params.email4)
+		if(StringUtils.isNotBlank(params.email)){
+			mails.add(params.email)
 		}
 		
 		if(mails.size() > 0){
