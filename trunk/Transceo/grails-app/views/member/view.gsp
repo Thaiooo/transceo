@@ -11,34 +11,33 @@
 		</g:hasErrors>
     	    	
     	<g:form name="updateForm" controller="member" action="update" >
-    		<g:hiddenField name="id" value="${fieldValue(bean:member,field:'id')}" />
-    		
-    		<g:message code="subscribe.firstName" />
-    		<g:textField name="firstName" value="${fieldValue(bean:member,field:'firstName')}"/>
-    		
-    		<g:message code="subscribe.lastName" />
-    		<g:textField name="lastName" value="${fieldValue(bean:member,field:'lastName')}"/>
-    		
-    		<g:message code="subscribe.phoneNumber" />
-    		<g:textField name="phoneNumber" value="${fieldValue(bean:member,field:'phoneNumber')}"/>
-    		
-    		<g:message code="subscribe.eMail" />
-    		<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
-    		
-    		<g:message code="subscribe.number" />
-    		<g:textField name="number" value="${fieldValue(bean:member,field:'number')}"/>
-    		
-    		<g:message code="subscribe.street" />
-    		<g:textField name="street" value="${fieldValue(bean:member,field:'street')}"/>
-    		
-    		<g:message code="subscribe.city" />
-    		<g:textField name="city" value="${fieldValue(bean:member,field:'city')}"/>
-    		
-    		<g:message code="subscribe.postal" />
-    		<g:textField name="postal" value="${fieldValue(bean:member,field:'postal')}"/>
-    		
-    		<g:submitButton name="register" value="${message(code:'subscribe.button.update')}" />
-    		<g:link controller="member" action="list"><g:message code="subscribe.button.cancel" /></g:link>
+    		<g:hiddenField name="id" value="${member.id}" />
+			<p>    		
+	    		<g:message code="subscribe.firstName" />
+    			<g:textField name="firstName" value="${fieldValue(bean:member,field:'firstName')}"/>
+    		</p>
+    		<p>
+    			<g:message code="subscribe.lastName" />
+    			<g:textField name="lastName" value="${fieldValue(bean:member,field:'lastName')}"/>
+    		</p>
+    		<p>
+	    		<g:message code="subscribe.phoneNumber" />
+    			<g:textField name="phoneNumber" value="${fieldValue(bean:member,field:'phoneNumber')}"/>
+    		</p>
+    		<p>
+    			<g:message code="subscribe.eMail" />
+    			<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
+    		</p>
+    		<p>
+    			<g:submitButton name="register" value="${message(code:'subscribe.button.update')}" />
+    			<g:link controller="member" action="list"><g:message code="subscribe.button.cancel" /></g:link>
+    			<g:link controller="member" action="delete" id="${member.id}"><g:message code="subscribe.button.delete" /></g:link>
+    		</p>
     	</g:form>
+    	
+    	<p>Sponsor: ${member.sponsor}</p>
+    	<p>Friends: ${member.friends}</p>
+    	<p>Miles:</p> 
+    	
     </body>
 </html>

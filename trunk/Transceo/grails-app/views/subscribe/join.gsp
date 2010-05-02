@@ -40,7 +40,7 @@
     		<g:message code="subscribe.password.confirm" />
     		<g:textField name="confirmPassword"/>
     		</p>
-
+    		
     		<p>
     		<g:submitButton name="register" value="${message(code:'subscribe.button.subscribe')}" />
     		<g:link url="/Transceo"><g:message code="subscribe.button.cancel" /></g:link>

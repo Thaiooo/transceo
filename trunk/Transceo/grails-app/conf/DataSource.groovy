@@ -15,7 +15,7 @@ environments {
 	development {
 		dataSource {
 			// one of 'create', 'create-drop','update'
-			// dbCreate = "create-drop" 
+			dbCreate = "create-drop" 
 			driverClassName = "com.mysql.jdbc.Driver"
 			url = "jdbc:mysql://localhost/transceo"
 			username = "transceo"
