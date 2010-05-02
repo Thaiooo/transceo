@@ -12,9 +12,6 @@
 	    			<g:sortableColumn property="lastName" title="Last Name" />
 	    			<g:sortableColumn property="phoneNumber" title="Phone Number" />
 	    			<g:sortableColumn property="eMail" title="E-Mail" />
-	    			<g:sortableColumn property="street" title="Adress" />
-	    			<g:sortableColumn property="city" title="City" />
-	    			<g:sortableColumn property="postal" title="Postal" />
 	    			<g:sortableColumn property="subscribeDate" title="Subscribe Date" />
 	    			<g:sortableColumn property="active" title="Status" />
 	    		</tr>
@@ -27,14 +24,17 @@
 		     			<td>${it.lastName}</td>
 		     			<td width="120px">${it.phoneNumber}</td>
 						<td>${it.eMail}</td>
-						<td>${it.number} ${it.street}</td>
-						<td>${it.city}</td>
-						<td width="30px">${it.postal}</td>
 						<td width="70px"><g:formatDate format="yyyy-MM-dd" date="${it.subscribeDate}"/></td>
 						<td width="20px">${it.active}</td>
 		     		</tr>
 				</g:each>
 			</tbody>
     	</table>
+    	
+    	<g:paginate next="Forward" prev="Back"
+    		max="2"  
+            maxsteps="0" controller="member"
+            action="list" total="${com.transceo.Member.count()}" />
+            
     </body>
 </html>
