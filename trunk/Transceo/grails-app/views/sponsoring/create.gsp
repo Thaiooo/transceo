@@ -9,20 +9,8 @@
 		</g:if>
     	<form controller="member" action="addFriends" method="post" >
     		<p>
-    			<g:message code="sponsor.email1" />
-    			<g:textField name="email1" value=""/>
-    		</p>
-    		<p>
-	    		<g:message code="sponsor.email2" />
-    			<g:textField name="email2" value=""/>
-    		</p>
-    		<p>
-    			<g:message code="sponsor.email3" />
-    			<g:textField name="email3" value=""/>
-    		</p>
-    		<p>
-    			<g:message code="sponsor.email4" />
-    			<g:textField name="email4" value=""/>
+    			<g:message code="sponsor.email" />
+    			<g:textField name="email" value=""/>
     		</p>
     		<p>
 	    		<g:message code="sponsor.message" />
