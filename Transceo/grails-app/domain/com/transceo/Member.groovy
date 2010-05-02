@@ -12,9 +12,10 @@ class Member extends Customer {
 	Integer postal
 	Date subscribeDate
 	Long activationId
-	Set<Member> sponsorships
+	Member sponsor
+	Set<Member> friends
 	
-	static hasMany = [ sponsorships: Member]
+	static hasMany = [ friends: Member]
 	
 	static mapping = {
 		version true
@@ -28,7 +29,8 @@ class Member extends Customer {
 		postal(nullable: false)
 		number(nullable: false)
 		subscribeDate(nullable: false)
-		sponsorships(nullable: true)
+		friends(nullable: true)
+		sponsor(nullable: true)
 		activationId(nullable: false)
 	}	                   
 }
