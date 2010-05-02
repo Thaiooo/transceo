@@ -37,6 +37,18 @@ class MemberService {
 		return member
 	}
 	
+	def sendMessageToFriends(emails, message){
+		emails.each{
+			def email = it
+			mailService.sendMail {
+				to email
+				from "no-reply@transceo.com"
+				subject "Sponsor"
+				body message
+			}
+		}
+	}
+	
 	def deleteExpireActivation () {
 		def gc = new GregorianCalendar()
 		gc.add(Calendar.DAY_OF_YEAR, -30)
