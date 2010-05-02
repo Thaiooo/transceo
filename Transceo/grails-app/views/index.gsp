@@ -4,7 +4,13 @@
 		<meta name="layout" content="main" />		
     </head>
     <body>
-    	Test<br/>
+    	Test
+    	<br/>
 		<g:link controller="member" action="init">Register</g:link>
+		<br/>
+		<g:link controller="member" action="initSponsor">Sponsoring</g:link>
+		<br/>
+		<g:link controller="member" action="list">Members</g:link>
+		<br/>
 	</body>
 </html>
