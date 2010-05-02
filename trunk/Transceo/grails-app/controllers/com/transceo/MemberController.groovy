@@ -22,8 +22,13 @@ class MemberController {
 		if(order == null){
 			order = "asc"
 		}
+		def offset = params.offset
+		if(offset == null){
+			offset = 0	
+		}		
+		def max=2
 		
-		def members = Member.list(sort:sort, order:order)
+		def members = Member.list(sort:sort, order:order, offset:offset, max:max)
 		render(view:"/member/list", model:[members: members])		
 	}
 	
@@ -90,8 +95,12 @@ class MemberController {
 	def update = {
 		def o = Member.get(params.id.toLong())
 		o.properties = params
-		o.save()
-		render(view:"/member/view", model:[member: o])
+		if(o.validate()){
+			o.save()
+			redirect(controller:"member",action:"list")
+		} else {
+			render(view:"/member/view", model:[member: o])
+		}
 	}
 	
 	def show = {
@@ -99,5 +108,10 @@ class MemberController {
 		render(view:"/member/view", model:[member: o])		
 	}
 	
+	def delete = {
+		def o = Member.get(params.id.toLong())
+		o.delete()
+		redirect(controller:"member",action:"list")
+	}
 	
 }
