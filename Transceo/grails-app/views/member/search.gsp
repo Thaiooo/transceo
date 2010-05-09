@@ -36,7 +36,7 @@
     		<tbody>
 		    	<g:each in="${members}">
 		     		<tr>
-		     			<td width="50px"><g:link action="show" id="${it.id}">Update</g:link></td>
+		     			<td width="50px"><g:link action="show" id="${it.id}">View</g:link></td>
 		     			<td>${it.code}</td>
 		     			<td>${it.firstName}</td>
 		     			<td>${it.lastName}</td>
