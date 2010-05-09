@@ -37,14 +37,16 @@ class MemberService {
 		return member
 	}
 	
-	def sendMessageToFriends(emails, message){
+	def sendMessageToFriends(emails, message, sponsor){
 		emails.each{
 			def email = it
 			mailService.sendMail {
 				to email
 				from "no-reply@transceo.com"
 				subject "Sponsor"
-				body message
+				body( view:"/mail/sponsor", 
+						plugin:"email-confirmation", 
+						model:[message:message, sponsor:sponsor])
 			}
 		}
 	}
