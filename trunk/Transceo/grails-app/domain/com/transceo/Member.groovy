@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 
 class Member extends Customer {
+	String code
 	String password
 	boolean active
 	String eMail
@@ -25,6 +26,7 @@ class Member extends Customer {
 		subscribeDate(nullable: false)
 		activationId(nullable: false)
 		miles(nullable: false, blank:false)
+		code(nullable: false, blank:false, unique:true)
 		
 		sponsor(nullable: true)
 	}	                   
