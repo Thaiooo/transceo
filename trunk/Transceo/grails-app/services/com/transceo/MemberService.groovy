@@ -1,8 +1,11 @@
 package com.transceo
 
+import org.apache.commons.lang.StringUtils;
+
 class MemberService {
 	static transactional = true
 	def mailService
+	def max = 2
 	
 	def int activate(Long activationId) {
 		def member = Member.findByActivationId(activationId)
@@ -62,5 +65,47 @@ class MemberService {
 		}
 		
 		results.each(){ it.delete() }	
+	}
+	
+	def List<Member> search(params){
+		def sortCriteria = params.sort
+		if(sortCriteria == null){
+			sortCriteria = "firstName"
+		}
+		def orderCriteria = params.order
+		if(orderCriteria == null){
+			orderCriteria = "asc"
+		}
+		def offset = params.offset
+		if(offset == null){
+			offset = 0	
+		}		
+		
+		def c = Member.createCriteria()
+		def results = c.list {
+			and {
+				if(StringUtils.isNotBlank(params.code)){
+					ilike("code", params.code)
+				}
+				if(StringUtils.isNotBlank(params.firstName)){
+					ilike("firstName", params.firstName)
+				}
+				if(StringUtils.isNotBlank(params.lastName)){
+					ilike("lastName", params.lastName)
+				}
+				if(StringUtils.isNotBlank(params.phoneNumber)){
+					ilike("phoneNumber", params.phoneNumber)
+				}
+				if(StringUtils.isNotBlank(params.eMail)){
+					ilike("eMail", params.eMail)
+				}
+			}
+			firstResult(offset)
+			maxResults(max)
+			order(sortCriteria, orderCriteria)
+		}
+		
+		return results
+		
 	}
 }
