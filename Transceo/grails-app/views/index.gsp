@@ -10,7 +10,7 @@
 		<br/>
 		<g:link controller="member" action="initSponsor">Sponsoring</g:link>
 		<br/>
-		<g:link controller="member" action="list">Members</g:link>
+		<g:link controller="member" action="search">Search Members</g:link>
 		<br/>
 	</body>
 </html>
