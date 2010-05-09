@@ -37,7 +37,7 @@
     	
     	<p>Sponsor: ${member.sponsor}</p>
     	<p>Friends: ${member.friends}</p>
-    	<p>Miles:</p> 
+    	<p>Miles: ${member.miles}</p> 
     	
     </body>
 </html>
