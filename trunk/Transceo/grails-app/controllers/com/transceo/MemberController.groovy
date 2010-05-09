@@ -1,5 +1,7 @@
 package com.transceo
 
+import groovy.util.Expando;
+
 import org.apache.commons.lang.StringUtils;
 
 class MemberController {
@@ -13,23 +15,21 @@ class MemberController {
 		render(view:"/sponsoring/create", model:[])		
 	}
 	
-	def list = {
-		def sort = params.sort
-		if(sort == null){
-			sort = "firstName"
-		}
-		def order = params.order
-		if(order == null){
-			order = "asc"
-		}
-		def offset = params.offset
-		if(offset == null){
-			offset = 0	
-		}		
-		def max=2
-		
-		def members = Member.list(sort:sort, order:order, offset:offset, max:max)
-		render(view:"/member/list", model:[members: members])		
+	
+	def search = {
+		def criteria = new Member(params)		
+		session["criteria"] = criteria
+		searchMember(criteria, params)	
+	}
+	
+	def sort = {
+		def criteria = session["criteria"]		
+		searchMember(criteria, params)		
+	}
+	
+	private searchMember(criteria, params) {
+		def members = memberService.search(params)
+		render(view:"/member/list", model:[criteria:criteria, members: members])
 	}
 	
 	def activate = {
@@ -68,15 +68,14 @@ class MemberController {
 	}
 	
 	def addFriends = {
-		flash.message = "You can only edit yourself"
-		
 		def mails = []
 		if(StringUtils.isNotBlank(params.email)){
 			mails.add(params.email)
 		}
+		def sponsor = Member.get(1)
 		
 		if(mails.size() > 0){
-			memberService.sendMessageToFriends(mails, params.message)
+			memberService.sendMessageToFriends(mails, params.message, sponsor)
 		}
 		
 		render(view:"/sponsoring/create", model:[])
