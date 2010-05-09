@@ -9,35 +9,59 @@
 				<g:renderErrors bean="${member}" />
 			</div>
 		</g:hasErrors>
-    	    	
-    	<g:form name="updateForm" controller="member" action="update" >
-    		<g:hiddenField name="id" value="${member.id}" />
+		
+		<div>
 			<p>    		
-	    		<g:message code="subscribe.firstName" />
-    			<g:textField name="firstName" value="${fieldValue(bean:member,field:'firstName')}"/>
+	    		<g:message code="subscribe.firstName" />:
+    			${fieldValue(bean:member,field:'firstName')}
     		</p>
     		<p>
-    			<g:message code="subscribe.lastName" />
-    			<g:textField name="lastName" value="${fieldValue(bean:member,field:'lastName')}"/>
+    			<g:message code="subscribe.lastName" />:
+    			${fieldValue(bean:member,field:'lastName')}
     		</p>
     		<p>
-	    		<g:message code="subscribe.phoneNumber" />
-    			<g:textField name="phoneNumber" value="${fieldValue(bean:member,field:'phoneNumber')}"/>
+	    		<g:message code="subscribe.phoneNumber" />:
+    			${fieldValue(bean:member,field:'phoneNumber')}
     		</p>
     		<p>
-    			<g:message code="subscribe.eMail" />
-    			<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
+    			<g:message code="subscribe.eMail" />:
+    			${fieldValue(bean:member,field:'eMail')}
     		</p>
-    		<p>
-    			<g:submitButton name="register" value="${message(code:'subscribe.button.update')}" />
-    			<g:link controller="member" action="list"><g:message code="subscribe.button.cancel" /></g:link>
-    			<g:link controller="member" action="delete" id="${member.id}"><g:message code="subscribe.button.delete" /></g:link>
-    		</p>
-    	</g:form>
+    	</div>
     	
-    	<p>Sponsor: ${member.sponsor}</p>
-    	<p>Friends: ${member.friends}</p>
-    	<p>Miles: ${member.miles}</p> 
+    	<div>
+    		<p>Miles: ${member.miles}</p>
+    		<p>Miles from friends: ${member.miles}</p>
+    		<p>Total: ${member.miles}</p>
+    	</div>
+    	
+    	<div>
+    		<p>Sponsor: ${member.sponsor}</p>
+    	</div>
+    	
+    	<div>
+    		Friends:
+    		<table border = "1">
+	    		<thead>
+		    		<tr>
+		    			<th></th>
+		    			<th>Code</th>
+		    			<th>First Name</th>
+		    			<th>Last Name</th>
+		    		</tr>
+	    		</thead>
+	    		<tbody>
+			    	<g:each in="${member.friends}">
+			     		<tr>
+			     			<td width="50px"><g:link action="show" id="${it.id}">View</g:link></td>
+			     			<td>${it.code}</td>
+			     			<td>${it.firstName}</td>
+			     			<td>${it.lastName}</td>
+			     		</tr>
+					</g:each>
+				</tbody>
+	    	</table>
+    	</div>
     	
     </body>
 </html>
