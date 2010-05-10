@@ -76,9 +76,9 @@ class MemberService {
 		if(orderCriteria == null){
 			orderCriteria = "asc"
 		}
-		def offset = params.offset
-		if(offset == null){
-			offset = 0	
+		def offset = 0
+		if(params.offset != null){
+			offset = params.offset.toInteger()	
 		}		
 		
 		def c = Member.createCriteria()
