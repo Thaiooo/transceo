@@ -96,9 +96,9 @@ class MemberController {
 		o.properties = params
 		if(o.validate()){
 			o.save()
-			redirect(controller:"member",action:"list")
+			redirect(controller:"member",action:"show", id:o.id)
 		} else {
-			render(view:"/member/view", model:[member: o])
+			render(view:"/member/update", model:[member: o])
 		}
 	}
 	
