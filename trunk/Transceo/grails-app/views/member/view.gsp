@@ -98,7 +98,7 @@
 		    		<tbody>
 				    	<g:each in="${member.travels}">
 				     		<tr>
-				     			<td width="50px"><g:link action="show" id="${it.id}">View</g:link></td>
+				     			<td width="50px"><g:link controller="travel" action="show" id="${it.id}">View</g:link></td>
 				     			<td><g:formatDate format="yyyy-MM-dd HH:mm" date="${it.travelDate}"/></td>
 				     			<td>${it.depart.number} ${it.depart.street} ${it.depart.city}, ${it.depart.country}</td>
 				     			<td>${it.destination.number} ${it.destination.street} ${it.destination.city}, ${it.destination.country}</td>
