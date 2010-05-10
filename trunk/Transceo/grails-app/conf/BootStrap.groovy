@@ -46,8 +46,11 @@ class BootStrap {
 		travel.depart = depart
 		travel.destination = destination
 		travel.price = 100
-		travel.save()
+		travel.customer = m1
 		m1.travels.add(travel)
+		
+		travel.save()
+		
 		
 		// =================================================
 		def Member m2 = new Member()
