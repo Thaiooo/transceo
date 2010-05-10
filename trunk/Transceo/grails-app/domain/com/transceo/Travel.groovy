@@ -1,6 +1,7 @@
 package com.transceo
 
 class Travel {
+	Customer customer
 	Date travelDate
 	Adress depart
 	Adress destination
@@ -12,5 +13,6 @@ class Travel {
 		depart(nullable: false)
 		destination(nullable: false)
 		price(nullable: false)
+		customer(nullable: false)
 	}	
 }
