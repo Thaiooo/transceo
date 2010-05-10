@@ -4,6 +4,9 @@ class Customer{
 	String firstName
 	String lastName
 	String phoneNumber
+	List<Travel> travels = new ArrayList<Travel>()
+	
+	static hasMany = [travels:Travel]
 	
 	static mapping = {
 		//tablePerHierarchy false
