@@ -13,6 +13,10 @@
     	<g:form name="updateForm" controller="member" action="update" >
     		<g:hiddenField name="id" value="${member.id}" />
 			<p>    		
+	    		<g:message code="member.code" />
+    			${fieldValue(bean:member,field:'code')}
+    		</p>
+			<p>    		
 	    		<g:message code="subscribe.firstName" />
     			<g:textField name="firstName" value="${fieldValue(bean:member,field:'firstName')}"/>
     		</p>
@@ -29,15 +33,10 @@
     			<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
     		</p>
     		<p>
-    			<g:submitButton name="register" value="${message(code:'subscribe.button.update')}" />
-    			<g:link controller="member" action="search"><g:message code="subscribe.button.cancel" /></g:link>
-    			<g:link controller="member" action="delete" id="${member.id}"><g:message code="subscribe.button.delete" /></g:link>
+    			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
+    			<g:link controller="member" action="show" id="${member.id}"><g:message code="common.button.cancel" /></g:link>
     		</p>
     	</g:form>
-    	
-    	<p>Sponsor: ${member.sponsor}</p>
-    	<p>Friends: ${member.friends}</p>
-    	<p>Miles: ${member.miles}</p> 
     	
     </body>
 </html>
