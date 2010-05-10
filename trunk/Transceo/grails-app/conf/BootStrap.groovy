@@ -42,6 +42,7 @@ class BootStrap {
 		
 		def travel = new Travel()
 		travel.status = TravelStatus.SUCCESS
+		travel.creationDate = new Date()
 		travel.travelDate = new Date()
 		travel.depart = depart
 		travel.destination = destination
