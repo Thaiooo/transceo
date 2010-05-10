@@ -8,15 +8,14 @@
 		<form controller="member" action="search" method="post" >
 			<g:message code="search.member.code" />
     		<g:textField name="code" value="${fieldValue(bean:criteria,field:'code')}"/>
-			<g:message code="search.member.lastName" />
-    		<g:textField name="lastName" value="${fieldValue(bean:criteria,field:'lastName')}"/>
 			<g:message code="search.member.firstName" />
     		<g:textField name="firstName" value="${fieldValue(bean:criteria,field:'firstName')}"/>
+			<g:message code="search.member.lastName" />
+    		<g:textField name="lastName" value="${fieldValue(bean:criteria,field:'lastName')}"/>
     		<g:message code="search.member.phone" />
     		<g:textField name="phoneNumber" value="${fieldValue(bean:criteria,field:'phoneNumber')}"/>
     		<g:message code="search.member.mail" />
     		<g:textField name="eMail" value="${fieldValue(bean:criteria,field:'eMail')}"/>
-			
 			<g:submitButton name="search" value="${message(code:'common.button.search')}" />
 		</form>
     
@@ -51,8 +50,11 @@
     	
     	<g:paginate next="Forward" prev="Back"
     		max="2"  
-            maxsteps="0" controller="member"
-            action="list" total="${com.transceo.Member.count()}" />
+            maxsteps="0" 
+            controller="member" 
+            action="paginate" 
+            total="${com.transceo.Member.count()}" 
+		/>
             
     </body>
 </html>
