@@ -2,6 +2,7 @@ package com.transceo
 
 class Travel {
 	Customer customer
+	Date creationDate
 	Date travelDate
 	Adress depart
 	Adress destination
