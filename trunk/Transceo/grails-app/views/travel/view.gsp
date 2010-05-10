@@ -5,7 +5,10 @@
     </head>
     <body>
     	<p>
-    	Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
+    	Creation Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.ceationDate}"/>
+    	</p>
+    	<p>
+    	Travel Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
     	</p>
     	<p>
     	Price: ${travel.price}

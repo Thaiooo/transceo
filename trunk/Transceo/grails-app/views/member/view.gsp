@@ -88,7 +88,8 @@
 		    		<thead>
 			    		<tr>
 			    			<th></th>
-			    			<th>Date</th>
+			    			<th>Creation Date</th>
+			    			<th>Travel Date</th>
 			    			<th>Depart</th>
 			    			<th>Destination</th>
 			    			<th>Price</th>
@@ -99,6 +100,7 @@
 				    	<g:each in="${member.travels}">
 				     		<tr>
 				     			<td width="50px"><g:link controller="travel" action="show" id="${it.id}">View</g:link></td>
+				     			<td><g:formatDate format="yyyy-MM-dd HH:mm" date="${it.creationDate}"/></td>
 				     			<td><g:formatDate format="yyyy-MM-dd HH:mm" date="${it.travelDate}"/></td>
 				     			<td>${it.depart.number} ${it.depart.street} ${it.depart.city}, ${it.depart.country}</td>
 				     			<td>${it.destination.number} ${it.destination.street} ${it.destination.city}, ${it.destination.country}</td>
