@@ -15,7 +15,6 @@ class MemberController {
 		render(view:"/sponsoring/create", model:[])		
 	}
 	
-	
 	def search = {
 		def criteria = new Member(params)		
 		session["criteria"] = criteria
@@ -27,9 +26,19 @@ class MemberController {
 		searchMember(criteria, params)		
 	}
 	
+	def back = {
+		def criteria = session["criteria"]		
+		searchMember(criteria, params)		
+	}
+	
+	def paginate = {
+		def criteria = session["criteria"]		
+		searchMember(criteria, params)		
+	}
+	
 	private searchMember(criteria, params) {
 		def members = memberService.search(params)
-		render(view:"/member/list", model:[criteria:criteria, members: members])
+		render(view:"/member/search", model:[criteria:criteria, members: members])
 	}
 	
 	def activate = {
@@ -97,6 +106,11 @@ class MemberController {
 		def o = Member.get(params.id.toLong()) 
 		render(view:"/member/view", model:[member: o])		
 	}
+	
+	def initUpdate = {
+			def o = Member.get(params.id.toLong()) 
+			render(view:"/member/update", model:[member: o])		
+		}
 	
 	def delete = {
 		def o = Member.get(params.id.toLong())
