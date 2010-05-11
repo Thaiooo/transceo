@@ -8,6 +8,9 @@ class Travel {
 	Adress destination
 	TravelStatus status
 	double price
+	String comment
+	Integer numberOfPersonne
+	boolean handicap = false
 	
 	static constraints = {	
 		travelDate(nullable: false)
@@ -15,5 +18,7 @@ class Travel {
 		destination(nullable: false)
 		price(nullable: false)
 		customer(nullable: false)
+		comment(nullable: true)
+		numberOfPersonne(nullable: true)		
 	}	
 }
