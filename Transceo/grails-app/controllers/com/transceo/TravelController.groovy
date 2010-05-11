@@ -18,8 +18,14 @@ class TravelController {
 		println params
 		def customer = new Customer()
 		customer.properties = params
-		println customer.validate()
+		customer.validate()
 		
-		render(view:"/travel/create", model:[customer:customer])
+		def travel = new Travel()
+		travel.creationDate = new Date()
+		travel.customer = customer
+		travel.status = TravelStatus.RESERVE
+		travel.validate()
+		
+		render(view:"/travel/create", model:[customer:customer, travel:travel])
 	}
 }
