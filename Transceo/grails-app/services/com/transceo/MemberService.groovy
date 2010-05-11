@@ -99,6 +99,15 @@ class MemberService {
 				if(StringUtils.isNotBlank(params.eMail)){
 					ilike("eMail", params.eMail)
 				}
+				if(StringUtils.isNotBlank(params.adresse)){
+					ilike("adresse", params.adresse)
+				}
+				if(StringUtils.isNotBlank(params.city)){
+					ilike("city", params.city)
+				}
+				if(StringUtils.isNotBlank(params.postal)){
+					ilike("postal", params.postal)
+				}
 			}
 			firstResult(offset)
 			maxResults(max)

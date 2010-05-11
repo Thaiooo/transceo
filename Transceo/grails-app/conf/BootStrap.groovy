@@ -15,6 +15,9 @@ class BootStrap {
 		m1.firstName = "QUOC THAI"
 		m1.lastName = "PHAN"
 		m1.phoneNumber = "+33609703074"
+		m1.adresse="46 RUE AFFORTY"
+		m1.city="VILLEPINTE"
+		m1.postal="93420"
 		
 		m1.code = "C00001"			
 		m1.password = "myPassword"
@@ -58,6 +61,9 @@ class BootStrap {
 		m2.firstName = "PERE TOTO"
 		m2.lastName = "TUTU"
 		m2.phoneNumber = "+33609703074"
+		m2.adresse="46 RUE AFFORTY"
+		m2.city="VILLEPINTE"
+		m2.postal="93420"
 		
 		m2.code = "C00002"			
 		m2.password = "myPassword"
@@ -75,6 +81,9 @@ class BootStrap {
 		m3.firstName = "POTO"
 		m3.lastName = "TUTU"
 		m3.phoneNumber = "+33609703074"
+		m3.adresse="46 RUE AFFORTY"
+		m3.city="VILLEPINTE"
+		m3.postal="93420"
 		
 		m3.code = "C00003"			
 		m3.password = "myPassword"
