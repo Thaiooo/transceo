@@ -16,6 +16,12 @@
     		<g:textField name="phoneNumber" value="${fieldValue(bean:criteria,field:'phoneNumber')}"/>
     		<g:message code="search.member.mail" />
     		<g:textField name="eMail" value="${fieldValue(bean:criteria,field:'eMail')}"/>
+    		<g:message code="search.member.adresse" />
+    		<g:textField name="adresse" value="${fieldValue(bean:criteria,field:'adresse')}"/>
+    		<g:message code="search.member.city" />
+    		<g:textField name="city" value="${fieldValue(bean:criteria,field:'city')}"/>
+    		<g:message code="search.member.postal" />
+    		<g:textField name="postal" value="${fieldValue(bean:criteria,field:'postal')}"/>
 			<g:submitButton name="search" value="${message(code:'common.button.search')}" />
 		</form>
     
@@ -28,6 +34,9 @@
 	    			<g:sortableColumn action="sort" property="lastName" title="Last Name" />
 	    			<g:sortableColumn action="sort" property="phoneNumber" title="Phone Number" />
 	    			<g:sortableColumn action="sort" property="eMail" title="E-Mail" />
+	    			<g:sortableColumn action="sort" property="adresse" title="Adresse" />
+	    			<g:sortableColumn action="sort" property="city" title="City" />
+	    			<g:sortableColumn action="sort" property="postal" title="Postal" />
 	    			<g:sortableColumn action="sort" property="subscribeDate" title="Subscribe Date" />
 	    			<g:sortableColumn action="sort" property="active" title="Status" />
 	    		</tr>
@@ -41,6 +50,9 @@
 		     			<td>${it.lastName}</td>
 		     			<td width="120px">${it.phoneNumber}</td>
 						<td>${it.eMail}</td>
+						<td>${it.adresse}</td>
+		     			<td>${it.city}</td>
+		     			<td>${it.postal}</td>
 						<td width="70px"><g:formatDate format="yyyy-MM-dd" date="${it.subscribeDate}"/></td>
 						<td width="20px">${it.active}</td>
 		     		</tr>
