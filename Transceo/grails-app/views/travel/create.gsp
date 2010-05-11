@@ -9,6 +9,11 @@
 				<g:renderErrors bean="${customer}" />
 			</div>
 		</g:hasErrors>
+		<g:hasErrors bean="${travel}">
+			<div class="errors">
+				<g:renderErrors bean="${travel}" />
+			</div>
+		</g:hasErrors>
 
 		Customer Information:    	
     	<form controller="travel" action="reserve" method="post" >
