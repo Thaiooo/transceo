@@ -33,6 +33,18 @@
     			<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
     		</p>
     		<p>
+    			<g:message code="subscribe.adresse" />
+    			<g:textField name="adresse" value="${fieldValue(bean:member,field:'adresse')}"/>
+    		</p>
+    		<p>
+    			<g:message code="subscribe.city" />
+    			<g:textField name="city" value="${fieldValue(bean:member,field:'city')}"/>
+    		</p>
+    		<p>
+    			<g:message code="subscribe.postal" />
+    			<g:textField name="postal" value="${fieldValue(bean:member,field:'postal')}"/>
+    		</p>
+    		<p>
     			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
     			<g:link controller="member" action="show" id="${member.id}"><g:message code="common.button.cancel" /></g:link>
     		</p>
