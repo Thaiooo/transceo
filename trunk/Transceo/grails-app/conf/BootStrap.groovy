@@ -19,6 +19,7 @@ class BootStrap {
 		m1.adresse="46 RUE AFFORTY"
 		m1.city="VILLEPINTE"
 		m1.postal=93420
+		m1.country="FRANCE"
 		
 		m1.code = "C00001"			
 		m1.password = "myPassword"
@@ -33,14 +34,12 @@ class BootStrap {
 		def depart = new Adress()
 		depart.adresse = "46 RUE AFFORTY"
 		depart.city = "VILLEPINTE"
-		depart.country = "FRANCE"
 		depart.postal = 93420
 		depart.save()
 		
 		def destination = new Adress()
 		destination.adresse = "127 AVENUE DES CHAMPS ELYSEES"
 		destination.city = "PARIS"
-		destination.country = "FRANCE"
 		destination.postal = 75000
 		destination.save()
 		
@@ -48,7 +47,6 @@ class BootStrap {
 		travel.status = TravelStatus.SUCCESS
 		travel.creationDate = new Date()
 		travel.travelDate = new Date()
-		travel.travelTime = new Time(travel.travelDate.getTime())
 		travel.depart = depart
 		travel.destination = destination
 		travel.price = 100
@@ -64,8 +62,9 @@ class BootStrap {
 		m2.lastName = "TUTU"
 		m2.phoneNumber = "+33609703074"
 		m2.adresse="46 RUE AFFORTY"
-		m2.city="VILLEPINTE"
+		m2.city="VILLEPINTE"		
 		m2.postal=93420
+		m2.country="FRANCE"
 		
 		m2.code = "C00002"			
 		m2.password = "myPassword"
@@ -86,6 +85,7 @@ class BootStrap {
 		m3.adresse="46 RUE AFFORTY"
 		m3.city="VILLEPINTE"
 		m3.postal=93420
+		m3.country="FRANCE"
 		
 		m3.code = "C00003"			
 		m3.password = "myPassword"
