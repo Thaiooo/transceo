@@ -14,7 +14,13 @@
 				<g:renderErrors bean="${travel}" />
 			</div>
 		</g:hasErrors>
-
+		
+		<g:hasErrors bean="${travel.depart}">
+			<div class="errors">
+				<g:renderErrors bean="${travel.depart}" />
+			</div>
+		</g:hasErrors>
+			
 		Customer Information:    	
     	<form controller="travel" action="reserve" method="post" >
     		<p>
@@ -46,8 +52,11 @@
     		<g:message code="subscribe.postal" />
     		<g:textField name="postal" value="${fieldValue(bean:customer,field:'postal')}"/>
     		</p>
-
-
+    		
+    		<p>
+    		<g:message code="subscribe.country" />
+    		<g:textField name="country" value="${fieldValue(bean:customer,field:'country')}"/>
+    		</p>
     		
     		<br/>
 
@@ -60,11 +69,7 @@
 			
     		<p>
     		<g:message code="travel.date" />
-    		<g:textField name="travelDate" value="${fieldValue(bean:travel,field:'travelDate')}"/>
-    		</p>
-    		<p>
-    		<g:message code="travel.time" />
-    		<g:textField name="travelTime" value="${fieldValue(bean:travel,field:'travelTime')}"/>
+    		<g:datePicker name="travelDate"  noSelection="['':'-Choose-']"/>
     		</p>
     		<p>
     		<g:message code="travel.comment" />
