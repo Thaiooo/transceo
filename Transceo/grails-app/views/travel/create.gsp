@@ -46,60 +46,71 @@
     		<g:message code="subscribe.postal" />
     		<g:textField name="postal" value="${fieldValue(bean:customer,field:'postal')}"/>
     		</p>
+
+
     		
     		<br/>
-    		
+
+			<g:if test="${travel != null}">
+				<g:set var="handicap" value="${travel.handicap}" />
+			</g:if>
+			<g:else>
+				<g:set var="handicap" value="false" />
+			</g:else>	
+			
     		<p>
     		<g:message code="travel.date" />
-    		<g:textField name="date" value="${fieldValue(bean:member,field:'date')}"/>
+    		<g:textField name="travelDate" value="${fieldValue(bean:travel,field:'travelDate')}"/>
     		</p>
     		<p>
     		<g:message code="travel.time" />
-    		<g:textField name="time" value="${fieldValue(bean:member,field:'time')}"/>
+    		<g:textField name="travelTime" value="${fieldValue(bean:travel,field:'travelTime')}"/>
     		</p>
     		<p>
     		<g:message code="travel.comment" />
-    		<g:textArea name="comment" value="${fieldValue(bean:member,field:'comment')}"/>
+    		<g:textArea name="comment" value="${fieldValue(bean:travel,field:'comment')}"/>
     		</p>
     		<p>
     		<g:message code="travel.personne.number" />
-    		<g:textField name="numberOfPersonne" value="${fieldValue(bean:member,field:'numberOfPersonne')}"/>
+    		<g:textField name="numberOfPersonne" value="${fieldValue(bean:travel,field:'numberOfPersonne')}"/>
     		</p>
     		<p>
     		<g:message code="travel.personne.handicap" />
-    		<g:checkBox name="handicap" value="${fieldValue(bean:member,field:'handicap')}" />
+    		<g:checkBox name="handicap" value="${handicap}" checked="${handicap}"/>
     		</p>
     		
     		<br/>
     		
     		Depart:
+    		<g:set var="depart" value="${travel.depart}" />
     		<p>
     		<g:message code="travel.adresse" />
-    		<g:textField name="adresseDepart" value="${fieldValue(bean:member,field:'adresseDepart')}"/>
+    		<g:textField name="depart.adresse" value="${fieldValue(bean:depart,field:'adresse')}"/>
     		</p>
     		<p>
     		<g:message code="travel.city" />
-    		<g:textField name="cityDepart" value="${fieldValue(bean:member,field:'cityDepart')}"/>
+    		<g:textField name="depart.city" value="${fieldValue(bean:depart,field:'city')}"/>
     		</p>
     		<p>
     		<g:message code="travel.postal" />
-    		<g:textField name="postalDepart" value="${fieldValue(bean:member,field:'postalDepart')}"/>
+    		<g:textField name="depart.postal" value="${fieldValue(bean:depart,field:'postal')}"/>
     		</p>
     		
     		<br/>
     		
     		Destination:
+    		<g:set var="destination" value="${travel.destination}" />
     		<p>
     		<g:message code="travel.adresse" />
-    		<g:textField name="adresseDestination" value="${fieldValue(bean:member,field:'adresseDestination')}"/>
+    		<g:textField name="destination.adresse" value="${fieldValue(bean:destination,field:'adresse')}"/>
     		</p>
     		<p>
     		<g:message code="travel.city" />
-    		<g:textField name="cityDestination" value="${fieldValue(bean:member,field:'cityDestination')}"/>
+    		<g:textField name="destination.city" value="${fieldValue(bean:destination,field:'city')}"/>
     		</p>
     		<p>
     		<g:message code="travel.postal" />
-    		<g:textField name="postalDestination" value="${fieldValue(bean:member,field:'postalDestination')}"/>
+    		<g:textField name="destination.postal" value="${fieldValue(bean:destination,field:'postal')}"/>
     		</p>
     		
     		<p>
