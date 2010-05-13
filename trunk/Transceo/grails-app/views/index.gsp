@@ -12,7 +12,9 @@
 		<br/>
 		<g:link controller="member" action="search">Search Members</g:link>
 		<br/>
-		<g:link controller="travel" action="init">Create Reservation</g:link>
+		<g:link controller="travel" action="initCustomerReservation">Create Customer Reservation</g:link>
+		<br/>
+		<g:link controller="travel" action="initMemberReservation">Create Member Reservation</g:link>
 		<br/>
 	</body>
 </html>
