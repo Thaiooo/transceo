@@ -21,6 +21,7 @@ class TravelController {
 		customer.validate()
 		
 		def travel = new Travel()
+		travel.properties = params
 		travel.creationDate = new Date()
 		travel.customer = customer
 		travel.status = TravelStatus.RESERVE

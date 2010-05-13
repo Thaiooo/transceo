@@ -1,8 +1,8 @@
 package com.transceo
 
 class Adress {
-	String number
-	String street
+	String adresse
 	String city
 	String country
+	Integer postal
 }
