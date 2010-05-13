@@ -5,19 +5,30 @@
     </head>
     <body>
     	<g:hasErrors bean="${customer}">
+    	Customer errors
 			<div class="errors">
 				<g:renderErrors bean="${customer}" />
 			</div>
 		</g:hasErrors>
+		
 		<g:hasErrors bean="${travel}">
+			Travel errors
 			<div class="errors">
 				<g:renderErrors bean="${travel}" />
 			</div>
 		</g:hasErrors>
 		
-		<g:hasErrors bean="${travel.depart}">
+		<g:hasErrors bean="${depart}">
+			Depart errors
 			<div class="errors">
-				<g:renderErrors bean="${travel.depart}" />
+				<g:renderErrors bean="${depart}" />
+			</div>
+		</g:hasErrors>
+		
+		<g:hasErrors bean="${destination}">
+			Destination errors
+			<div class="errors">
+				<g:renderErrors bean="${destination}" />
 			</div>
 		</g:hasErrors>
 			
@@ -87,7 +98,6 @@
     		<br/>
     		
     		Depart:
-    		<g:set var="depart" value="${travel.depart}" />
     		<p>
     		<g:message code="travel.adresse" />
     		<g:textField name="depart.adresse" value="${fieldValue(bean:depart,field:'adresse')}"/>
@@ -104,7 +114,6 @@
     		<br/>
     		
     		Destination:
-    		<g:set var="destination" value="${travel.destination}" />
     		<p>
     		<g:message code="travel.adresse" />
     		<g:textField name="destination.adresse" value="${fieldValue(bean:destination,field:'adresse')}"/>
