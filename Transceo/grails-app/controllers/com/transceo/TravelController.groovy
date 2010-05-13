@@ -18,20 +18,34 @@ class TravelController {
 	}
 	
 	def reserve = {
+		def validate = true
 		def customer = new Customer()
 		customer.properties = params
-		customer.validate()
+		if(!customer.validate()){
+			validate = false
+		}
 		
 		def travel = new Travel()
 		travel.properties = params
 		travel.creationDate = new Date()
 		travel.customer = customer
 		travel.status = TravelStatus.RESERVE
-		travel.validate()
+		if(!travel.validate()){
+			validate = false
+		}
+	
+		def depart = travel.depart;
+		if(depart == null || depart.validate()){
+			validate = false
+		}
 		
-		if(!customer.validate() || !travel.validate() || !travel.depart.validate() || !travel.destination.validate()){
-			println "ici"
-			render(view:"/travel/create", model:[customer:customer, travel:travel])
+		def destination = travel.destination;
+		if(destination == null || destination.validate()){
+			validate = false
+		}
+
+		if(!validate){
+			render(view:"/travel/create", model:[customer:customer, travel:travel, depart:depart, destination:destination])
 		}else{
 			travelService.create(travel)
 			redirect(uri:"/")
