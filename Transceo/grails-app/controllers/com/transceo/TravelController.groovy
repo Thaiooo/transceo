@@ -5,6 +5,9 @@ import groovy.util.Expando;
 import org.apache.commons.lang.StringUtils;
 
 class TravelController {
+	
+	def travelService
+	
 	def show = {
 		def o = Travel.get(params.id.toLong()) 
 		render(view:"/travel/view", model:[travel: o])		
@@ -15,7 +18,6 @@ class TravelController {
 	}
 	
 	def reserve = {
-		println params
 		def customer = new Customer()
 		customer.properties = params
 		customer.validate()
@@ -27,6 +29,12 @@ class TravelController {
 		travel.status = TravelStatus.RESERVE
 		travel.validate()
 		
-		render(view:"/travel/create", model:[customer:customer, travel:travel])
+		if(!customer.validate() || !travel.validate() || !travel.depart.validate() || !travel.destination.validate()){
+			println "ici"
+			render(view:"/travel/create", model:[customer:customer, travel:travel])
+		}else{
+			travelService.create(travel)
+			redirect(uri:"/")
+		}
 	}
 }
