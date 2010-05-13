@@ -6,8 +6,8 @@ class Travel {
 	Customer customer
 	Date creationDate
 	Date travelDate
-	Adress depart
-	Adress destination
+	Adresse depart
+	Adresse destination
 	TravelStatus status
 	double price
 	String comment

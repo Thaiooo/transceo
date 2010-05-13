@@ -22,6 +22,8 @@
     		<g:textField name="city" value="${fieldValue(bean:criteria,field:'city')}"/>
     		<g:message code="search.member.postal" />
     		<g:textField name="postal" value="${fieldValue(bean:criteria,field:'postal')}"/>
+    		<g:message code="search.member.country" />
+    		<g:textField name="country" value="${fieldValue(bean:criteria,field:'country')}"/>
 			<g:submitButton name="search" value="${message(code:'common.button.search')}" />
 		</form>
     

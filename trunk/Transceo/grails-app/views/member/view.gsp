@@ -39,6 +39,10 @@
     			<g:message code="subscribe.postal" />:
     			${fieldValue(bean:member,field:'postal')}
     		</p>
+    		<p>
+    			<g:message code="subscribe.country" />:
+    			${fieldValue(bean:member,field:'country')}
+    		</p>
     		<g:link controller="member" action="initUpdate" id="${fieldValue(bean:member,field:'id')}">Update</g:link>
     	</div>
     	
@@ -114,8 +118,8 @@
 				     			<td width="50px"><g:link controller="travel" action="show" id="${it.id}">View</g:link></td>
 				     			<td><g:formatDate format="yyyy-MM-dd HH:mm" date="${it.creationDate}"/></td>
 				     			<td><g:formatDate format="yyyy-MM-dd HH:mm" date="${it.travelDate}"/></td>
-				     			<td>${it.depart.number} ${it.depart.street} ${it.depart.city}, ${it.depart.country}</td>
-				     			<td>${it.destination.number} ${it.destination.street} ${it.destination.city}, ${it.destination.country}</td>
+				     			<td>${it.depart.adresse} ${it.depart.city}, ${it.depart.country}</td>
+				     			<td>${it.destination.adresse} ${it.destination.city}, ${it.destination.country}</td>
 				     			<td>${it.price}</td>
 				     			<td>${it.status}</td>
 				     		</tr>
