@@ -108,6 +108,9 @@ class MemberService {
 				if(StringUtils.isNotBlank(params.postal)){
 					ilike("postal", params.postal)
 				}
+				if(StringUtils.isNotBlank(params.postal)){
+					ilike("country", params.country)
+				}
 			}
 			firstResult(offset)
 			maxResults(max)

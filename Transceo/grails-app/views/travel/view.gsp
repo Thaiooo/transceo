@@ -17,12 +17,17 @@
     	Status: ${travel.status}
     	</p>
     	<p>
-    	Depart: ${travel.depart.number} ${travel.depart.street} ${travel.depart.city}, ${travel.depart.country} 
+    	Depart:${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country} 
     	</p>
     	<p>
-    	Destination: ${travel.destination.number} ${travel.destination.street} ${travel.destination.city}, ${travel.destination.country}
+    	Destination: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
     	</p>
-    	
+    	<p>
+    	Handicap: ${travel.handicap}
+    	</p>
+    	<p>
+    	Comment: ${travel.comment}
+    	</p>
     	<br/>
     	
     	<g:link controller="member" action="show" id="${travel.customer.id}">Retour</g:link>
