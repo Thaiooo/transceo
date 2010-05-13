@@ -13,8 +13,8 @@ class TravelController {
 		render(view:"/travel/view", model:[travel: o])		
 	}
 	
-	def init = {
-		render(view:"/travel/create", model:[])		
+	def initCustomerReservation = {
+		render(view:"/travel/customerReservation", model:[])		
 	}
 	
 	def reserve = {
@@ -45,7 +45,7 @@ class TravelController {
 		}
 
 		if(!validate){
-			render(view:"/travel/create", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+			render(view:"/travel/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
 		}else{
 			travelService.create(travel)
 			redirect(uri:"/")
