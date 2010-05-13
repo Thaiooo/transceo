@@ -43,7 +43,7 @@ class MemberController {
 	
 	def activate = {
 		if(StringUtils.isBlank(params.id)){
-			edirect(uri:"/")
+			redirect(uri:"/")
 		}
 		
 		def code = memberService.activate(params.id.toLong())
