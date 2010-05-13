@@ -2,7 +2,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.Set;
 
-import com.transceo.Adress;
+import com.transceo.Adresse;
 import com.transceo.Member;
 import com.transceo.Travel;
 import com.transceo.TravelStatus;
@@ -31,16 +31,18 @@ class BootStrap {
 		m1.save()
 		
 		// =================================================
-		def depart = new Adress()
+		def depart = new Adresse()
 		depart.adresse = "46 RUE AFFORTY"
 		depart.city = "VILLEPINTE"
 		depart.postal = 93420
+		depart.country="FRANCE"
 		depart.save()
 		
-		def destination = new Adress()
+		def destination = new Adresse()
 		destination.adresse = "127 AVENUE DES CHAMPS ELYSEES"
 		destination.city = "PARIS"
 		destination.postal = 75000
+		destination.country="FRANCE"
 		destination.save()
 		
 		def travel = new Travel()
