@@ -6,7 +6,7 @@ class Customer{
 	String phoneNumber
 	String adresse
 	String city
-	String postal
+	Integer postal
 	List<Travel> travels = new ArrayList<Travel>()
 	
 	static hasMany = [travels:Travel]
