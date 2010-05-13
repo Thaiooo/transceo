@@ -6,7 +6,6 @@ class Travel {
 	Customer customer
 	Date creationDate
 	Date travelDate
-	Time travelTime
 	Adress depart
 	Adress destination
 	TravelStatus status
@@ -17,7 +16,6 @@ class Travel {
 	
 	static constraints = {	
 		travelDate(nullable: false)
-		travelTime(nullable: false)
 		depart(nullable: false)
 		destination(nullable: false)
 		price(nullable: false)
