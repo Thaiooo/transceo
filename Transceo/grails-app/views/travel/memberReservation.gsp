@@ -27,51 +27,11 @@
 			
 		Customer Information:    	
     	<form controller="travel" action="memberReserve" method="post" >
-    		<p>
-    		<g:message code="subscribe.firstName" /> 
-    		${member.firstName}
-    		</p>
     		
-    		<p>
-    		<g:message code="subscribe.lastName" />
-    		${member.lastName}
-    		</p>
-    		
-    		<p>
-    		<g:message code="subscribe.phoneNumber" />
-    		${member.phoneNumber}
-    		</p>
-    		
-    		<p>
-    		<g:message code="subscribe.adresse" />
-    		${member.adresse}
-    		</p>
-    		
-    		<p>
-    		<g:message code="subscribe.city" />
-    		${member.city}
-    		</p>
-    		
-    		<p>
-    		<g:message code="subscribe.postal" />
-    		${member.postal}
-    		</p>
-    		
-    		<p>
-    		<g:message code="subscribe.country" />
-    		${member.country}
-    		</p>
-    		
+    		<g:render template="member" beans="${member}" var="member"/>
     		<br/>
 
-			<g:if test="${travel != null}">
-				<g:set var="handicap" value="${travel.handicap}" />
-			</g:if>
-			<g:else>
-				<g:set var="handicap" value="false" />
-			</g:else>	
-			
-    		<g:render template="travel" beans="${travel}"/>
+    		<g:render template="travel" beans="${travel}" var="travel"/>
     		<br/>
     		
     		Depart:
