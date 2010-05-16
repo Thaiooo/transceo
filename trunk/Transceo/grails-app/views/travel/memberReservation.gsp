@@ -4,13 +4,6 @@
 		<meta name="layout" content="main" />		
     </head>
     <body>
-    	<g:hasErrors bean="${customer}">
-    	Customer errors
-			<div class="errors">
-				<g:renderErrors bean="${customer}" />
-			</div>
-		</g:hasErrors>
-		
 		<g:hasErrors bean="${travel}">
 			Travel errors
 			<div class="errors">
@@ -33,44 +26,51 @@
 		</g:hasErrors>
 			
 		Customer Information:    	
-    	<form controller="travel" action="customerReserve" method="post" >
+    	<form controller="travel" action="memberReserve" method="post" >
     		<p>
-    		<g:message code="subscribe.firstName" />
-    		<g:textField name="firstName" value="${fieldValue(bean:customer,field:'firstName')}"/>
+    		<g:message code="subscribe.firstName" /> 
+    		${member.firstName}
     		</p>
     		
     		<p>
     		<g:message code="subscribe.lastName" />
-    		<g:textField name="lastName" value="${fieldValue(bean:customer,field:'lastName')}"/>
+    		${member.lastName}
     		</p>
     		
     		<p>
     		<g:message code="subscribe.phoneNumber" />
-    		<g:textField name="phoneNumber" value="${fieldValue(bean:customer,field:'phoneNumber')}"/>
+    		${member.phoneNumber}
     		</p>
     		
     		<p>
     		<g:message code="subscribe.adresse" />
-    		<g:textField name="adresse" value="${fieldValue(bean:customer,field:'adresse')}"/>
+    		${member.adresse}
     		</p>
     		
     		<p>
     		<g:message code="subscribe.city" />
-    		<g:textField name="city" value="${fieldValue(bean:customer,field:'city')}"/>
+    		${member.city}
     		</p>
     		
     		<p>
     		<g:message code="subscribe.postal" />
-    		<g:textField name="postal" value="${fieldValue(bean:customer,field:'postal')}"/>
+    		${member.postal}
     		</p>
     		
     		<p>
     		<g:message code="subscribe.country" />
-    		<g:textField name="country" value="${fieldValue(bean:customer,field:'country')}"/>
+    		${member.country}
     		</p>
     		
     		<br/>
 
+			<g:if test="${travel != null}">
+				<g:set var="handicap" value="${travel.handicap}" />
+			</g:if>
+			<g:else>
+				<g:set var="handicap" value="false" />
+			</g:else>	
+			
     		<g:render template="travel" beans="${travel}"/>
     		<br/>
     		
