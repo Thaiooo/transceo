@@ -42,6 +42,11 @@
     		</p>
     		
     		<p>
+    		<g:message code="subscribe.country" />
+    		<g:textField name="country" value="${fieldValue(bean:member,field:'country')}"/>
+    		</p>
+    		
+    		<p>
     		<g:message code="subscribe.password" />
     		<g:textField name="password" value="${fieldValue(bean:member,field:'password')}"/>
     		</p>
@@ -52,8 +57,8 @@
     		</p>
 
     		<p>
-    		<g:submitButton name="register" value="${message(code:'subscribe.button.subscribe')}" />
-    		<g:link url="/Transceo"><g:message code="subscribe.button.cancel" /></g:link>
+    		<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" />
+    		<g:link url="/Transceo"><g:message code="common.button.cancel" /></g:link>
     		</p>
     	</form>
     </body>
