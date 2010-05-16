@@ -2,9 +2,6 @@ package com.transceo
 
 class LoginController {
 	def login = {
-		println params
-		println session
-		
 		if(params.code == null){
 			render(view:"/login/login", model:[])
 		}else{

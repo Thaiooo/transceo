@@ -17,7 +17,15 @@ class TravelController {
 		render(view:"/travel/customerReservation", model:[])		
 	}
 	
-	def reserve = {
+	def initMemberReservation = {
+		if(session["USER"] == null){
+			redirect(controller:"login")
+		}else{
+			render(view:"/travel/memberReservation", model:[member: session["USER"]])	
+		}
+	}
+	
+	def customerReserve = {
 		def validate = true
 		def customer = new Customer()
 		customer.properties = params
@@ -33,19 +41,53 @@ class TravelController {
 		if(!travel.validate()){
 			validate = false
 		}
-	
+		
 		def depart = travel.depart;
-		if(depart == null || depart.validate()){
+		if(depart == null || !depart.validate()){
 			validate = false
 		}
 		
 		def destination = travel.destination;
-		if(destination == null || destination.validate()){
+		if(destination == null || !destination.validate()){
 			validate = false
 		}
-
+		
 		if(!validate){
 			render(view:"/travel/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+		}else{
+			travelService.create(travel)
+			redirect(uri:"/")
+		}
+	}
+	
+	def memberReserve = {
+		def validate = true
+		def member = Member.get(session["USER"].id)
+		
+		def travel = new Travel()
+		travel.properties = params
+		travel.creationDate = new Date()
+		travel.customer = member
+		travel.status = TravelStatus.RESERVE
+		if(!travel.validate()){
+			println "ici1"
+			validate = false
+		}
+		
+		def depart = travel.depart;
+		if(depart == null || !depart.validate()){
+			println "ici2"
+			validate = false
+		}
+		
+		def destination = travel.destination;
+		if(destination == null || !destination.validate()){
+			println "ici3" + destination
+			validate = false
+		}
+		
+		if(!validate){
+			render(view:"/travel/memberReservation", model:[member:member, travel:travel, depart:depart, destination:destination])
 		}else{
 			travelService.create(travel)
 			redirect(uri:"/")
