@@ -32,6 +32,26 @@
     		</p>
     		
     		<p>
+    		<g:message code="subscribe.adresse" />
+    		<g:textField name="adresse" value="${fieldValue(bean:member,field:'adresse')}"/>
+    		</p>
+    		
+    		<p>
+    		<g:message code="subscribe.city" />
+    		<g:textField name="city" value="${fieldValue(bean:member,field:'city')}"/>
+    		</p>
+    		
+    		<p>
+    		<g:message code="subscribe.postal" />
+    		<g:textField name="postal" value="${fieldValue(bean:member,field:'postal')}"/>
+    		</p>
+    		
+    		<p>
+    		<g:message code="subscribe.country" />
+    		<g:textField name="country" value="${fieldValue(bean:member,field:'country')}"/>
+    		</p>
+    		
+    		<p>
     		<g:message code="subscribe.password" />
     		<g:textField name="password" value="${fieldValue(bean:member,field:'password')}"/>
     		</p>

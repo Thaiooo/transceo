@@ -27,6 +27,11 @@
     		</p>
     		
     		<p>
+    		<g:message code="subscribe.eMail" />
+    		<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
+    		</p>
+    		
+    		<p>
     		<g:message code="subscribe.adresse" />
     		<g:textField name="adresse" value="${fieldValue(bean:member,field:'adresse')}"/>
     		</p>
