@@ -2,6 +2,7 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.Set;
 
+import com.transceo.Administrator;
 import com.transceo.Adresse;
 import com.transceo.Member;
 import com.transceo.Travel;
@@ -10,6 +11,12 @@ import com.transceo.TravelStatus;
 class BootStrap {
 	
 	def init = { servletContext ->
+		
+		// =================================================
+		def admin = new Administrator()
+		admin.login = "admin"
+		admin.password = "passsword"
+		admin.save()
 		
 		// =================================================
 		def Member m1 = new Member()
