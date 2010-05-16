@@ -28,18 +28,18 @@
 		Customer Information:    	
     	<form controller="travel" action="memberReserve" method="post" >
     		
-    		<g:render template="member" beans="${member}" var="member"/>
+    		<g:render template="/travel/member" beans="${member}" var="member"/>
     		<br/>
 
-    		<g:render template="travel" beans="${travel}" var="travel"/>
+    		<g:render template="/travel/travel" beans="${travel}" var="travel"/>
     		<br/>
     		
     		Depart:
-    		<g:render template="adresse" beans="${depart}" var="adresse"  model="['beanName':'depart']"/>
+    		<g:render template="/travel/adresse" beans="${depart}" var="adresse"  model="['beanName':'depart']"/>
     		<br/>
     		
     		Destination:
-    		<g:render template="adresse" beans="${destination}" var="adresse"  model="['beanName':'destination']"/>
+    		<g:render template="/travel/adresse" beans="${destination}" var="adresse"  model="['beanName':'destination']"/>
     		<br/>
     		
     		<p>
