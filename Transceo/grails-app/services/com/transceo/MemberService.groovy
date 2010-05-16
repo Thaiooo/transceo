@@ -116,8 +116,6 @@ class MemberService {
 			maxResults(max)
 			order(sortCriteria, orderCriteria)
 		}
-		
 		return results
-		
 	}
 }
