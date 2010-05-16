@@ -4,7 +4,9 @@
 		<meta name="layout" content="main" />		
     </head>
     <body>
-    	Test: ${session.USER}
+    	USER: ${session.USER}
+    	<br/>
+    	ADMIN: ${session.ADMIN}
     	<br/>
 		<g:link controller="member" action="init">Register</g:link>
 		<br/>
@@ -16,7 +18,11 @@
 		<br/>
 		<g:link controller="travel" action="initMemberReservation">Create Member Reservation</g:link>
 		<br/>
+		<a href="${ resource(dir:'travel', file:'chooseCustomerType.gsp') }">Blah</a>
+		<br/>
 		<g:link controller="login">Member Login</g:link>
+		<br/>
+		<g:link controller="administrator">Admin Login</g:link>
 		<br/>
 	</body>
 </html>
