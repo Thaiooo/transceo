@@ -20,11 +20,11 @@ class BootStrap {
 		m1.city="VILLEPINTE"
 		m1.postal=93420
 		m1.country="FRANCE"
+		m1.eMail = "MY-MAIL1@GMAIL.COM"
 		
 		m1.code = "C00001"			
 		m1.password = "myPassword"
 		m1.active = true
-		m1.eMail = "MY-MAIL1@GMAIL.COM"
 		m1.subscribeDate = new Date()
 		m1.activationId = 1234
 		
@@ -67,11 +67,11 @@ class BootStrap {
 		m2.city="VILLEPINTE"		
 		m2.postal=93420
 		m2.country="FRANCE"
-		
+		m2.eMail = "MY-MAIL2@GMAIL.COM"
+				
 		m2.code = "C00002"			
 		m2.password = "myPassword"
 		m2.active = true
-		m2.eMail = "MY-MAIL2@GMAIL.COM"
 		m2.subscribeDate = new Date()
 		m2.activationId = 1234
 		m2.friends.add(m1)
@@ -88,11 +88,11 @@ class BootStrap {
 		m3.city="VILLEPINTE"
 		m3.postal=93420
 		m3.country="FRANCE"
-		
+		m3.eMail = "MY-MAIL3@GMAIL.COM"
+				
 		m3.code = "C00003"			
 		m3.password = "myPassword"
 		m3.active = true
-		m3.eMail = "MY-MAIL3@GMAIL.COM"
 		m3.subscribeDate = new Date()
 		m3.activationId = 1234
 		m1.friends.add(m3)
