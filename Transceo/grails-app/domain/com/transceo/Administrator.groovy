@@ -2,14 +2,14 @@ package com.transceo
 
 class Administrator {
 	String login
-	String passwword
+	String password
 	
 	static mapping = {
         version true
     }
 	
 	static constraints = {
-		login(nullable: false, blank:false)
-		passwword(nullable: false, blank:false)
+		login(nullable: false, blank:false, unique:true)
+		password(nullable: false, blank:false)
 	}
 }
