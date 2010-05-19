@@ -62,6 +62,22 @@ class MemberService {
 		}
 	}
 	
+	def sendPasswordByMail(code){
+		def member = Member.findByCode(code)
+		if(member == null){
+			return false
+		}
+		mailService.sendMail {
+			to member.eMail
+			from "no-reply@transceo.com"
+			subject "Transceo - Your password"
+			body( view:"/mail/password", 
+					plugin:"email-confirmation", 
+					model:[member:member])
+		}
+		return true
+	}
+	
 	def deleteExpireActivation () {
 		def gc = new GregorianCalendar()
 		gc.add(Calendar.DAY_OF_YEAR, -30)
