@@ -6,6 +6,7 @@ import org.apache.commons.lang.StringUtils;
 
 class MemberController {
 	def memberService
+	def mailService
 	
 	def init = {
 		render(view:"/subscribe/register", model:[])		
@@ -70,7 +71,12 @@ class MemberController {
 		def Member member = memberService.register(params)
 		
 		if(member.validate()){
-			redirect(uri:"/")
+			if(params.password == params.confirmPassword){
+				redirect(uri:"/")
+			}else{
+				flash.message = "member.confirmpassword.invalidate"
+				render(view:"/subscribe/register", model:[member: member])
+			}
 		}else{
 			render(view:"/subscribe/register", model:[member: member])
 		}
@@ -108,9 +114,9 @@ class MemberController {
 	}
 	
 	def initUpdate = {
-			def o = Member.get(params.id.toLong()) 
-			render(view:"/member/update", model:[member: o])		
-		}
+		def o = Member.get(params.id.toLong()) 
+		render(view:"/member/update", model:[member: o])		
+	}
 	
 	def delete = {
 		def o = Member.get(params.id.toLong())
@@ -118,4 +124,17 @@ class MemberController {
 		redirect(controller:"member",action:"list")
 	}
 	
+	def sendPassword = {
+		def status = memberService.sendPasswordByMail(params.code)
+		if(!status){
+			flash.message = "member.code.invalidate"
+			render(view:"/member/sendPassword", model:[code: params.code])
+		}else{
+			redirect(
+			controller: "common", 
+			action: "displayMessage", 
+			params:[codeMessage:"message.send.password.confirmation", codeTitle:"title.send.password.confirmation"]
+			)
+		}
+	}
 }
