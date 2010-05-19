@@ -18,6 +18,8 @@ class BootStrap {
 		def admin = new Administrator()
 		admin.login = "admin"
 		admin.password = "passsword"
+		admin.lastName = "PHAN"
+		admin.firstName = "QUOC THAI"
 		admin.save()
 		
 		// =================================================
@@ -29,7 +31,7 @@ class BootStrap {
 		m1.city="VILLEPINTE"
 		m1.postal=93420
 		m1.country="FRANCE"
-		m1.eMail = "MY-MAIL1@GMAIL.COM"
+		m1.eMail = "QUOC.THAI.PHAN@GMAIL.COM"
 		
 		m1.code = "0001"			
 		m1.password = "myPassword"
