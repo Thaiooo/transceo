@@ -12,6 +12,8 @@
 		<br/>
 		<g:link controller="member" action="init">Register</g:link>
 		<br/>
+		<a href="${ resource(dir:'member', file:'sendPassword.gsp') }">Forgot Password</a>
+		<br/>
 		<g:link controller="member" action="initSponsor">Sponsoring</g:link>
 		<br/>
 		<g:link controller="travel" action="initCustomerReservation">Create Customer Reservation</g:link>
