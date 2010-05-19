@@ -2,7 +2,6 @@ package com.transceo
 
 import java.util.HashSet;
 
-
 class Member extends Customer {
 	String code
 	String password
@@ -21,7 +20,9 @@ class Member extends Customer {
 	}
 	
 	static constraints = {
-		password(nullable: false, blank:false)
+		password(nullable: false, blank:false, validator: {
+			if (it.size() < 5) return ['invalid.size']
+		})
 		eMail(nullable: false, blank:false, email:true)
 		subscribeDate(nullable: false)
 		activationId(nullable: false)
