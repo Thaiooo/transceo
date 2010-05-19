@@ -58,13 +58,13 @@ class MemberController {
 			redirect(uri:"/")
 			break;
 			default:			
-			redirect (action:"showConfirmationMessage")
+			redirect(
+			controller: "common", 
+			action: "displayMessage", 
+			params:[codeMessage:"message.activate.confirmation", codeTitle:"title.activate.confirmation"]
+			)
 			break;
 		}
-	}
-	
-	def showConfirmationMessage = {
-		render(view:"/subscribe/confirmation", model:[])
 	}
 	
 	def register = {
@@ -75,10 +75,10 @@ class MemberController {
 				redirect(uri:"/")
 			}else{
 				flash.message = "member.confirmpassword.invalidate"
-				render(view:"/subscribe/register", model:[member: member])
+				render(view:"/member/register", model:[member: member])
 			}
 		}else{
-			render(view:"/subscribe/register", model:[member: member])
+			render(view:"/member/register", model:[member: member])
 		}
 	}
 	
