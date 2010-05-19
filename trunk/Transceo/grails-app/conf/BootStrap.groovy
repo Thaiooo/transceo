@@ -1,9 +1,8 @@
-import java.sql.Time;
 import java.util.Date;
-import java.util.Set;
 
 import com.transceo.Administrator;
 import com.transceo.Adresse;
+import com.transceo.CodeSequence 
 import com.transceo.Member;
 import com.transceo.Travel;
 import com.transceo.TravelStatus;
@@ -11,6 +10,9 @@ import com.transceo.TravelStatus;
 class BootStrap {
 	
 	def init = { servletContext ->
+		// =================================================
+		def sequence = new CodeSequence(sequence: 3)
+		sequence.save()
 		
 		// =================================================
 		def admin = new Administrator()
@@ -29,7 +31,7 @@ class BootStrap {
 		m1.country="FRANCE"
 		m1.eMail = "MY-MAIL1@GMAIL.COM"
 		
-		m1.code = "C00001"			
+		m1.code = "0001"			
 		m1.password = "myPassword"
 		m1.active = true
 		m1.subscribeDate = new Date()
@@ -75,8 +77,8 @@ class BootStrap {
 		m2.postal=93420
 		m2.country="FRANCE"
 		m2.eMail = "MY-MAIL2@GMAIL.COM"
-				
-		m2.code = "C00002"			
+		
+		m2.code = "0002"			
 		m2.password = "myPassword"
 		m2.active = true
 		m2.subscribeDate = new Date()
@@ -96,8 +98,8 @@ class BootStrap {
 		m3.postal=93420
 		m3.country="FRANCE"
 		m3.eMail = "MY-MAIL3@GMAIL.COM"
-				
-		m3.code = "C00003"			
+		
+		m3.code = "0003"			
 		m3.password = "myPassword"
 		m3.active = true
 		m3.subscribeDate = new Date()
