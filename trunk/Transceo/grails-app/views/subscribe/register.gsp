@@ -9,7 +9,12 @@
 				<g:renderErrors bean="${member}" />
 			</div>
 		</g:hasErrors>
-    	    	
+		<g:if test="${flash.message != null}">
+	    	<div class="errors">
+				<g:message code="${flash.message}" ></g:message>
+			</div>
+    	</g:if>
+    	    	    	
     	<form controller="member" action="register" method="post" >
     		<p>
     		<g:message code="subscribe.firstName" />
@@ -53,12 +58,12 @@
     		
     		<p>
     		<g:message code="subscribe.password" />
-    		<g:textField name="password" value="${fieldValue(bean:member,field:'password')}"/>
+    		<g:passwordField name="password" value="${fieldValue(bean:member,field:'password')}"/>
     		</p>
     		
     		<p>
     		<g:message code="subscribe.password.confirm" />
-    		<g:textField name="confirmPassword"/>
+    		<g:passwordField name="confirmPassword"/>
     		</p>
 
     		<p>
