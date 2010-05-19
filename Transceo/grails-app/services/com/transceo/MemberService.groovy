@@ -21,20 +21,28 @@ class MemberService {
 	}
 	
 	def Member register(params){
+		def code = CodeSequence.get(1)
+		code.sequence = code.sequence + 1
+		code.save()
+		def memberCode = code.sequence.toString()
+		
 		def Member member = new Member(params)
 		member.subscribeDate = new Date()
 		member.activationId = member.subscribeDate.getTime()
+		member.code = memberCode.padLeft (4, "0")
 		
 		if(member.validate()){
-			member.save()
-			// Send mail
-			mailService.sendMail {
-				to member.eMail
-				from "no-reply@transceo.com"
-				subject "Activate your account"
-				body( view:"/mail/subscribe", 
-						plugin:"email-confirmation", 
-						model:[member:member])
+			if(params.password == params.confirmPassword){
+				member.save()
+				// Send mail
+				mailService.sendMail {
+					to member.eMail
+					from "no-reply@transceo.com"
+					subject "Activate your account"
+					body( view:"/mail/subscribe", 
+							plugin:"email-confirmation", 
+							model:[member:member])
+				}
 			}
 		}
 		return member
