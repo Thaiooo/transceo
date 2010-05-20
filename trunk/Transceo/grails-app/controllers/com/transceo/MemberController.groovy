@@ -84,25 +84,19 @@ class MemberController {
 	}
 	
 	def addFriend = {
-		def mails = []
-		if(StringUtils.isNotBlank(params.email)){
-			println params
-			
-			mails.add(params.email)
-			if(mails.size() > 0){
-				memberService.sendMessageToFriends(mails, params.message, session["USER"])
-			}
+		def invitation = new Invitation(params)
+		invitation.author = session["USER"]	
+		invitation.code = new Date().getTime()	
+		
+		if(invitation.validate()){
+			memberService.createInvitation(invitation)
 			redirect(
 			controller: "common", 
 			action: "displayMessage", 
 			params:[codeMessage:"message.add.friend.confirmation", codeTitle:"title.add.friend.confirmation"]
 			)
 		}else{
-			flash.message="message.mail.required"
-			redirect(
-			controller: "member", 
-			action: "initAddFriend", 
-			)	
+			render(view:"/member/addFriend", model:[invitation: invitation, user: session["USER"]])
 		}
 	}
 	
