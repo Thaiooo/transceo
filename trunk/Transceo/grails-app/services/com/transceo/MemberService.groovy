@@ -20,7 +20,7 @@ class MemberService {
 		return 0
 	}
 	
-	def Member register(params){
+	def Member register(sponsor, params){
 		def code = CodeSequence.get(1)
 		code.sequence = code.sequence + 1
 		code.save()
@@ -30,6 +30,11 @@ class MemberService {
 		member.subscribeDate = new Date()
 		member.activationId = member.subscribeDate.getTime()
 		member.code = memberCode.padLeft (4, "0")
+		
+		if(null != sponsor){
+			member.sponsor = sponsor
+			sponsor.friends.add(member)
+		}
 		
 		if(member.validate()){
 			if(params.password == params.confirmPassword){
