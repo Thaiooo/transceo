@@ -48,17 +48,15 @@ class MemberService {
 		return member
 	}
 	
-	def sendMessageToFriends(emails, message, sponsor){
-		emails.each{
-			def email = it
-			mailService.sendMail {
-				to email
-				from "no-reply@transceo.com"
-				subject "Join Transceo"
-				body( view:"/mail/invitation", 
-						plugin:"email-confirmation", 
-						model:[message:message, sponsor:sponsor])
-			}
+	def createInvitation(invitation){
+		invitation.save()
+		mailService.sendMail {
+			to invitation.eMail
+			from "no-reply@transceo.com"
+			subject "Join Transceo"
+			body( view:"/mail/invitation", 
+					plugin:"email-confirmation", 
+					model:[invitation:invitation])
 		}
 	}
 	
