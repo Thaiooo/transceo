@@ -4,6 +4,11 @@
 		<meta name="layout" content="main" />		
     </head>
     <body>
+    	<g:hasErrors bean="${invitation}">
+			<div class="errors">
+				<g:renderErrors bean="${invitation}" />
+			</div>
+		</g:hasErrors>
 		<g:if test="${flash.message != null}">
 	    	<div class="errors">
 				<g:message code="${flash.message}" ></g:message>
@@ -12,7 +17,7 @@
     	<form controller="member" action="addFriend" method="post" >
     		<p>
     			<g:message code="sponsor.email" />
-    			<g:textField name="email" value=""/>
+    			<g:textField name="eMail"  value="${fieldValue(bean:inviation,field:'eMail')}"/>
     		</p>
     		<p>
 	    		<g:message code="sponsor.message" />
