@@ -15,7 +15,7 @@ class MyFilters {
 		
 		user(controller:'member', action:'*') {
 			before = {
-				if(actionName == "initAddFriend"){
+				if(actionName == "initAddFriend" || actionName == "showMyProfil"){
 					if (session.USER == null) {
 						redirect(controller:"login" ,action:"login")
 						return false
