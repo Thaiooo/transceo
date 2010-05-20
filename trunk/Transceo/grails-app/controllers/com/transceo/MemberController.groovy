@@ -9,7 +9,7 @@ class MemberController {
 	def mailService
 	
 	def init = {
-		render(view:"/subscribe/register", model:[])		
+		render(view:"/member/register", model:[])		
 	}
 	
 	def initSponsor = {
