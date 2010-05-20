@@ -12,8 +12,8 @@ class MemberController {
 		render(view:"/member/register", model:[])		
 	}
 	
-	def initSponsor = {
-		render(view:"/sponsoring/create", model:[])		
+	def initAddFriend = {
+		render(view:"/member/addFriend", model:[])		
 	}
 	
 	def search = {
