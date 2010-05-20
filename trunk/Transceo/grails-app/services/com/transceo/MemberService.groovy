@@ -54,8 +54,8 @@ class MemberService {
 			mailService.sendMail {
 				to email
 				from "no-reply@transceo.com"
-				subject "Sponsor"
-				body( view:"/mail/sponsor", 
+				subject "Join Transceo"
+				body( view:"/mail/invitation", 
 						plugin:"email-confirmation", 
 						model:[message:message, sponsor:sponsor])
 			}
