@@ -45,6 +45,10 @@
     			<g:textField name="postal" value="${fieldValue(bean:member,field:'postal')}"/>
     		</p>
     		<p>
+    			<g:message code="subscribe.country" />
+    			<g:textField name="country" value="${fieldValue(bean:member,field:'country')}"/>
+    		</p>
+    		<p>
     			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
     			<g:link controller="member" action="show" id="${member.id}"><g:message code="common.button.cancel" /></g:link>
     		</p>
