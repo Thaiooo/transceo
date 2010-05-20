@@ -69,7 +69,7 @@ class MemberController {
 	}
 	
 	def register = {
-		def Member member = memberService.register(params)
+		def Member member = memberService.register(null, params)
 		
 		if(member.validate()){
 			if(params.password == params.confirmPassword){
@@ -80,6 +80,22 @@ class MemberController {
 			}
 		}else{
 			render(view:"/member/register", model:[member: member])
+		}
+	}
+	
+	def registerFriend = {
+		def invitation = Invitation.get(params.invitationId)
+		def Member member = memberService.register(invitation.author, params)
+		
+		if(member.validate()){
+			if(params.password == params.confirmPassword){
+				redirect(uri:"/")
+			}else{
+				flash.message = "member.confirmpassword.invalidate"
+				render(view:"/member/registerFriend", model:[invitation: invitation, member: member])
+			}
+		}else{
+			render(view:"/member/registerFriend", model:[invitation: invitation, member: member])
 		}
 	}
 	
@@ -141,8 +157,10 @@ class MemberController {
 		}
 	}
 	
-	def initFriendRegister = {
-		println params
-		render(view:"/member/friendRegister", model:[])
+	def initRegisterFriend = {
+		def invitation = Invitation.findByIdAndCode(params.id, params.code)
+		def member = new Member()
+		member.eMail = invitation.eMail
+		render(view:"/member/registerFriend", model:[invitation: invitation, member: member])
 	}
 }
