@@ -132,6 +132,11 @@ class MemberController {
 		render(view:"/member/view", model:[member: o])		
 	}
 	
+	def showMyProfil = {
+		def o = Member.get(session["USER"].id) 
+		render(view:"/member/view", model:[member: o])		
+	}
+	
 	def initUpdate = {
 		def o = Member.get(params.id.toLong()) 
 		render(view:"/member/update", model:[member: o])		
