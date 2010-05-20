@@ -10,6 +10,8 @@
 		<br/>
 		<g:link controller="login">Member Login</g:link>
 		<br/>
+		<g:link controller="member" action="showMyProfil">My Profil</g:link>
+		<br/>		
 		<g:link controller="member" action="init">Register</g:link>
 		<br/>
 		<a href="${ resource(dir:'member', file:'sendPassword.gsp') }">Forgot Password</a>
