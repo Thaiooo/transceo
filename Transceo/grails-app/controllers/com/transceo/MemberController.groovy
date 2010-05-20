@@ -13,7 +13,8 @@ class MemberController {
 	}
 	
 	def initAddFriend = {
-		render(view:"/member/addFriend", model:[])		
+		def user = session["USER"]
+		render(view:"/member/addFriend", model:[user:user])		
 	}
 	
 	def search = {
@@ -82,19 +83,27 @@ class MemberController {
 		}
 	}
 	
-	def addFriends = {
+	def addFriend = {
 		def mails = []
 		if(StringUtils.isNotBlank(params.email)){
+			println params
+			
 			mails.add(params.email)
+			if(mails.size() > 0){
+				memberService.sendMessageToFriends(mails, params.message, session["USER"])
+			}
+			redirect(
+			controller: "common", 
+			action: "displayMessage", 
+			params:[codeMessage:"message.add.friend.confirmation", codeTitle:"title.add.friend.confirmation"]
+			)
+		}else{
+			flash.message="message.mail.required"
+			redirect(
+			controller: "member", 
+			action: "initAddFriend", 
+			)	
 		}
-		def sponsor = Member.get(1)
-		
-		if(mails.size() > 0){
-			memberService.sendMessageToFriends(mails, params.message, sponsor)
-		}
-		
-		render(view:"/sponsoring/create", model:[])
-		//redirect(uri:"/")
 	}
 	
 	def update = {
@@ -136,5 +145,10 @@ class MemberController {
 			params:[codeMessage:"message.send.password.confirmation", codeTitle:"title.send.password.confirmation"]
 			)
 		}
+	}
+	
+	def initFriendRegister = {
+		println params
+		render(view:"/member/friendRegister", model:[])
 	}
 }
