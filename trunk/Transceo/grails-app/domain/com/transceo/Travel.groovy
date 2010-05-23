@@ -1,11 +1,11 @@
 package com.transceo
 
-import java.sql.Time 
-
 class Travel {
 	Customer customer
 	Date creationDate
 	Date travelDate
+	Integer travelHour
+	Integer travelMinute
 	Adresse depart
 	Adresse destination
 	TravelStatus status
@@ -16,6 +16,8 @@ class Travel {
 	
 	static constraints = {	
 		travelDate(nullable: false)
+		travelHour(nullable: false)
+		travelMinute(nullable: false)
 		depart(nullable: false)
 		destination(nullable: false)
 		price(nullable: false)
