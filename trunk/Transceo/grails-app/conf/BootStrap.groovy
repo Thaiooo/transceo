@@ -17,7 +17,7 @@ class BootStrap {
 		// =================================================
 		def admin = new Administrator()
 		admin.login = "admin"
-		admin.password = "passsword"
+		admin.password = "password"
 		admin.lastName = "PHAN"
 		admin.firstName = "QUOC THAI"
 		admin.save()
@@ -60,6 +60,8 @@ class BootStrap {
 		travel.status = TravelStatus.SUCCESS
 		travel.creationDate = new Date()
 		travel.travelDate = new Date()
+		travel.travelHour = 1
+		travel.travelMinute = 10
 		travel.depart = depart
 		travel.destination = destination
 		travel.price = 100
