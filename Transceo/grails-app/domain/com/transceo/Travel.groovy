@@ -16,8 +16,8 @@ class Travel {
 	
 	static constraints = {	
 		travelDate(nullable: false)
-		travelHour(nullable: false)
-		travelMinute(nullable: false)
+		travelHour(nullable: false, max:23)
+		travelMinute(nullable: false, max:59)
 		depart(nullable: false)
 		destination(nullable: false)
 		price(nullable: false)
