@@ -145,4 +145,43 @@ class MemberService {
 		}
 		return results
 	}
+	
+	def int countMax(params){
+		def c = Member.createCriteria()
+		def results = c.get {
+			projections {
+				countDistinct('id')
+			}
+			and {
+				if(StringUtils.isNotBlank(params.code)){
+					ilike("code", params.code)
+				}
+				if(StringUtils.isNotBlank(params.firstName)){
+					ilike("firstName", params.firstName)
+				}
+				if(StringUtils.isNotBlank(params.lastName)){
+					ilike("lastName", params.lastName)
+				}
+				if(StringUtils.isNotBlank(params.phoneNumber)){
+					ilike("phoneNumber", params.phoneNumber)
+				}
+				if(StringUtils.isNotBlank(params.eMail)){
+					ilike("eMail", params.eMail)
+				}
+				if(StringUtils.isNotBlank(params.adresse)){
+					ilike("adresse", params.adresse)
+				}
+				if(StringUtils.isNotBlank(params.city)){
+					ilike("city", params.city)
+				}
+				if(StringUtils.isNotBlank(params.postal)){
+					ilike("postal", params.postal)
+				}
+				if(StringUtils.isNotBlank(params.postal)){
+					ilike("country", params.country)
+				}
+			}
+		}
+		return results
+	}
 }
