@@ -41,5 +41,5 @@
             maxsteps="0" 
             controller="member" 
             action="paginate" 
-            total="${com.transceo.Member.count()}" 
+            total="${total}" 
 		/>
