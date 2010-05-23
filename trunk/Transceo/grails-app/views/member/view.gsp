@@ -131,7 +131,8 @@
     	
     	<br/>
     	
-    	<g:link controller="member" action="back">Retour</g:link>
-    	
+    	<g:if test="${displayButton == true}"> 
+    		<g:link controller="member" action="back">Retour</g:link>
+    	</g:if>
     </body>
 </html>
