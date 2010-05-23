@@ -40,7 +40,8 @@ class MemberController {
 	
 	private searchMember(criteria, params) {
 		def members = memberService.search(params)
-		render(view:"/member/search", model:[criteria:criteria, members: members])
+		def total = memberService.countMax(params)
+		render(view:"/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
 	def activate = {
