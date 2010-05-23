@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Test</title>
-		<meta name="layout" content="main" />		
+		<meta name="layout" content="main" />
     </head>
     <body>
     	==== Partie utilisateur ====
@@ -33,6 +33,12 @@
 		<g:link controller="member" action="search">Search Members</g:link>
 		<br/>
 		<a href="${ resource(dir:'travel', file:'chooseCustomerType.gsp') }">Create Reservation</a>
+		<br/>
+		TODO: Search travel
+		<br/>
+		TODO: Search customer
+		<br/>
+		TODO: Set Miles / Devis 
 		<br/>
 	</body>
 </html>

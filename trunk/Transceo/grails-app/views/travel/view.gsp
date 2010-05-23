@@ -29,8 +29,6 @@
     	Comment: ${travel.comment}
     	</p>
     	<br/>
-    	
     	<g:link controller="member" action="show" id="${travel.customer.id}">Retour</g:link>
-    	
     </body>
 </html>
