@@ -4,7 +4,7 @@
 </p>
 <p>
 	<g:message code="travel.city" />
-    <g:textField name="${beanName}.city" value="${fieldValue(bean:adresse,field:'city')}"/>
+    <g:textField id="${beanName}City" name="${beanName}.city" value="${fieldValue(bean:adresse,field:'city')}"/>
 </p>
 <p>
 	<g:message code="travel.postal" />
