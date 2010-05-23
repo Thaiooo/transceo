@@ -1,9 +1,5 @@
 package com.transceo
 
-import groovy.util.Expando;
-
-import org.apache.commons.lang.StringUtils;
-
 class TravelController {
 	
 	def travelService
@@ -36,6 +32,7 @@ class TravelController {
 		def travel = new Travel()
 		travel.properties = params
 		travel.creationDate = new Date()
+		travel.travelDate = DateUtils.parseDate(params.date)
 		travel.customer = customer
 		travel.status = TravelStatus.RESERVE
 		if(!travel.validate()){
@@ -67,22 +64,20 @@ class TravelController {
 		def travel = new Travel()
 		travel.properties = params
 		travel.creationDate = new Date()
+		travel.travelDate = DateUtils.parseDate(params.date)
 		travel.customer = member
 		travel.status = TravelStatus.RESERVE
 		if(!travel.validate()){
-			println "ici1"
 			validate = false
 		}
 		
 		def depart = travel.depart;
 		if(depart == null || !depart.validate()){
-			println "ici2"
 			validate = false
 		}
 		
 		def destination = travel.destination;
 		if(destination == null || !destination.validate()){
-			println "ici3" + destination
 			validate = false
 		}
 		
