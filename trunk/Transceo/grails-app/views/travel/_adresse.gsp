@@ -10,3 +10,7 @@
 	<g:message code="travel.postal" />
     <g:textField name="${beanName}.postal" value="${fieldValue(bean:adresse,field:'postal')}"/>
 </p>
+<p>
+	<g:message code="travel.country" />
+    <g:textField name="${beanName}.country" value="${fieldValue(bean:adresse,field:'country')}"/>
+</p>

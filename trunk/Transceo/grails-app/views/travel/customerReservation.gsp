@@ -1,11 +1,18 @@
 <html>
     <head>
         <title>Reservation - Step 1</title>
-		<meta name="layout" content="main" />		
+		<meta name="layout" content="main" />
     </head>
     <body>
+    	<jq:jquery>
+	    	$(function() {
+	    		//$("#travelDate").datepicker({ showAnim: '' });
+	    		$("#travelDate").datepicker({ dateFormat: 'dd/mm/yy' });
+			});
+    	</jq:jquery>
+    	
     	<g:hasErrors bean="${customer}">
-    	Customer errors
+    		Customer errors
 			<div class="errors">
 				<g:renderErrors bean="${customer}" />
 			</div>
@@ -35,18 +42,18 @@
 		Customer Information:    	
     	<form controller="travel" action="customerReserve" method="post" >
     		
-    		<g:render template="/travel/customer" beans="${customer}" var="customer"/>
+    		<g:render template="/travel/customer" bean="${customer}" var="customer"/>
     		<br/>
 
-    		<g:render template="/travel/travel" beans="${travel}"/>
+    		<g:render template="/travel/travel" bean="${travel}"/>
     		<br/>
     		
     		Depart:
-    		<g:render template="/travel/adresse" beans="${depart}" var="adresse"  model="['beanName':'depart']"/>
+    		<g:render template="/travel/adresse" bean="${depart}" var="adresse"  model="['beanName':'depart']"/>
     		<br/>
     		
     		Destination:
-    		<g:render template="/travel/adresse" beans="${destination}" var="adresse"  model="['beanName':'destination']"/>
+    		<g:render template="/travel/adresse" bean="${destination}" var="adresse"  model="['beanName':'destination']"/>
     		<br/>
     		
     		<p>
