@@ -57,8 +57,6 @@
 			$("#departCity, #destinationCity").focusout(function() {
 				calcRoute() 
 			});
-			
-					
 		</jq:jquery>
     
     	<g:hasErrors bean="${customer}">
