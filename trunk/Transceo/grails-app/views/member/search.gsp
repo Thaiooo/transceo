@@ -29,7 +29,7 @@
     
     	<br/>
     	
-    	<g:render template="/member/result" beans="${members}" var="members"/>
+    	<g:render template="/member/result" bean="${members}"/>
     		
     </body>
 </html>
