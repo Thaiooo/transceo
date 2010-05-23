@@ -1,5 +1,5 @@
 package com.transceo;
 
 public enum TravelStatus {
-	RESERVE, SUCCESS, CANCEL;
+	RESERVE_ASK, RESERVE_TO_CONFIRM, RESERVE_CONFIRM, RESERVE_EXPIRED, SUCCESS, CANCEL;
 }
