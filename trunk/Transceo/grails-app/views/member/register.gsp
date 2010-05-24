@@ -68,7 +68,6 @@
 
     		<p>
     		<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" />
-    		<g:link url="/Transceo"><g:message code="common.button.cancel" /></g:link>
     		</p>
     	</form>
     </body>

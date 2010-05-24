@@ -26,22 +26,26 @@ class AdministratorController {
 	}
 	
 	def searchMember = {
-		def criteria = new Member(params)		
+		def criteria = new Member(params)
+		println "1=========>"+params
+		println "2=========>"+criteria.properties
 		session["criteria"] = criteria
 		commonSearchMember(criteria, params)	
 	}
 	
-	def sort = {
+	def sortMember = {
+		println "=========>"+params
+		def criteria = session["criteria"]
+		params = criteria.properties
+		commonSearchMember(criteria, params)		
+	}
+	
+	def backMember = {
 		def criteria = session["criteria"]		
 		commonSearchMember(criteria, params)		
 	}
 	
-	def back = {
-		def criteria = session["criteria"]		
-		commonSearchMember(criteria, params)		
-	}
-	
-	def paginate = {
+	def paginateMember = {
 		def criteria = session["criteria"]		
 		commonSearchMember(criteria, params)		
 	}
@@ -60,8 +64,6 @@ class AdministratorController {
 		def member = Member.get(params.id)
 		render(view:"/travel/memberReservation", model:[member: member])
 	}
-	
-	
 	
 	def travelToProcess = {
 		def travels = travelService.findTravelToProcess()
