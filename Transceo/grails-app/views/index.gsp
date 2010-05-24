@@ -10,9 +10,9 @@
 		<br/>
 		<g:link controller="login">Member Login</g:link>
 		<br/>
-		<g:link controller="member" action="showMyProfil">My Profil</g:link>
+		<g:link controller="member" action="showMyProfile">My Profile</g:link>
 		<br/>		
-		<g:link controller="member" action="init">Register</g:link>
+		<g:link controller="member" action="initRegister">Register</g:link>
 		<br/>
 		<a href="${ resource(dir:'member', file:'sendPassword.gsp') }">Forgot Password</a>
 		<br/>
@@ -30,13 +30,13 @@
 		<br/>
 		<g:link controller="administrator" action="login">Admin Login</g:link>
 		<br/>
-		<g:link controller="member" action="search">Search Members</g:link>
+		<g:link controller="administrator" action="searchMember">Search Members</g:link>
 		<br/>
 		<a href="${ resource(dir:'travel', file:'chooseCustomerType.gsp') }">Create Reservation</a>
 		<br/>
-		<g:link controller="travel" action="reservationToProcess">Reservation To Process</g:link>
+		<g:link controller="administrator" action="reservationToProcess">Reservation To Process</g:link>
 		<br/>
-		<g:link controller="travel" action="travelToProcess">Travel To Process</g:link>
+		<g:link controller="administrator" action="travelToProcess">Travel To Process</g:link>
 		<br/>
 		TODO: Search travel
 		<br/>
