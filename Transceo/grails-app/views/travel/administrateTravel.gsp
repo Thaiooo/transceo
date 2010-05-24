@@ -89,6 +89,6 @@
     	</p>
     	
     	<br/>
-    	<g:link controller="travel" action="travelToProcess">Retour</g:link>
+    	<g:link controller="administrator" action="travelToProcess">Retour</g:link>
     </body>
 </html>
