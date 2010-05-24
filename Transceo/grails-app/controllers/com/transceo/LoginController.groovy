@@ -10,7 +10,7 @@ class LoginController {
 				flash.message = "login.invalidate"
 				render(view:"/login/login", model:[code:params.code])
 			}else{
-				session["USER"] = user
+				session[SessionConstant.USER.name()] = user
 				redirect(uri:"/")
 			}
 		}

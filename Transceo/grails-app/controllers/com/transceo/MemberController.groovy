@@ -1,6 +1,5 @@
 package com.transceo
 
-import groovy.util.Expando;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -8,40 +7,13 @@ class MemberController {
 	def memberService
 	def mailService
 	
-	def init = {
+	def initRegister = {
 		render(view:"/member/register", model:[])		
 	}
 	
 	def initAddFriend = {
-		def user = session["USER"]
+		def user = session[SessionConstant.USER.name()]
 		render(view:"/member/addFriend", model:[user:user])		
-	}
-	
-	def search = {
-		def criteria = new Member(params)		
-		session["criteria"] = criteria
-		searchMember(criteria, params)	
-	}
-	
-	def sort = {
-		def criteria = session["criteria"]		
-		searchMember(criteria, params)		
-	}
-	
-	def back = {
-		def criteria = session["criteria"]		
-		searchMember(criteria, params)		
-	}
-	
-	def paginate = {
-		def criteria = session["criteria"]		
-		searchMember(criteria, params)		
-	}
-	
-	private searchMember(criteria, params) {
-		def members = memberService.search(params)
-		def total = memberService.countMax(params)
-		render(view:"/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
 	def activate = {
@@ -102,7 +74,7 @@ class MemberController {
 	
 	def addFriend = {
 		def invitation = new Invitation(params)
-		invitation.author = session["USER"]	
+		invitation.author = session[SessionConstant.USER.name()]	
 		invitation.code = new Date().getTime()	
 		
 		if(invitation.validate()){
@@ -113,7 +85,7 @@ class MemberController {
 			params:[codeMessage:"message.add.friend.confirmation", codeTitle:"title.add.friend.confirmation"]
 			)
 		}else{
-			render(view:"/member/addFriend", model:[invitation: invitation, user: session["USER"]])
+			render(view:"/member/addFriend", model:[invitation: invitation, user: session[SessionConstant.USER.name()]])
 		}
 	}
 	
@@ -122,20 +94,20 @@ class MemberController {
 		o.properties = params
 		if(o.validate()){
 			o.save()
-			redirect(controller:"member",action:"show", id:o.id)
+			if(session[SessionConstant.ADMIN_VIEW.name()]){
+				redirect(controller:"administrator",action:"showProfile", id:o.id)
+			}else{
+				redirect(controller:"member",action:"showMyProfile", id:o.id)	
+			}
 		} else {
 			render(view:"/member/update", model:[member: o])
 		}
 	}
 	
-	def show = {
-		def o = Member.get(params.id.toLong()) 
-		render(view:"/member/view", model:[member: o, displayButton: true])		
-	}
-	
-	def showMyProfil = {
-		def o = Member.get(session["USER"].id) 
-		render(view:"/member/view", model:[member: o, displayButton: false])		
+	def showMyProfile = {
+		def o = Member.get(session[SessionConstant.USER.name()].id)
+		session[SessionConstant.ADMIN_VIEW.name()] = false
+		render(view:"/member/view", model:[member: o])		
 	}
 	
 	def initUpdate = {
