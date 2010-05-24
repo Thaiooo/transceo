@@ -27,16 +27,12 @@ class AdministratorController {
 	
 	def searchMember = {
 		def criteria = new Member(params)
-		println "1=========>"+params
-		println "2=========>"+criteria.properties
 		session["criteria"] = criteria
 		commonSearchMember(criteria, params)	
 	}
 	
 	def sortMember = {
-		println "=========>"+params
 		def criteria = session["criteria"]
-		params = criteria.properties
 		commonSearchMember(criteria, params)		
 	}
 	
