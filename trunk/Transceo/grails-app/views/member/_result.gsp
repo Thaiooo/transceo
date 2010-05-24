@@ -18,7 +18,7 @@
 		    	<g:each in="${members}">
 		     		<tr>
 		     			<td>
-		     				<g:link action="show" id="${it.id}">View</g:link>
+		     				<g:link action="showProfile" id="${it.id}">View</g:link>
 		     				<g:link controller="administrator" action="initMemberReservation" id="${it.id}">Add Reservation</g:link>
 		     			</td>
 		     			<td>${it.code}</td>
@@ -39,7 +39,7 @@
     	<g:paginate next="Forward" prev="Back"
     		max="2"  
             maxsteps="0" 
-            controller="member" 
+            controller="administrator" 
             action="paginate" 
             total="${total}" 
 		/>

@@ -76,6 +76,13 @@
     	<br/>
     	<div id="map_canvas" style="width: 500px; height: 300px"></div>
     	<br/>
-    	<g:link controller="member" action="show" id="${travel.customer.id}">Retour</g:link>
+    	
+    	<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
+    		<g:link controller="administrator" action="showProfile" id="${travel.customer.id}">Retour</g:link>
+    	</g:if>
+    	<g:else>
+    		<g:link controller="member" action="showMyProfile"><g:message code="common.button.cancel" /></g:link>
+    	</g:else>
+    	
     </body>
 </html>

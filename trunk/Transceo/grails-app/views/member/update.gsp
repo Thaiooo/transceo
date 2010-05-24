@@ -50,7 +50,12 @@
     		</p>
     		<p>
     			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
-    			<g:link controller="member" action="show" id="${member.id}"><g:message code="common.button.cancel" /></g:link>
+    			<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
+    				<g:link controller="administrator" action="showProfile" id="${member.id}"><g:message code="common.button.cancel" /></g:link>
+    			</g:if>
+    			<g:else>
+    				<g:link controller="member" action="showMyProfile"><g:message code="common.button.cancel" /></g:link>
+    			</g:else>
     		</p>
     	</g:form>
     	

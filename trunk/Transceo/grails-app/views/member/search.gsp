@@ -5,7 +5,7 @@
     </head>
     <body>
     	
-		<form controller="member" action="search" method="post" >
+		<form controller="administrator" action="searchMember" method="post" >
 			<g:message code="search.member.code" />
     		<g:textField name="code" value="${fieldValue(bean:criteria,field:'code')}"/>
 			<g:message code="search.member.firstName" />
