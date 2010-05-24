@@ -22,7 +22,7 @@
     	<br/>
 
     	<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
-    		<g:link controller="administrator" action="back">Retour</g:link>
+    		<g:link controller="administrator" action="backMember">Retour</g:link>
     	</g:if>
     </body>
 </html>

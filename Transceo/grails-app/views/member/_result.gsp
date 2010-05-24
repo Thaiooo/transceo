@@ -2,16 +2,16 @@
     		<thead>
 	    		<tr>
 	    			<th></th>
-	    			<g:sortableColumn action="sort" property="code" title="Code" />
-	    			<g:sortableColumn action="sort" property="firstName" title="First Name" />	    			
-	    			<g:sortableColumn action="sort" property="lastName" title="Last Name" />
-	    			<g:sortableColumn action="sort" property="phoneNumber" title="Phone Number" />
-	    			<g:sortableColumn action="sort" property="eMail" title="E-Mail" />
-	    			<g:sortableColumn action="sort" property="adresse" title="Adresse" />
-	    			<g:sortableColumn action="sort" property="city" title="City" />
-	    			<g:sortableColumn action="sort" property="postal" title="Postal" />
-	    			<g:sortableColumn action="sort" property="subscribeDate" title="Subscribe Date" />
-	    			<g:sortableColumn action="sort" property="active" title="Status" />
+	    			<g:sortableColumn action="sortMember" property="code" title="Code" />
+	    			<g:sortableColumn action="sortMember" property="firstName" title="First Name" />	    			
+	    			<g:sortableColumn action="sortMember" property="lastName" title="Last Name" />
+	    			<g:sortableColumn action="sortMember" property="phoneNumber" title="Phone Number" />
+	    			<g:sortableColumn action="sortMember" property="eMail" title="E-Mail" />
+	    			<g:sortableColumn action="sortMember" property="adresse" title="Adresse" />
+	    			<g:sortableColumn action="sortMember" property="city" title="City" />
+	    			<g:sortableColumn action="sortMember" property="postal" title="Postal" />
+	    			<g:sortableColumn action="sortMember" property="subscribeDate" title="Subscribe Date" />
+	    			<g:sortableColumn action="sortMember" property="active" title="Status" />
 	    		</tr>
     		</thead>
     		<tbody>
@@ -40,6 +40,6 @@
     		max="2"  
             maxsteps="0" 
             controller="administrator" 
-            action="paginate" 
+            action="paginateMember" 
             total="${total}" 
 		/>
