@@ -27,10 +27,10 @@ class TravelController {
 	}
 	
 	def initMemberReservation = {
-		if(session["USER"] == null){
+		if(session[SessionConstant.USER.name()] == null){
 			redirect(controller:"login")
 		}else{
-			render(view:"/travel/memberReservation", model:[member: session["USER"]])	
+			render(view:"/travel/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
 		}
 	}
 	
@@ -76,7 +76,7 @@ class TravelController {
 	
 	def memberReserve = {
 		def validate = true
-		def member = Member.get(session["USER"].id)
+		def member = Member.get(session[SessionConstant.USER.name()].id)
 		
 		def travel = new Travel()
 		travel.properties = params
@@ -107,47 +107,5 @@ class TravelController {
 			travelService.create(travel)
 			redirect(uri:"/")
 		}
-	}
-	
-	def reservationToProcess = {
-		def travels = travelService.findReservationToProcess()
-		render(view:"/travel/reservationPending", model:[travels: travels])			
-	}
-	
-	def validateReservation = {
-		if(params.price == null || !params.price.isInteger()){
-			flash.message = "administrate.price.required" 
-			def o = Travel.get(params.id.toLong()) 
-			render(view:"/travel/administrate", model:[travel: o])
-		}else{
-			travelService.validate(params.id, params.price.toInteger())
-			redirect(action:"reservationToProcess", controller:"travel")
-		}
-	}
-	
-	def confirmReservation = {
-		if(params.price == null || !params.price.isInteger()){
-			flash.message = "administrate.price.required"
-			def o = Travel.get(params.id.toLong()) 
-			render(view:"/travel/administrate", model:[travel: o])
-		}else{
-			travelService.confirm(params.id, params.price.toInteger())
-			redirect(action:"reservationToProcess", controller:"travel")
-		}
-	}
-	
-	def cancelReservation = {
-		travelService.cancel(params.id)
-		redirect(action:"reservationToProcess", controller:"travel")		
-	}
-	
-	def travelToProcess = {
-		def travels = travelService.findTravelToProcess()
-		render(view:"/travel/travelPending", model:[travels: travels])			
-	}
-	
-	def closeTravel = {
-		travelService.close(params.id)
-		redirect(action:"travelToProcess", controller:"travel")		
-	}
+	}	
 }
