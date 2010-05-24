@@ -4,6 +4,7 @@ import com.transceo.Administrator;
 import com.transceo.Adresse;
 import com.transceo.CodeSequence 
 import com.transceo.Member;
+import com.transceo.RateMile;
 import com.transceo.Travel;
 import com.transceo.TravelStatus;
 
@@ -38,7 +39,6 @@ class BootStrap {
 		m1.active = true
 		m1.subscribeDate = new Date()
 		m1.activationId = 1234
-		
 		m1.save()
 		
 		// =================================================
@@ -67,9 +67,7 @@ class BootStrap {
 		travel.price = 100
 		travel.customer = m1
 		m1.travels.add(travel)
-		
 		travel.save()
-		
 		
 		// =================================================
 		def Member m2 = new Member()
@@ -89,7 +87,6 @@ class BootStrap {
 		m2.activationId = 1234
 		m2.friends.add(m1)
 		m1.sponsor = m2
-		
 		m2.save()
 		
 		// =================================================
@@ -110,8 +107,25 @@ class BootStrap {
 		m3.activationId = 1234
 		m1.friends.add(m3)
 		m3.sponsor = m1
-		
 		m3.save()
+		
+		// =================================================
+		def r1 = new RateMile()
+		r1.level = 0
+		r1.rate = 100
+		r1.save()
+		
+		// =================================================
+		def r2 = new RateMile()
+		r2.level = 1
+		r2.rate = 75
+		r2.save()
+		
+		// =================================================
+		def r3 = new RateMile()
+		r3.level = 2
+		r3.rate = 50
+		r3.save()		
 	}
 	def destroy = {
 	}
