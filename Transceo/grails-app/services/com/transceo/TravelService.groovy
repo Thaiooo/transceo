@@ -91,4 +91,13 @@ class TravelService {
 		}
 		return results
 	}
+	
+	def findTravelByIdAndCustomerId(travelId, customerId){
+		def c = Travel.createCriteria()
+		def results = c.get {
+			eq("id", travelId)
+			customer{ eq("id", customerId) }
+		}
+		return results
+	}
 }
