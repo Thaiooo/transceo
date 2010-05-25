@@ -14,39 +14,39 @@
     		<g:hiddenField name="id" value="${member.id}" />
 			<p>    		
 	    		<g:message code="member.code" />
-    			${fieldValue(bean:member,field:'code')}
+    			${member.code}
     		</p>
 			<p>    		
 	    		<g:message code="subscribe.firstName" />
-    			<g:textField name="firstName" value="${fieldValue(bean:member,field:'firstName')}"/>
+    			<g:textField name="firstName" value="${member.firstName}"/>
     		</p>
     		<p>
     			<g:message code="subscribe.lastName" />
-    			<g:textField name="lastName" value="${fieldValue(bean:member,field:'lastName')}"/>
+    			<g:textField name="lastName" value="${member.lastName}"/>
     		</p>
     		<p>
 	    		<g:message code="subscribe.phoneNumber" />
-    			<g:textField name="phoneNumber" value="${fieldValue(bean:member,field:'phoneNumber')}"/>
+    			<g:textField name="phoneNumber" value="${member.phoneNumber}"/>
     		</p>
     		<p>
     			<g:message code="subscribe.eMail" />
-    			<g:textField name="eMail" value="${fieldValue(bean:member,field:'eMail')}"/>
+    			<g:textField name="eMail" value="${member.eMail}"/>
     		</p>
     		<p>
     			<g:message code="subscribe.adresse" />
-    			<g:textField name="adresse" value="${fieldValue(bean:member,field:'adresse')}"/>
+    			<g:textField name="adresse" value="${member.adresse}"/>
     		</p>
     		<p>
     			<g:message code="subscribe.city" />
-    			<g:textField name="city" value="${fieldValue(bean:member,field:'city')}"/>
+    			<g:textField name="city" value="${member.city}"/>
     		</p>
     		<p>
     			<g:message code="subscribe.postal" />
-    			<g:textField name="postal" value="${fieldValue(bean:member,field:'postal')}"/>
+    			<g:textField name="postal" value="${member.postal}"/>
     		</p>
     		<p>
     			<g:message code="subscribe.country" />
-    			<g:textField name="country" value="${fieldValue(bean:member,field:'country')}"/>
+    			<g:textField name="country" value="${member.country}"/>
     		</p>
     		<p>
     			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
