@@ -26,29 +26,46 @@ class AdministratorController {
 	}
 	
 	def searchMember = {
-		def criteria = new Member(params)
+		def criteria = new Expando()
+		criteria.code=params.code
+		criteria.firstName=params.firstName
+		criteria.lastName=params.lastName
+		criteria.phoneNumber=params.phoneNumber
+		criteria.eMail=params.eMail
+		criteria.adresse=params.adresse
+		criteria.city=params.city
+		criteria.postal=params.postal
+		criteria.country=params.country
+		
 		session["criteria"] = criteria
-		commonSearchMember(criteria, params)	
+		commonSearchMember(criteria)	
 	}
 	
 	def sortMember = {
 		def criteria = session["criteria"]
-		commonSearchMember(criteria, params)		
+		criteria.sort=params.sort
+		criteria.order=params.order
+		commonSearchMember(criteria)	
 	}
 	
 	def backMember = {
-		def criteria = session["criteria"]		
-		commonSearchMember(criteria, params)		
+		def criteria = session["criteria"]	
+		println criteria
+		commonSearchMember(criteria)		
 	}
 	
 	def paginateMember = {
-		def criteria = session["criteria"]		
-		commonSearchMember(criteria, params)		
+		def criteria = session["criteria"]
+		criteria.offset=params.offset
+		criteria.max=params.max
+		commonSearchMember(criteria)		
 	}
 	
-	private commonSearchMember(criteria, params) {
-		def members = memberService.search(params)
-		def total = memberService.countMax(params)
+	private commonSearchMember(criteria) {
+		def members = memberService.search(criteria)
+		def total = memberService.countMax(criteria)
+		params.offset=criteria.offset
+		params.max=criteria.max
 		render(view:"/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
