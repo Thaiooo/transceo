@@ -37,25 +37,25 @@ class AdministratorController {
 		criteria.postal=params.postal
 		criteria.country=params.country
 		
-		session["criteria"] = criteria
+		session[SessionConstant.CRITERIA.name()] = criteria
 		commonSearchMember(criteria)	
 	}
 	
 	def sortMember = {
-		def criteria = session["criteria"]
+		def criteria = session[SessionConstant.CRITERIA.name()]
 		criteria.sort=params.sort
 		criteria.order=params.order
 		commonSearchMember(criteria)	
 	}
 	
 	def backMember = {
-		def criteria = session["criteria"]	
+		def criteria = session[SessionConstant.CRITERIA.name()]	
 		println criteria
 		commonSearchMember(criteria)		
 	}
 	
 	def paginateMember = {
-		def criteria = session["criteria"]
+		def criteria = session[SessionConstant.CRITERIA.name()]
 		criteria.offset=params.offset
 		criteria.max=params.max
 		commonSearchMember(criteria)		
