@@ -34,13 +34,15 @@
 		<br/>
 		<a href="${ resource(dir:'travel', file:'chooseCustomerType.gsp') }">Create Reservation</a>
 		<br/>
-		<g:link controller="administrator" action="reservationToProcess">Reservation To Process</g:link>
+		<g:link controller="administrator" action="reservationToProcess">Reservation To Price</g:link>
+		<br/>
+		TODO: Reservation to confirm
 		<br/>
 		<g:link controller="administrator" action="travelToProcess">Travel To Process</g:link>
 		<br/>
 		TODO: Search travel
 		<br/>
-		TODO: Search customer
+		TODO: Search customer?
 		<br/>
 		<g:link controller="rateMile" action="list">Manage Rate Mile</g:link>
 		<br/>
