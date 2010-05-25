@@ -69,6 +69,86 @@ class BootStrap {
 		m1.travels.add(travel)
 		travel.save()
 		
+		depart = new Adresse()
+		depart.adresse = "46 RUE AFFORTY"
+		depart.city = "VILLEPINTE"
+		depart.postal = 93420
+		depart.country="FRANCE"
+		depart.save()
+		
+		destination = new Adresse()
+		destination.adresse = "127 AVENUE DES CHAMPS ELYSEES"
+		destination.city = "PARIS"
+		destination.postal = 75000
+		destination.country="FRANCE"
+		destination.save()
+		
+		travel = new Travel()
+		travel.status = TravelStatus.RESERVE_ASK
+		travel.creationDate = new Date()
+		travel.travelDate = new Date()
+		travel.travelHour = 1
+		travel.travelMinute = 10
+		travel.depart = depart
+		travel.destination = destination
+		travel.price = 100
+		travel.customer = m1
+		m1.travels.add(travel)
+		travel.save()
+		
+		depart = new Adresse()
+		depart.adresse = "46 RUE AFFORTY"
+		depart.city = "VILLEPINTE"
+		depart.postal = 93420
+		depart.country="FRANCE"
+		depart.save()
+		
+		destination = new Adresse()
+		destination.adresse = "127 AVENUE DES CHAMPS ELYSEES"
+		destination.city = "PARIS"
+		destination.postal = 75000
+		destination.country="FRANCE"
+		destination.save()
+		
+		travel = new Travel()
+		travel.status = TravelStatus.RESERVE_TO_CONFIRM
+		travel.creationDate = new Date()
+		travel.travelDate = new Date()
+		travel.travelHour = 1
+		travel.travelMinute = 10
+		travel.depart = depart
+		travel.destination = destination
+		travel.price = 100
+		travel.customer = m1
+		m1.travels.add(travel)
+		travel.save()
+		
+		depart = new Adresse()
+		depart.adresse = "46 RUE AFFORTY"
+		depart.city = "VILLEPINTE"
+		depart.postal = 93420
+		depart.country="FRANCE"
+		depart.save()
+		
+		destination = new Adresse()
+		destination.adresse = "127 AVENUE DES CHAMPS ELYSEES"
+		destination.city = "PARIS"
+		destination.postal = 75000
+		destination.country="FRANCE"
+		destination.save()
+		
+		travel = new Travel()
+		travel.status = TravelStatus.RESERVE_CONFIRM
+		travel.creationDate = new Date()
+		travel.travelDate = new Date()
+		travel.travelHour = 1
+		travel.travelMinute = 10
+		travel.depart = depart
+		travel.destination = destination
+		travel.price = 100
+		travel.customer = m1
+		m1.travels.add(travel)
+		travel.save()
 		// =================================================
 		def Member m2 = new Member()
 		m2.firstName = "PERE TOTO"
