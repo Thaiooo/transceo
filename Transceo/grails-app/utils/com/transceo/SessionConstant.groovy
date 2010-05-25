@@ -1,0 +1,5 @@
+package com.transceo
+
+enum SessionConstant {
+	USER, ADMIN, ADMIN_VIEW, CRITERIA
+}
