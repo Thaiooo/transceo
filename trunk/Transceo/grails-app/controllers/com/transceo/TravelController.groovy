@@ -108,4 +108,15 @@ class TravelController {
 			redirect(uri:"/")
 		}
 	}	
+	
+	def acceptReservation = {
+		def travel = travelService.findTravelByIdAndCustomerId(params.id1.toLong(), params.id2.toLong())
+		travel.status = TravelStatus.RESERVE_CONFIRM
+		travel.save()
+		redirect(
+		controller: "common", 
+		action: "displayMessage", 
+		params:[codeMessage:"message.accept.confirmation", codeTitle:"title.accept.confirmation"]
+		)
+	}
 }
