@@ -93,6 +93,6 @@
     	</p>
     	
     	<br/>
-    	<g:link controller="travel" action="reservationToProcess">Retour</g:link>
+    	<g:link controller="administrator" action="reservationToProcess">Retour</g:link>
     </body>
 </html>
