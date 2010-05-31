@@ -9,7 +9,8 @@
 				<g:message code="${flash.message}" ></g:message>
 			</div>
     	</g:if>
-    	<form name="administrator" controller="administrator" action="login" method="post" >
+    	Admin Login
+    	<g:form name="administrator" controller="administrator" action="login" method="post" >
     		<p>
     		<g:message code="login.login" />
     		<g:textField name="login" value="${userLogin}"/>
@@ -21,6 +22,6 @@
     		<p>
     		<g:submitButton name="submit" value="${message(code:'common.button.submit')}" />
     		</p>
-    	</form>
+    	</g:form>
     </body>
 </html>
