@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#article2 .texte p {
+	padding: 44px 0 0 80px;
+}
+#article2  .texte {
+	font-size: 1.85em;
+	position: absolute;
+	display: block;
+	font-weight: bold;
+	color: #FFFFFF;
+	z-index: 100;
+	background-image: url(../images/bg_telephone.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 75px;
+	width: 479px;
+	margin: 232px 0 0 207px;
+	padding: 0;
+}
