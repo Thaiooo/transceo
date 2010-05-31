@@ -8,7 +8,7 @@ class MemberController {
 	def mailService
 	
 	def initRegister = {
-		render(view:"/member/register", model:[])		
+		render(view:"/client/member/register", model:[])		
 	}
 	
 	def initAddFriend = {
@@ -49,10 +49,10 @@ class MemberController {
 				redirect(uri:"/")
 			}else{
 				flash.message = "member.confirmpassword.invalidate"
-				render(view:"/member/register", model:[member: member])
+				render(view:"/client/member/register", model:[member: member])
 			}
 		}else{
-			render(view:"/member/register", model:[member: member])
+			render(view:"/client/member/register", model:[member: member])
 		}
 	}
 	

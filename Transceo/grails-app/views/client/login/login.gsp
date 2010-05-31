@@ -24,7 +24,8 @@
     	</g:form>
     	
     	<br/>
-    	<g:link controller="member" action="initRegister">Register</g:link>
+    	
+    	<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="Manage user" >Register</a>
 		<br/>
 		<a href="${ resource(dir:'member', file:'sendPassword.gsp') }">Forgot Password</a>
     </body>
