@@ -97,14 +97,14 @@
 					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="Chauffeurs-véhicules" >Chauffeurs-véhicules</a>
 				</li>
 				<li class="art5">
-					<g:link controller="travel" action="initCustomerReservation">Contact - Réservation</g:link>
+					<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
 				</li>
 				<li class="art7">
 					<g:if test="${session.USER == null}">
-						<g:link controller="login" action="login" title="Manage user">Login</g:link>
+						<a href="<g:createLink controller="login" action="login" />#ancre" title="Manage user" >Login</a>
 					</g:if>
 					<g:else>
-						<g:link controller="member" action="showMyProfile" title="Manage user">Compte Client</g:link>
+						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="Manage user" >Compte Client</a>
 					</g:else>
 				</li>
 			</ul>
