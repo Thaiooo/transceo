@@ -1,0 +1,354 @@
+
+html { font-size: 100%; } /* Cf.: http://pompage.net/pompe/definir-des-tailles-de-polices-en-CSS/ */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #2c2c2c;
+	background-image: url(../images/bg.jpg);
+	background-repeat: repeat-x;
+	margin: 0px;
+	padding: 0px;
+	color: #BDBDBD;
+	font-size: 0.85em;
+	line-height: 1.25em;
+}
+h2 {
+	color: #000000;
+	margin: 0px;
+	padding: 0px;
+	font-size: 2em;
+	font-weight: normal;
+}
+h3, h3.spip {
+	text-align: left;
+	color: #FFFFFF;
+	margin: 0px;
+	padding: 10px 0 0 0;
+}
+p    {
+	margin: 0px;
+	padding: 5px 0;
+}
+a {
+	color: #999999;
+	text-decoration: none;
+}
+ul, ul.spip {
+	margin: 0px;
+	padding: 0 0 0 3em;
+}
+a:hover {
+	color: #FFFFFF;
+}
+strong {
+	font-weight: bold;
+	color: #FFFFFF;
+}
+#page {
+	width: 896px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 100px;
+}
+.masque {
+	display: none;
+}
+#entete {
+	position: absolute;
+	z-index: 10;
+	top: 0px;
+}
+#entete  img {
+	float: left;
+	position: absolute;
+	z-index: 1000;
+}
+#descriptif {
+	background-image: url(../images/bg-descriptif.jpg);
+	background-repeat: no-repeat;
+	height: 100px;
+	width: 539px;
+	text-align: center;
+	padding-top: 26px;
+	margin-left: 356px;
+	position: absolute;
+}
+#descriptif  h1 {
+	font-size: 1em;
+	line-height: 1.7em;
+	margin: 0px;
+	padding: 0px;
+}
+#descriptif   h1  strong {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#langue {
+	position: absolute;
+	z-index: 12;
+	width: 24px;
+	top: 28px;
+	margin-left: 850px;
+}
+#langue   input  {
+	display: block;
+	list-style-type: none;
+	font-size: 0px;
+	height: 15px;
+	width: 23px;
+	background-repeat: no-repeat;
+	background-position: -2px -2px;
+	border: 1px solid #999;
+	padding: 0px;
+	margin: 5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+#langue  input:hover   {
+	border: 1px solid #FFF;
+}
+#langue input.fr   {
+	background-image: url(../images/drapo_fr.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+#langue  input.en {
+	background-image: url(../images/drapo_en.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.page_article     table  {
+	width: 100%;
+}
+.page_article       table    td    {
+	vertical-align: top;
+	padding: 0 20px 0 0;
+}
+#formulaire_contact {
+	width: 520px;
+	float: right;
+}
+#formulaire_contact .texte {
+	margin: 0px;
+	padding: 0px;
+}
+#formulaire_contact  legend {
+	display: none;
+}
+#formulaire_contact ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	display: inline;
+}
+#formulaire_contact ul li  {
+	align: left;
+	display: block;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+#formulaire_contact ul li.saisie_texte label  {
+text-align: center
+width: 900px;
+}
+
+#formulaire_contact  label   {
+	float: left;
+	width: 240px;
+	display: block;
+	height: 14px;
+	margin: 4px 0;
+	padding: 2px 0;
+	font-weight: normal;
+	color: #999999;
+}
+#formulaire_contact  input   {
+	float: right;
+	width: 260px;
+	height: 14px;
+	margin: 4px 0;
+	padding: 2px 7px;
+	border: none;
+	display: block;
+	background-image: url(../images/stripe2.gif);
+}
+#formulaire_contact  input.submit   {
+	float: right;
+	width: auto;
+	height: auto;
+	padding: 2px;
+	border: 1px solid #666666;
+	display: block;
+	background-color: #333333;
+	background-image: none;
+	color: #FFFFFF;
+	margin: 0 4px 0 0;
+}
+#formulaire_contact textarea {
+	background-image: url(../images/stripe2.gif);
+	border: none;
+}
+#formulaire_contact label strong {
+	font-weight: bold;
+	color: #181818;
+	font-size: 0.75em;
+	text-transform: lowercase;
+}
+#formulaire_contact .erreur_message {
+	font-size: 0.75em;
+	color: #FF0000;
+	padding: 4px 0 4px 170px;
+}
+#formulaire_contact .erreur_message:hover {
+	display: none;
+}
+#contenu {
+	background-repeat: repeat-y;
+	margin: 0px;
+	padding: 0px;
+	background-image: url(../images/bg-zonetxt.jpg);
+}
+.nettoyeur {
+	clear: both;
+}
+#diapo-cadre {
+	background-image: url(../images/diapo-cadre.png);
+	background-repeat: no-repeat;
+	height: 326px;
+	clear: both;
+	z-index: 8;
+	position: absolute;
+}
+#cycle {
+	height: 309px;
+	overflow: hidden;
+	width: 894px;
+	margin-bottom: 17px;
+	padding-top: -37px;
+}
+#telephone   {
+	font-size: 1.5em;
+	position: absolute;
+	display: block;
+	font-weight: bold;
+	color: #FFFFFF;
+	z-index: 100;
+	background-image: url(../images/bg_telephone.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 69px;
+	width: 355px;
+	margin-top: 237px;
+	margin-right: 0;
+	margin-bottom: 0px;
+	margin-left: 260px;
+	line-height: 1.3em;
+	text-align: center;
+	padding: 10px;
+}
+ul.nav {
+	background-image: url(../images/bg-nav.jpg);
+	background-repeat: no-repeat;
+	height: 24px;
+	width: 836px;
+	padding: 12px 30px 0 30px;
+	list-style-type: none;
+	margin: 0px;
+}
+ul.nav  li {
+	float: left;
+}
+ul.nav  li  a {
+	text-transform: uppercase;
+	margin-right: 16px;
+	display: block;
+	padding-right: 16px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #666666;
+	line-height: 1em;
+}
+ul.nav  li  a:hover {
+	color: #FF0000;
+	text-decoration: none;
+}
+ul.nav   li.art7 {
+	float: right;
+}
+ul.nav    li.art7    a {
+	color: #FF0000;
+	margin: 0px;
+	padding: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: right;
+}
+ul.nav  li.art7  a:hover {
+	color: #FFFFFF;
+}
+.intro{
+	background-image: url(../images/bg-zonetxt.jpg);
+	background-repeat: repeat-y;
+	padding: 50px 30px 0 30px;
+}
+.zonetxt {
+	overflow: hidden;
+	width: 894px;
+	margin-bottom: 17px;
+	height: 309px;
+	z-index: 1000;
+}
+#pied {
+	background-image: url(../images/bg-pied.png);
+	background-repeat: no-repeat;
+	padding-top: 26px;
+	clear: both;
+	height: 50px;
+	width: 100%;
+	font-size: 0.75em;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}	
+#pied, #pied a {
+	color: #666666;
+}
+#pied a:hover {
+	color: #CCCCCC;
+	text-decoration: none;
+}
+div.trait-gauche {
+	border-left-width: 2px;
+	border-left-style: solid;
+	border-left-color: #292929;
+	padding-left: 20px;
+	margin-left: 40px;
+}
+.texte-grand {
+	font-size: 1.4em;
+	line-height: 1.75em;
+}
+.gauche {
+	float: left;
+}
+.droite {
+	float: right;
+}
+.titre {
+	margin: 0;
+	padding: 20px 30px;
+}
+.texte {
+	margin: 0;
+	padding: 0 30px 20px 30px;
+}
+.dessus {
+	position: absolute;
+	z-index: 1000;
+	width: 900px;
+	height: 320px;
+}
+img, .spip_logos { margin: 0; padding: 0; border: 0; }
