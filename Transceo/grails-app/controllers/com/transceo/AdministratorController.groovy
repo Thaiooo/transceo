@@ -69,7 +69,7 @@ class AdministratorController {
 	}
 	
 	def initCustomerReservation = {
-		render(view:"/travel/customerReservation", model:[])		
+		render(view:"/administrator/travel/customerReservation", model:[])		
 	}
 	
 	def initMemberReservation = {
