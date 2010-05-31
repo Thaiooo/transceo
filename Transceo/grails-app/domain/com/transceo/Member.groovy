@@ -7,7 +7,8 @@ class Member extends Customer {
 	String password
 	boolean active
 	String eMail
-	int miles 
+	int miles = 0
+	int friendMiles = 0
 	Date subscribeDate
 	Long activationId
 	Member sponsor
@@ -27,6 +28,7 @@ class Member extends Customer {
 		subscribeDate(nullable: false)
 		activationId(nullable: false)
 		miles(nullable: false, blank:false)
+		friendMiles(nullable: false, blank:false)
 		code(nullable: false, blank:false, unique:true)
 		
 		sponsor(nullable: true)

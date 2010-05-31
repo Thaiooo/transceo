@@ -30,6 +30,14 @@ class TravelService {
 		return results
 	}
 	
+	def findReservationToConfirm() {
+		def c = Travel.createCriteria()
+		def results = c.list {
+			eq("status", TravelStatus.RESERVE_TO_CONFIRM)
+		}
+		return results
+	}
+	
 	def cancel(id){
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.CANCEL
@@ -63,7 +71,7 @@ class TravelService {
 	
 	def close(id){		
 		def travel = Travel.get(id)
-		//travel.status = TravelStatus.SUCCESS
+		travel.status = TravelStatus.SUCCESS
 		
 		// Distrubuer les miles
 		if(travel.customer.class.name == Member.class.name){
@@ -78,7 +86,12 @@ class TravelService {
 			def rateMile = RateMile.findByLevel(level)
 			if(null != rateMile){
 				def miles = price * (rateMile.rate / 100)
-				customer.miles += miles
+				if(level == 0){
+					customer.miles += miles	
+				}else{
+					customer.friendMiles += miles	
+				}
+				
 				setMiles(customer.sponsor, (level + 1), price)	
 			}
 		}
