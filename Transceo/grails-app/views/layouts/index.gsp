@@ -1,9 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">	
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title><g:layoutTitle default="Grails" /></title>
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-		<meta name="description" content="Déplacements privés avec chauffeur Paris - Ile de France - Province" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'spip_formulaires.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo.css')}" />
@@ -14,13 +13,49 @@
 		<!-- Pour google map -->
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-		
+
 		<!-- Pour jquery -->
 		<link rel="stylesheet" href="${resource(dir:'css',file:'ui-lightness/jquery-ui-1.8.1.custom.css')}" />
 		<g:javascript library="jquery" />
 		<g:javascript src="jquery/jquery-ui-1.8.1.custom.min.js" />
-	    
-	    <g:layoutHead />
+		<g:javascript src="jquery/jquery.cycle.all.min.js" />
+		<g:javascript src="jquery/jquery.pngFix.pack.js" />
+		
+		<script type="text/javascript"> 
+			$(document).ready(function(){
+		    	// Scripts de correction transparence PNG pour IE6 
+		        $(document).pngFix();
+
+		        // Scripts effet diapo
+		        $('#cycle').cycle({
+		        	fx: 'fade', // type de transition, ex: fade, scrollUp, shuffle, etc...
+		        	timeout: 6000, 
+		            delay:  -2000,
+		        	next:   '#cycle', 
+		            pause:   1 
+		        	}); 
+		    }); 
+
+			$(function() {		
+				//lancer effet sélectionné
+				function runEffect(){
+					//option
+					var options = {};
+					//lancer effet
+					$(".effet_bounce").effect('bounce',options,400);
+					$(".effet_slide").show('slide',options,1000);
+					$(".effet_pulsate").show('pulsate',options,500);
+					$(".effet_scale").show('scale',options,1200);
+				};
+		
+				//effet bondi automatique
+				$(function() {
+					runEffect();
+					return false;
+				});
+			});
+		</script>
+		<g:layoutHead />
 	</head>
 
 	<body class="page_article">
@@ -49,13 +84,12 @@
 			<!--fin diapo-->
 			
 			<div class="effaceur"></div>    
-					
+
 			<!--nav-->
 			<ul class="nav">
 				<li><a rel="start home" href="http://transeo-vip.com/#ancre" title="Home page" class="accueil">Accueil</a></li>
 				<li class="art3"><a href="#"  title="Prestations">Prestations</a></li>
 				<li class="art4"><a href="#"  title="Chauffeurs-véhicules">Chauffeurs-véhicules</a></li>
-				<a href="#"  title="Contact - Réservation"></a></li>
 				<li class="art5">
 					<g:link controller="travel" action="initCustomerReservation">Contact - Réservation</g:link>
 				</li>
