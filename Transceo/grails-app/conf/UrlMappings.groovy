@@ -5,7 +5,11 @@ class UrlMappings {
 			 // apply constraints here
 		  }
 	  }
-      "/"(view:"/index")
+      "/administrate_transceo" {
+          controller = "administrator"
+          action = "login"
+       }
 	  "500"(view:'/error')
+	  "/"(view:"/index")
 	}
 }
