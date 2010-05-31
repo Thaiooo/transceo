@@ -50,7 +50,6 @@ class AdministratorController {
 	
 	def backMember = {
 		def criteria = session[SessionConstant.CRITERIA.name()]	
-		println criteria
 		commonSearchMember(criteria)		
 	}
 	

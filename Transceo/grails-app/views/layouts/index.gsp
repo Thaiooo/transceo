@@ -87,9 +87,15 @@
 
 			<!--nav-->
 			<ul class="nav">
-				<li><a rel="start home" href="http://transeo-vip.com/#ancre" title="Home page" class="accueil">Accueil</a></li>
-				<li class="art3"><a href="#"  title="Prestations">Prestations</a></li>
-				<li class="art4"><a href="#"  title="Chauffeurs-véhicules">Chauffeurs-véhicules</a></li>
+				<li>
+					<g:link class="accueil" controller="page" action="home" title="Home page" >Accueil</g:link>
+				</li>
+				<li class="art3">
+					<a href="<g:createLink controller="page" action="prestation" />#ancre" title="Prestations" >Prestations</a>
+				</li>
+				<li class="art4">
+					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="Chauffeurs-véhicules" >Chauffeurs-véhicules</a>
+				</li>
 				<li class="art5">
 					<g:link controller="travel" action="initCustomerReservation">Contact - Réservation</g:link>
 				</li>
@@ -104,6 +110,7 @@
 			</ul>
 			<!--fin nav-->
 
+			<a name="ancre" id="ancre"></a>			
 			<!--Contenu principal-->
 			<div id="contenu">
 				<div id="article6">
