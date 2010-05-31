@@ -1,12 +1,16 @@
 <html>
     <head>
-        <title>Choose Customer Type</title>
-		<meta name="layout" content="main" />		
+        <title><g:message code="title.reservation.choose.type" /></title>
+		<meta name="layout" content="admin" />		
     </head>
     <body>
-    	<g:link controller="administrator" action="searchMember">Create Member Reservation</g:link>
-		<br/>
-		<g:link controller="administrator" action="initCustomerReservation">Create Customer Reservation</g:link>
-		<br/>
+    	<ul class="spip">
+    		<li>
+    			<g:link controller="administrator" action="searchMember"><g:message code="reservation.type.member" /></g:link>
+			</li>
+			<li>
+				<g:link controller="administrator" action="initCustomerReservation"><g:message code="reservation.type.customer" /></g:link>
+			</li>
+		</ul>
     </body>
 </html>
