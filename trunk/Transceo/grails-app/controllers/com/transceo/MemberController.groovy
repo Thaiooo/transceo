@@ -125,7 +125,7 @@ class MemberController {
 		def status = memberService.sendPasswordByMail(params.code)
 		if(!status){
 			flash.message = "member.code.invalidate"
-			render(view:"/member/sendPassword", model:[code: params.code])
+			render(view:"/client/member/sendPassword", model:[code: params.code])
 		}else{
 			redirect(
 			controller: "common", 
