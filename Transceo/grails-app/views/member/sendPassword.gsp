@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<title>View</title>
-		<meta name="layout" content="main" />
+		<title>Forgot Password</title>
+		<meta name="layout" content="index" />
 	</head>
 	<body>
 	<g:if test="${flash.message != null}">

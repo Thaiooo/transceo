@@ -2,24 +2,24 @@
     		<thead>
 	    		<tr>
 	    			<th></th>
-	    			<g:sortableColumn action="sortMember" property="code" title="Code" />
-	    			<g:sortableColumn action="sortMember" property="firstName" title="First Name" />	    			
-	    			<g:sortableColumn action="sortMember" property="lastName" title="Last Name" />
-	    			<g:sortableColumn action="sortMember" property="phoneNumber" title="Phone Number" />
-	    			<g:sortableColumn action="sortMember" property="eMail" title="E-Mail" />
-	    			<g:sortableColumn action="sortMember" property="adresse" title="Adresse" />
-	    			<g:sortableColumn action="sortMember" property="city" title="City" />
-	    			<g:sortableColumn action="sortMember" property="postal" title="Postal" />
-	    			<g:sortableColumn action="sortMember" property="subscribeDate" title="Subscribe Date" />
-	    			<g:sortableColumn action="sortMember" property="active" title="Status" />
+	    			<g:sortableColumn action="sortMember" property="code" title="${message(code:'search.member.code')}" />
+	    			<g:sortableColumn action="sortMember" property="firstName" title="${message(code:'search.member.firstName')}" />	    			
+	    			<g:sortableColumn action="sortMember" property="lastName" title="${message(code:'search.member.lastName')}" />
+	    			<g:sortableColumn action="sortMember" property="phoneNumber" title="${message(code:'search.member.phone')}" />
+	    			<g:sortableColumn action="sortMember" property="eMail" title="${message(code:'search.member.mail')}" />
+	    			<g:sortableColumn action="sortMember" property="adresse" title="${message(code:'search.member.adresse')}" />
+	    			<g:sortableColumn action="sortMember" property="city" title="${message(code:'search.member.city')}" />
+	    			<g:sortableColumn action="sortMember" property="postal" title="${message(code:'search.member.postal')}" />
+	    			<g:sortableColumn action="sortMember" property="active" title="${message(code:'search.member.activate')}" />
 	    		</tr>
     		</thead>
     		<tbody>
 		    	<g:each in="${members}">
 		     		<tr>
 		     			<td>
-		     				<g:link action="showProfile" id="${it.id}">View</g:link>
-		     				<g:link controller="administrator" action="initMemberReservation" id="${it.id}">Add Reservation</g:link>
+		     				<g:link action="showProfile" id="${it.id}"><g:message code="search.member.view" /></g:link>
+		     				<br/>
+		     				<g:link controller="administrator" action="initMemberReservation" id="${it.id}"><g:message code="search.member.create.reservation" /></g:link>
 		     			</td>
 		     			<td>${it.code}</td>
 		     			<td>${it.firstName}</td>
@@ -29,17 +29,18 @@
 						<td>${it.adresse}</td>
 		     			<td>${it.city}</td>
 		     			<td>${it.postal}</td>
-						<td width="70px"><g:formatDate format="yyyy-MM-dd" date="${it.subscribeDate}"/></td>
 						<td width="20px">${it.active}</td>
 		     		</tr>
 				</g:each>
 			</tbody>
     	</table>
     	
-    	<g:paginate next="Forward" prev="Back"
-    		max="2"  
-            maxsteps="0" 
-            controller="administrator" 
-            action="paginateMember" 
-            total="${total}" 
-		/>
+		<div>   	
+	    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
+	    		max="2"  
+	            maxsteps="0" 
+	            controller="administrator" 
+	            action="paginateMember" 
+	            total="${total}" 
+			/>
+		</div>
