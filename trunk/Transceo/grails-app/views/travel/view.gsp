@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>View</title>
-		<meta name="layout" content="main" />		
+        <title><g:message code="title.travel.details" /></title>
+		<meta name="layout" content="admin" />		
     </head>
     <body>
     	<jq:jquery>
@@ -44,34 +44,32 @@
 						}
 					}
 				);
-				
 			}
-			
 		</jq:jquery>
     
     	<p>
-    	Creation Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>
+    	<g:message code="view.travel.creationdate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
     	</p>
     	<p>
-    	Travel Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
+    	<g:message code="view.travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
     	</p>
     	<p>
-    	Price: ${travel.price}
+    	<g:message code="view.travel.price" />: ${travel.price}
     	</p>
     	<p>
-    	Status: ${travel.status}
+    	<g:message code="view.travel.status" />: ${travel.status}
     	</p>
     	<p>
-    	Depart:${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country} 
+    	<g:message code="view.travel.depart" />:${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country} 
     	</p>
     	<p>
-    	Destination: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
+    	<g:message code="view.travel.destination" />: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
     	</p>
     	<p>
-    	Handicap: ${travel.handicap}
+    	<g:message code="view.travel.handicap" />: ${travel.handicap}
     	</p>
     	<p>
-    	Comment: ${travel.comment}
+    	<g:message code="view.travel.comment" />: ${travel.comment}
     	</p>
     	<br/>
     	<div id="map_canvas" style="width: 500px; height: 300px"></div>

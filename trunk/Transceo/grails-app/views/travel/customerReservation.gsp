@@ -1,118 +1,82 @@
 <html>
     <head>
-        <title>Reservation - Step 1</title>
-		<meta name="layout" content="main" />
+        <title>Contact - Réservation</title>
+		<meta name="layout" content="index" />
     </head>
     <body>
-    	<jq:jquery>
-    		// Pour google map
-   			$(window).load(function () {
-  				initialize();
-			});
-			
-			var directionDisplay;
-			var directionsService = new google.maps.DirectionsService();
-			var map;
-
-			function initialize() {
-				directionsDisplay = new google.maps.DirectionsRenderer();
-				var chicago = new google.maps.LatLng(41.850033, -87.6500523);
-				var myOptions = {
-					zoom:11,
-					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					center: chicago
-				}
-				map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-				directionsDisplay.setMap(map);
-			}
-  
-			function calcRoute() {
-				var start = $("#departCity").val();
-				var end = $("#destinationCity").val();
-				if(start == '' || end == '' || start == null || end == null){
-					return;
-				}
-				
-				var request = {
-					origin:start, 
-					destination:end,
-					travelMode: google.maps.DirectionsTravelMode.DRIVING
-				};
-				directionsService.route(
-					request, 
-					function(response, status) {
-						if (status == google.maps.DirectionsStatus.OK) {
-							directionsDisplay.setDirections(response);
-						}
-					}
-				);
-			}
-			
-			// Pour le popup des dates
-			$(function() {
-	    		//$("#travelDate").datepicker({ showAnim: '' });
-	    		$("#travelDate").datepicker({ dateFormat: 'dd/mm/yy' });
-			});
-			
-			$("#departCity, #destinationCity").focusout(function() {
-				calcRoute() 
-			});
-		</jq:jquery>
-    
-    	<g:hasErrors bean="${customer}">
-    		Customer errors
-			<div class="errors">
-				<g:renderErrors bean="${customer}" />
-			</div>
-		</g:hasErrors>
-		
-		<g:hasErrors bean="${travel}">
-			Travel errors
-			<div class="errors">
-				<g:renderErrors bean="${travel}" />
-			</div>
-		</g:hasErrors>
-		
-		<g:hasErrors bean="${depart}">
-			Depart errors
-			<div class="errors">
-				<g:renderErrors bean="${depart}" />
-			</div>
-		</g:hasErrors>
-		
-		<g:hasErrors bean="${destination}">
-			Destination errors
-			<div class="errors">
-				<g:renderErrors bean="${destination}" />
-			</div>
-		</g:hasErrors>
-			
-		Customer Information:    	
-    	<form controller="travel" action="customerReserve" method="post" >
-    		
-    		<g:render template="/travel/customer" bean="${customer}" var="customer"/>
-    		<br/>
-
-    		<g:render template="/travel/travel" bean="${travel}"/>
-    		<br/>
-    		
-    		Depart:
-    		<g:render template="/travel/adresse" bean="${depart}" var="adresse"  model="['beanName':'depart']"/>
-    		<br/>
-    		
-    		Destination:
-    		<g:render template="/travel/adresse" bean="${destination}" var="adresse"  model="['beanName':'destination']"/>
-    		<br/>
-    	
-    		<div id="map_canvas" style="width: 500px; height: 300px"></div>
-
-			<br/>
-			    			
-    		<p>
-    		<g:submitButton name="create" value="Create" />
-    		<g:link url="/Transceo">Cancel</g:link>
-    		</p>
-    		
-    	</form>
+		<table id="form">
+			<tr>
+				<td>
+					<h3 class="spip">Nous contacter</h3>
+					<p>Pour tout renseignement ou demande spécifique, n&#8217;hésitez pas à nous solliciter. Une réponse vous sera donnée dans les meilleurs délais.</p>
+					<p><strong>Transeo&nbsp;:</strong></p>
+					<p>4, rue Philidor - 75020 Paris</p>
+					<p>Tél&nbsp;: +33 1 83 5659 83</p>
+					<p>E-mail&nbsp;: <a href='mailto:contact@transeo-vip.com' class='spip_mail'>contact@transeo-vip.com</a></p>
+				</td>
+				<td>
+					<h3 class="spip">Réservation en ligne</h3>
+					<div>
+						<div class="formulaire_spip formulaire_contact formulaire_editer_message_contact" id="formulaire_contact">
+							<br class='bugajaxie' />
+							<g:form controller="travel" action="customerReserve" method="post" >
+								<div>
+									<input name="id_article" value="6" type="hidden" />
+									<input name="page" value="article" type="hidden" />
+									<input type='hidden' name='formulaire_action' value='contact' />
+									<input type='hidden' name='formulaire_action_args' value='' />
+								</div>
+								<fieldset>
+									<g:hasErrors bean="${customer}">
+										<div class="errors">
+											<g:renderErrors bean="${customer}" />
+										</div>
+									</g:hasErrors>		
+								
+									<ul>
+										<li class="editer_nom saisie_nom">
+											<label for="info_nom"><g:message code="subscribe.firstName" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="firstName" value="${fieldValue(bean:customer,field:'firstName')}" size="30"/>
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_nom"><g:message code="subscribe.lastName" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="firstName" value="${fieldValue(bean:customer,field:'lastName')}" size="30"/>
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_nom"><g:message code="subscribe.firm" /></label>
+											<input type="text" class="text" name="organisation" value="" size="30" />
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_telephone"><g:message code="subscribe.phoneNumber" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="phoneNumber" value="${fieldValue(bean:customer,field:'phoneNumber')}" size="30"/>
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_telephone"><g:message code="subscribe.adresse" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="adresse" value="${fieldValue(bean:customer,field:'adresse')}" size="30"/>
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_telephone"><g:message code="subscribe.city" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="city" value="${fieldValue(bean:customer,field:'city')}" size="30"/>
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_telephone"><g:message code="subscribe.postal" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="postal" value="${fieldValue(bean:customer,field:'postal')}" size="30"/>
+										</li>
+										<li class="editer_nom saisie_nom">
+											<label for="info_telephone"><g:message code="subscribe.country" /> <strong>[Obligatoire]</strong></label>
+											<g:textField class="text" name="country" value="${fieldValue(bean:customer,field:'country')}" size="30"/>
+										</li>
+									</ul>
+									
+									<g:render template="/travel/editTravel" bean="${travel}"/>
+									
+								</fieldset>
+								<p class="boutons"><input type="submit" class="submit" name="valide" value="Envoyer un message" /></p>
+							</g:form>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
     </body>
 </html>
