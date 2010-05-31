@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>View</title>
-		<meta name="layout" content="main" />		
+        <title><g:message code="title.member.edit" /></title>
+		<meta name="layout" content="admin" />		
     </head>
     <body>
     	<g:hasErrors bean="${member}">
@@ -13,8 +13,7 @@
     	<g:form name="updateForm" controller="member" action="update" >
     		<g:hiddenField name="id" value="${member.id}" />
 			<p>    		
-	    		<g:message code="member.code" />
-    			${member.code}
+	    		<g:message code="view.member.code" />: ${member.code}
     		</p>
 			<p>    		
 	    		<g:message code="subscribe.firstName" />

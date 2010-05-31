@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Subscribe</title>
-		<meta name="layout" content="main" />		
+		<meta name="layout" content="index" />		
     </head>
     <body>
     	<g:hasErrors bean="${member}">
