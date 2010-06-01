@@ -4,15 +4,15 @@
 		<meta name="layout" content="admin" />
     </head>
     <body>
-		<div><g:render template="/member/profile" bean="${member}"/></div>
+		<div><g:render template="/common/profile" bean="${member}"/></div>
     	<br/>
-    	<div><g:render template="/member/mile" bean="${member}"/></div>
+    	<div><g:render template="/common/mile" bean="${member}"/></div>
     	<br/>
-    	<div><g:render template="/member/sponsor" bean="${member}"/></div>
+    	<div><g:render template="/common/sponsor" bean="${member}"/></div>
     	<br/>
-   		<div><g:render template="/member/friends" bean="${member}"/></div>
+   		<div><g:render template="/common/friends" bean="${member}"/></div>
     	<br/>
-    	<div><g:render template="/member/travels" bean="${member}"/></div>
+    	<div><g:render template="/common/travels" bean="${member}"/></div>
     	<br/>
     	<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
     		<g:link controller="administrator" action="backMember">Retour</g:link>
