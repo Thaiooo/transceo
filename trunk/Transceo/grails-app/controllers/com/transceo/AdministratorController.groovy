@@ -65,7 +65,7 @@ class AdministratorController {
 		def total = memberService.countMax(criteria)
 		params.offset=criteria.offset
 		params.max=criteria.max
-		render(view:"/member/search", model:[criteria:criteria, members: members, total: total])
+		render(view:"/administrator/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
 	def initCustomerReservation = {
