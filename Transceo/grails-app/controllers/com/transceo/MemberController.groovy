@@ -13,7 +13,7 @@ class MemberController {
 	
 	def initAddFriend = {
 		def user = session[SessionConstant.USER.name()]
-		render(view:"/member/addFriend", model:[user:user])		
+		render(view:"/client/member/addFriend", model:[user:user])		
 	}
 	
 	def activate = {
@@ -65,10 +65,10 @@ class MemberController {
 				redirect(uri:"/")
 			}else{
 				flash.message = "member.confirmpassword.invalidate"
-				render(view:"/member/registerFriend", model:[invitation: invitation, member: member])
+				render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
 			}
 		}else{
-			render(view:"/member/registerFriend", model:[invitation: invitation, member: member])
+			render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
 		}
 	}
 	
@@ -85,7 +85,7 @@ class MemberController {
 			params:[codeMessage:"message.add.friend.confirmation", codeTitle:"title.add.friend.confirmation"]
 			)
 		}else{
-			render(view:"/member/addFriend", model:[invitation: invitation, user: session[SessionConstant.USER.name()]])
+			render(view:"/client/member/addFriend", model:[invitation: invitation, user: session[SessionConstant.USER.name()]])
 		}
 	}
 	
@@ -100,19 +100,19 @@ class MemberController {
 				redirect(controller:"member",action:"showMyProfile", id:o.id)	
 			}
 		} else {
-			render(view:"/member/update", model:[member: o])
+			render(view:"/common/editMember", model:[member: o])
 		}
 	}
 	
 	def showMyProfile = {
 		def o = Member.get(session[SessionConstant.USER.name()].id)
 		session[SessionConstant.ADMIN_VIEW.name()] = false
-		render(view:"/member/view", model:[member: o])		
+		render(view:"/client/member/view", model:[member: o])		
 	}
 	
 	def initUpdate = {
 		def o = Member.get(params.id.toLong()) 
-		render(view:"/member/update", model:[member: o])		
+		render(view:"/common/editMember", model:[member: o])		
 	}
 	
 	def delete = {
