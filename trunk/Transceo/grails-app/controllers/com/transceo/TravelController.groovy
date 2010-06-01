@@ -8,7 +8,7 @@ class TravelController {
 	
 	def show = {
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/travel/view", model:[travel: o])		
+		render(view:"/common/travel/view", model:[travel: o])		
 	}
 	
 	def showForAdministrateReservation = {
