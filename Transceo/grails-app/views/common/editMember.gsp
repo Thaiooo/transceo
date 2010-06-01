@@ -1,7 +1,12 @@
 <html>
     <head>
         <title><g:message code="title.member.edit" /></title>
-		<meta name="layout" content="admin" />		
+        <g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
+			<meta name="layout" content="admin" />
+		</g:if>
+		<g:else>
+			<meta name="layout" content="client" />
+		</g:else>		
     </head>
     <body>
     	<g:hasErrors bean="${member}">
