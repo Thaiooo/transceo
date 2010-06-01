@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Pour nous, chacun de vos déplacement est unique !</title>
-		<meta name="layout" content="index" />
+		<meta name="layout" content="client" />
     </head>
     <body>
 		<p>TRANSEO se veut un acteur incontournable en tant que prestataire

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title><g:message code="title.member.details"/></title>
-		<meta name="layout" content="index" />
+		<meta name="layout" content="client" />
     </head>
     <body>
 		<div><g:render template="/member/profile" bean="${member}"/></div>
