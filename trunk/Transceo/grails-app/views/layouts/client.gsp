@@ -97,7 +97,12 @@
 					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="Chauffeurs-véhicules" >Chauffeurs-véhicules</a>
 				</li>
 				<li class="art5">
-					<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
+					<g:if test="${session.USER == null}">
+						<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
+					</g:if>
+					<g:else>
+						<a href="<g:createLink controller="travel" action="initMemberReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
+					</g:else>
 				</li>
 				<li class="art7">
 					<g:if test="${session.USER == null}">
