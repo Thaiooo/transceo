@@ -1,7 +1,7 @@
 <html>
     <head>
         <title><g:message code="title.member.register" /></title>
-		<meta name="layout" content="index" />		
+		<meta name="layout" content="client" />		
     </head>
     <body>
     	<g:if test="${member != null}">

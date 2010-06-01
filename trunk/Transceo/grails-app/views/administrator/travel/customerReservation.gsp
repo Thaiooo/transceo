@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Contact - Réservation</title>
-		<meta name="layout" content="index" />
+		<meta name="layout" content="client" />
     </head>
     <body>
 		<table id="form">

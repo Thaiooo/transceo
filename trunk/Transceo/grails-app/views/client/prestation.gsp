@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Prestations</title>
-		<meta name="layout" content="index" />
+		<meta name="layout" content="client" />
     </head>
     <body>
 		<p>TRANSEO met à la disposition de sa clientèle d'affaires un parc de voitures haut de gamme avec chauffeur pour des déplacements sur toute la France  24 h sur 24 - 365 jours par an.</p>
