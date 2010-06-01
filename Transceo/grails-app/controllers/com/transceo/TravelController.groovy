@@ -27,14 +27,12 @@ class TravelController {
 	}
 	
 	def initMemberReservation = {
-		if(session[SessionConstant.USER.name()] == null){
-			redirect(controller:"login")
-		}else{
-			render(view:"/travel/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
-		}
+		render(view:"/client/travel/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
 	}
 	
 	def customerReserve = {
+		println params
+		
 		def validate = true
 		def customer = new Customer()
 		customer.properties = params
@@ -102,7 +100,7 @@ class TravelController {
 		}
 		
 		if(!validate){
-			render(view:"/travel/memberReservation", model:[member:member, travel:travel, depart:depart, destination:destination])
+			render(view:"/client/travel/memberReservation", model:[member:member, travel:travel, depart:depart, destination:destination])
 		}else{
 			travelService.create(travel)
 			redirect(uri:"/")
