@@ -13,12 +13,12 @@ class TravelController {
 	
 	def showForAdministrateReservation = {
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/travel/administrateReservation", model:[travel: o])		
+		render(view:"/administrator/travel/administrateReservation", model:[travel: o])		
 	}
 	
 	def showForAdministrateTravel = {
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/travel/administrateTravel", model:[travel: o])		
+		render(view:"/administrator/travel/administrateTravel", model:[travel: o])		
 	}
 	
 	
