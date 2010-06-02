@@ -128,8 +128,16 @@ class AdministratorController {
 		render(view:"/administrator/reservation/main", model:[])
 	}
 	
+	def travelMain = {
+		render(view:"/administrator/travel/main", model:[])
+	}
+	
 	def initCreateReservation = {
 		render(view:"/administrator/reservation/chooseCustomerType", model:[])
+	}
+	
+	def searchTravel = {
+		render(view:"/administrator/travel/search", model:[])
 	}
 	
 }
