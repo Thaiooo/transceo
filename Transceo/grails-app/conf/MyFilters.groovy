@@ -16,7 +16,7 @@ class MyFilters {
 					} else{
 						return true
 					}
-					break;
+					break
 					
 					case 'member':
 					if(actionName == "searchMember"){
@@ -29,7 +29,7 @@ class MyFilters {
 					} else{
 						return true
 					}
-					break;
+					break
 					
 					case 'rateMile':
 					if (session[SessionConstant.ADMIN.name()] == null) {
@@ -41,22 +41,43 @@ class MyFilters {
 					
 					default:
 					return true
-					break;
+					break
 				}
 			}
 		}
 		
-		user(controller:'member', action:'*') {
+		user(controller:'*', action:'*') {
 			before = {
-				if(actionName == "initAddFriend" || actionName == "showMyProfile"){
-					if (session[SessionConstant.USER.name()] == null) {
-						redirect(controller:"login" ,action:"login")
-						return false
-					} else {
+				switch (controllerName) {
+					case 'member':
+					if(actionName == "initAddFriend" || actionName == "showMyProfile"){
+						if (session[SessionConstant.USER.name()] == null) {
+							redirect(controller:"login" ,action:"login")
+							return false
+						} else {
+							return true
+						}
+					}else{
 						return true
 					}
-				}else{
+					break
+					
+					case 'travel':
+					if(actionName == "initMemberReservation"){
+						if (session[SessionConstant.USER.name()] == null) {
+							redirect(controller:"login" ,action:"login")
+							return false
+						} else {
+							return true
+						}
+					}else{
+						return true
+					}
+					break
+					
+					default:
 					return true
+					break
 				}
 			}
 		}
