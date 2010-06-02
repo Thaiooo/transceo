@@ -69,12 +69,12 @@ class AdministratorController {
 	}
 	
 	def initCustomerReservation = {
-		render(view:"/administrator/travel/customerReservation", model:[])		
+		render(view:"/administrator/reservation/customerReservation", model:[])		
 	}
 	
 	def initMemberReservation = {
 		def member = Member.get(params.id)
-		render(view:"/administrator/travel/memberReservation", model:[member: member])
+		render(view:"/administrator/reservation/memberReservation", model:[member: member])
 	}
 	
 	def travelToProcess = {
@@ -129,7 +129,7 @@ class AdministratorController {
 	}
 	
 	def initCreateReservation = {
-		render(view:"/administrator/travel/chooseCustomerType", model:[])
+		render(view:"/administrator/reservation/chooseCustomerType", model:[])
 	}
 	
 }
