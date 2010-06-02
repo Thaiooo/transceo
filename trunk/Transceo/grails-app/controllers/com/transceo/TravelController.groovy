@@ -23,11 +23,11 @@ class TravelController {
 	
 	
 	def initCustomerReservation = {
-		render(view:"/client/travel/customerReservation", model:[])		
+		render(view:"/client/reservation/customerReservation", model:[])		
 	}
 	
 	def initMemberReservation = {
-		render(view:"/client/travel/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
+		render(view:"/client/reservation/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
 	}
 	
 	def customerReserve = {
@@ -65,7 +65,7 @@ class TravelController {
 		}
 		
 		if(!validate){
-			render(view:"/client/travel/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+			render(view:"/client/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
 		}else{
 			travelService.create(travel)
 			redirect(uri:"/")
@@ -100,7 +100,7 @@ class TravelController {
 		}
 		
 		if(!validate){
-			render(view:"/client/travel/memberReservation", model:[member:member, travel:travel, depart:depart, destination:destination])
+			render(view:"/client/reservation/memberReservation", model:[member:member, travel:travel, depart:depart, destination:destination])
 		}else{
 			travelService.create(travel)
 			redirect(uri:"/")
