@@ -100,7 +100,7 @@ class MemberController {
 				redirect(controller:"member",action:"showMyProfile", id:o.id)	
 			}
 		} else {
-			render(view:"/common/editMember", model:[member: o])
+			render(view:"/common/member/edit", model:[member: o])
 		}
 	}
 	
@@ -112,7 +112,7 @@ class MemberController {
 	
 	def initUpdate = {
 		def o = Member.get(params.id.toLong()) 
-		render(view:"/common/editMember", model:[member: o])		
+		render(view:"/common/member/edit", model:[member: o])		
 	}
 	
 	def delete = {
