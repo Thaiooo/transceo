@@ -8,7 +8,7 @@
     	<br/>
     	<div><g:render template="/common/mile" bean="${member}"/></div>
     	<br/>
-    	<div><g:render template="/common/sponsor" bean="${member}"/></div>
+    	<div><g:render template="/common/member/sponsor" bean="${member}"/></div>
     	<br/>
    		<div><g:render template="/common/friends" bean="${member}"/></div>
     	<br/>
