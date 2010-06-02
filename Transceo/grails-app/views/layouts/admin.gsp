@@ -34,9 +34,9 @@
 			<ul class="nav">
 				<li><g:link controller="administrator" action="searchMember" title="Search Members">Members</g:link></li>
 				<li class="art3"><g:link controller="administrator" action="reservationMain" title="Manage reservation">Reservation</g:link></li>
-				<li class="art4"><g:link controller="administrator" action="travelToProcess" title="Manage travel">Travel</g:link></li>
+				<li class="art4"><g:link controller="administrator" action="travelMain" title="Manage travel">Travel</g:link></li>
 				<li class="art5"><g:link controller="rateMile" action="list" title="Properties">Properties</g:link></li>
-				<li class="art5"><g:link controller="rateMile" action="list" title="Manage user">User</g:link></li>
+				<li class="art5"><g:link controller="user" action="list" title="Manage user">User</g:link></li>
 				<li class="art7"><a href="#"  title="Disconnect">Disconnect</a></li>
 			</ul>
 			<!--fin nav-->
