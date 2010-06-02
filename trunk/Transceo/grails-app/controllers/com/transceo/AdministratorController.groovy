@@ -14,7 +14,7 @@ class AdministratorController {
 				render(view:"/administrator/login", model:[userLogin:params.login])
 			}else{
 				session[SessionConstant.ADMIN.name()] = user
-				redirect(uri:"/")
+				redirect(action:"searchMember", controller:"administrator")
 			}
 		}
 	}
@@ -22,7 +22,7 @@ class AdministratorController {
 	def showProfile = {
 		def o = Member.get(params.id.toLong()) 
 		session[SessionConstant.ADMIN_VIEW.name()] = true
-		render(view:"/member/view", model:[member: o])		
+		render(view:"/administrator/member/view", model:[member: o])		
 	}
 	
 	def searchMember = {
@@ -74,12 +74,12 @@ class AdministratorController {
 	
 	def initMemberReservation = {
 		def member = Member.get(params.id)
-		render(view:"/travel/memberReservation", model:[member: member])
+		render(view:"/administrator/travel/memberReservation", model:[member: member])
 	}
 	
 	def travelToProcess = {
 		def travels = travelService.findTravelToProcess()
-		render(view:"/travel/travelPending", model:[travels: travels])			
+		render(view:"/administrator/travel/travelPending", model:[travels: travels])			
 	}
 	
 	def closeTravel = {
@@ -87,9 +87,14 @@ class AdministratorController {
 		redirect(action:"travelToProcess", controller:"administrator")		
 	}
 	
-	def reservationToProcess = {
+	def reservationToPrice = {
 		def travels = travelService.findReservationToProcess()
-		render(view:"/travel/reservationPending", model:[travels: travels])			
+		render(view:"/administrator/travel/reservationToPrice", model:[travels: travels])			
+	}
+	
+	def reservationToConfirm = {
+		def travels = travelService.findReservationToConfirm()
+		render(view:"/administrator/travel/reservationToConfirm", model:[travels: travels])			
 	}
 	
 	def validateReservation = {
@@ -117,6 +122,14 @@ class AdministratorController {
 	def cancelReservation = {
 		travelService.cancel(params.id)
 		redirect(action:"reservationToProcess", controller:"travel")		
+	}
+	
+	def reservationMain = {
+		render(view:"/administrator/reservation/main", model:[])
+	}
+	
+	def initCreateReservation = {
+		render(view:"/administrator/travel/chooseCustomerType", model:[])
 	}
 	
 }
