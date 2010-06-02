@@ -1,7 +1,7 @@
 <html>
     <head>
-        <title>Login</title>
-		<meta name="layout" content="main" />		
+        <title><g:message code="title.admin.login" /></title>
+		<meta name="layout" content="admin" />			
     </head>
     <body>
     	<g:if test="${flash.message != null}">
@@ -9,7 +9,6 @@
 				<g:message code="${flash.message}" ></g:message>
 			</div>
     	</g:if>
-    	Admin Login
     	<g:form name="administrator" controller="administrator" action="login" method="post" >
     		<p>
     		<g:message code="login.login" />
