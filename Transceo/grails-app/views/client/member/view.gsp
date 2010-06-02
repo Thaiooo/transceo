@@ -4,7 +4,7 @@
 		<meta name="layout" content="client" />
     </head>
     <body>
-		<div><g:render template="/common/profile" bean="${member}"/></div>
+		<div><g:render template="/common/member/editable" bean="${member}"/></div>
     	<br/>
     	<div><g:render template="/common/mile" bean="${member}"/></div>
     	<br/>
