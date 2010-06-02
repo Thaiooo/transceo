@@ -5,7 +5,7 @@
     </head>
     <body>
 		<g:form controller="travel" action="customerReserve" method="post" >
-			<g:render template="/common/editCustomer" bean="${customer}"/>
+			<g:render template="/common/member/editCustomer" bean="${customer}"/>
 			<br/>
 			<g:render template="/common/editTravel" bean="${travel}"/>
 			<p class="boutons">

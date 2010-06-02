@@ -6,11 +6,11 @@
     <body>
 		<div><g:render template="/common/member/editable" bean="${member}"/></div>
     	<br/>
-    	<div><g:render template="/common/mile" bean="${member}"/></div>
+    	<div><g:render template="/common/member/mile" bean="${member}"/></div>
     	<br/>
     	<div><g:render template="/common/member/sponsor" bean="${member}"/></div>
     	<br/>
-   		<div><g:render template="/common/friends" bean="${member}"/></div>
+   		<div><g:render template="/common/member/friends" bean="${member}"/></div>
     	<br/>
     	<div><g:render template="/common/travels" bean="${member}"/></div>
     	<br/>
