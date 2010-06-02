@@ -89,12 +89,12 @@ class AdministratorController {
 	
 	def reservationToPrice = {
 		def travels = travelService.findReservationToProcess()
-		render(view:"/administrator/travel/reservationToPrice", model:[travels: travels])			
+		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
 	}
 	
 	def reservationToConfirm = {
 		def travels = travelService.findReservationToConfirm()
-		render(view:"/administrator/travel/reservationToConfirm", model:[travels: travels])			
+		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])			
 	}
 	
 	def validateReservation = {
