@@ -15,4 +15,9 @@ class LoginController {
 			}
 		}
 	}
+	
+	def disconnect = {
+		session[SessionConstant.USER.name()] = null
+		redirect(uri:"/")
+	}
 }
