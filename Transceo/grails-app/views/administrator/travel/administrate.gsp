@@ -8,7 +8,7 @@
     	<br/>
     	<g:render template="/administrator/travel/viewTravel" bean="${travel}" var="travel"/>
 		<br/>
-		<g:render template="/administrator/travel/actionForTravel" bean="${travel}" var="travel"/>		    	
+		<g:render template="/administrator/travel/action" bean="${travel}" var="travel"/>		    	
     	<br/>
     	<g:link controller="administrator" action="travelToProcess">Retour</g:link>
     </body>
