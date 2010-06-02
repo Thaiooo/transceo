@@ -84,7 +84,7 @@
     		<g:link controller="administrator" action="showProfile" id="${travel.customer.id}">Retour</g:link>
     	</g:if>
     	<g:else>
-    		<g:link controller="member" action="showMyProfile"><g:message code="common.button.cancel" /></g:link>
+    		<g:link controller="member" action="showMyProfile"><g:message code="common.button.back" /></g:link>
     	</g:else>
     	
     </body>
