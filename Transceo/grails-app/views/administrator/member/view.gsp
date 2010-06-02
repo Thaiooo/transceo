@@ -15,7 +15,7 @@
     	<div><g:render template="/common/travels" bean="${member}"/></div>
     	<br/>
     	<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
-    		<g:link controller="administrator" action="backMember">Retour</g:link>
+    		<g:link controller="administrator" action="backMember"><g:message code="common.button.back"/></g:link>
     	</g:if>
     </body>
 </html>
