@@ -5,9 +5,9 @@
     </head>
     <body>
     	<g:form controller="travel" action="memberReserve" method="post" >
-    		<g:render template="/travel/viewCustomer" bean="${member}" var="customer"/>
+    		<g:render template="/common/member/view" bean="${member}" var="customer"/>
     		<br/>
-    		<g:render template="/travel/editTravel" bean="${travel}" var="travel"/>
+    		<g:render template="/common/editTravel" bean="${travel}" var="travel"/>
     		<br/>
     		<p>
 	    		<g:submitButton name="create" value="${message(code:'common.button.submit')}" />
