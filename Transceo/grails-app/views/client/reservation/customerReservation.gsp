@@ -20,7 +20,7 @@
 						<g:form controller="travel" action="customerReserve" method="post" >
 							<g:render template="/common/member/editCustomer" bean="${customer}"/>
 							<br/>
-							<g:render template="/common/editTravel" bean="${travel}"/>
+							<g:render template="/common/travel/editTravel" bean="${travel}"/>
 							<p class="boutons"><input type="submit" class="submit" name="valide" value="Envoyer un message" /></p>
 						</g:form>
 					</div>
