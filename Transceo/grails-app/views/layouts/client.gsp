@@ -104,6 +104,11 @@
 						<a href="<g:createLink controller="travel" action="initMemberReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
 					</g:else>
 				</li>
+				<li class="art5">
+					<g:if test="${session.USER != null}">
+						<a href="<g:createLink controller="login" action="disconnect" />#ancre" title="Disconnect" >D</a>
+					</g:if>
+				</li>
 				<li class="art7">
 					<g:if test="${session.USER == null}">
 						<a href="<g:createLink controller="login" action="login" />#ancre" title="Manage user" >Login</a>
