@@ -5,9 +5,9 @@
     </head>
     <body>
 		<g:form controller="travel" action="customerReserve" method="post" >
-			<g:render template="/common/member/editCustomer" bean="${customer}"/>
+			<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
 			<br/>
-			<g:render template="/common/travel/editTravel" bean="${travel}"/>
+			<g:render template="/common/travel/editSection" bean="${travel}"/>
 			<p class="boutons">
 				<input type="submit" class="submit" name="valide" value="<g:message code="common.button.submit" />" />
 				<g:link controller="administrator" action="initCreateReservation" title="Reservation to price"><g:message code="common.button.back" /></g:link>

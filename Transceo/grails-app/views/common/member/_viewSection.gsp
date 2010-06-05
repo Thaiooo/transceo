@@ -1,6 +1,5 @@
 <fieldset>
-	<legend><g:message code="view.travel.section.customer" /></legend>
-	
+	<legend>${legend}</legend>
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
 			<g:message code="view.member.code" />:
@@ -39,5 +38,7 @@
 	    <g:message code="view.member.country" />:
 	    ${customer.country}
 	</p>
-	
+	<g:if test="${editAble == true}">	
+		<g:link action="initUpdateCustomerInformation" id="${member.id}"><g:message code="common.button.edit" /></g:link>
+	</g:if>
 </fieldset>

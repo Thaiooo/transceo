@@ -26,7 +26,6 @@
 		<g:set var="numberOfPersonne" value="" />
 		<g:set var="handicap" value="false" />
 		<g:set var="comment" value="" />
-		
 	</g:else>
 
 	<p>
@@ -53,26 +52,20 @@
 	<table width="100%">
 		<tr>
 			<td >
-				<fieldset>
-					<legend><g:message code="view.travel.section.travel.depart" /></legend>
-					<g:hasErrors bean="${depart}">
-						<div class="erreur_message">
-							<g:renderErrors bean="${depart}" />
-						</div>
-					</g:hasErrors>
-					<g:render template="/common/travel/editAdresse" bean="${depart}" var="adresse"  model="['beanName':'depart']"/>
-				</fieldset>
+				<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
+				<g:render template="/common/travel/editAdresseSection" 
+					bean="${depart}" 
+					var="adresse"  
+					model='["beanName":"depart", "legend":"${legendDepart}"]'
+				/>
 			</td>
 			<td>
-				<fieldset>
-					<legend><g:message code="view.travel.section.travel.destination" /></legend>
-					<g:hasErrors bean="${destination}">
-						<div class="erreur_message">
-							<g:renderErrors bean="${destination}" />
-						</div>
-					</g:hasErrors>
-					<g:render template="/common/travel/editAdresse" bean="${destination}" var="adresse"  model="['beanName':'destination']"/>
-				</fieldset>
+				<g:set var="legendDestination" value="${message(code:'view.travel.section.travel.destination')}" />
+				<g:render template="/common/travel/editAdresseSection" 
+					bean="${destination}" 
+					var="adresse"  
+					model='["beanName":"destination", "legend":"${legendDestination}"]'
+				/>
 			</td>
 		</tr>
 	</table>
