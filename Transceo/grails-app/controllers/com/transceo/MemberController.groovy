@@ -110,9 +110,9 @@ class MemberController {
 		render(view:"/client/member/view", model:[member: o])		
 	}
 	
-	def initUpdate = {
+	def initUpdateCustomerInformation = {
 		def o = Member.get(params.id.toLong()) 
-		render(view:"/common/member/edit", model:[member: o])		
+		render(view:"/client/member/edit", model:[member: o])		
 	}
 	
 	def delete = {

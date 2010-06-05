@@ -19,6 +19,11 @@ class AdministratorController {
 		}
 	}
 	
+	def initUpdateCustomerInformation = {
+		def o = Member.get(params.id.toLong()) 
+		render(view:"/administrator/member/edit", model:[member: o])		
+	}
+	
 	def showProfile = {
 		def o = Member.get(params.id.toLong()) 
 		session[SessionConstant.ADMIN_VIEW.name()] = true
