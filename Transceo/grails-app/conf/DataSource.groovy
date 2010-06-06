@@ -20,7 +20,7 @@ environments {
 			url = "jdbc:mysql://localhost/transceo"
 			username = "transceo"
 			password = "transceo"
-			//loggingSql = "false"
+			loggingSql = true
 		}
 	}
 	test {

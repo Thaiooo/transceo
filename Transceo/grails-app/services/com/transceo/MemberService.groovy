@@ -40,14 +40,16 @@ class MemberService {
 			if(params.password == params.confirmPassword){
 				member.save()
 				// Send mail
+				/*
 				mailService.sendMail {
 					to member.eMail
 					from "no-reply@transceo.com"
 					subject "Activate your account"
-					body( view:"/mail/subscribe", 
+					body( view:"/client/mail/subscribe", 
 							plugin:"email-confirmation", 
 							model:[member:member])
 				}
+				*/
 			}
 		}
 		return member
@@ -55,14 +57,16 @@ class MemberService {
 	
 	def createInvitation(invitation){
 		invitation.save()
+		/*
 		mailService.sendMail {
 			to invitation.eMail
 			from "no-reply@transceo.com"
 			subject "Join Transceo"
-			body( view:"/mail/invitation", 
+			body( view:"/client/mail/invitation", 
 					plugin:"email-confirmation", 
 					model:[invitation:invitation])
 		}
+		*/
 	}
 	
 	def sendPasswordByMail(code){
@@ -70,14 +74,16 @@ class MemberService {
 		if(member == null){
 			return false
 		}
+		/*
 		mailService.sendMail {
 			to member.eMail
 			from "no-reply@transceo.com"
 			subject "Transceo - Your password"
-			body( view:"/mail/password", 
+			body( view:"/client/mail/password", 
 					plugin:"email-confirmation", 
 					model:[member:member])
 		}
+		*/
 		return true
 	}
 	

@@ -12,9 +12,7 @@
     		<br/>
     		<p>
 	    		<g:submitButton name="create" value="${message(code:'common.button.submit')}" />
-	    		<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
-					<g:link controller="administrator" action="backMember">Retour</g:link>
-	    		</g:if>
+				<g:link controller="administrator" action="backMember"><g:message code="common.button.back" /></g:link>
     		</p>
     	</g:form>
     </body>

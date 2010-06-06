@@ -5,6 +5,7 @@
     </head>
     <body>
 		<g:form controller="travel" action="customerReserve" method="post" >
+			<g:hiddenField class="text" name="ADMIN_VIEW" value="true" />
 			<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
 			<br/>
 			<g:render template="/common/travel/editSection" bean="${travel}"/>

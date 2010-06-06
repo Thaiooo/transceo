@@ -8,19 +8,8 @@ class TravelController {
 	
 	def show = {
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/common/travel/view", model:[travel: o])		
+		render(view:"/common/travel/view", model:[travel: o])
 	}
-	
-	def showForAdministrateReservation = {
-		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/reservation/administrate", model:[travel: o])		
-	}
-	
-	def showForAdministrateTravel = {
-		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/travel/administrate", model:[travel: o])		
-	}
-	
 	
 	def initCustomerReservation = {
 		render(view:"/client/reservation/customerReservation", model:[])		
@@ -31,8 +20,6 @@ class TravelController {
 	}
 	
 	def customerReserve = {
-		println params
-		
 		def validate = true
 		def customer = new Customer()
 		customer.properties = params
@@ -64,11 +51,20 @@ class TravelController {
 			validate = false
 		}
 		
+		println params
 		if(!validate){
-			render(view:"/client/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+			if(params.ADMIN_VIEW == "true"){
+				render(view:"/administrator/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+			}else{
+				render(view:"/client/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])	
+			}
 		}else{
 			travelService.create(travel)
-			redirect(uri:"/")
+			if(params.ADMIN_VIEW == "true"){
+				redirect(controller: "administrator", action: "initCreateReservation")
+			} else{
+				redirect(uri:"/")
+			}
 		}
 	}
 	
