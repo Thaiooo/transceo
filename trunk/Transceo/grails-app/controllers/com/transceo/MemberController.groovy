@@ -89,24 +89,19 @@ class MemberController {
 		}
 	}
 	
-	def update = {
+	def updateCustomerInformation = {
 		def o = Member.get(params.id.toLong())
 		o.properties = params
 		if(o.validate()){
 			o.save()
-			if(session[SessionConstant.ADMIN_VIEW.name()]){
-				redirect(controller:"administrator",action:"showProfile", id:o.id)
-			}else{
-				redirect(controller:"member",action:"showMyProfile", id:o.id)	
-			}
+			redirect(controller:"member",action:"showMyProfile", id:o.id)	
 		} else {
-			render(view:"/common/member/edit", model:[member: o])
+			render(view:"/client/member/edit", model:[member: o])
 		}
 	}
 	
 	def showMyProfile = {
 		def o = Member.get(session[SessionConstant.USER.name()].id)
-		session[SessionConstant.ADMIN_VIEW.name()] = false
 		render(view:"/client/member/view", model:[member: o])		
 	}
 	

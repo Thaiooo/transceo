@@ -10,8 +10,12 @@
 			</div>
 		</g:hasErrors>
 		<g:if test="${flash.message != null}">
-	    	<div class="errors">
-				<g:message code="${flash.message}" ></g:message>
+	    	<div class="erreur_message">
+	    		<ul>
+					<li>
+						<g:message code="${flash.message}" ></g:message>
+					</li>
+				</ul>
 			</div>
     	</g:if>
     	<form controller="member" action="addFriend" method="post" >

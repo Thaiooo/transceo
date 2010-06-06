@@ -4,7 +4,7 @@
 	<g:form controller="administrator" method="post" >
     	<g:hiddenField name="id" value="${travel.id}" />
 		<g:actionSubmit value="Validate" action="closeTravel" />
-		<g:actionSubmit value="Cancel" action="cancelReservation" />
+		<g:actionSubmit value="Cancel" action="cancelTravel" />
     </g:form>
     
 </fieldset>

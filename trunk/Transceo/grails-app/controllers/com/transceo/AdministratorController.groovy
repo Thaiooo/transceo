@@ -1,5 +1,7 @@
 package com.transceo
 
+import groovy.util.Expando;
+
 class AdministratorController {
 	def memberService
 	def travelService
@@ -14,9 +16,14 @@ class AdministratorController {
 				render(view:"/administrator/login", model:[userLogin:params.login])
 			}else{
 				session[SessionConstant.ADMIN.name()] = user
-				redirect(action:"searchMember", controller:"administrator")
+				redirect(action:"reservationMain", controller:"administrator")
 			}
 		}
+	}
+	
+	def disconnect = {
+		session[SessionConstant.ADMIN.name()] = null
+		redirect(controller:"administrator", action:"login")
 	}
 	
 	def initUpdateCustomerInformation = {
@@ -25,8 +32,7 @@ class AdministratorController {
 	}
 	
 	def showProfile = {
-		def o = Member.get(params.id.toLong()) 
-		session[SessionConstant.ADMIN_VIEW.name()] = true
+		def o = Member.get(params.id.toLong()) 		
 		render(view:"/administrator/member/view", model:[member: o])		
 	}
 	
@@ -54,7 +60,7 @@ class AdministratorController {
 	}
 	
 	def backMember = {
-		def criteria = session[SessionConstant.CRITERIA.name()]	
+		def criteria = session[SessionConstant.CRITERIA.name()]
 		commonSearchMember(criteria)		
 	}
 	
@@ -62,6 +68,7 @@ class AdministratorController {
 		def criteria = session[SessionConstant.CRITERIA.name()]
 		criteria.offset=params.offset
 		criteria.max=params.max
+		session[SessionConstant.CRITERIA.name()] = criteria 
 		commonSearchMember(criteria)		
 	}
 	
@@ -93,8 +100,22 @@ class AdministratorController {
 	}
 	
 	def reservationToPrice = {
-		def travels = travelService.findReservationToProcess()
-		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
+		def criteria = new Expando()
+		session[SessionConstant.CRITERIA.name()] = criteria
+		def travels = travelService.findReservationToPrice(criteria)
+		def total = 10
+		render(view:"/administrator/reservation/toPrice", model:[travels: travels, criteria:criteria, total: total])			
+	}
+	
+	
+	def sortReservationToPrice = {
+		def criteria = session[SessionConstant.CRITERIA.name()]
+		criteria.sort=params.sort
+		criteria.order=params.order
+		session[SessionConstant.CRITERIA.name()] = criteria
+		def travels = travelService.findReservationToPrice(criteria)
+		def total = 10
+		render(view:"/administrator/reservation/toPrice", model:[travels: travels, criteria:criteria, total: total])
 	}
 	
 	def reservationToConfirm = {
@@ -106,43 +127,104 @@ class AdministratorController {
 		if(params.price == null || !params.price.isInteger()){
 			flash.message = "administrate.price.required" 
 			def o = Travel.get(params.id.toLong()) 
-			render(view:"/travel/administrate", model:[travel: o])
+			render(view:"/administrator/reservation/administrate", model:[travel: o])
 		}else{
 			travelService.validate(params.id, params.price.toInteger())
-			redirect(action:"reservationToProcess", controller:"travel")
+			redirect(action:"reservationToPrice", controller:"administrator")
 		}
 	}
 	
 	def confirmReservation = {
+		travelService.confirm(params.id)
+		redirect(action:"travelToProcess", controller:"administrator")
+	}
+	
+	def validateAndConfirmReservation = {
 		if(params.price == null || !params.price.isInteger()){
 			flash.message = "administrate.price.required"
 			def o = Travel.get(params.id.toLong()) 
-			render(view:"/travel/administrate", model:[travel: o])
+			render(view:"/administrator/reservation/administrate", model:[travel: o])
 		}else{
 			travelService.confirm(params.id, params.price.toInteger())
-			redirect(action:"reservationToProcess", controller:"travel")
-		}
+			redirect(action:"reservationToProcess", controller:"administrator")
+		}	
 	}
 	
 	def cancelReservation = {
 		travelService.cancel(params.id)
-		redirect(action:"reservationToProcess", controller:"travel")		
+		if(session[SessionConstant.ADMIN_PAGE.name()] == 'price'){
+			redirect(action:"reservationToPrice", controller:"administrator")
+		}else{
+			redirect(action:"reservationToConfirm", controller:"administrator")
+		}
+	}
+	
+	def cancelTravel = {
+		travelService.cancel(params.id)
+		redirect(action:"travelToProcess", controller:"administrator")		
 	}
 	
 	def reservationMain = {
 		render(view:"/administrator/reservation/main", model:[])
 	}
 	
-	def travelMain = {
-		render(view:"/administrator/travel/main", model:[])
-	}
-	
 	def initCreateReservation = {
 		render(view:"/administrator/reservation/chooseCustomerType", model:[])
 	}
 	
-	def searchTravel = {
-		render(view:"/administrator/travel/search", model:[])
+	def searchReservation = {
+		def statusList = TravelStatus.values()
+		def dateCriteria = DateCriteria.values()
+		
+		def criteria = new Expando()
+		criteria.code = params.code
+		criteria.firstName = params.firstName
+		criteria.lastName = params.lastName
+		criteria.phoneNumber = params.phoneNumber
+		criteria.eMail = params.eMail
+		criteria.creationDateCriteria = params.creationDateCriteria
+		criteria.creationDate = DateUtils.parseDate(params.creationDate)
+		criteria.reservationDateCriteria = params.reservationDateCriteria
+		criteria.reservationDate = DateUtils.parseDate(params.reservationDate)
+		criteria.handicap = params.handicap
+		criteria.status = params.status
+		
+		
+		def reservations = travelService.findReservation(criteria)
+		
+		render(view:"/administrator/reservation/search", model:[statusList: statusList, dateCriteria:dateCriteria, criteria:criteria, reservations:reservations])
 	}
 	
+	def showForConfirmReservation = {
+		session[SessionConstant.ADMIN_PAGE.name()] = 'confirm'
+		def o = Travel.get(params.id.toLong()) 
+		render(view:"/administrator/reservation/administrate", model:[travel: o])		
+	}
+	
+	def showForPriceReservation = {
+		session[SessionConstant.ADMIN_PAGE.name()] = 'price'
+		def o = Travel.get(params.id.toLong()) 
+		render(view:"/administrator/reservation/administrate", model:[travel: o])		
+	}
+	
+	def showForAdministrateTravel = {
+		def o = Travel.get(params.id.toLong()) 
+		render(view:"/administrator/travel/administrate", model:[travel: o])		
+	}
+	
+	def updateCustomerInformation = {
+		def o = Member.get(params.id.toLong())
+		o.properties = params
+		if(o.validate()){
+			o.save()
+			redirect(controller:"administrator",action:"showProfile", id:o.id)
+		} else {
+			render(view:"/administrator/member/edit", model:[member: o])
+		}
+	}
+	
+	def showTravel = {
+		def o = Travel.get(params.id.toLong()) 
+		render(view:"/common/travel/view", model:[travel: o, ADMIN_VIEW: true])
+	}
 }

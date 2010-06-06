@@ -9,15 +9,5 @@
 			en s'appuyant sur les fondamentaux d'un service irréprochable :
 		</p>
 		<p><strong>Efficacité - Disponibilité - Sécurité</strong></p>
-		
-    
-    
-    
-		<g:link controller="member" action="initAddFriend">Sponsoring</g:link>
-		<br/>
-		<g:link controller="travel" action="initCustomerReservation">Create Customer Reservation</g:link>
-		<br/>
-		<g:link controller="travel" action="initMemberReservation">Create Member Reservation</g:link>
-		<br/>
 	</body>
 </html>

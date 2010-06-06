@@ -13,10 +13,8 @@
     	<br/>
    		<div><g:render template="/common/member/friendsSection" bean="${member}"/></div>
     	<br/>
-    	<div><g:render template="/common/travel/listSection" bean="${member}"/></div>
-    	<br/>
-    	<g:if test="${session[com.transceo.SessionConstant.ADMIN_VIEW.name()] == true}"> 
-    		<g:link controller="administrator" action="backMember"><g:message code="common.button.back"/></g:link>
-    	</g:if>
+    	<div><g:render template="/common/travel/listSection" bean="${member}" model="['ADMIN_VIEW':true]"/></div>
+    	<br/>    	 
+    	<g:link controller="administrator" action="backMember"><g:message code="common.button.back"/></g:link>    	
     </body>
 </html>

@@ -21,7 +21,9 @@
 							<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
 							<br/>
 							<g:render template="/common/travel/editSection" bean="${travel}"/>
-							<p class="boutons"><input type="submit" class="submit" name="valide" value="Envoyer un message" /></p>
+							<p class="boutons">
+								<g:submitButton name="create" value="${message(code:'common.button.submit')}" />
+							</p>
 						</g:form>
 					</div>
 				</td>
