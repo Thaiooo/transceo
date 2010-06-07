@@ -20,7 +20,7 @@
 			    	<g:each in="${reservations}">
 			     		<tr>
 			     			<td>
-			     				<g:link controller="administrator" action="showForPriceReservation" id="${it.id}" params="[backAction:'backReservation']"><g:message code="view.travel.administrate" /></g:link>
+			     				<g:link controller="administrator" action="showReservationDetails" id="${it.id}" params="[backAction:'backReservation']"><g:message code="view.travel.action.view" /></g:link>
 			     			</td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/>

@@ -11,14 +11,18 @@
 		<br/>
     	<g:if test="${session[com.transceo.SessionConstant.ADMIN_PAGE.name()] == 'price'}">
     		<g:render template="/administrator/reservation/actionPriceSection" bean="${travel}" var="travel" model='["price":"${price}"]'/>
+    		<br/>    	
+    		<g:link controller="administrator" action="reservationToPrice"><g:message code="common.button.back" /></g:link>
     	</g:if>
     	<g:elseif test="${session[com.transceo.SessionConstant.ADMIN_PAGE.name()] == 'confirm'}">
     		<g:render template="/administrator/reservation/actionConfirmSection" bean="${travel}" var="travel"/>
+    		<br/>    	
+    		<g:link controller="administrator" action="reservationToConfirm"><g:message code="common.button.back" /></g:link>
     	</g:elseif>
     	<g:else>
     		<g:render template="/administrator/reservation/actionValidateSection" bean="${travel}" var="travel"/>
+    		<br/>    	
+    		<g:link controller="administrator" action="reservationToProcess"><g:message code="common.button.back" /></g:link>
     	</g:else>
-		<br/>    	
-    	<g:link controller="administrator" action="${backAction}"><g:message code="common.button.back" /></g:link>
     </body>
 </html>

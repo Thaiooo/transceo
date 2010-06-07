@@ -15,7 +15,9 @@
 		var myOptions = {
 			zoom:11,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: chicago
+			center: chicago,
+			scrollwheel: false,
+			streetViewControl: true
 		}
 		map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 		directionsDisplay.setMap(map);

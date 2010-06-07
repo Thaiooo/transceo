@@ -14,7 +14,7 @@
 		    		<tr>
 		    			<th></th>
 		    			<g:sortableColumn action="sortReservationToPrice" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
-		    			<g:sortableColumn action="sortReservationToPrice" property="customer.code" title="${message(code:'view.travel.member')}" />
+		    			<g:sortableColumn action="sortReservationToPrice" property="customer" title="${message(code:'view.travel.member')}" />
 		    			<g:sortableColumn action="sortReservationToPrice" property="travelDate" title="${message(code:'view.travel.traveldate')}" />
 		    			<th><g:message code="view.travel.depart" /></th>
 		    			<th><g:message code="view.travel.destination" /></th>
@@ -26,7 +26,7 @@
 			    	<g:each in="${travels}">
 			     		<tr>
 			     			<td>
-			     				<g:link controller="administrator" action="showForPriceReservation" id="${it.id}" params="[backAction:'reservationToPrice']"><g:message code="view.travel.administrate" /></g:link>
+			     				<g:link controller="administrator" action="showForPriceReservation" id="${it.id}"><g:message code="view.travel.action.administrate" /></g:link>
 			     			</td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/>
