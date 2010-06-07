@@ -45,15 +45,15 @@
 			<legend><g:message code="search.reservation.section.travel.legend" /></legend>
 			<p>
 			<g:message code="search.travel.creation.date" />
-			<g:select name="status" from="${dateCriteria}" name="creationDateCriteria" value="${creationDateCriteria}" valueMessagePrefix="date.criteria"/>
+			<g:select name="status" from="${com.transceo.DateCriteria.values()}" name="creationDateCriteria" value="${creationDateCriteria}" valueMessagePrefix="date.criteria"/>
 			<input type="text" class="text" size="10" id="creationDate" name="creationDate" value="<g:formatDate format="dd/MM/yyyy" date="${creationDate}"/>"/>
 			<g:message code="search.travel.date" /> 			 
-			<g:select name="status" from="${dateCriteria}" name="reservationDateCriteria" value="${reservationDateCriteria}" valueMessagePrefix="date.criteria"/>
+			<g:select name="status" from="${com.transceo.DateCriteria.values()}" name="reservationDateCriteria" value="${reservationDateCriteria}" valueMessagePrefix="date.criteria"/>
 			<input type="text" class="text" size="10" id="reservationDate" name="reservationDate" value="<g:formatDate format="dd/MM/yyyy" date="${reservationDate}"/>"/>
 			<g:message code="search.travel.handicap" />			
 			<g:checkBox name="handicap" value="${handicap}" checked="${handicap}"/>
 			<g:message code="search.travel.status" />			
-			<g:select name="status" from="${statusList}" value="${status}" valueMessagePrefix="reservation.status"/>
+			<g:select name="status" from="${com.transceo.TravelStatus.values()}" value="${status}" valueMessagePrefix="reservation.status"/>
 			</p>
 		</fieldset>
 		<p>
