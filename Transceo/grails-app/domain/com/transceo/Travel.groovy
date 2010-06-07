@@ -23,6 +23,6 @@ class Travel {
 		price(nullable: false)
 		customer(nullable: false)
 		comment(nullable: true)
-		numberOfPersonne(nullable: true)		
+		numberOfPersonne(nullable: false)		
 	}	
 }

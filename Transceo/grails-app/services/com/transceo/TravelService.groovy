@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 class TravelService {
 	static transactional = true
 	def mailService
-	def max = 3
+	def max = 2
 	
 	def create(Travel travel){
 		// Send mail
@@ -122,14 +122,85 @@ class TravelService {
 						break;
 				}
 			}
+			if(params.handicap){
+				eq("handicap", true)
+			}
 			
 			firstResult(offset)
-			//maxResults(max)
+			maxResults(max)
 			order(sortCriteria, orderCriteria)
 		}
 		return results
 	}
 	
+	def countMax(params){
+		def c = Travel.createCriteria()
+		def results = c.get {
+			projections { countDistinct('id') }
+			and {
+				customer{
+					if(StringUtils.isNotBlank(params.code)){
+						ilike("code", params.code)
+					}
+					if(StringUtils.isNotBlank(params.firstName)){
+						ilike("firstName", params.firstName)
+					}
+					if(StringUtils.isNotBlank(params.lastName)){
+						ilike("lastName", params.lastName)
+					}
+					if(StringUtils.isNotBlank(params.phoneNumber)){
+						ilike("phoneNumber", params.phoneNumber)
+					}
+					if(StringUtils.isNotBlank(params.eMail)){
+						ilike("eMail", params.eMail)
+					}
+				}
+				if(StringUtils.isNotBlank(params.status) && !StringUtils.equals(params.status, TravelStatus.ALL.name())){
+					eq("status", TravelStatus.valueOf(params.status))
+				}
+				if(params.reservationDate != null){
+					switch (params.reservationDateCriteria){
+						case DateCriteria.EQUALS.name():
+							ge("travelDate", params.reservationDate)
+							le("travelDate", params.reservationDate + 1) 
+							break;
+						case DateCriteria.BEFORE.name():
+							le("travelDate", params.reservationDate + 1)
+							break;
+						case DateCriteria.AFTER.name():
+							ge("travelDate", params.reservationDate)
+							break;
+						default:
+							ge("travelDate", params.reservationDate)
+							le("travelDate", params.reservationDate + 1)
+							break;
+					}
+				}
+				if(params.creationDate != null){
+					switch (params.creationDateCriteria){
+						case DateCriteria.EQUALS.name():
+							ge("travelDate", params.creationDate)
+							le("travelDate", params.creationDate + 1) 
+							break;
+						case DateCriteria.BEFORE.name():
+							le("travelDate", params.creationDate + 1)
+							break;
+						case DateCriteria.AFTER.name():
+							ge("travelDate", params.creationDate)
+							break;
+						default:
+							ge("travelDate", params.creationDate)
+							le("travelDate", params.creationDate + 1)
+							break;
+					}
+				}
+				if(params.handicap){
+					eq("handicap", true)
+				}
+			}
+		}
+		return results
+	}
 	
 	def findReservationToConfirm() {
 		def c = Travel.createCriteria()

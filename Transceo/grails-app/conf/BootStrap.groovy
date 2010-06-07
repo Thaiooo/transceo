@@ -71,6 +71,8 @@ class BootStrap {
 		travel.destination = destination
 		travel.price = 100
 		travel.handicap = true
+		travel.numberOfPersonne = 2
+		travel.comment = "Bla bla"
 		travel.customer = m1
 		m1.travels.add(travel)
 		travel.save()
@@ -99,6 +101,8 @@ class BootStrap {
 		travel.destination = destination
 		//travel.price = 100
 		travel.handicap = true
+		travel.numberOfPersonne = 1
+		travel.comment = "Bla bla"
 		travel.customer = m1
 		m1.travels.add(travel)
 		travel.save()
@@ -128,6 +132,8 @@ class BootStrap {
 		travel.destination = destination
 		travel.price = 100
 		travel.handicap = false
+		travel.numberOfPersonne = 2
+		travel.comment = "Bla bla"
 		travel.customer = m1
 		m1.travels.add(travel)
 		travel.save()
@@ -156,6 +162,8 @@ class BootStrap {
 		travel.destination = destination
 		travel.price = 100
 		travel.handicap = true
+		travel.numberOfPersonne = 2
+		travel.comment = null
 		travel.customer = m1
 		m1.travels.add(travel)
 		travel.save()
@@ -239,6 +247,8 @@ class BootStrap {
 		travel.destination = destination
 		travel.price = 100
 		travel.handicap = true
+		travel.numberOfPersonne = 2
+		travel.comment = null
 		travel.customer = c1
 		c1.travels.add(travel)
 		travel.save()
