@@ -15,8 +15,11 @@
 	    	<g:elseif test="${session[com.transceo.SessionConstant.ADMIN_PAGE.name()] == 'confirm'}">
 	    		<g:link controller="administrator" action="showForConfirmReservation" id="${travel.id}"><g:message code="common.button.back" /></g:link>
 	    	</g:elseif>
-	    	<g:else>
+	    	<g:elseif test="${session[com.transceo.SessionConstant.ADMIN_PAGE.name()] == 'validate'}">
 	    		<g:link controller="administrator" action="showForValidateReservation" id="${travel.id}"><g:message code="common.button.back" /></g:link>
+	    	</g:elseif>
+	    	<g:else>
+	    		<g:link controller="administrator" action="showReservationDetails" id="${travel.id}"><g:message code="common.button.back" /></g:link>
 	    	</g:else>
     	</g:form>
     </body>
