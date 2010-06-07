@@ -95,14 +95,14 @@ class AdministratorController {
 		render(view:"/administrator/reservation/memberReservation", model:[member: member])
 	}
 	
-	def travelToProcess = {
-		def travels = travelService.findTravelToProcess()
+	def reservationToProcess = {
+		def travels = travelService.findReservationToProcess()
 		render(view:"/administrator/reservation/toProcess", model:[travels: travels])			
 	}
 	
 	def closeTravel = {
 		travelService.close(params.id)
-		redirect(action:"travelToProcess", controller:"administrator")		
+		redirect(action:"reservationToProcess", controller:"administrator")		
 	}
 	
 	def reservationToPrice = {
@@ -142,7 +142,7 @@ class AdministratorController {
 	
 	def confirmReservation = {
 		travelService.confirm(params.id)
-		redirect(action:"travelToProcess", controller:"administrator")
+		redirect(action:"reservationToConfirm", controller:"administrator")
 	}
 	
 	def validateAndConfirmReservation = {
@@ -167,7 +167,7 @@ class AdministratorController {
 	
 	def cancelTravel = {
 		travelService.cancel(params.id)
-		redirect(action:"travelToProcess", controller:"administrator")		
+		redirect(action:"reservationToProcess", controller:"administrator")		
 	}
 	
 	def reservationMain = {
@@ -241,7 +241,7 @@ class AdministratorController {
 		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction])		
 	}
 	
-	def showForAdministrateTravel = {
+	def showForValidateReservation = {
 		session[SessionConstant.ADMIN_PAGE.name()] = 'validate'
 		def o = Travel.get(params.id.toLong()) 
 		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction])		
@@ -258,8 +258,24 @@ class AdministratorController {
 		}
 	}
 	
+	def updateReservationInformation = {
+		def o = Travel.get(params.id.toLong())
+		o.properties = params
+		if(o.validate()){
+			o.save()
+			redirect(controller:"administrator",action:"showReservationDetails", id:o.id)
+		} else {
+			render(view:"/administrator/reservation/edit", model:[member: o])
+		}
+	}
+	
 	def showTravel = {
 		def o = Travel.get(params.id.toLong()) 
 		render(view:"/common/travel/view", model:[travel: o, ADMIN_VIEW: true])
+	}
+	
+	def showReservationDetails = {
+		def o = Travel.get(params.id.toLong()) 
+		render(view:"/administrator/reservation/details", model:[travel: o, ADMIN_VIEW: true, backAction:params.backAction])
 	}
 }

@@ -270,7 +270,7 @@ class TravelService {
 		}
 	}
 	
-	def findTravelToProcess(){
+	def findReservationToProcess(){
 		def c = Travel.createCriteria()
 		def results = c.list {
 			eq("status", TravelStatus.RESERVE_CONFIRM)

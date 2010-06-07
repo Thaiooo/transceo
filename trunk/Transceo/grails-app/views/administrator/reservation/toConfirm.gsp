@@ -25,7 +25,7 @@
 	    		<tbody>
 			    	<g:each in="${travels}">
 			     		<tr>
-			     			<td><g:link controller="administrator" action="showForConfirmReservation" id="${it.id}"><g:message code="view.travel.administrate" /></g:link></td>
+			     			<td><g:link controller="administrator" action="showForConfirmReservation" id="${it.id}"><g:message code="view.travel.action.administrate" /></g:link></td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/>
 			     			</td>
