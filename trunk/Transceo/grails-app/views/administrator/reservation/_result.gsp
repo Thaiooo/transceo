@@ -7,7 +7,7 @@
 		    		<tr>
 		    			<th></th>
 		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
-		    			<g:sortableColumn action="sortReservation" property="customer.code" title="${message(code:'view.travel.member')}" />
+		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'view.travel.member')}" />
 		    			<g:sortableColumn action="sortReservation" property="travelDate" title="${message(code:'view.travel.traveldate')}" />
 		    			<th><g:message code="view.travel.depart" /></th>
 		    			<th><g:message code="view.travel.destination" /></th>
@@ -20,7 +20,7 @@
 			    	<g:each in="${reservations}">
 			     		<tr>
 			     			<td>
-			     				<g:link controller="administrator" action="showForPriceReservation" id="${it.id}"><g:message code="view.travel.administrate" /></g:link>
+			     				<g:link controller="administrator" action="showForPriceReservation" id="${it.id}" params="[backAction:'backReservation']"><g:message code="view.travel.administrate" /></g:link>
 			     			</td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/>
@@ -51,4 +51,14 @@
 			     	</g:each>
 	    		</tbody>
 	    	</table>
+	    	
+	    	<div>   	
+	    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
+	    		max="2"
+	            maxsteps="0" 
+	            controller="administrator" 
+	            action="paginateReservation" 
+	            total="${total}" 
+			/>
+		</div>
     	</g:else>
