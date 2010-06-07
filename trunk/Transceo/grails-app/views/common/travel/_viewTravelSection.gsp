@@ -50,7 +50,7 @@
 		<g:message code="view.travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
 	</p>
 	<p>
-		<g:message code="view.travel.status" />: ${travel.status}
+		<g:message code="view.travel.status" />: <g:message code="reservation.status.${travel.status}" /> 
 	</p>
 	<p>
 		<g:message code="view.travel.depart" />: ${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country}
@@ -59,11 +59,18 @@
 		<g:message code="view.travel.destination" />: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
 	</p>
 	<p>
+		<g:message code="view.travel.number.personne" />: ${travel.numberOfPersonne}
+	</p>
+	<p>
 		<g:message code="view.travel.handicap" />: ${travel.handicap}
 	</p>
 	<p>
 		<g:message code="view.travel.comment" />: ${travel.comment}
 	</p>
 	<br/>
-	<div id="map_canvas" style="width: 500px; height: 300px"></div>
+	<div id="map_canvas" style="width: 810px; height: 300px"></div>
+	<br/>
+	<p>
+		<g:link action="initUpdateReservationInformation" id="${travel.id}"><g:message code="common.button.edit" /></g:link>
+	</p>
 </fieldset>
