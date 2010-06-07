@@ -9,6 +9,6 @@
     	<br/>
     	<g:render template="/common/travel/viewTravelSection" bean="${travel}" var="travel"/>
 		<br/>
-    	<g:link controller="administrator" action="${backAction}"><g:message code="common.button.back" /></g:link>
+    	<g:link controller="administrator" action="backReservation"><g:message code="common.button.back" /></g:link>
     </body>
 </html>

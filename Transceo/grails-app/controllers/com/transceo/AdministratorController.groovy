@@ -261,6 +261,11 @@ class AdministratorController {
 	def updateReservationInformation = {
 		def o = Travel.get(params.id.toLong())
 		o.properties = params
+		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
+			o.travelDate = DateUtils.parseDate(params.date)	
+		}else{
+			o.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
+		}
 		if(o.validate()){
 			o.save()
 			redirect(controller:"administrator",action:"showReservationDetails", id:o.id)
@@ -275,6 +280,7 @@ class AdministratorController {
 	}
 	
 	def showReservationDetails = {
+		session[SessionConstant.ADMIN_PAGE.name()] = 'details'
 		def o = Travel.get(params.id.toLong()) 
 		render(view:"/administrator/reservation/details", model:[travel: o, ADMIN_VIEW: true, backAction:params.backAction])
 	}
