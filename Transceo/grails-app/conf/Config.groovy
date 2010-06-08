@@ -10,6 +10,9 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+grails.config.locations = [ "classpath:transeo-config.properties",
+                             "classpath:transeo-config.groovy"]
+
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -55,21 +58,7 @@ environments {
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
     }
-
 }
-
-grails {
-	   mail {
-	     host = "smtp.gmail.com"
-	     port = 465
-	     username = "quoc.thai.phan@gmail.com"
-	     password = ""
-	     props = ["mail.smtp.auth":"true", 					   
-	              "mail.smtp.socketFactory.port":"465",
-	              "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-	              "mail.smtp.socketFactory.fallback":"false"]
-
-	} }
 
 // log4j configuration
 log4j = {

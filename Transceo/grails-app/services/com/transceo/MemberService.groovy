@@ -40,7 +40,6 @@ class MemberService {
 			if(params.password == params.confirmPassword){
 				member.save()
 				// Send mail
-				/*
 				mailService.sendMail {
 					to member.eMail
 					from "no-reply@transceo.com"
@@ -49,7 +48,6 @@ class MemberService {
 							plugin:"email-confirmation", 
 							model:[member:member])
 				}
-				*/
 			}
 		}
 		return member
@@ -57,7 +55,6 @@ class MemberService {
 	
 	def createInvitation(invitation){
 		invitation.save()
-		/*
 		mailService.sendMail {
 			to invitation.eMail
 			from "no-reply@transceo.com"
@@ -66,7 +63,6 @@ class MemberService {
 					plugin:"email-confirmation", 
 					model:[invitation:invitation])
 		}
-		*/
 	}
 	
 	def sendPasswordByMail(code){
@@ -74,7 +70,6 @@ class MemberService {
 		if(member == null){
 			return false
 		}
-		/*
 		mailService.sendMail {
 			to member.eMail
 			from "no-reply@transceo.com"
@@ -83,7 +78,6 @@ class MemberService {
 					plugin:"email-confirmation", 
 					model:[member:member])
 		}
-		*/
 		return true
 	}
 	
