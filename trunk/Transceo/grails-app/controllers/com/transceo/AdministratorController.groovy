@@ -38,7 +38,7 @@ class AdministratorController {
 	
 	
 	def showProfile = {
-		def o = Member.get(params.id.toLong()) 		
+		def o = Customer.get(params.id.toLong()) 		
 		render(view:"/administrator/member/view", model:[member: o])		
 	}
 	

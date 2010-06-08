@@ -114,7 +114,7 @@ class MemberService {
 			offset = params.offset.toInteger()	
 		}		
 		
-		def c = Member.createCriteria()
+		def c = Customer.createCriteria()
 		def results = c.list {
 			and {
 				if(StringUtils.isNotBlank(params.code)){
@@ -153,7 +153,7 @@ class MemberService {
 	}
 	
 	def int countMax(params){
-		def c = Member.createCriteria()
+		def c = Customer.createCriteria()
 		def results = c.get {
 			projections {
 				countDistinct('id')
