@@ -41,6 +41,10 @@
 	<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
 </p>
 <p>
+	<g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong>
+	<g:textField class="text" name="eMail" value="${eMail}" />
+</p>
+<p>
 	<g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong>
 	<g:textField class="text" name="adresse" value="${adresse}" />
 </p>
