@@ -9,16 +9,14 @@ class TravelService {
 	
 	def create(Travel travel){
 		// Send mail
-		/*
-		 mailService.sendMail {
-		 to travel.customer.eMail
-		 from "no-reply@transceo.com"
-		 subject "Transceo - Rservation resume"
-		 body( view:"/client/mail/reservationResume", 
-		 plugin:"email-confirmation", 
-		 model:[travel:travel])
-		 }
-		 */
+		mailService.sendMail {
+			to travel.customer.eMail
+			from "no-reply@transceo.com"
+			subject "Transceo - Rservation resume"
+			body( view:"/client/mail/reservationResume", 
+					plugin:"email-confirmation", 
+					model:[travel:travel])
+		}
 		
 		travel.customer.save()
 		travel.depart.save()
@@ -180,7 +178,7 @@ class TravelService {
 		}
 		return results
 	}
-		
+	
 	def cancel(id){
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.CANCEL
@@ -240,7 +238,7 @@ class TravelService {
 			}
 		}
 	}
-
+	
 	def findTravelByIdAndCustomerId(travelId, customerId){
 		def c = Travel.createCriteria()
 		def results = c.get {
