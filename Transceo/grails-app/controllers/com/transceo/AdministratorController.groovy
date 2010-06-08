@@ -95,11 +95,6 @@ class AdministratorController {
 		render(view:"/administrator/reservation/memberReservation", model:[member: member])
 	}
 	
-	def reservationToProcess = {
-		def travels = travelService.findReservationToProcess()
-		render(view:"/administrator/reservation/toProcess", model:[travels: travels])			
-	}
-	
 	def closeTravel = {
 		travelService.close(params.id)
 		redirect(action:"reservationToProcess", controller:"administrator")		
@@ -107,27 +102,59 @@ class AdministratorController {
 	
 	def reservationToPrice = {
 		def criteria = new Expando()
-		session[SessionConstant.CRITERIA.name()] = criteria
-		def travels = travelService.findReservationToPrice(criteria)
-		def total = 10
-		render(view:"/administrator/reservation/toPrice", model:[travels: travels, criteria:criteria, total: total])			
+		criteria.status = TravelStatus.RESERVE_ASK.name()
+		criteria.max = -1 
+		def travels = travelService.findReservation(criteria)
+		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
 	}
 	
 	
 	def sortReservationToPrice = {
-		def criteria = session[SessionConstant.CRITERIA.name()]
+		def criteria = new Expando()
+		criteria.status = TravelStatus.RESERVE_ASK.name()
+		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order
-		session[SessionConstant.CRITERIA.name()] = criteria
-		def travels = travelService.findReservationToPrice(criteria)
-		def total = 10
-		render(view:"/administrator/reservation/toPrice", model:[travels: travels, criteria:criteria, total: total])
+		def travels = travelService.findReservation(criteria)
+		render(view:"/administrator/reservation/toPrice", model:[travels: travels])
 	}
 	
 	def reservationToConfirm = {
-		def travels = travelService.findReservationToConfirm()
+		def criteria = new Expando()
+		criteria.status = TravelStatus.RESERVE_TO_CONFIRM.name()
+		criteria.max = -1 
+		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])			
 	}
+	
+	def sortReservationToConfirm = {
+		def criteria = new Expando()
+		criteria.status = TravelStatus.RESERVE_TO_CONFIRM.name()
+		criteria.max = -1
+		criteria.sort=params.sort
+		criteria.order=params.order
+		def travels = travelService.findReservation(criteria)
+		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])
+	}
+	
+	def reservationToProcess = {
+		def criteria = new Expando()
+		criteria.status = TravelStatus.RESERVE_CONFIRM.name()
+		criteria.max = -1 
+		def travels = travelService.findReservation(criteria)
+		render(view:"/administrator/reservation/toProcess", model:[travels: travels])			
+	}
+	
+	def sortReservationToProcess = {
+		def criteria = new Expando()
+		criteria.status = TravelStatus.RESERVE_CONFIRM.name()
+		criteria.max = -1
+		criteria.sort=params.sort
+		criteria.order=params.order
+		def travels = travelService.findReservation(criteria)
+		render(view:"/administrator/reservation/toProcess", model:[travels: travels])
+	}
+	
 	
 	def validateReservation = {
 		if(params.price == null || !params.price.isInteger()){

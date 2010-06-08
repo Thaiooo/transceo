@@ -27,30 +27,6 @@ class TravelService {
 		travel.save()
 	}
 	
-	def findReservationToPrice(params){
-		def sortCriteria = params.sort
-		if(sortCriteria == null){
-			sortCriteria = "creationDate"
-		}
-		def orderCriteria = params.order
-		if(orderCriteria == null){
-			orderCriteria = "asc"
-		}
-		def offset = 0
-		if(params.offset != null){
-			offset = params.offset.toInteger()	
-		}
-		
-		def c = Travel.createCriteria()
-		def results = c.list {
-			eq("status", TravelStatus.RESERVE_ASK)
-			firstResult(offset)
-			maxResults(max)
-			order(sortCriteria, orderCriteria)
-		}
-		return results
-	}
-	
 	def findReservation(params){
 		def sortCriteria = params.sort
 		if(sortCriteria == null){
@@ -127,7 +103,10 @@ class TravelService {
 			}
 			
 			firstResult(offset)
-			maxResults(max)
+			if(params.max != -1){
+				maxResults(max)	
+			}
+			
 			order(sortCriteria, orderCriteria)
 		}
 		return results
@@ -202,14 +181,6 @@ class TravelService {
 		return results
 	}
 	
-	def findReservationToConfirm() {
-		def c = Travel.createCriteria()
-		def results = c.list {
-			eq("status", TravelStatus.RESERVE_TO_CONFIRM)
-		}
-		return results
-	}
-	
 	def cancel(id){
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.CANCEL
@@ -268,14 +239,6 @@ class TravelService {
 				setMiles(customer.sponsor, (level + 1), price)	
 			}
 		}
-	}
-	
-	def findReservationToProcess(){
-		def c = Travel.createCriteria()
-		def results = c.list {
-			eq("status", TravelStatus.RESERVE_CONFIRM)
-		}
-		return results
 	}
 	
 	def findTravelByIdAndCustomerId(travelId, customerId){

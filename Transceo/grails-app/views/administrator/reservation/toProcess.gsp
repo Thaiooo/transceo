@@ -13,13 +13,13 @@
 	    		<thead>
 		    		<tr>
 		    			<th></th>
-		    			<th><g:message code="view.travel.creationdate" /></th>
-		    			<th><g:message code="view.travel.member" /></th>
-		    			<th><g:message code="view.travel.traveldate" /></th>
+		    			<g:sortableColumn action="sortReservationToProcess" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="customer" title="${message(code:'view.travel.member')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="travelDate" title="${message(code:'view.travel.traveldate')}" />
 		    			<th><g:message code="view.travel.depart" /></th>
 		    			<th><g:message code="view.travel.destination" /></th>
-		    			<th><g:message code="view.travel.number.personne" /></th>
-		    			<th><g:message code="view.travel.handicap" /></th>
+		    			<g:sortableColumn action="sortReservationToProcess" property="numberOfPersonne" title="${message(code:'view.travel.number.personne')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="handicap" title="${message(code:'view.travel.handicap')}" />
 		    		</tr>
 	    		</thead>
 	    		<tbody>
