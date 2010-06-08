@@ -18,10 +18,16 @@
 		     		<tr>
 		     			<td>
 		     				<g:link action="showProfile" id="${it.id}"><g:message code="search.member.view" /></g:link>
+		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
 		     				<br/>
 		     				<g:link controller="administrator" action="initMemberReservation" id="${it.id}"><g:message code="search.member.create.reservation" /></g:link>
+		     				</g:if>
 		     			</td>
-		     			<td>${it.code}</td>
+		     			<td>
+		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
+		     					${it.code}
+		     				</g:if>
+		     			</td>
 		     			<td>${it.firstName}</td>
 		     			<td>${it.lastName}</td>
 		     			<td width="120px">${it.phoneNumber}</td>
@@ -29,7 +35,11 @@
 						<td>${it.adresse}</td>
 		     			<td>${it.city}</td>
 		     			<td>${it.postal}</td>
-						<td width="20px">${it.active}</td>
+						<td width="20px">
+							<g:if test="${it.class.name == com.transceo.Member.class.name}">
+		     					${it.active}
+		     				</g:if>
+						</td>
 		     		</tr>
 				</g:each>
 			</tbody>

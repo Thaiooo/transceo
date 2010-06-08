@@ -180,7 +180,7 @@ class TravelService {
 		}
 		return results
 	}
-	
+		
 	def cancel(id){
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.CANCEL
@@ -240,7 +240,7 @@ class TravelService {
 			}
 		}
 	}
-	
+
 	def findTravelByIdAndCustomerId(travelId, customerId){
 		def c = Travel.createCriteria()
 		def results = c.get {
