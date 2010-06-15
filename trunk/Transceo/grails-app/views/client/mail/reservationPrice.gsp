@@ -36,3 +36,12 @@ Your reservation request:
 <p>
 	Comment: ${travel.comment}
 </p>
+
+
+<p>
+	Confirmation Code: ${code.code}
+</p>
+<p>
+	<a href="http://localhost:8080/Transceo/travel/initConfirmation?id=${code.id}">Confirm</a>
+	
+</p>

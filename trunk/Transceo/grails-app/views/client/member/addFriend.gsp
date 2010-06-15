@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Sponsoring</title>
-		<meta name="layout" content="main" />		
+		<meta name="layout" content="client" />		
     </head>
     <body>
     	<g:hasErrors bean="${invitation}">

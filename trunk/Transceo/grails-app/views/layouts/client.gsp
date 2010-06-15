@@ -88,7 +88,7 @@
 			<!--nav-->
 			<ul class="nav">
 				<li>
-					<g:link class="accueil" controller="page" action="home" title="Home page" >Accueil</g:link>
+					<g:link class="accueil" controller="page" action="home" title="Home page" ><g:message code="menu.home" /></g:link>
 				</li>
 				<li class="art3">
 					<a href="<g:createLink controller="page" action="prestation" />#ancre" title="Prestations" >Prestations</a>
@@ -104,12 +104,14 @@
 						<a href="<g:createLink controller="travel" action="initMemberReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
 					</g:else>
 				</li>
-				<li class="art6">
-					<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="Manage user" >R</a>
-				</li>
+				<g:if test="${session.USER == null}">
+					<li class="art6">
+						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="Manage user" >Register</a>
+					</li>
+				</g:if>
 				<li class="art6">
 					<g:if test="${session.USER != null}">
-						<a href="<g:createLink controller="login" action="disconnect" />#ancre" title="Disconnect" >D</a>
+						<a href="<g:createLink controller="login" action="disconnect" />#ancre" title="Disconnect" >X</a>
 					</g:if>
 				</li>
 				<li class="art7">
@@ -137,10 +139,12 @@
 			<!--Fin contenu principal-->
 
 			<div id="langue">
-				<form method="post" action="http://transeo-vip.com/spip.php?action=converser&amp;redirect=index.php%3Foption%3Dcom_user%26task%3Dregister">
-					<input class="fr" name="var_lang" type="submit" onchange="this.parentNode.submit()" value="fr" title="Version fran&ccedil;ais"/>
-					<input class="en" name="var_lang" type="submit" onchange="this.parentNode.submit()" value="en" title="English version"/>
-				</form>
+				<g:form controller="page" action="changeLanguage">
+					<g:hiddenField name="redirectController" value="${params.controller}" />
+					<g:hiddenField name="redirectAction" value="${params.action}" />
+					<input class="fr" name="lang" type="submit" value="fr" title="Version fran&ccedil;ais"/>
+					<input class="en" name="lang" type="submit" value="en" title="English version"/>
+				</g:form>
 			</div>
 
 			<!--pied-->
