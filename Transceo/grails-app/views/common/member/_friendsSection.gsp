@@ -21,4 +21,7 @@
 			</tbody>
 		</table>
 	</g:else>
+	<p>
+		<a href="<g:createLink controller="member" action="initAddFriend" />" title="Add Friend" ><g:message code="common.button.add" /></a>
+	</p>
 </fieldset>
