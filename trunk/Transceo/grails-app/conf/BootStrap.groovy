@@ -13,11 +13,18 @@ import com.transceo.TravelStatus;
 class BootStrap {
 	
 	def init = { servletContext ->
+		insertData()
+	}
+	def destroy = {
+	}
+	
+	private void insertData() {
 		// =================================================
 		// =================================================
 		def sequence = new CodeSequence(sequence: 3)
 		sequence.save()
 		
+		/*
 		// =================================================
 		// =================================================
 		def admin = new Administrator()
@@ -270,8 +277,7 @@ class BootStrap {
 		def r3 = new RateMile()
 		r3.level = 2
 		r3.rate = 50
-		r3.save()		
-	}
-	def destroy = {
+		r3.save()
+		*/
 	}
 } 
