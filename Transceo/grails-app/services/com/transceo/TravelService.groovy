@@ -195,20 +195,24 @@ class TravelService {
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.RESERVE_TO_CONFIRM
 		travel.price = price
+		travel.save()
+		
+		def code = new ConfirmationCode()
+		code.code = Math.round(Math.random() * 10000)
+		code.travel = travel
+		code.save()
 		
 		// Send mail
-		/*
-		 mailService.sendMail {
-		 to travel.customer.eMail
-		 from "no-reply@transceo.com"
-		 subject "Transceo - Rservation Price"
-		 body( view:"/client/mail/reservationPrice", 
-		 plugin:"email-confirmation", 
-		 model:[travel:travel])
-		 }
-		 */
+		mailService.sendMail {
+			to travel.customer.eMail
+			from "no-reply@transceo.com"
+			subject "Transceo - Rservation Price"
+			body( view:"/client/mail/reservationPrice", 
+					plugin:"email-confirmation", 
+					model:[travel:travel, code:code])
+		}
 		
-		travel.save()
+		
 	}
 	
 	def close(id){		
