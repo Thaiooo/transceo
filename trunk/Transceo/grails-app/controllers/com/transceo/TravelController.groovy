@@ -19,6 +19,26 @@ class TravelController {
 		render(view:"/client/reservation/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
 	}
 	
+	def initConfirmation = {
+		render(view:"/client/reservation/confirmation", model:[id: params.id])	
+	}
+	
+	def confirmReservation = {
+		def code = ConfirmationCode.findByIdAndCode(params.id, params.code)
+		if(null == code){
+			
+		}else{
+			code.travel.status = TravelStatus.RESERVE_CONFIRM
+			code.travel.save()
+			
+			redirect(
+			controller: "common", 
+			action: "displayMessage", 
+			params:[codeMessage:"message.reservation.customer.confirmation", codeTitle:"title.reservation.customer.confirmation"]
+			)	
+		}
+	}
+	
 	def customerReserve = {
 		def validate = true
 		def customer = new Customer()
@@ -51,7 +71,6 @@ class TravelController {
 			validate = false
 		}
 		
-		println params
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
 				render(view:"/administrator/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
