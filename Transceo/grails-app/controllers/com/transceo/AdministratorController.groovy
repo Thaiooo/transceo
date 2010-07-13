@@ -102,7 +102,7 @@ class AdministratorController {
 	
 	def reservationToPrice = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.RESERVE_ASK.name()
+		criteria.status = TravelStatus.QUATATION_ASK.name()
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
@@ -111,7 +111,7 @@ class AdministratorController {
 	
 	def sortReservationToPrice = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.RESERVE_ASK.name()
+		criteria.status = TravelStatus.QUATATION_ASK.name()
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order
@@ -121,7 +121,7 @@ class AdministratorController {
 	
 	def reservationToConfirm = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.RESERVE_TO_CONFIRM.name()
+		criteria.status = TravelStatus.QUOTATION_TO_CONFIRM.name()
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])			
@@ -129,7 +129,7 @@ class AdministratorController {
 	
 	def sortReservationToConfirm = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.RESERVE_TO_CONFIRM.name()
+		criteria.status = TravelStatus.QUOTATION_TO_CONFIRM.name()
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order
@@ -139,7 +139,7 @@ class AdministratorController {
 	
 	def reservationToProcess = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.RESERVE_CONFIRM.name()
+		criteria.status = TravelStatus.QUOTATION_CONFIRM.name()
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toProcess", model:[travels: travels])			
@@ -147,7 +147,7 @@ class AdministratorController {
 	
 	def sortReservationToProcess = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.RESERVE_CONFIRM.name()
+		criteria.status = TravelStatus.QUOTATION_CONFIRM.name()
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order

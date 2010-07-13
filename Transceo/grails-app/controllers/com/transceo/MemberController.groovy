@@ -138,6 +138,6 @@ class MemberController {
 		def invitation = Invitation.findByIdAndCode(params.id, params.code)
 		def member = new Member()
 		member.eMail = invitation.eMail
-		render(view:"/member/registerFriend", model:[invitation: invitation, member: member])
+		render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
 	}
 }

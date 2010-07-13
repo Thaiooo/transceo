@@ -28,7 +28,7 @@ class TravelController {
 		if(null == code){
 			
 		}else{
-			code.travel.status = TravelStatus.RESERVE_CONFIRM
+			code.travel.status = TravelStatus.QUOTATION_CONFIRM
 			code.travel.save()
 			
 			redirect(
@@ -56,7 +56,7 @@ class TravelController {
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
 		travel.customer = customer
-		travel.status = TravelStatus.RESERVE_ASK
+		travel.status = TravelStatus.QUATATION_ASK
 		if(!travel.validate()){
 			validate = false
 		}
@@ -100,7 +100,7 @@ class TravelController {
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
 		travel.customer = member
-		travel.status = TravelStatus.RESERVE_ASK
+		travel.status = TravelStatus.QUATATION_ASK
 		if(!travel.validate()){
 			validate = false
 		}
@@ -124,7 +124,7 @@ class TravelController {
 	
 	def acceptReservation = {
 		def travel = travelService.findTravelByIdAndCustomerId(params.id1.toLong(), params.id2.toLong())
-		travel.status = TravelStatus.RESERVE_CONFIRM
+		travel.status = TravelStatus.QUOTATION_CONFIRM
 		travel.save()
 		redirect(
 		controller: "common", 
