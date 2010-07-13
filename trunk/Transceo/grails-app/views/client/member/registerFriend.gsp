@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Subscribe</title>
-		<meta name="layout" content="main" />		
+		<meta name="layout" content="client" />		
     </head>
     <body>
     	<g:hasErrors bean="${member}">
@@ -33,7 +33,7 @@
     		<g:set var="password" value=""></g:set>
     	</g:else>
     	
-    	<form controller="member" action="registerFriend" method="post" >
+    	<g:form controller="member" action="registerFriend" method="post" >
     		<g:hiddenField name="invitationId" value="${invitation.id}" />
     		<p>Sponsor: ${invitation.author.firstName}</p>
     		<p>
@@ -89,6 +89,6 @@
     		<p>
     		<g:submitButton name="register" value="${message(code:'subscribe.button.subscribe')}" />
     		</p>
-    	</form>
+    	</g:form>
     </body>
 </html>
