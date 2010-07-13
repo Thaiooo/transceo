@@ -81,7 +81,7 @@
 	    		
 	    		<p>
 	    		<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong>
-	    		<g:textField name="country" value="${country}"/>
+	    		<g:select name="country" from="${com.transceo.CountryCode.values()}" value="${country}" valueMessagePrefix="country" noSelection="['':'--------']"/>
 	    		</p>
 	    		
 	    		<p>
