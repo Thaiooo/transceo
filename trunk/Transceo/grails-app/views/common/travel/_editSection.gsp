@@ -17,14 +17,12 @@
 		<g:set var="travelHour" value="${travel.travelHour}" />
 		<g:set var="travelMinute" value="${travel.travelMinute}" />		
 		<g:set var="numberOfPersonne" value="${travel.numberOfPersonne}" />
-		<g:set var="handicap" value="${travel.handicap}" />
 		<g:set var="comment" value="${travel.comment}" />
 	</g:if>
 	<g:else>
 		<g:set var="travelHour" value="" />
 		<g:set var="travelMinute" value="" />
 		<g:set var="numberOfPersonne" value="" />
-		<g:set var="handicap" value="false" />
 		<g:set var="comment" value="" />
 	</g:else>
 
@@ -38,10 +36,6 @@
 	<p>
 		<g:message code="travel.personne.number" />
 		<g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/>
-	</p>
-	<p>
-		<g:message code="travel.personne.handicap" />			
-		<g:checkBox name="handicap" value="${handicap}" checked="${handicap}"/>
 	</p>
 	<p>
 		<g:message code="travel.comment" />
