@@ -187,13 +187,13 @@ class TravelService {
 	
 	def confirm(id){
 		def travel = Travel.get(id)
-		travel.status = TravelStatus.RESERVE_CONFIRM
+		travel.status = TravelStatus.QUOTATION_CONFIRM
 		travel.save()
 	}
 	
 	def validate(id, price){		
 		def travel = Travel.get(id)
-		travel.status = TravelStatus.RESERVE_TO_CONFIRM
+		travel.status = TravelStatus.QUOTATION_TO_CONFIRM
 		travel.price = price
 		travel.save()
 		
