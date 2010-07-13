@@ -24,7 +24,6 @@ class BootStrap {
 		def sequence = new CodeSequence(sequence: 3)
 		sequence.save()
 		
-		/*
 		// =================================================
 		// =================================================
 		def admin = new Administrator()
@@ -33,7 +32,8 @@ class BootStrap {
 		admin.lastName = "PHAN"
 		admin.firstName = "QUOC THAI"
 		admin.save()
-		
+
+		/*
 		// =================================================
 		// =================================================
 		def Member m1 = new Member()
@@ -99,7 +99,7 @@ class BootStrap {
 		destination.save()
 		
 		travel = new Travel()
-		travel.status = TravelStatus.RESERVE_ASK
+		travel.status = TravelStatus.QUATATION_ASK
 		travel.creationDate = DateUtils.parseDateTime("02/01/2009", 15, 0)
 		travel.travelDate = DateUtils.parseDateTime("02/01/2009", 15, 30)
 		travel.travelHour = 15
@@ -129,8 +129,8 @@ class BootStrap {
 		destination.save()
 		
 		travel = new Travel()
-		//travel.status = TravelStatus.RESERVE_TO_CONFIRM
-		travel.status = TravelStatus.RESERVE_ASK
+		//travel.status = TravelStatus.QUOTATION_TO_CONFIRM
+		travel.status = TravelStatus.QUATATION_ASK
 		travel.creationDate = DateUtils.parseDateTime("03/01/2009", 14, 0)
 		travel.travelDate = DateUtils.parseDateTime("03/01/2009", 14, 30)
 		travel.travelHour = 14
@@ -160,7 +160,7 @@ class BootStrap {
 		destination.save()
 		
 		travel = new Travel()
-		travel.status = TravelStatus.RESERVE_CONFIRM
+		travel.status = TravelStatus.QUOTATION_CONFIRM
 		travel.creationDate = new Date()
 		travel.travelDate = new Date()
 		travel.travelHour = 1
@@ -245,7 +245,7 @@ class BootStrap {
 		destination.save()
 		
 		travel = new Travel()
-		travel.status = TravelStatus.RESERVE_ASK
+		travel.status = TravelStatus.QUATATION_ASK
 		travel.creationDate = new Date()
 		travel.travelDate = new Date()
 		travel.travelHour = 1
