@@ -6,6 +6,5 @@ Your code: ${member.code}
 <p>
 Your password: ${member.password}
 </p>
-
-<a href="http://localhost:8080/Transceo/member/activate?id=${member.activationId}">Activate your account</a>
+<g:link controller="member" action="activate" id="${member.activationId}" absolute ="true">Activate your account</g:link>
 
