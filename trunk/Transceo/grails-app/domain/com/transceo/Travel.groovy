@@ -12,7 +12,6 @@ class Travel {
 	double price
 	String comment
 	Integer numberOfPersonne
-	boolean handicap = false
 	
 	static constraints = {	
 		travelDate(nullable: false)
