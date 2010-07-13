@@ -3,6 +3,11 @@ package com.transceo
 import java.util.HashSet;
 
 class Member extends Customer {
+	String eMail
+	String adresse
+	String city
+	Integer postal
+	String country
 	String code
 	String password
 	boolean active
@@ -20,6 +25,12 @@ class Member extends Customer {
 	}
 	
 	static constraints = {
+		eMail(nullable: true, blank: true)
+		phoneNumber(nullable: false, blank: false)
+		adresse(nullable: true, blank: true)
+		city(nullable: true, blank: true)
+		postal(nullable: true, blank: true)
+		country(nullable: true, blank: true)
 		password(nullable: false, blank:false, validator: {
 			if (it.size() < 5) return ['invalid.size']
 		})
@@ -28,7 +39,6 @@ class Member extends Customer {
 		miles(nullable: false, blank:false)
 		friendMiles(nullable: false, blank:false)
 		code(nullable: false, blank:false, unique:true)
-		
 		sponsor(nullable: true)
 	}	                   
 }
