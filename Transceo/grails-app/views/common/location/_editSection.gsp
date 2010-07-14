@@ -39,28 +39,14 @@
 	</p>
 	<p>
 		<g:message code="travel.comment" />
-		<g:textArea name="comment" value="${comment}" rows="4" cols="40" class="no_barre"/>
+		<g:textArea name="comment" value="${comment}" rows="8" cols="30" class="no_barre"/>
 	</p>
 	<br/>
 
-	<table width="100%">
-		<tr>
-			<td >
-				<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
-				<g:render template="/common/travel/editAdresseSection" 
-					bean="${depart}" 
-					var="adresse"  
-					model='["beanName":"depart", "legend":"${legendDepart}"]'
-				/>
-			</td>
-			<td>
-				<g:set var="legendDestination" value="${message(code:'view.travel.section.travel.destination')}" />
-				<g:render template="/common/travel/editAdresseSection" 
-					bean="${destination}" 
-					var="adresse"  
-					model='["beanName":"destination", "legend":"${legendDestination}"]'
-				/>
-			</td>
-		</tr>
-	</table>
+	<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
+	<g:render template="/common/travel/editAdresseSection" 
+		bean="${depart}" 
+		var="adresse"  
+		model='["beanName":"depart", "legend":"${legendDepart}"]'
+	/>
 </fieldset>
