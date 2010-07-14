@@ -48,13 +48,19 @@ class TravelController {
 	}
 	
 	def customerBook = {
+		println params	
+		
 		def validate = true
+		def locationId = ""
+			
+		// ===============================================
 		def customer = new Customer()
 		customer.properties = params
 		if(!customer.validate()){
 			validate = false
 		}
 		
+		// ===============================================
 		def travel = new Travel()
 		travel.properties = params
 		travel.creationDate = new Date()
@@ -64,26 +70,27 @@ class TravelController {
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
 		travel.customer = customer
-		travel.status = TravelStatus.QUATATION_ASK
+		travel.status = TravelStatus.BOOK_ASK
 		if(!travel.validate()){
 			validate = false
 		}
 		
-		def depart = travel.depart;
+		// ===============================================
+		if(params.location != ""){
+			travel.depart = Adresse.get(params.location)
+			locationId = params.location
+		}
+		def depart = travel.depart
 		if(depart == null || !depart.validate()){
 			validate = false
-		}
+		}	
 		
-		def destination = travel.destination;
-		if(destination == null || !destination.validate()){
-			validate = false
-		}
-		
+		// ===============================================
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/customerBook", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+				render(view:"/administrator/reservation/customerBook", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
 			}else{
-				render(view:"/client/reservation/customerBook", model:[customer:customer, travel:travel, depart:depart, destination:destination])	
+				render(view:"/client/reservation/customerBook", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])	
 			}
 		}else{
 			travelService.create(travel)
@@ -193,7 +200,8 @@ class TravelController {
 		if(params.id == ''){
 			render(template:"/common/travel/editAdresse", model:[beanName:'depart'])
 		}else{
-			render 'Veullez renseigner le numéro du terminal'	
+			def adresse = Location.get(params.id)
+			render(template:"/common/travel/editAdresse", model:[beanName:'depart', adresse:adresse])
 		}
 	}
 }
