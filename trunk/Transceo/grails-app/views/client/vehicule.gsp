@@ -1,26 +1,26 @@
 <html>
     <head>
-        <title>Chauffeurs-véhicules</title>
+        <title><g:message code="title.vehicule" /></title>
 		<meta name="layout" content="client" />
     </head>
     <body>
 		<table>
 			<tr>
 				<td>
-					<h3 class="spip">Nos chauffeurs</h3>
-					<p>Après une formation axée sur l'efficacité et la discrétion, nos chauffeurs deviennent les représentants de TRANSEO auprès de notre clientèle Affaires.</p>
-					<p>Ils ont pour mission de vous accompagner dans vos déplacements selon une feuille de route bien définie.</p>
-					<p>Bilingues, ils sont à votre écoute et feront de votre voyage un moment de détente dans un univers de très grand confort et sécurisé.</p>
+					<h3 class="spip"><g:message code="label.page.client.vehicule.1" /></h3>
+					<p><g:message code="label.page.client.vehicule.2" /></p>
+					<p><g:message code="label.page.client.vehicule.3" /></p>
+					<p><g:message code="label.page.client.vehicule.4" /></p>
 				</td>
 				<td>
-					<h3 class="spip">Nos véhicules</h3>
-					<p>TRANSEO a sélectionné chez Mercedes les modèles suivants&nbsp;:</p>
+					<h3 class="spip"><g:message code="label.page.client.vehicule.5" /></h3>
+					<p><g:message code="label.page.client.vehicule.6" /></p>
 					<ul class="spip">
-						<li> Mercedès Classe S350 ou S500 Longue</li>
-						<li> Mercedès Classe E Avangarde Executive</li>
-						<li> Mercedès Viano Exclusiv'version salon </li>
+						<li><g:message code="label.page.client.vehicule.7" /></li>
+						<li><g:message code="label.page.client.vehicule.8" /></li>
+						<li><g:message code="label.page.client.vehicule.9" /></li>
 					</ul>
-					<p>Les modèles Mercedes de TRANSEO sont, bien entendu, entretenus et contrôlés avant chaque mission, vous garantissant ainsi une sécurité totale.</p>
+					<p><g:message code="label.page.client.vehicule.10" /></p>
 				</td>
 			</tr>
 		</table>

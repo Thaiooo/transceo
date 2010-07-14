@@ -80,8 +80,14 @@
 	    		</p>
 	    		
 	    		<p>
+	    		<g:set var="label" value="${message(code:'common.country.select')}" />
 	    		<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong>
-	    		<g:select name="country" from="${com.transceo.CountryCode.values()}" value="${country}" valueMessagePrefix="country" noSelection="['':'--------']"/>
+	    		<g:select name="country" 
+	    			from="${com.transceo.CountryCode.values()}" 
+	    			value="${country}" 
+	    			valueMessagePrefix="country" 
+	    			noSelection='["":"${label}"]'
+	    		/>
 	    		</p>
 	    		
 	    		<p>
