@@ -17,6 +17,6 @@ class Customer{
 		firstName(nullable: false, blank: false)
 		lastName(nullable: false, blank: false)
 		firm(nullable: true, blank: true)
-		phoneNumber(nullable: true, blank: true)
+		phoneNumber(nullable: false, blank: false)
 	}
 }

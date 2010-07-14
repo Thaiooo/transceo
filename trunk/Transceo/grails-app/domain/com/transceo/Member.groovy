@@ -27,10 +27,10 @@ class Member extends Customer {
 	static constraints = {
 		eMail(nullable: true, blank: true)
 		phoneNumber(nullable: false, blank: false)
-		adresse(nullable: true, blank: true)
-		city(nullable: true, blank: true)
-		postal(nullable: true, blank: true)
-		country(nullable: true, blank: true)
+		adresse(nullable: false, blank: false)
+		city(nullable: false, blank: false)
+		postal(nullable: false, blank: false)
+		country(nullable: false, blank: false)
 		password(nullable: false, blank:false, validator: {
 			if (it.size() < 5) return ['invalid.size']
 		})
