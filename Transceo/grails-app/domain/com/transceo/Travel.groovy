@@ -18,7 +18,7 @@ class Travel {
 		travelHour(nullable: false, max:23)
 		travelMinute(nullable: false, max:59)
 		depart(nullable: false)
-		destination(nullable: false)
+		destination(nullable: true)
 		price(nullable: false)
 		customer(nullable: false)
 		comment(nullable: true)

@@ -12,7 +12,15 @@ class TravelController {
 	}
 	
 	def initCustomerReservation = {
-		render(view:"/client/reservation/customerReservation", model:[])		
+		render(view:"/client/reservation/main", model:[])		
+	}
+	
+	def initCustomerQuotation = {
+		render(view:"/client/reservation/customerQuotation", model:[])		
+	}
+	
+	def initCustomerBook = {
+		render(view:"/client/reservation/customerBook", model:[])		
 	}
 	
 	def initMemberReservation = {
@@ -36,6 +44,54 @@ class TravelController {
 			action: "displayMessage", 
 			params:[codeMessage:"message.reservation.customer.confirmation", codeTitle:"title.reservation.customer.confirmation"]
 			)	
+		}
+	}
+	
+	def customerBook = {
+		def validate = true
+		def customer = new Customer()
+		customer.properties = params
+		if(!customer.validate()){
+			validate = false
+		}
+		
+		def travel = new Travel()
+		travel.properties = params
+		travel.creationDate = new Date()
+		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
+			travel.travelDate = DateUtils.parseDate(params.date)	
+		}else{
+			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
+		}
+		travel.customer = customer
+		travel.status = TravelStatus.QUATATION_ASK
+		if(!travel.validate()){
+			validate = false
+		}
+		
+		def depart = travel.depart;
+		if(depart == null || !depart.validate()){
+			validate = false
+		}
+		
+		def destination = travel.destination;
+		if(destination == null || !destination.validate()){
+			validate = false
+		}
+		
+		if(!validate){
+			if(params.ADMIN_VIEW == "true"){
+				render(view:"/administrator/reservation/customerBook", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+			}else{
+				render(view:"/client/reservation/customerBook", model:[customer:customer, travel:travel, depart:depart, destination:destination])	
+			}
+		}else{
+			travelService.create(travel)
+			if(params.ADMIN_VIEW == "true"){
+				redirect(controller: "administrator", action: "initCreateReservation")
+			} else{
+				redirect(uri:"/")
+			}
 		}
 	}
 	
@@ -131,5 +187,13 @@ class TravelController {
 		action: "displayMessage", 
 		params:[codeMessage:"message.accept.confirmation", codeTitle:"title.accept.confirmation"]
 		)
+	}
+	
+	def test = {
+		if(params.id == ''){
+			render(template:"/common/travel/editAdresse", model:[beanName:'depart'])
+		}else{
+			render 'Veullez renseigner le numéro du terminal'	
+		}
 	}
 }
