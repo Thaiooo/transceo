@@ -43,7 +43,7 @@
 	</p>
 	<br/>
 
-	<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
+	<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.position')}" />
 	<g:render template="/common/travel/editAdresseSection" 
 		bean="${depart}" 
 		var="adresse"  

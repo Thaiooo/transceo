@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Réservation en ligne</title>
+        <title><g:message code="title.book" /></title>
 		<meta name="layout" content="client" />
     </head>
     <body>
@@ -11,6 +11,7 @@
 				<g:render template="/common/location/editSection" bean="${travel}"/>
 				<p class="boutons">
 					<g:submitButton name="create" value="${message(code:'common.button.submit')}" />
+					<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" ><g:message code="common.button.back"/></a>
 				</p>
 			</g:form>
 		</div>

@@ -9,6 +9,7 @@ class TravelService {
 	
 	def create(Travel travel){
 		// Send mail
+		/*
 		mailService.sendMail {
 			to travel.customer.eMail
 			from "no-reply@transceo.com"
@@ -17,10 +18,13 @@ class TravelService {
 					plugin:"email-confirmation", 
 					model:[travel:travel])
 		}
+		*/
 		
 		travel.customer.save()
 		travel.depart.save()
-		travel.destination.save()
+		if(null != travel.destination){
+			travel.destination.save()	
+		}
 		travel.customer.travels.add(travel)
 		travel.save()
 	}

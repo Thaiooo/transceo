@@ -6,11 +6,13 @@
 
 <fieldset>
 	<legend>${legend} 
+		<g:set var="label" value="${message(code:'travel.location.adresse.other')}" />
 		<g:select name="location" 
 			from="${com.transceo.Location.list()}"
 			optionKey="id" 
 			optionValue="label" 
-			noSelection="['':'']"
+			noSelection='["":"${label}"]'
+			value="${locationId}"
 			onchange="changeLocation(this.value)"
 		/>
 	</legend>
