@@ -1,13 +1,10 @@
 <html>
     <head>
-        <title>Pour nous, chacun de vos déplacement est unique !</title>
+        <title><g:message code="title.home" /></title>
 		<meta name="layout" content="client" />
     </head>
     <body>
-		<p>TRANSEO se veut un acteur incontournable en tant que prestataire
-			de services haut de gamme <strong>auprès des cadres et dirigeants d'entreprise</strong>,
-			en s'appuyant sur les fondamentaux d'un service irréprochable :
-		</p>
-		<p><strong>Efficacité - Disponibilité - Sécurité</strong></p>
+		<p><g:message code="label.page.client.home.1" /></p>
+		<p><g:message code="label.page.client.home.2" /></p>
 	</body>
 </html>
