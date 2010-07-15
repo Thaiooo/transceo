@@ -48,11 +48,9 @@ class TravelController {
 	}
 	
 	def customerBook = {
-		println params	
-		
 		def validate = true
 		def locationId = ""
-			
+		
 		// ===============================================
 		def customer = new Customer()
 		customer.properties = params
@@ -71,9 +69,6 @@ class TravelController {
 		}
 		travel.customer = customer
 		travel.status = TravelStatus.BOOK_ASK
-		if(!travel.validate()){
-			validate = false
-		}
 		
 		// ===============================================
 		if(params.location_depart != ""){
@@ -83,7 +78,12 @@ class TravelController {
 		def depart = travel.depart
 		if(depart == null || !depart.validate()){
 			validate = false
-		}	
+		}
+		
+		// ===============================================
+		if(!travel.validate()){
+			validate = false
+		}
 		
 		// ===============================================
 		if(!validate){
@@ -97,7 +97,11 @@ class TravelController {
 			if(params.ADMIN_VIEW == "true"){
 				redirect(controller: "administrator", action: "initCreateReservation")
 			} else{
-				redirect(uri:"/")
+				redirect(
+				controller: "common", 
+				action: "displayMessage", 
+				params:[codeMessage:"message.book.confirmation", codeTitle:"title.book.confirmation"]
+				)
 			}
 		}
 	}
