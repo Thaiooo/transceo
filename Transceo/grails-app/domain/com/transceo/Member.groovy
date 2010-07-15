@@ -2,8 +2,7 @@ package com.transceo
 
 import java.util.HashSet;
 
-class Member extends Customer {
-	String eMail
+class Member extends CustomerQuotation {
 	String adresse
 	String city
 	Integer postal
@@ -25,7 +24,6 @@ class Member extends Customer {
 	}
 	
 	static constraints = {
-		eMail(nullable: true, blank: true)
 		phoneNumber(nullable: false, blank: false)
 		adresse(nullable: false, blank: false)
 		city(nullable: false, blank: false)

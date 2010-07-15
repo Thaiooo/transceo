@@ -47,6 +47,6 @@
 	<g:render template="/common/travel/editAdresseSection" 
 		bean="${depart}" 
 		var="adresse"  
-		model='["beanName":"depart", "legend":"${legendDepart}"]'
+		model='["beanName":"depart", "legend":"${legendDepart}", "adrZoneID":"adrZone", "locationId":"${locationId}"]'
 	/>
 </fieldset>
