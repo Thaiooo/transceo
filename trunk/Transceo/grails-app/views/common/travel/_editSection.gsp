@@ -50,7 +50,7 @@
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${depart}" 
 					var="adresse"  
-					model='["beanName":"depart", "legend":"${legendDepart}"]'
+					model='["beanName":"depart", "legend":"${legendDepart}", "adrZoneID":"adrZone1", "locationId":"${locationDepartId}"]'
 				/>
 			</td>
 			<td>
@@ -58,7 +58,7 @@
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${destination}" 
 					var="adresse"  
-					model='["beanName":"destination", "legend":"${legendDestination}"]'
+					model='["beanName":"destination", "legend":"${legendDestination}", "adrZoneID":"adrZone2", "locationId":"${locationDestId}"]'
 				/>
 			</td>
 		</tr>

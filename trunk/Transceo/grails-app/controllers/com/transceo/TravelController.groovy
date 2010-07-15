@@ -76,9 +76,9 @@ class TravelController {
 		}
 		
 		// ===============================================
-		if(params.location != ""){
-			travel.depart = Adresse.get(params.location)
-			locationId = params.location
+		if(params.location_depart != ""){
+			travel.depart = Adresse.get(params.location_depart)
+			locationId = params.location_depart
 		}
 		def depart = travel.depart
 		if(depart == null || !depart.validate()){
@@ -104,13 +104,16 @@ class TravelController {
 	
 	def customerReserve = {
 		def validate = true
-		def customer = new Customer()
+		
+		// ===============================================
+		def customer = new CustomerQuotation()
 		customer.properties = params
 		if(!customer.validate()){
 			validate = false
 		}
 		
-		def travel = new Travel()
+		// ===============================================
+		def travel = new TravelQuotation()
 		travel.properties = params
 		travel.creationDate = new Date()
 		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
@@ -120,25 +123,40 @@ class TravelController {
 		}
 		travel.customer = customer
 		travel.status = TravelStatus.QUATATION_ASK
-		if(!travel.validate()){
-			validate = false
-		}
 		
-		def depart = travel.depart;
+		// ===============================================
+		def locationDepartId = ""
+		if(params.location_depart != ""){
+			travel.depart = Adresse.get(params.location_depart)
+			locationDepartId = params.location_depart
+		}
+		def depart = travel.depart
 		if(depart == null || !depart.validate()){
 			validate = false
 		}
 		
+		def locationDestId = "";
+		// ===============================================
+		if(params.location_destination != ""){
+			travel.destination = Adresse.get(params.location_destination)
+			locationDestId = params.location_destination
+		}
 		def destination = travel.destination;
 		if(destination == null || !destination.validate()){
 			validate = false
 		}
 		
+		// ===============================================
+		if(!travel.validate()){
+			validate = false
+		}
+		
+		// ===============================================
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/customerQuotation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+				render(view:"/administrator/reservation/customerQuotation", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
 			}else{
-				render(view:"/client/reservation/customerQuotation", model:[customer:customer, travel:travel, depart:depart, destination:destination])	
+				render(view:"/client/reservation/customerQuotation", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])	
 			}
 		}else{
 			travelService.create(travel)

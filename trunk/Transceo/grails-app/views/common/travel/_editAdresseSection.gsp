@@ -1,23 +1,18 @@
-<script type="text/javascript"> 
-	function changeLocation(idLocation){
-		${remoteFunction(action:'test',update:'adresseZone',params:'\'id=\' + idLocation')}
-	}
-</script>
-
 <fieldset>
-	<legend>${legend} 
+	<legend>${legend}
+		<g:set var="selectId" value="${locationId.toString()}" />
 		<g:set var="label" value="${message(code:'travel.location.adresse.other')}" />
-		<g:select name="location" 
+		<g:select name="location_${beanName}" 
 			from="${com.transceo.Location.list()}"
 			optionKey="id" 
 			optionValue="label" 
 			noSelection='["":"${label}"]'
-			value="${locationId}"
-			onchange="changeLocation(this.value)"
+			value="${selectId}"
+			onchange="${remoteFunction(action:'test', update:adrZoneID, params:'\'id=\' + this.value')}"
 		/>
 	</legend>
 	
-	<div id="adresseZone">
+	<div id="${adrZoneID}">
 		<g:render template="/common/travel/editAdresse" 
 			bean="${adresse}" 
 			var="adresse"  

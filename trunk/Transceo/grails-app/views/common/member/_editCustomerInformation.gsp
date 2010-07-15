@@ -27,6 +27,6 @@
 	<input type="text" class="text" name="firm" value="${firm}"  />
 </p>
 <p>
-	<g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" />
+	<g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong>
 	<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
 </p>
