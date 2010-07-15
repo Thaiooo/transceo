@@ -14,7 +14,7 @@
 
 <g:if test="${travel.customer.class.name != 'com.transceo.Customer'}">
 	<p>
-		<g:message code="subscribe.eMail" />:${travel.customer.eMail}
+		<strong><g:message code="subscribe.eMail" /></strong> : ${travel.customer.eMail}
 	</p>
 </g:if>
 <p>

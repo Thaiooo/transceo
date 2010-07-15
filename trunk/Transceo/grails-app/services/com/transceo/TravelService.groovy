@@ -13,7 +13,7 @@ class TravelService {
 			mailService.sendMail {
 				to travel.customer.eMail
 				from "no-reply@transceo.com"
-				subject "Transceo - Rservation resume"
+				subject "Transceo - Reservation resume"
 				body( view:"/client/mail/reservationResume", 
 						plugin:"email-confirmation", 
 						model:[travel:travel])
@@ -22,7 +22,7 @@ class TravelService {
 		mailService.sendMail {
 			to 'quoc.thai.phan@gmail.com'
 			from "no-reply@transceo.com"
-			subject "Transceo - Rservation notification"
+			subject "Transceo - Reservation notification"
 			body( view:"/client/mail/reservationNotification", 
 					plugin:"email-confirmation", 
 					model:[travel:travel])

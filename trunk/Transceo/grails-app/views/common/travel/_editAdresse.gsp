@@ -33,6 +33,12 @@
 	</p>
 	<p>
 		<g:message code="travel.country" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField name="${beanName}.country" value="${country}"/>
+	    <g:set var="label" value="${message(code:'common.country.select')}" />
+   		<g:select name="${beanName}.country" 
+   			from="${com.transceo.CountryCode.values()}" 
+   			value="${country}" 
+   			valueMessagePrefix="country" 
+   			noSelection='["":"${label}"]'
+	    />
 	</p>
 </g:else>

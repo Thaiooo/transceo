@@ -167,7 +167,11 @@ class TravelController {
 			if(params.ADMIN_VIEW == "true"){
 				redirect(controller: "administrator", action: "initCreateReservation")
 			} else{
-				redirect(uri:"/")
+				redirect(
+				controller: "common", 
+				action: "displayMessage", 
+				params:[codeMessage:"message.quotation.confirmation", codeTitle:"title.quotation.confirmation"]
+				)
 			}
 		}
 	}
