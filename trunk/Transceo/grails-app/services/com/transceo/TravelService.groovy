@@ -9,16 +9,24 @@ class TravelService {
 	
 	def create(Travel travel){
 		// Send mail
-		/*
+		if(travel.class.name == 'com.transceo.TravelQuotation'){
+			mailService.sendMail {
+				to travel.customer.eMail
+				from "no-reply@transceo.com"
+				subject "Transceo - Rservation resume"
+				body( view:"/client/mail/reservationResume", 
+						plugin:"email-confirmation", 
+						model:[travel:travel])
+			}
+		}
 		mailService.sendMail {
-			to travel.customer.eMail
+			to 'quoc.thai.phan@gmail.com'
 			from "no-reply@transceo.com"
-			subject "Transceo - Rservation resume"
-			body( view:"/client/mail/reservationResume", 
+			subject "Transceo - Rservation notification"
+			body( view:"/client/mail/reservationNotification", 
 					plugin:"email-confirmation", 
 					model:[travel:travel])
 		}
-		*/
 		
 		travel.customer.save()
 		travel.depart.save()
