@@ -19,9 +19,9 @@
 	
 	<div id="adresseZone">
 		<g:render template="/common/travel/editAdresse" 
-			bean="${depart}" 
+			bean="${adresse}" 
 			var="adresse"  
-			model='["beanName":"depart"]'
+			model='["beanName":"${beanName}"]'
 		/>
 	</div>
 </fieldset>
