@@ -1,11 +1,12 @@
 <g:if test="${adresse != null}">
 	<g:set var="adresseName" value="${adresse.adresse}"></g:set>
+	ddd ${adresse.adresse}
 	<g:set var="city" value="${adresse.city}"></g:set>
 	<g:set var="postal" value="${adresse.postal}"></g:set>
 	<g:set var="country" value="${adresse.country}"></g:set>
 </g:if>
 <g:else>
-	<g:set var="adresse" value=""></g:set>
+	<g:set var="adresseName" value=""></g:set>
 	<g:set var="city" value=""></g:set>
 	<g:set var="postal" value=""></g:set>
 	<g:set var="country" value=""></g:set>
@@ -16,6 +17,7 @@
 	<g:message code="message.additional.info" />
 </g:if>
 <g:else>
+	
 	<g:hasErrors bean="${adresse}">
 		<div class="erreur_message">
 			<g:renderErrors bean="${adresse}" />

@@ -11,6 +11,7 @@
 				<g:render template="/common/travel/editSection" bean="${travel}"/>
 				<p class="boutons">
 					<g:submitButton name="create" value="${message(code:'common.button.submit')}" />
+					<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" ><g:message code="common.button.back"/></a>
 				</p>
 			</g:form>
 		</div>

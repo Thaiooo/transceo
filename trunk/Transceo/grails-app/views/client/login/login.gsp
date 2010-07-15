@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Login</title>
+        <title><g:message code="title.login" /></title>
 		<meta name="layout" content="client" />		
     </head>
     <body>
@@ -28,14 +28,10 @@
 	    		<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
 	    		</p>
 	    	</g:form>
-	    	
 	    	<p>
-	    		<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="Manage user" >Register</a>
-				<a href="${ resource(dir:'client/member', file:'sendPassword.gsp') }">Forgot Password</a>
+	    		<a href="<g:createLink controller="member" action="initRegister" />#ancre" ><g:message code="login.register" /></a>
+				<a href="${ resource(dir:'client/member', file:'sendPassword.gsp') }"><g:message code="login.forgot.password" /></a>
 			</p>
-		
     	</div>
-    	
-    	
     </body>
 </html>
