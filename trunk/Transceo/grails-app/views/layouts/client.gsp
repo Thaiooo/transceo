@@ -63,14 +63,14 @@
 
 			<!--Entete de la page + titre du site-->
 			<div id="entete">
-				<a rel="start home" href="http://transeo-vip.com/" title="Home page" class="accueil"><img class="spip_logos" alt="" src="${resource(dir:'images',file:'siteon0.png')}" width="362" height="163" /> <strong class="masque">Transeo</strong></a>
+				<a rel="start home" href="http://transeo-vip.com/" title="<g:message code="label.page.client.layout.1.1" />" class="accueil"><img class="spip_logos" alt="" src="${resource(dir:'images',file:'siteon0.png')}" width="362" height="163" /> <strong class="masque"><g:message code="label.page.client.layout.1.2" /></strong></a>
 				<div id="descriptif">
-					<h1><p><strong>Déplacements privés avec chauffeur</strong><br/>Paris - Ile de France - Province</p></h1>
+					<h1><p><g:message code="label.page.client.layout.2" /></p></h1>
 				</div>
 			</div>
 
 			<!--téléphone-->
-			<div id="telephone"><a name="ancre" id="ancre"></a>Réservez un Transeo !<br/> +33 1 83 5659 83</div>
+			<div id="telephone"><a name="ancre" id="ancre"></a><g:message code="label.page.client.layout.3" /><br/> +33 1 83 5659 83</div>
 
 			<!--cadre-->
 			<div id="diapo-cadre"><img src="${resource(dir:'images',file:'diapo-cadre.png')}" alt="diaporama" /></div>
@@ -88,38 +88,38 @@
 			<!--nav-->
 			<ul class="nav">
 				<li>
-					<g:link class="accueil" controller="page" action="home" title="Home page" ><g:message code="menu.home" /></g:link>
+					<g:link class="accueil" controller="page" action="home" title="${message(code:'menu.home.alt')}" ><g:message code="menu.home" /></g:link>
 				</li>
 				<li class="art3">
-					<a href="<g:createLink controller="page" action="prestation" />#ancre" title="Prestations" >Prestations</a>
+					<a href="<g:createLink controller="page" action="prestation" />#ancre" title="${message(code:'menu.prestations.alt')}" ><g:message code="menu.prestations" /></a>
 				</li>
 				<li class="art4">
-					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="Chauffeurs-véhicules" >Chauffeurs-véhicules</a>
+					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
 				</li>
 				<li class="art5">
 					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
+						<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
 					</g:if>
 					<g:else>
-						<a href="<g:createLink controller="travel" action="initMemberReservation" />#ancre" title="Contact - Réservation" >Contact - Réservation</a>
+						<a href="<g:createLink controller="travel" action="initMemberReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
 					</g:else>
 				</li>
 				<g:if test="${session.USER == null}">
 					<li class="art6">
-						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="Manage user" >Register</a>
+						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="${message(code:'menu.register.alt')}" ><g:message code="menu.register" /></a>
 					</li>
 				</g:if>
 				<li class="art6">
 					<g:if test="${session.USER != null}">
-						<a href="<g:createLink controller="login" action="disconnect" />#ancre" title="Disconnect" >X</a>
+						<a href="<g:createLink controller="login" action="disconnect" />#ancre" title="${message(code:'menu.disconnect.alt')}" ><g:message code="menu.disconnect" /></a>
 					</g:if>
 				</li>
 				<li class="art7">
 					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="login" action="login" />#ancre" title="Manage user" >Login</a>
+						<a href="<g:createLink controller="login" action="login" />#ancre" title="${message(code:'menu.login.alt')}" ><g:message code="menu.login" /></a>
 					</g:if>
 					<g:else>
-						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="Manage user" >Compte Client</a>
+						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="${message(code:'menu.account.alt')}" ><g:message code="menu.account" /></a>
 					</g:else>
 				</li>
 			</ul>
@@ -149,7 +149,7 @@
 
 			<!--pied-->
 			<div id="pied">
-			&copy;&nbsp;2010 Transeo | <a href="http://www.loaloa.net/">Design Loaloa Studio</a>  | <a href="#" rel="nofollow" class='login_modal'>Sign In</a>
+			&copy;&nbsp;2010 Transeo | <a href="http://www.loaloa.net/">Design Loaloa Studio</a>
 			</div>
 			<!--fin pied-->
 
