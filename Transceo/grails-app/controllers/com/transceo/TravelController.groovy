@@ -136,9 +136,9 @@ class TravelController {
 		
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
+				render(view:"/administrator/reservation/customerQuotation", model:[customer:customer, travel:travel, depart:depart, destination:destination])
 			}else{
-				render(view:"/client/reservation/customerReservation", model:[customer:customer, travel:travel, depart:depart, destination:destination])	
+				render(view:"/client/reservation/customerQuotation", model:[customer:customer, travel:travel, depart:depart, destination:destination])	
 			}
 		}else{
 			travelService.create(travel)
