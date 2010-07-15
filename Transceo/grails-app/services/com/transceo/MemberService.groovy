@@ -184,4 +184,14 @@ class MemberService {
 		}
 		return results
 	}
+	
+	def findUser(code, password){
+		def c = Member.createCriteria()
+		def result = c.get {
+			eq("code", code)
+			eq("password", password)
+			eq("active", true)
+		}
+		return result
+	}
 }

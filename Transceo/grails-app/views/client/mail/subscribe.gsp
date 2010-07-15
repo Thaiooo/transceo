@@ -1,7 +1,7 @@
 <%@ page contentType="text/html"%>
 
 <p>
-Cher M. ${member.firstName} ${member.lastName},
+Bonjour ${member.firstName} ${member.lastName},
 </p>
 
 <p>
