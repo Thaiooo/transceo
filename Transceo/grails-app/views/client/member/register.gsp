@@ -7,6 +7,7 @@
     	<g:if test="${member != null}">
     		<g:set var="firstName" value="${member.firstName}"></g:set>
     		<g:set var="lastName" value="${member.lastName}"></g:set>
+    		<g:set var="firm" value="${member.firm}"></g:set>
     		<g:set var="phoneNumber" value="${member.phoneNumber}"></g:set>
     		<g:set var="eMail" value="${member.eMail}"></g:set>
     		<g:set var="adresse" value="${member.adresse}"></g:set>
@@ -16,8 +17,9 @@
     		<g:set var="password" value="${member.password}"></g:set>
     	</g:if>
     	<g:else>
-    	<g:set var="firstName" value=""></g:set>
+    		<g:set var="firstName" value=""></g:set>
     		<g:set var="lastName" value=""></g:set>
+    		<g:set var="firm" value=""></g:set>
     		<g:set var="phoneNumber" value=""></g:set>
     		<g:set var="eMail" value=""></g:set>
     		<g:set var="adresse" value=""></g:set>
@@ -52,6 +54,11 @@
 	    		<p>
 	    		<g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong>
 	    		<g:textField name="lastName" value="${lastName}"/>
+	    		</p>
+	    		
+	    		<p>
+	    		<g:message code="subscribe.firm" />
+	    		<g:textField name="firm" value="${firm}"/>
 	    		</p>
 	    		
 	    		<p>
