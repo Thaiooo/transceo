@@ -23,7 +23,7 @@
 <p>
 	<strong><g:message code="travel.depart" /> : </strong>${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, ${travel.depart.country} 
 </p>
-<g:if test="${travel.customer.class.name != 'com.transceo.Customer'}">
+<g:if test="${travel.destination != null}">
 	<p>
 		<strong><g:message code="travel.destination" /> : </strong>${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, ${travel.destination.country}
 	</p>

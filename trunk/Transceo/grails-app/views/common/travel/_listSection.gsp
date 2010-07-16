@@ -30,7 +30,11 @@
 					    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/></td>
 					    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${it.travelDate}"/></td>
 					    <td>${it.depart.adresse} ${it.depart.city}, ${it.depart.country}</td>
-					    <td>${it.destination.adresse} ${it.destination.city}, ${it.destination.country}</td>
+					    <td>
+					    	<g:if test="${it.destination != null}">
+					    		${it.destination.adresse} ${it.destination.city}, ${it.destination.country}
+					    	</g:if>
+					    </td>
 					    <td>${it.price}</td>
 					    <td>${it.status}</td>
 					</tr>

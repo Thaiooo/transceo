@@ -97,12 +97,7 @@
 					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
 				</li>
 				<li class="art5">
-					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="travel" action="initCustomerReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
-					</g:if>
-					<g:else>
-						<a href="<g:createLink controller="travel" action="initMemberReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
-					</g:else>
+					<a href="<g:createLink controller="travel" action="initReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
 				</li>
 				<g:if test="${session.USER == null}">
 					<li class="art6">
