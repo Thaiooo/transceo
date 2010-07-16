@@ -15,6 +15,10 @@
 	    ${customer.lastName}
 	</p>
 	<p>
+	    <g:message code="view.member.firm" />:
+	    ${customer.firm}
+	</p>
+	<p>
 	<g:message code="view.member.phoneNumber" />:
 	    ${customer.phoneNumber}
 	</p>
