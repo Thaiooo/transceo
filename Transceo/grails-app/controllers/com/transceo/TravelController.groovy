@@ -11,7 +11,7 @@ class TravelController {
 		render(view:"/common/travel/view", model:[travel: o])
 	}
 	
-	def initCustomerReservation = {
+	def initReservation = {
 		render(view:"/client/reservation/main", model:[])		
 	}
 	
@@ -19,12 +19,16 @@ class TravelController {
 		render(view:"/client/reservation/customerQuotation", model:[])		
 	}
 	
+	def initMemberQuotation = {
+		render(view:"/client/reservation/customerQuotation", model:[customer: session[SessionConstant.USER.name()]])		
+	}
+	
 	def initCustomerBook = {
 		render(view:"/client/reservation/customerBook", model:[])		
 	}
 	
-	def initMemberReservation = {
-		render(view:"/client/reservation/memberReservation", model:[member: session[SessionConstant.USER.name()]])	
+	def initMemberBook = {
+		render(view:"/client/reservation/customerBook", model:[customer: session[SessionConstant.USER.name()]])	
 	}
 	
 	def initConfirmation = {
@@ -52,10 +56,15 @@ class TravelController {
 		def locationId = ""
 		
 		// ===============================================
-		def customer = new Customer()
-		customer.properties = params
-		if(!customer.validate()){
-			validate = false
+		def customer 
+		if(session[SessionConstant.USER.name()] != null){
+			customer = Member.get(session[SessionConstant.USER.name()].id)
+		}else{
+			customer = new Customer()
+			customer.properties = params
+			if(!customer.validate()){
+				validate = false
+			}	
 		}
 		
 		// ===============================================
@@ -110,10 +119,15 @@ class TravelController {
 		def validate = true
 		
 		// ===============================================
-		def customer = new CustomerQuotation()
-		customer.properties = params
-		if(!customer.validate()){
-			validate = false
+		def customer 
+		if(session[SessionConstant.USER.name()] != null){
+			customer = Member.get(session[SessionConstant.USER.name()].id)
+		}else{
+			customer = new CustomerQuotation()
+			customer.properties = params
+			if(!customer.validate()){
+				validate = false
+			}	
 		}
 		
 		// ===============================================
@@ -175,41 +189,6 @@ class TravelController {
 			}
 		}
 	}
-	
-	def memberReserve = {
-		def validate = true
-		def member = Member.get(session[SessionConstant.USER.name()].id)
-		
-		def travel = new Travel()
-		travel.properties = params
-		travel.creationDate = new Date()
-		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
-			travel.travelDate = DateUtils.parseDate(params.date)	
-		}else{
-			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
-		}
-		travel.customer = member
-		travel.status = TravelStatus.QUATATION_ASK
-		if(!travel.validate()){
-			validate = false
-		}
-		def depart = travel.depart;
-		if(depart == null || !depart.validate()){
-			validate = false
-		}
-		
-		def destination = travel.destination;
-		if(destination == null || !destination.validate()){
-			validate = false
-		}
-		
-		if(!validate){
-			render(view:"/client/reservation/memberReservation", model:[member:member, travel:travel, depart:depart, destination:destination])
-		}else{
-			travelService.create(travel)
-			redirect(uri:"/")
-		}
-	}	
 	
 	def acceptReservation = {
 		def travel = travelService.findTravelByIdAndCustomerId(params.id1.toLong(), params.id2.toLong())

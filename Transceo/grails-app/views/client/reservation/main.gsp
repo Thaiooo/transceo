@@ -18,12 +18,22 @@
 					<h3 class="spip"><g:message code="label.page.client.reservation.7" /></h3>
 					<p>
 					<g:message code="label.page.client.reservation.8" />
-					<g:link class="accueil" controller="travel" action="initCustomerBook" ><g:message code="label.page.client.reservation.9" /></g:link>
+					<g:if test="${session.USER == null}">
+						<a href="<g:createLink controller="travel" action="initCustomerBook" />#ancre" ><g:message code="label.page.client.reservation.9" /></a>
+					</g:if>
+					<g:else>
+						<a href="<g:createLink controller="travel" action="initMemberBook" />#ancre" ><g:message code="label.page.client.reservation.9" /></a>
+					</g:else>
 					</p>
 					<h3 class="spip"><g:message code="label.page.client.reservation.10" /></h3>
 					<p>
 					<g:message code="label.page.client.reservation.11" />
-					<g:link class="accueil" controller="travel" action="initCustomerQuotation" title="" ><g:message code="label.page.client.reservation.12" /></g:link>
+					<g:if test="${session.USER == null}">
+						<a href="<g:createLink controller="travel" action="initCustomerQuotation" />#ancre" ><g:message code="label.page.client.reservation.12" /></a>
+					</g:if>
+					<g:else>
+						<a href="<g:createLink controller="travel" action="initMemberQuotation" />#ancre" ><g:message code="label.page.client.reservation.12" /></a>
+					</g:else>
 					</p>					
 				</td>
 			</tr>
