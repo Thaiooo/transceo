@@ -1,6 +1,5 @@
 package com.transceo
 
-
 import org.apache.commons.lang.StringUtils;
 
 class MemberController {
@@ -139,5 +138,50 @@ class MemberController {
 		def member = new Member()
 		member.eMail = invitation.eMail
 		render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
+	}
+	
+	def initChangePassword = {
+		render(view:"/client/member/changePassword", model:[])		
+	}
+	
+	def changePassword = {
+		def success = true
+		if(params.oldPassword == ''){
+			flash.message = "message.old.password.required"
+			success = false
+		}else if(params.password == ''){
+			flash.message = "message.password.required"
+			success = false
+		} else if(params.confirmPassword == ''){
+			flash.message = "message.confirm.password.required"
+			success = false
+		} else if (params.confirmPassword != params.password){
+			flash.message = "message.confirm.password.invalidate"
+			success = false
+		} else if (params.password.size() < 5){
+			flash.message = "message.password.invalidate"
+			success = false
+		}
+		if(success){
+			def currentMember = session[SessionConstant.USER.name()]
+			def user = memberService.findUser(currentMember.code, params.oldPassword)
+			if (user == null){
+				flash.message = "message.old.password.error"
+				success = false
+			}else{
+				user.password = params.password
+				user.save()
+			}
+		}
+		
+		if(success){
+			redirect(
+			controller: "common", 
+			action: "displayMessage", 
+			params:[codeMessage:"message.change.password.confirmation", codeTitle:"title.change.password.confirmation"]
+			)	
+		}else{
+			render(view:"/client/member/changePassword", model:[password: params.password, oldPassword: params.oldPassword])	
+		}
 	}
 }
