@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Subscribe</title>
+        <title><g:message code="title.register.friend" /></title>
 		<meta name="layout" content="client" />		
     </head>
     <body>

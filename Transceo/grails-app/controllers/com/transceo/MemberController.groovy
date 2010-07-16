@@ -110,7 +110,7 @@ class MemberController {
 	}
 	
 	def initUpdateCustomerInformation = {
-		def o = Member.get(params.id.toLong()) 
+		def o = Member.get(session[SessionConstant.USER.name()].id)
 		render(view:"/client/member/edit", model:[member: o])		
 	}
 	

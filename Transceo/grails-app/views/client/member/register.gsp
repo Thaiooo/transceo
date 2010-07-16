@@ -43,7 +43,6 @@
 				</ul>
 			</div>
    		</g:if>
-    		    	    	    	
 		<div class="formulaire_spip formulaire_editer_message_contact" id=formulaire_register>
 			<form controller="member" action="register" method="post" >
 	    		<p>
