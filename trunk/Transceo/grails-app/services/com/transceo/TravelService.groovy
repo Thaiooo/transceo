@@ -22,7 +22,7 @@ class TravelService {
 			}
 		}
 		mailService.sendMail {
-			to grailsApplication.config.transeo.manager.mail
+			to config.transeo.manager.mail
 			from "no-reply@transceo.com"
 			subject "Transceo - Reservation notification"
 			body( view:"/client/mail/reservationNotification", 

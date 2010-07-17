@@ -10,7 +10,7 @@
 			</div>
 		</g:hasErrors>
     	<g:form name="updateForm" controller="member" action="updateCustomerInformation" >
-    		<g:render template="/common/member/editCustomerInformation" bean="${member}" var="customer"/>
+    		<g:render template="/common/member/editMemberInformation" bean="${member}" var="customer"/>
     		<p>
     			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
     			<g:link controller="member" action="showMyProfile"><g:message code="common.button.cancel" /></g:link>
