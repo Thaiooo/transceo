@@ -1,11 +1,13 @@
 package com.transceo
 
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.groovy.grails.commons.ConfigurationHolder;
 
 class MemberService {
 	static transactional = true
 	def mailService
-	def max = 2
+	def config = ConfigurationHolder.config
+	def max = config.transeo.pagination.size
 	
 	def int activate(Long activationId) {
 		def member = Member.findByActivationId(activationId)
