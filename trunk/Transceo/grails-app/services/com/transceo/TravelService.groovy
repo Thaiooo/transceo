@@ -1,11 +1,13 @@
 package com.transceo
 
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.groovy.grails.commons.ConfigurationHolder;
 
 class TravelService {
 	static transactional = true
 	def mailService
-	def max = 2
+	def config = ConfigurationHolder.config
+	def max = config.transeo.pagination.size
 	
 	def create(Travel travel){
 		// Send mail
@@ -20,7 +22,7 @@ class TravelService {
 			}
 		}
 		mailService.sendMail {
-			to 'quoc.thai.phan@gmail.com'
+			to grailsApplication.config.transeo.manager.mail
 			from "no-reply@transceo.com"
 			subject "Transceo - Reservation notification"
 			body( view:"/client/mail/reservationNotification", 

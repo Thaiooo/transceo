@@ -10,9 +10,9 @@
 					<h3 class="spip"><g:message code="label.page.client.reservation.1" /></h3>
 					<p><g:message code="label.page.client.reservation.2" /></p>
 					<p><strong><g:message code="label.page.client.reservation.3" /></strong></p>
-					<p><g:message code="label.page.client.reservation.4" /></p>
-					<p><g:message code="label.page.client.reservation.5" /></p>
-					<p><g:message code="label.page.client.reservation.6" /><a href='mailto:contact@transeo-vip.com' class='spip_mail'>contact@transeo-vip.com</a></p>
+					<p>${grailsApplication.config.transeo.contact.adr}</p>
+					<p><g:message code="label.page.client.reservation.5" args='["${grailsApplication.config.transeo.contact.tel}"]'/></p>
+					<p><g:message code="label.page.client.reservation.6" /><a href='mailto:${grailsApplication.config.transeo.contact.mail}' class='spip_mail'>${grailsApplication.config.transeo.contact.mail}</a></p>
 				</td>
 				<td>
 					<h3 class="spip"><g:message code="label.page.client.reservation.7" /></h3>
