@@ -50,7 +50,15 @@ class MyFilters {
 			before = {
 				switch (controllerName) {
 					case 'member':
-					if(actionName == "initAddFriend" || actionName == "showMyProfile"){
+					if(actionName == "initAddFriend" || 
+							actionName == "showMyProfile" || 
+							actionName == "initAddFriend" ||
+							actionName == "addFriend" ||
+							actionName == "initUpdateCustomerInformation" ||
+							actionName == "updateCustomerInformation" ||
+							actionName == "initChangePassword" ||							
+							actionName == "changePassword"								
+					){
 						if (session[SessionConstant.USER.name()] == null) {
 							redirect(controller:"login" ,action:"login")
 							return false
@@ -63,7 +71,10 @@ class MyFilters {
 					break
 					
 					case 'travel':
-					if(actionName == "initMemberReservation"){
+					if(actionName == "initMemberQuotation" ||
+						actionName == "initMemberBook" ||
+						actionName == "show"
+					){
 						if (session[SessionConstant.USER.name()] == null) {
 							redirect(controller:"login" ,action:"login")
 							return false
