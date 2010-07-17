@@ -36,7 +36,7 @@
 					    	</g:if>
 					    </td>
 					    <td>${it.price}</td>
-					    <td>${it.status}</td>
+					    <td><g:message code="reservation.status.${it.status}" /></td>
 					</tr>
 				</g:each>
 			</tbody>

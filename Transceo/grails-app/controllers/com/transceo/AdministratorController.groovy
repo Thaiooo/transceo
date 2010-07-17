@@ -102,7 +102,7 @@ class AdministratorController {
 	
 	def reservationToPrice = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUATATION_ASK.name()
+		criteria.status = TravelStatus.QUOTATION_ASK.name()
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
@@ -111,7 +111,7 @@ class AdministratorController {
 	
 	def sortReservationToPrice = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUATATION_ASK.name()
+		criteria.status = TravelStatus.QUOTATION_ASK.name()
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order

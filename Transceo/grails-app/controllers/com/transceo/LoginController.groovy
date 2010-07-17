@@ -13,7 +13,7 @@ class LoginController {
 				render(view:"/client/login/login", model:[code:params.code])
 			}else{
 				session[SessionConstant.USER.name()] = user
-				redirect(uri:"/")
+				redirect(controller:"member", action:"showMyProfile")
 			}
 		}
 	}
