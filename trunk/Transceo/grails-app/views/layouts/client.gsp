@@ -70,7 +70,7 @@
 			</div>
 
 			<!--téléphone-->
-			<div id="telephone"><a name="ancre" id="ancre"></a><g:message code="label.page.client.layout.3" /><br/> +33 1 83 5659 83</div>
+			<div id="telephone"><a name="ancre" id="ancre"></a><g:message code="label.page.client.layout.3" /><br/>${grailsApplication.config.transeo.contact.tel}</div>
 
 			<!--cadre-->
 			<div id="diapo-cadre"><img src="${resource(dir:'images',file:'diapo-cadre.png')}" alt="diaporama" /></div>
