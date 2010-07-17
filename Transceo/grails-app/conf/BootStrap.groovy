@@ -5,6 +5,7 @@ import com.transceo.Adresse;
 import com.transceo.CodeSequence 
 import com.transceo.Customer;
 import com.transceo.DateUtils;
+import com.transceo.Location;
 import com.transceo.Member;
 import com.transceo.RateMile;
 import com.transceo.Travel;
@@ -32,6 +33,24 @@ class BootStrap {
 		admin.lastName = "PHAN"
 		admin.firstName = "QUOC THAI"
 		admin.save()
+		
+		// =================================================
+		// =================================================
+		def location = new Location()
+		location.label = "Aeroport de Paris Roissy Charles de Gaulle"
+		location.adresse = "Aeroport de Paris Roissy Charles de Gaulle"
+		location.city = "Roissy Charles de Gaulle"
+		location.postal = 95711
+		location.country="FRANCE"
+		location.save()
+		
+		location = new Location()
+		location.label = "Gare de Paris Saint Lazare"
+		location.adresse = "Gare de Paris Saint Lazare"
+		location.city = "Paris"
+		location.postal = 75008
+		location.country="FRANCE"
+		location.save()
 
 		/*
 		// =================================================
