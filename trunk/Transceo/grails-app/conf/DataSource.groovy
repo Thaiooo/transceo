@@ -6,9 +6,9 @@ dataSource {
 	password = ""
 }
 hibernate {
-    cache.use_second_level_cache=true
-    cache.use_query_cache=true
-    cache.provider_class='net.sf.ehcache.hibernate.EhCacheProvider'
+	cache.use_second_level_cache=true
+	cache.use_query_cache=true
+	cache.provider_class='net.sf.ehcache.hibernate.EhCacheProvider'
 }
 // environment specific settings
 environments {
@@ -18,8 +18,8 @@ environments {
 			dbCreate = "create-drop" 
 			driverClassName = "com.mysql.jdbc.Driver"
 			url = "jdbc:mysql://localhost/transceo"
-			username = "transceo"
-			password = "transceo"
+			username = ""
+			password = ""
 			loggingSql = false
 		}
 	}
@@ -32,9 +32,11 @@ environments {
 	}
 	production {
 		dataSource {
-			dbCreate = "update"
-			driverClassName = "org.hsqldb.jdbcDriver"
-			url = "jdbc:hsqldb:file:prodDb;shutdown=true"
+			driverClassName = "com.mysql.jdbc.Driver"
+			url = "jdbc:mysql://localhost/Transeo"
+			username = ""
+			password = ""
+			loggingSql = false
 		}
 	}
 }
