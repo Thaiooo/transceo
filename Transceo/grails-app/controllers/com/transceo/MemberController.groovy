@@ -140,9 +140,13 @@ class MemberController {
 	
 	def initRegisterFriend = {
 		def invitation = Invitation.findByIdAndCode(params.id, params.code)
-		def member = new Member()
-		member.eMail = invitation.eMail
-		render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
+		if(invitation == null){
+			redirect(uri:"/")
+		}else{
+			def member = new Member()
+			member.eMail = invitation.eMail
+			render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
+		}
 	}
 	
 	def initChangePassword = {
