@@ -34,7 +34,12 @@
   
 			function calcRoute() {
 				var start = "${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country}";
+				<g:if test="${travel.destination != null}">
 				var end = "${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}";
+				</g:if>
+				<g:else>
+				var end = "";
+				</g:else>
 				
 				var request = {
 					origin:start, 
@@ -67,12 +72,11 @@
     	<p>
     	<g:message code="view.travel.depart" />:${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country} 
     	</p>
-    	<p>
-    	<g:message code="view.travel.destination" />: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
-    	</p>
-    	<p>
-    	<g:message code="view.travel.handicap" />: ${travel.handicap}
-    	</p>
+    	<g:if test="${travel.destination != null}">
+	    	<p>
+    			<g:message code="view.travel.destination" />: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
+    		</p>
+    	</g:if>
     	<p>
     	<g:message code="view.travel.comment" />: ${travel.comment}
     	</p>
