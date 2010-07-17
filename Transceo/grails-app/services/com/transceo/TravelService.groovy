@@ -15,16 +15,16 @@ class TravelService {
 			mailService.sendMail {
 				to travel.customer.eMail
 				from "no-reply@transceo.com"
-				subject "Transceo - Reservation resume"
+				subject config.transeo.notification.mail.client.objetc
 				body( view:"/client/mail/reservationResume", 
 						plugin:"email-confirmation", 
 						model:[travel:travel])
 			}
 		}
 		mailService.sendMail {
-			to config.transeo.manager.mail
+			to config.transeo.notification.mail
 			from "no-reply@transceo.com"
-			subject "Transceo - Reservation notification"
+			subject config.transeo.notification.mail.admin.objetc
 			body( view:"/client/mail/reservationNotification", 
 					plugin:"email-confirmation", 
 					model:[travel:travel])
