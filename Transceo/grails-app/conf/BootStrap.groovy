@@ -41,7 +41,7 @@ class BootStrap {
 		location.adresse = "Aeroport de Paris Roissy Charles de Gaulle"
 		location.city = "Roissy Charles de Gaulle"
 		location.postal = 95711
-		location.country="FRANCE"
+		location.country="FR"
 		location.save()
 		
 		location = new Location()
@@ -49,29 +49,31 @@ class BootStrap {
 		location.adresse = "Gare de Paris Saint Lazare"
 		location.city = "Paris"
 		location.postal = 75008
-		location.country="FRANCE"
+		location.country="FR"
 		location.save()
 
-		/*
+		
 		// =================================================
 		// =================================================
 		def Member m1 = new Member()
-		m1.firstName = "QUOC THAI"
+		m1.firstName = "Quoc Thai"
 		m1.lastName = "PHAN"
 		m1.phoneNumber = "+33609703074"
-		m1.adresse="46 RUE AFFORTY"
-		m1.city="VILLEPINTE"
+		m1.adresse="46 rue Afforty"
+		m1.city="Villepinte"
 		m1.postal=93420
-		m1.country="FRANCE"
-		m1.eMail = "QUOC.THAI.PHAN@GMAIL.COM"
+		m1.country="FR"
+		m1.eMail = "quoc.thai.phan@gmail.com"
 		
 		m1.code = "0001"			
-		m1.password = "myPassword"
+		m1.password = "aaaaa"
 		m1.active = true
 		m1.subscribeDate = new Date()
 		m1.activationId = 1234
+		m1.miles = 1000
 		m1.save()
 		
+		/*
 		// =================================================
 		def depart = new Adresse()
 		depart.adresse = "46 RUE AFFORTY"
@@ -118,7 +120,7 @@ class BootStrap {
 		destination.save()
 		
 		travel = new Travel()
-		travel.status = TravelStatus.QUATATION_ASK
+		travel.status = TravelStatus.QUOTATION_ASK
 		travel.creationDate = DateUtils.parseDateTime("02/01/2009", 15, 0)
 		travel.travelDate = DateUtils.parseDateTime("02/01/2009", 15, 30)
 		travel.travelHour = 15
@@ -149,7 +151,7 @@ class BootStrap {
 		
 		travel = new Travel()
 		//travel.status = TravelStatus.QUOTATION_TO_CONFIRM
-		travel.status = TravelStatus.QUATATION_ASK
+		travel.status = TravelStatus.QUOTATION_ASK
 		travel.creationDate = DateUtils.parseDateTime("03/01/2009", 14, 0)
 		travel.travelDate = DateUtils.parseDateTime("03/01/2009", 14, 30)
 		travel.travelHour = 14
@@ -264,7 +266,7 @@ class BootStrap {
 		destination.save()
 		
 		travel = new Travel()
-		travel.status = TravelStatus.QUATATION_ASK
+		travel.status = TravelStatus.QUOTATION_ASK
 		travel.creationDate = new Date()
 		travel.travelDate = new Date()
 		travel.travelHour = 1
