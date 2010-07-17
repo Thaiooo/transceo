@@ -29,7 +29,7 @@ class BootStrap {
 		// =================================================
 		def admin = new Administrator()
 		admin.login = "admin"
-		admin.password = "password"
+		admin.password = "aaaaa"
 		admin.lastName = "PHAN"
 		admin.firstName = "QUOC THAI"
 		admin.save()
