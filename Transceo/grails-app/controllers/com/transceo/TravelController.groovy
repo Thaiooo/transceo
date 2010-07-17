@@ -201,7 +201,7 @@ class TravelController {
 		)
 	}
 	
-	def test = {
+	def dispalyAdresseSection = {
 		if(params.id == ''){
 			render(template:"/common/travel/editAdresse", model:[beanName:'depart'])
 		}else{

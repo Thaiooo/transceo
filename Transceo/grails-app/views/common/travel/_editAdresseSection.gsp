@@ -8,7 +8,7 @@
 			optionValue="label" 
 			noSelection='["":"${label}"]'
 			value="${selectId}"
-			onchange="${remoteFunction(action:'test', update:adrZoneID, params:'\'id=\' + this.value')}"
+			onchange="${remoteFunction(action:'dispalyAdresseSection', update:adrZoneID, params:'\'id=\' + this.value')}"
 		/>
 	</legend>
 	
