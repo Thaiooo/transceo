@@ -65,7 +65,12 @@ class MemberController {
 		
 		if(member.validate()){
 			if(params.password == params.confirmPassword){
-				redirect(uri:"/")
+				redirect(
+				controller: "common", 
+				action: "displayMessage", 
+				params:[codeMessage:"message.register.confirmation", codeTitle:"title.register.confirmation"]
+				)
+				
 			}else{
 				flash.message = "member.confirmpassword.invalidate"
 				render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])

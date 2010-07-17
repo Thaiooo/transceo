@@ -32,10 +32,12 @@ class MemberService {
 		member.subscribeDate = new Date()
 		member.activationId = member.subscribeDate.getTime()
 		member.code = memberCode.padLeft (4, "0")
+		member.miles = config.transeo.subscribe.point.toInteger()
 		
 		if(null != sponsor){
 			member.sponsor = sponsor
 			sponsor.friends.add(member)
+			sponsor.friendMiles = sponsor.friendMiles + config.transeo.friend.subscribe.point.toInteger()  
 		}
 		
 		if(member.validate()){

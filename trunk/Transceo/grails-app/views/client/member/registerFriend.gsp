@@ -13,6 +13,7 @@
     	<g:if test="${member != null}">
     		<g:set var="firstName" value="${member.firstName}"></g:set>
     		<g:set var="lastName" value="${member.lastName}"></g:set>
+    		<g:set var="firm" value="${member.firm}"></g:set>
     		<g:set var="phoneNumber" value="${member.phoneNumber}"></g:set>
     		<g:set var="eMail" value="${member.eMail}"></g:set>
     		<g:set var="adresse" value="${member.adresse}"></g:set>
@@ -25,6 +26,7 @@
     	<g:set var="firstName" value=""></g:set>
     		<g:set var="lastName" value=""></g:set>
     		<g:set var="phoneNumber" value=""></g:set>
+    		<g:set var="firm" value=""></g:set>
     		<g:set var="eMail" value=""></g:set>
     		<g:set var="adresse" value=""></g:set>
     		<g:set var="city" value=""></g:set>
@@ -32,63 +34,73 @@
     		<g:set var="country" value=""></g:set>
     		<g:set var="password" value=""></g:set>
     	</g:else>
-    	
+    	<div class="formulaire_spip formulaire_editer_message_contact" id=formulaire_register>
     	<g:form controller="member" action="registerFriend" method="post" >
     		<g:hiddenField name="invitationId" value="${invitation.id}" />
-    		<p>Sponsor: ${invitation.author.firstName}</p>
+    		<p><g:message code="subscribe.sponsor" /> : ${invitation.author.firstName}</p>
     		<p>
-    		<g:message code="subscribe.firstName" />
+    		<g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="firstName" value="${firstName}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.lastName" />
+    		<g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="lastName" value="${lastName}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.phoneNumber" />
+	    	<g:message code="subscribe.firm" />
+	    	<g:textField name="firm" value="${firm}"/>
+	    	</p>
+    		
+    		<p>
+    		<g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="phoneNumber" value="${phoneNumber}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.eMail" />
+    		<g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="eMail" value="${eMail}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.adresse" />
+    		<g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="adresse" value="${adresse}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.city" />
+    		<g:message code="subscribe.city" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="city" value="${city}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.postal" />
+    		<g:message code="subscribe.postal" /> <strong><g:message code="common.required" /></strong>
     		<g:textField name="postal" value="${postal}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.country" />
-    		<g:textField name="country" value="${country}"/>
+	    		<g:set var="label" value="${message(code:'common.country.select')}" />
+	    		<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong>
+	    		<g:select name="country" 
+	    			from="${com.transceo.CountryCode.values()}" 
+	    			value="${country}" 
+	    			valueMessagePrefix="country" 
+	    			noSelection='["":"${label}"]'
+	    		/>
+	    	</p>
+    		
+    		<p>
+    		<g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong>
+    		<g:passwordField name="password" value="${password}"/>
     		</p>
     		
     		<p>
-    		<g:message code="subscribe.password" />
-    		<g:textField name="password" value="${password}"/>
+    		<g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong>
+    		<g:passwordField name="confirmPassword"/>
     		</p>
     		
-    		<p>
-    		<g:message code="subscribe.password.confirm" />
-    		<g:textField name="confirmPassword"/>
-    		</p>
-    		
-    		<p>
-    		<g:submitButton name="register" value="${message(code:'subscribe.button.subscribe')}" />
-    		</p>
+    		<p class="boutons"><g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" /></p>
     	</g:form>
+    	</div>
     </body>
 </html>

@@ -19,14 +19,17 @@
 				
 				function initialize() {
 					directionsDisplay = new google.maps.DirectionsRenderer();
-					var chicago = new google.maps.LatLng(48.8572, 2.3399);
+					var latlng = new google.maps.LatLng(48.8572, 2.3399);
 					var myOptions = {
 						zoom:11,
 						mapTypeId: google.maps.MapTypeId.ROADMAP,
-						center: chicago
+						center: latlng,
+						scrollwheel: false,
+						streetViewControl: true
 					}
 					var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 					directionsDisplay.setMap(map);
+					directionsDisplay.setPanel(document.getElementById("directionsPanel"));					
 				}
   
 				function calcRoute() {
@@ -63,22 +66,35 @@
 				  var myOptions = {
 				    zoom: 11,
 				    center: latlng,
-				    mapTypeId: google.maps.MapTypeId.ROADMAP
+				    mapTypeId: google.maps.MapTypeId.ROADMAP,
+				    scrollwheel: false,
+					streetViewControl: true
 				  }
 				  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 				}
 				
 				function codeAddress() {
-				    var address = "${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country}";
+				    var address = "${travel.depart.adresse} <br/> ${travel.depart.city}, ${travel.depart.country}";
 				    if (geocoder) {
 				      geocoder.geocode( { 'address': address}, function(results, status) {
 				        if (status == google.maps.GeocoderStatus.OK) {
 				          map.setCenter(results[0].geometry.location);
+				          
 				          var marker = new google.maps.Marker({
 				              map: map, 
 				              position: results[0].geometry.location,
 				              title:address
 				          });
+
+						  // Pour l'info bulle				          
+				          var contentString = "<br/>${travel.depart.adresse} <br/> ${travel.depart.postal} ${travel.depart.city} <br/> ${travel.depart.country}";
+				      	  var infowindow = new google.maps.InfoWindow({
+				        	content: contentString
+				      	  });
+					      google.maps.event.addListener(marker, 'click', function() {
+	      					infowindow.open(map,marker);
+	    				  });
+				          
 				        } else {
 				          alert("Geocode was not successful for the following reason: " + status);
 				        }
@@ -98,7 +114,7 @@
     	<g:message code="view.travel.price" />: ${travel.price}
     	</p>
     	<p>
-    	<g:message code="view.travel.status" />: ${travel.status}
+    	<g:message code="view.travel.status" />: <g:message code="reservation.status.${travel.status}" />
     	</p>
     	<p>
     	<g:message code="view.travel.depart" />:${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country} 
@@ -112,7 +128,10 @@
     	<g:message code="view.travel.comment" />: ${travel.comment}
     	</p>
     	<br/>
-    	<div id="map_canvas" style="width: 810px; height: 300px"></div>
+    	<div id="map_canvas" style="width:100%; height: 300px;"></div>
+    	<br/>
+    	<div id="directionsPanel" style="width:100%; height:100%;"></div>
+    	
     	<br/>
     	<g:if test="${ADMIN_VIEW == true}">
 			<g:link controller="administrator" action="showProfile" id="${travel.customer.id}"><g:message code="common.button.back" /></g:link>

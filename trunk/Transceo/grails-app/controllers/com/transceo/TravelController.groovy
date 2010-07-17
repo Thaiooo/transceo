@@ -140,7 +140,7 @@ class TravelController {
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
 		travel.customer = customer
-		travel.status = TravelStatus.QUATATION_ASK
+		travel.status = TravelStatus.QUOTATION_ASK
 		
 		// ===============================================
 		def locationDepartId = ""
