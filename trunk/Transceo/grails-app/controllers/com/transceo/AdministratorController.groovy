@@ -27,13 +27,15 @@ class AdministratorController {
 	}
 	
 	def initUpdateCustomerInformation = {
-		def o = Member.get(params.id.toLong()) 
+		def o = Customer.get(params.id.toLong())
+		println o 
 		render(view:"/administrator/member/edit", model:[member: o])		
 	}
 	
 	def initUpdateReservationInformation = {
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/reservation/edit", model:[travel: o, depart: o.depart, destination:o.destination])		
+		def locationDepartId = o.depart.id
+		render(view:"/administrator/reservation/edit", model:[travel: o, depart: o.depart, destination:o.destination, locationDepartId:locationDepartId])		
 	}
 	
 	
@@ -216,11 +218,6 @@ class AdministratorController {
 		criteria.creationDate = DateUtils.parseDate(params.creationDate)
 		criteria.reservationDateCriteria = params.reservationDateCriteria
 		criteria.reservationDate = DateUtils.parseDate(params.reservationDate)
-		if(params.handicap == null){
-			criteria.handicap = false
-		}else{
-			criteria.handicap = true	
-		}
 		criteria.status = params.status
 		session[SessionConstant.CRITERIA.name()] = criteria
 		commonSearchReservation(criteria)
@@ -275,7 +272,7 @@ class AdministratorController {
 	}
 	
 	def updateCustomerInformation = {
-		def o = Member.get(params.id.toLong())
+		def o = Customer.get(params.id.toLong())
 		o.properties = params
 		if(o.validate()){
 			o.save()

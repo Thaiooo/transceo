@@ -7,7 +7,7 @@ class MemberService {
 	static transactional = true
 	def mailService
 	def config = ConfigurationHolder.config
-	def max = config.transeo.pagination.size
+	def max = config.transeo.pagination.size.toInteger()
 	
 	def int activate(Long activationId) {
 		def member = Member.findByActivationId(activationId)
@@ -136,10 +136,10 @@ class MemberService {
 				if(StringUtils.isNotBlank(params.city)){
 					ilike("city", params.city)
 				}
-				if(StringUtils.isNotBlank(params.postal)){
-					ilike("postal", params.postal)
+				if(StringUtils.isNotBlank(params.postal) && params.postal.isInteger()){
+					eq("postal", params.postal.toInteger())
 				}
-				if(StringUtils.isNotBlank(params.postal)){
+				if(StringUtils.isNotBlank(params.country)){
 					ilike("country", params.country)
 				}
 			}
@@ -178,10 +178,10 @@ class MemberService {
 				if(StringUtils.isNotBlank(params.city)){
 					ilike("city", params.city)
 				}
-				if(StringUtils.isNotBlank(params.postal)){
-					ilike("postal", params.postal)
+				if(StringUtils.isNotBlank(params.postal) && params.postal.isInteger()){
+					eq("postal", params.postal.toInteger())
 				}
-				if(StringUtils.isNotBlank(params.postal)){
+				if(StringUtils.isNotBlank(params.country)){
 					ilike("country", params.country)
 				}
 			}

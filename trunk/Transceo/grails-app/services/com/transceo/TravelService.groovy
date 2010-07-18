@@ -7,7 +7,7 @@ class TravelService {
 	static transactional = true
 	def mailService
 	def config = ConfigurationHolder.config
-	def max = config.transeo.pagination.size
+	def max = config.transeo.pagination.size.toInteger()
 	
 	def create(Travel travel){
 		// Send mail

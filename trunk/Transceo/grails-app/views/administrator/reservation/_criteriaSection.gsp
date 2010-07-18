@@ -18,7 +18,6 @@
 		<g:set var="reservationDateCriteria" value="${criteria.reservationDateCriteria}" />
 		<g:set var="reservationDate" value="${criteria.reservationDate}" />
 		<g:set var="status" value="${criteria.status}" />
-		<g:set var="handicap" value="${criteria.handicap}" />
 	</g:if>
 	
 	<fieldset>
@@ -50,8 +49,6 @@
 			<g:message code="search.travel.date" /> 			 
 			<g:select name="status" from="${com.transceo.DateCriteria.values()}" name="reservationDateCriteria" value="${reservationDateCriteria}" valueMessagePrefix="date.criteria"/>
 			<input type="text" class="text" size="10" id="reservationDate" name="reservationDate" value="<g:formatDate format="dd/MM/yyyy" date="${reservationDate}"/>"/>
-			<g:message code="search.travel.handicap" />			
-			<g:checkBox name="handicap" value="${handicap}" checked="${handicap}"/>
 			<g:message code="search.travel.status" />			
 			<g:select name="status" from="${com.transceo.TravelStatus.values()}" value="${status}" valueMessagePrefix="reservation.status"/>
 			</p>
