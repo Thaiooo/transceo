@@ -38,7 +38,7 @@ class BootStrap {
 		// =================================================
 		def location = new Location()
 		location.label = "Aeroport de Paris Roissy Charles de Gaulle"
-		location.adresse = "Aeroport de Paris Roissy Charles de Gaulle"
+		location.adresse = "Aeroport Roissy Charles de Gaulle"
 		location.city = "Roissy Charles de Gaulle"
 		location.postal = 95711
 		location.country="FR"
@@ -72,8 +72,8 @@ class BootStrap {
 		m1.activationId = 1234
 		m1.miles = 1000
 		m1.save()
-		
-		/*
+
+		/*		
 		// =================================================
 		def depart = new Adresse()
 		depart.adresse = "46 RUE AFFORTY"
