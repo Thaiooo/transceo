@@ -1,5 +1,7 @@
 package com.transceo
 
+import org.apache.commons.lang.StringUtils;
+
 import groovy.util.Expando;
 
 class AdministratorController {
@@ -28,7 +30,6 @@ class AdministratorController {
 	
 	def initUpdateCustomerInformation = {
 		def o = Customer.get(params.id.toLong())
-		println o 
 		render(view:"/administrator/member/edit", model:[member: o])		
 	}
 	
@@ -104,7 +105,7 @@ class AdministratorController {
 	
 	def reservationToPrice = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUOTATION_ASK.name()
+		criteria.status = [TravelStatus.QUOTATION_ASK]
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
@@ -113,7 +114,7 @@ class AdministratorController {
 	
 	def sortReservationToPrice = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUOTATION_ASK.name()
+		criteria.status = [TravelStatus.QUOTATION_ASK]
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order
@@ -123,7 +124,7 @@ class AdministratorController {
 	
 	def reservationToConfirm = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUOTATION_TO_CONFIRM.name()
+		criteria.status = [TravelStatus.QUOTATION_TO_CONFIRM]
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])			
@@ -131,7 +132,7 @@ class AdministratorController {
 	
 	def sortReservationToConfirm = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUOTATION_TO_CONFIRM.name()
+		criteria.status = [TravelStatus.QUOTATION_TO_CONFIRM]
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order
@@ -141,7 +142,7 @@ class AdministratorController {
 	
 	def reservationToProcess = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUOTATION_CONFIRM.name()
+		criteria.status = [TravelStatus.QUOTATION_CONFIRM, TravelStatus.BOOK_ASK]
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
 		render(view:"/administrator/reservation/toProcess", model:[travels: travels])			
@@ -149,7 +150,7 @@ class AdministratorController {
 	
 	def sortReservationToProcess = {
 		def criteria = new Expando()
-		criteria.status = TravelStatus.QUOTATION_CONFIRM.name()
+		criteria.status = [TravelStatus.QUOTATION_CONFIRM, TravelStatus.BOOK_ASK]
 		criteria.max = -1
 		criteria.sort=params.sort
 		criteria.order=params.order
@@ -208,6 +209,7 @@ class AdministratorController {
 	}
 	
 	def searchReservation = {
+		println params 
 		def criteria = new Expando()
 		criteria.code = params.code
 		criteria.firstName = params.firstName
@@ -218,7 +220,13 @@ class AdministratorController {
 		criteria.creationDate = DateUtils.parseDate(params.creationDate)
 		criteria.reservationDateCriteria = params.reservationDateCriteria
 		criteria.reservationDate = DateUtils.parseDate(params.reservationDate)
-		criteria.status = params.status
+		if(StringUtils.isNotBlank(params.status) && params.status != TravelStatus.ALL.name()){
+			criteria.statusCode = params.status
+			criteria.status = [TravelStatus.valueOf(params.status)]
+		}else{
+			criteria.statusCode = TravelStatus.ALL.name()
+			criteria.status = []
+		}
 		session[SessionConstant.CRITERIA.name()] = criteria
 		commonSearchReservation(criteria)
 	}
@@ -262,7 +270,7 @@ class AdministratorController {
 	def showForPriceReservation = {
 		session[SessionConstant.ADMIN_PAGE.name()] = 'price'
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction])		
+		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction, ADMIN_VIEW: true])		
 	}
 	
 	def showForValidateReservation = {

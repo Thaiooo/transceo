@@ -19,7 +19,6 @@
 		    			<th><g:message code="view.travel.depart" /></th>
 		    			<th><g:message code="view.travel.destination" /></th>
 		    			<g:sortableColumn action="sortReservationToProcess" property="numberOfPersonne" title="${message(code:'view.travel.number.personne')}" />
-		    			<g:sortableColumn action="sortReservationToProcess" property="handicap" title="${message(code:'view.travel.handicap')}" />
 		    		</tr>
 	    		</thead>
 	    		<tbody>
@@ -39,16 +38,12 @@
 			     			</td>
 			     			<td><g:formatDate format="${message(code:'common.date.time.format')}" date="${it.travelDate}"/></td>
 			     			<td>${it.depart.adresse} ${it.depart.postal} ${it.depart.city}, ${it.depart.country}</td>
-			     			<td>${it.destination.adresse} ${it.destination.postal} ${it.destination.city}, ${it.destination.country}</td>
-			     			<td>${it.numberOfPersonne}</td>
 			     			<td>
-			     				<g:if test="${it.handicap}">
-			     					<g:message code="common.yes" />
+			     				<g:if test="${it.destination != null}">
+			     					${it.destination.adresse} ${it.destination.postal} ${it.destination.city}, ${it.destination.country}
 			     				</g:if>
-			     				<g:else>
-			     					<g:message code="common.no" />
-			     				</g:else>
 			     			</td>
+			     			<td>${it.numberOfPersonne}</td>
 			     		</tr>
 			     	</g:each>
 	    		</tbody>

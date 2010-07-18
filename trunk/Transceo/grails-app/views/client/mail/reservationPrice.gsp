@@ -1,44 +1,38 @@
 <%@ page contentType="text/html"%>
 
-Your reservation request:
+<u><strong><g:message code="label.reservation.notification" /></strong></u>
 
+<p>
+  	<strong><g:message code="travel.creation.date" /> : </strong> <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>
+</p>
 <p>    		
-	Customer :${travel.customer.firstName} ${travel.customer.lastName}
+	<strong><g:message code="customer" /> : </strong> ${travel.customer.firstName} ${travel.customer.lastName}
 </p>
 <p>
-	<g:message code="subscribe.phoneNumber" />:${travel.customer.phoneNumber}
+	<strong><g:message code="subscribe.phoneNumber" /> : </strong>${travel.customer.phoneNumber}
+</p>
+<g:if test="${travel.customer.class.name != 'com.transceo.Customer'}">
+	<p>
+		<strong><g:message code="subscribe.eMail" /></strong> : ${travel.customer.eMail}
+	</p>
+</g:if>
+<p>
+	<strong><g:message code="travel.date" /> : </strong><g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
 </p>
 <p>
-	<g:message code="subscribe.eMail" />:${travel.customer.eMail}
+	<strong><g:message code="travel.price" /> : </strong>${travel.price}
 </p>
 <p>
-	Adresse:${travel.customer.adresse} ${travel.customer.postal} ${travel.customer.city}, ${travel.customer.country}
+	<strong><g:message code="travel.depart" /> : </strong>${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, ${travel.depart.country} 
 </p>
-
+<g:if test="${travel.customer.class.name != 'com.transceo.Customer'}">
+	<p>
+		<strong><g:message code="travel.destination" /> : </strong>${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, ${travel.destination.country}
+	</p>
+</g:if>
 <p>
-  	Creation Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>
-</p>
-<p>
-	Travel Date: <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
-</p>
-<p>
-	Status: ${travel.price}
+	<strong><g:message code="travel.comment" /> : </strong>${travel.comment}
 </p>
 <p>
-	Depart:${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country} 
-</p>
-<p>
-	Destination: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
-</p>
-<p>
-	Handicap: ${travel.handicap}
-</p>
-<p>
-	Comment: ${travel.comment}
-</p>
-<p>
-	Confirmation Code: ${code.code}
-</p>
-<p>
-	<g:link controller="travel" action="initConfirmation" id="${code.id}" absolute ="true">Confirm</g:link>
+	<g:link controller="travel" action="initConfirmation" id="${code.id}" absolute ="true" params="[code:code.code]">Confirm</g:link>
 </p>

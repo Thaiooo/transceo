@@ -71,9 +71,10 @@ class TravelService {
 					ilike("eMail", params.eMail)
 				}
 			}
-			if(StringUtils.isNotBlank(params.status) && !StringUtils.equals(params.status, TravelStatus.ALL.name())){
-				eq("status", TravelStatus.valueOf(params.status))
+			if(params.status != null && params.status.size > 0){
+				'in'("status", params.status)
 			}
+			
 			if(params.reservationDate != null){
 				switch (params.reservationDateCriteria){
 					case DateCriteria.EQUALS.name():
@@ -146,8 +147,8 @@ class TravelService {
 						ilike("eMail", params.eMail)
 					}
 				}
-				if(StringUtils.isNotBlank(params.status) && !StringUtils.equals(params.status, TravelStatus.ALL.name())){
-					eq("status", TravelStatus.valueOf(params.status))
+				if(params.status != null && params.status.size > 0){
+					'in'("status", params.status)
 				}
 				if(params.reservationDate != null){
 					switch (params.reservationDateCriteria){
