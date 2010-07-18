@@ -209,7 +209,6 @@ class AdministratorController {
 	}
 	
 	def searchReservation = {
-		println params 
 		def criteria = new Expando()
 		criteria.code = params.code
 		criteria.firstName = params.firstName

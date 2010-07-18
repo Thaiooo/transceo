@@ -37,6 +37,7 @@
 				<li class="art3"><g:link controller="administrator" action="reservationMain" title="Manage reservation">Reservation</g:link></li>
 				<li class="art5"><g:link controller="rateMile" action="list" title="Properties">Properties</g:link></li>
 				<li class="art5"><g:link controller="user" action="list" title="Manage user">User</g:link></li>
+				<li class="art5"><g:link controller="location" action="list" title="Manage location">Adresse</g:link></li>
 				<li class="art7"><g:link controller="administrator" action="disconnect" title="Manage reservation">Disconnect</g:link></li>
 			</ul>
 			<!--fin nav-->
@@ -50,13 +51,6 @@
 				<div class="nettoyeur"></div>
 			</div>
 			<!--Fin contenu principal-->
-
-			<div id="langue">
-				<form method="post" action="#">
-					<input class="fr" name="var_lang" type="submit" onchange="this.parentNode.submit()" value="fr" title="Version fran&ccedil;ais"/>
-					<input class="en" name="var_lang" type="submit" onchange="this.parentNode.submit()" value="en" title="English version"/>
-				</form>
-			</div>
 
 			<!--pied-->
 			<div id="pied">

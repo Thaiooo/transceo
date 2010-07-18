@@ -199,6 +199,20 @@ class TravelService {
 		travel.status = TravelStatus.CANCEL
 		travel.save()
 	}
+	def customerConfirm(Travel travel){
+		travel.status = TravelStatus.QUOTATION_CONFIRM
+		travel.save()
+		
+		// Send mail
+		mailService.sendMail {
+			to config.transeo.notification.mail.adr
+			from "no-reply@transceo.com"
+			subject "Transceo - Confirmation Notification"
+			body( view:"/client/mail/reservationConfirmationNotification",
+					plugin:"email-confirmation",
+					model:[travel:travel])
+		}
+	}
 	
 	def confirm(id){
 		def travel = Travel.get(id)
@@ -226,8 +240,6 @@ class TravelService {
 					plugin:"email-confirmation", 
 					model:[travel:travel, code:code])
 		}
-		
-		
 	}
 	
 	def close(id){		
