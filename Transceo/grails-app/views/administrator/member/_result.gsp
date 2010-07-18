@@ -31,10 +31,26 @@
 		     			<td>${it.firstName}</td>
 		     			<td>${it.lastName}</td>
 		     			<td width="120px">${it.phoneNumber}</td>
-						<td>${it.eMail}</td>
-						<td>${it.adresse}</td>
-		     			<td>${it.city}</td>
-		     			<td>${it.postal}</td>
+						<td>
+							<g:if test="${it.class.name != com.transceo.Customer.class.name}">
+								${it.eMail}
+							</g:if>
+						</td>
+						<td>
+							<g:if test="${it.class.name == com.transceo.Member.class.name}">
+								${it.adresse}
+							</g:if>
+						</td>
+		     			<td>
+		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
+		     					${it.city}
+		     				</g:if>	
+		     			</td>
+		     			<td>
+		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
+		     					${it.postal}
+		     				</g:if>
+		     			</td>
 						<td width="20px">
 							<g:if test="${it.class.name == com.transceo.Member.class.name}">
 		     					${it.active}

@@ -1,46 +1,96 @@
 <jq:jquery>
-	// Pour google map
-	$(window).load(function () {
-		initialize();
-		calcRoute();
-	});
-
-	var directionDisplay;
-	var directionsService = new google.maps.DirectionsService();
-	var map;
-
-	function initialize() {
-		directionsDisplay = new google.maps.DirectionsRenderer();
-		var chicago = new google.maps.LatLng(48.8572, 2.3399);
-		var myOptions = {
-			zoom:11,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: chicago,
-			scrollwheel: false,
-			streetViewControl: true
-		}
-		map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-		directionsDisplay.setMap(map);
-	}
-
-	function calcRoute() {
-		var start = "${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country}";
-		var end = "${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}";
-
-		var request = {
-			origin:start,
-			destination:end,
-			travelMode: google.maps.DirectionsTravelMode.DRIVING
-		};
-		directionsService.route(
-			request,
-			function(response, status) {
-				if (status == google.maps.DirectionsStatus.OK) {
-					directionsDisplay.setDirections(response);
+    		<g:if test="${travel.destination != null}">
+    			// Pour google map
+   				$(window).load(function () {
+  					initialize();
+  					calcRoute();
+				});
+				
+				function initialize() {
+					directionsDisplay = new google.maps.DirectionsRenderer();
+					var latlng = new google.maps.LatLng(48.8572, 2.3399);
+					var myOptions = {
+						zoom:11,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						center: latlng,
+						scrollwheel: false,
+						streetViewControl: true
+					}
+					var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+					directionsDisplay.setMap(map);
+					directionsDisplay.setPanel(document.getElementById("directionsPanel"));					
 				}
-			}
-		);
-	}
+  
+				function calcRoute() {
+					var start = "${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country}";
+					var end = "${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}";
+					var request = {
+						origin:start, 
+						destination:end,
+						travelMode: google.maps.DirectionsTravelMode.DRIVING
+					};
+					var directionsService = new google.maps.DirectionsService();
+					directionsService.route(
+						request, 
+						function(response, status) {
+							if (status == google.maps.DirectionsStatus.OK) {
+								directionsDisplay.setDirections(response);
+							}
+						}
+					);
+				}
+    		</g:if>
+    		<g:else>
+    			// Pour google map
+   				$(window).load(function () {
+  					initialize();
+  					codeAddress();
+				});
+				
+				var geocoder;
+				var map;
+				function initialize() {
+				  geocoder = new google.maps.Geocoder();
+				  var latlng = new google.maps.LatLng(48.8572, 2.3399);
+				  var myOptions = {
+				    zoom: 11,
+				    center: latlng,
+				    mapTypeId: google.maps.MapTypeId.ROADMAP,
+				    scrollwheel: false,
+					streetViewControl: true
+				  }
+				  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+				}
+				
+				function codeAddress() {
+				    var address = "${travel.depart.adresse} <br/> ${travel.depart.city}, ${travel.depart.country}";
+				    if (geocoder) {
+				      geocoder.geocode( { 'address': address}, function(results, status) {
+				        if (status == google.maps.GeocoderStatus.OK) {
+				          map.setCenter(results[0].geometry.location);
+				          
+				          var marker = new google.maps.Marker({
+				              map: map, 
+				              position: results[0].geometry.location,
+				              title:address
+				          });
+
+						  // Pour l'info bulle				          
+				          var contentString = "<br/>${travel.depart.adresse} <br/> ${travel.depart.postal} ${travel.depart.city} <br/> ${travel.depart.country}";
+				      	  var infowindow = new google.maps.InfoWindow({
+				        	content: contentString
+				      	  });
+					      google.maps.event.addListener(marker, 'click', function() {
+	      					infowindow.open(map,marker);
+	    				  });
+				          
+				        } else {
+				          alert("Geocode was not successful for the following reason: " + status);
+				        }
+				      });
+					}
+				}
+    		</g:else>
 </jq:jquery>
 
 <fieldset>
@@ -57,22 +107,24 @@
 	<p>
 		<g:message code="view.travel.depart" />: ${travel.depart.adresse} ${travel.depart.city}, ${travel.depart.country}
 	</p>
-	<p>
-		<g:message code="view.travel.destination" />: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
-	</p>
+	<g:if test="${travel.destination != null}">
+		<p>
+			<g:message code="view.travel.destination" />: ${travel.destination.adresse} ${travel.destination.city}, ${travel.destination.country}
+		</p>
+	</g:if>
 	<p>
 		<g:message code="view.travel.number.personne" />: ${travel.numberOfPersonne}
-	</p>
-	<p>
-		<g:message code="view.travel.handicap" />: ${travel.handicap}
 	</p>
 	<p>
 		<g:message code="view.travel.comment" />: ${travel.comment}
 	</p>
 	<br/>
 	<div id="map_canvas" style="width: 810px; height: 300px"></div>
-	<br/>
-	<p>
-		<g:link action="initUpdateReservationInformation" id="${travel.id}"><g:message code="common.button.edit" /></g:link>
-	</p>
+    <g:if test="${ADMIN_VIEW == true}">
+    	<br/>
+    	<div id="directionsPanel" style="width:100%; height:100%;"></div>
+	    <p>
+			<g:link action="initUpdateReservationInformation" id="${travel.id}"><g:message code="common.button.edit" /></g:link>
+		</p>
+	</g:if>
 </fieldset>
