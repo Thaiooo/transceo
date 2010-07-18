@@ -43,14 +43,16 @@ class TravelController {
 	
 	def confirmReservation = {
 		def code = ConfirmationCode.findByIdAndCode(params.id, params.code)
-		code.travel.status = TravelStatus.QUOTATION_CONFIRM
-		code.travel.save()
-		
-		redirect(
-		controller: "common", 
-		action: "displayMessage", 
-		params:[codeMessage:"message.book.confirmation", codeTitle:"title.book.confirmation"]
-		)
+		if(code.travel.status == TravelStatus.QUOTATION_ASK){
+			travelService.customerConfirm(code.travel)
+			redirect(
+			controller: "common",
+			action: "displayMessage",
+			params:[codeMessage:"message.book.confirmation", codeTitle:"title.book.confirmation"]
+			)
+		}else{
+			redirect(uri:"/")
+		}
 	}
 	
 	def customerBook = {
