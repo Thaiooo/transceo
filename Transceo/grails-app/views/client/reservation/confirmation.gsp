@@ -4,12 +4,24 @@
 		<meta name="layout" content="client" />
     </head>
     <body>
-    	<g:form name="form" controller="travel" action="confirmReservation" >
-    		<g:hiddenField name="id" value="${id}" />
-    		Confirmation Code <g:textField name="code" value="${code}"/>
+    <fieldset>
+		<legend><g:message code="view.travel.section.prix.confirmation" /></legend>
+		<g:form name="form" controller="travel" action="confirmReservation" >
+    		<g:hiddenField name="id" value="${code.id}" />
+    		<g:hiddenField name="code" value="${code.code}" />
     		<p>
-    			<g:submitButton name="save" value="${message(code:'common.button.submit')}" />
+    			<g:message code="label.page.client.reservation.confirmation.1" args='["${travel.price}"]'/>
+    		</p>
+    		<p>
+	    		<g:message code="label.page.client.reservation.confirmation.2" />
+    		</p>
+    		<p>
+    			<g:submitButton name="save" value="${message(code:'common.button.confirm')}" />
     		</p>
     	</g:form>
+    </fieldset>
+	<br/>    
+    <g:render template="/common/travel/viewTravelSection" bean="${travel}" var="travel" model="['resume':true]"/>
+    	
     </body>
 </html>

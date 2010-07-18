@@ -12,43 +12,45 @@ class TravelController {
 	}
 	
 	def initReservation = {
-		render(view:"/client/reservation/main", model:[])		
+		render(view:"/client/reservation/main", model:[])
 	}
 	
 	def initCustomerQuotation = {
-		render(view:"/client/reservation/quotationTravel", model:[])		
+		render(view:"/client/reservation/quotationTravel", model:[])
 	}
 	
 	def initMemberQuotation = {
-		render(view:"/client/reservation/quotationTravel", model:[customer: session[SessionConstant.USER.name()]])		
+		render(view:"/client/reservation/quotationTravel", model:[customer: session[SessionConstant.USER.name()]])
 	}
 	
 	def initCustomerBook = {
-		render(view:"/client/reservation/bookTravel", model:[])		
+		render(view:"/client/reservation/bookTravel", model:[])
 	}
 	
 	def initMemberBook = {
-		render(view:"/client/reservation/bookTravel", model:[customer: session[SessionConstant.USER.name()]])	
+		render(view:"/client/reservation/bookTravel", model:[customer: session[SessionConstant.USER.name()]])
 	}
 	
 	def initConfirmation = {
-		render(view:"/client/reservation/confirmation", model:[id: params.id])	
+		def confirmation = ConfirmationCode.findByIdAndCode(params.id, params.code)
+		if(confirmation == null){
+			redirect(uri:"/")
+		}else{
+			def travel = confirmation.travel
+			render(view:"/client/reservation/confirmation", model:[code: confirmation, travel:travel])
+		}
 	}
 	
 	def confirmReservation = {
 		def code = ConfirmationCode.findByIdAndCode(params.id, params.code)
-		if(null == code){
-			
-		}else{
-			code.travel.status = TravelStatus.QUOTATION_CONFIRM
-			code.travel.save()
-			
-			redirect(
-			controller: "common", 
-			action: "displayMessage", 
-			params:[codeMessage:"message.reservation.customer.confirmation", codeTitle:"title.reservation.customer.confirmation"]
-			)	
-		}
+		code.travel.status = TravelStatus.QUOTATION_CONFIRM
+		code.travel.save()
+		
+		redirect(
+		controller: "common", 
+		action: "displayMessage", 
+		params:[codeMessage:"message.book.confirmation", codeTitle:"title.book.confirmation"]
+		)
 	}
 	
 	def customerBook = {
@@ -64,7 +66,7 @@ class TravelController {
 			customer.properties = params
 			if(!customer.validate()){
 				validate = false
-			}	
+			}
 		}
 		
 		// ===============================================
@@ -72,7 +74,7 @@ class TravelController {
 		travel.properties = params
 		travel.creationDate = new Date()
 		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
-			travel.travelDate = DateUtils.parseDate(params.date)	
+			travel.travelDate = DateUtils.parseDate(params.date)
 		}else{
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
@@ -99,7 +101,7 @@ class TravelController {
 			if(params.ADMIN_VIEW == "true"){
 				render(view:"/administrator/reservation/bookTravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
 			}else{
-				render(view:"/client/reservation/bookTravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])	
+				render(view:"/client/reservation/bookTravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
 			}
 		}else{
 			travelService.create(travel)
@@ -127,7 +129,7 @@ class TravelController {
 			customer.properties = params
 			if(!customer.validate()){
 				validate = false
-			}	
+			}
 		}
 		
 		// ===============================================
@@ -135,7 +137,7 @@ class TravelController {
 		travel.properties = params
 		travel.creationDate = new Date()
 		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
-			travel.travelDate = DateUtils.parseDate(params.date)	
+			travel.travelDate = DateUtils.parseDate(params.date)
 		}else{
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
@@ -174,7 +176,7 @@ class TravelController {
 			if(params.ADMIN_VIEW == "true"){
 				render(view:"/administrator/reservation/quotationTravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
 			}else{
-				render(view:"/client/reservation/quotationTravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])	
+				render(view:"/client/reservation/quotationTravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
 			}
 		}else{
 			travelService.create(travel)

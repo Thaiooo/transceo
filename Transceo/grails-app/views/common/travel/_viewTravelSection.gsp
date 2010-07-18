@@ -95,15 +95,19 @@
 
 <fieldset>
 	<legend><g:message code="view.travel.section.travel" /></legend>
-	<p>
-    	<g:message code="view.travel.creationdate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
-	</p>
+	<g:if test="${resume != true}">
+		<p>
+	    	<g:message code="view.travel.creationdate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
+		</p>
+	</g:if>
 	<p>
 		<g:message code="view.travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
 	</p>
-	<p>
-		<g:message code="view.travel.status" />: <g:message code="reservation.status.${travel.status}" /> 
-	</p>
+	<g:if test="${resume != true}">
+		<p>
+			<g:message code="view.travel.status" />: <g:message code="reservation.status.${travel.status}" /> 
+		</p>
+	</g:if>
 	<p>
 		<g:message code="view.travel.depart" />: ${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="country.${travel.depart.country}" />  
 	</p>
