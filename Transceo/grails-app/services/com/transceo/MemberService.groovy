@@ -3,6 +3,10 @@ package com.transceo
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.groovy.grails.commons.ConfigurationHolder;
 
+import com.transceo.exception.InvalidConfirmationPasswordException;
+import com.transceo.exception.InvalidMemberException;
+import com.transceo.exception.InvalidSponsorException;
+
 class MemberService {
 	static transactional = true
 	def mailService
@@ -22,37 +26,56 @@ class MemberService {
 		return 0
 	}
 	
-	def Member register(sponsor, params){
+	def Member register(aSponsor, params) throws InvalidSponsorException, 
+	InvalidConfirmationPasswordException, InvalidMemberException  {
+		
+		def sponsor
+		def Member member = new Member(params)
+		member.subscribeDate = new Date()
+		member.activationId = member.subscribeDate.getTime()
+		member.code = "0"
+		member.miles = config.transeo.subscribe.point.toInteger()
+		
+		if(null != aSponsor){
+			sponsor = aSponsor
+		}else if(StringUtils.isNotBlank(params.sponsorCode)){
+			sponsor = Member.findByCode(params.sponsorCode)
+			if(sponsor == null){
+				throw new InvalidSponsorException(member)
+			}
+		}
+		
+		if(params.password != params.confirmPassword){
+			throw new InvalidConfirmationPasswordException(member)
+		}
+		
+		// ==========================================
+		
 		def code = CodeSequence.get(1)
 		code.sequence = code.sequence + 1
 		code.save()
 		def memberCode = code.sequence.toString()
-		
-		def Member member = new Member(params)
-		member.subscribeDate = new Date()
-		member.activationId = member.subscribeDate.getTime()
 		member.code = memberCode.padLeft (4, "0")
-		member.miles = config.transeo.subscribe.point.toInteger()
 		
 		if(null != sponsor){
 			member.sponsor = sponsor
 			sponsor.friends.add(member)
-			sponsor.friendMiles = sponsor.friendMiles + config.transeo.friend.subscribe.point.toInteger()  
+			sponsor.friendMiles = sponsor.friendMiles + config.transeo.friend.subscribe.point.toInteger()
 		}
 		
 		if(member.validate()){
-			if(params.password == params.confirmPassword){
-				member.save()
-				// Send mail
-				mailService.sendMail {
-					to member.eMail
-					from "no-reply@transceo.com"
-					subject "Activate your account"
-					body( view:"/client/mail/subscribe", 
-							plugin:"email-confirmation", 
-							model:[member:member])
-				}
+			member.save()
+			// Send mail
+			mailService.sendMail {
+				to member.eMail
+				from "no-reply@transceo.com"
+				subject "Activate your account"
+				body( view:"/client/mail/subscribe", 
+						plugin:"email-confirmation", 
+						model:[member:member])
 			}
+		}else{
+			throw new InvalidMemberException(member)
 		}
 		return member
 	}
@@ -95,7 +118,7 @@ class MemberService {
 			le ("subscribeDate", gc.time)
 		}
 		
-		results.each(){ it.delete() }	
+		results.each(){ it.delete() }
 	}
 	
 	def List<Member> search(params){
@@ -109,7 +132,7 @@ class MemberService {
 		}
 		def offset = 0
 		if(params.offset != null){
-			offset = params.offset.toInteger()	
+			offset = params.offset.toInteger()
 		}		
 		
 		def c = Customer.createCriteria()
@@ -153,9 +176,7 @@ class MemberService {
 	def int countMax(params){
 		def c = Customer.createCriteria()
 		def results = c.get {
-			projections {
-				countDistinct('id')
-			}
+			projections { countDistinct('id') }
 			and {
 				if(StringUtils.isNotBlank(params.code)){
 					ilike("code", params.code)

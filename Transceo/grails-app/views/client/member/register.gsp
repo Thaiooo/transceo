@@ -45,6 +45,12 @@
    		</g:if>
 		<div class="formulaire_spip formulaire_editer_message_contact" id=formulaire_register>
 			<form controller="member" action="register" method="post" >
+	    		
+	    		<p>
+	    		<g:message code="subscribe.sponsor.code" />
+	    		<g:textField name="sponsorCode" value="${sponsorCode}"/>    		
+	    		</p>
+	    		
 	    		<p>
 	    		<g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong>
 	    		<g:textField name="firstName" value="${firstName}"/>    		
