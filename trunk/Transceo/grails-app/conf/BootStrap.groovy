@@ -280,6 +280,7 @@ class BootStrap {
 		travel.customer = c1
 		c1.travels.add(travel)
 		travel.save()
+		*/
 		
 		// =================================================
 		// =================================================
@@ -288,6 +289,7 @@ class BootStrap {
 		r1.rate = 100
 		r1.save()
 		
+		/*
 		// =================================================
 		def r2 = new RateMile()
 		r2.level = 1
