@@ -2,17 +2,21 @@ package com.transceo
 
 import org.apache.commons.lang.StringUtils;
 
+import com.transceo.exception.InvalidConfirmationPasswordException;
+import com.transceo.exception.InvalidMemberException;
+import com.transceo.exception.InvalidSponsorException;
+
 class MemberController {
 	def memberService
 	def mailService
 	
 	def initRegister = {
-		render(view:"/client/member/register", model:[])		
+		render(view:"/client/member/register", model:[])
 	}
 	
 	def initAddFriend = {
 		def user = session[SessionConstant.USER.name()]
-		render(view:"/client/member/addFriend", model:[user:user])		
+		render(view:"/client/member/addFriend", model:[user:user])
 	}
 	
 	def activate = {
@@ -40,22 +44,23 @@ class MemberController {
 		}
 	}
 	
-	def register = {
-		def Member member = memberService.register(null, params)
+	def register = {		
 		
-		if(member.validate()){
-			if(params.password == params.confirmPassword){
-				redirect(
-				controller: "common", 
-				action: "displayMessage", 
-				params:[codeMessage:"message.register.confirmation", codeTitle:"title.register.confirmation"]
-				)
-			}else{
-				flash.message = "member.confirmpassword.invalidate"
-				render(view:"/client/member/register", model:[member: member])
-			}
-		}else{
-			render(view:"/client/member/register", model:[member: member])
+		try{
+			def Member member = memberService.register(null, params)
+			redirect(
+			controller: "common",
+			action: "displayMessage",
+			params:[codeMessage:"message.register.confirmation", codeTitle:"title.register.confirmation"]
+			)
+		} catch (InvalidSponsorException e) {
+			flash.message = "member.sponsor.invalidate"
+			render(view:"/client/member/register", model:[member: e.getMember(), sponsorCode:params.sponsorCode])
+		} catch (InvalidConfirmationPasswordException e) {
+			flash.message = "member.confirmpassword.invalidate"
+			render(view:"/client/member/register", model:[member: e.getMember(), sponsorCode:params.sponsorCode])
+		} catch (InvalidMemberException e) {
+			render(view:"/client/member/register", model:[member: e.getMember(), sponsorCode:params.sponsorCode])
 		}
 	}
 	
@@ -70,7 +75,6 @@ class MemberController {
 				action: "displayMessage", 
 				params:[codeMessage:"message.register.confirmation", codeTitle:"title.register.confirmation"]
 				)
-				
 			}else{
 				flash.message = "member.confirmpassword.invalidate"
 				render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
@@ -102,7 +106,7 @@ class MemberController {
 		o.properties = params
 		if(o.validate()){
 			o.save()
-			redirect(controller:"member",action:"showMyProfile", id:o.id)	
+			redirect(controller:"member",action:"showMyProfile", id:o.id)
 		} else {
 			render(view:"/client/member/edit", model:[member: o])
 		}
@@ -110,12 +114,12 @@ class MemberController {
 	
 	def showMyProfile = {
 		def o = Member.get(session[SessionConstant.USER.name()].id)
-		render(view:"/client/member/view", model:[member: o])		
+		render(view:"/client/member/view", model:[member: o])
 	}
 	
 	def initUpdateCustomerInformation = {
 		def o = Member.get(session[SessionConstant.USER.name()].id)
-		render(view:"/client/member/edit", model:[member: o])		
+		render(view:"/client/member/edit", model:[member: o])
 	}
 	
 	def delete = {
@@ -150,7 +154,7 @@ class MemberController {
 	}
 	
 	def initChangePassword = {
-		render(view:"/client/member/changePassword", model:[])		
+		render(view:"/client/member/changePassword", model:[])
 	}
 	
 	def changePassword = {
@@ -188,9 +192,9 @@ class MemberController {
 			controller: "common", 
 			action: "displayMessage", 
 			params:[codeMessage:"message.change.password.confirmation", codeTitle:"title.change.password.confirmation"]
-			)	
+			)
 		}else{
-			render(view:"/client/member/changePassword", model:[password: params.password, oldPassword: params.oldPassword])	
+			render(view:"/client/member/changePassword", model:[password: params.password, oldPassword: params.oldPassword])
 		}
 	}
 }
