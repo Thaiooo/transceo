@@ -35,9 +35,9 @@
 			<ul class="nav">
 				<li><g:link controller="administrator" action="searchMember" title="Search Members">Members</g:link></li>
 				<li class="art3"><g:link controller="administrator" action="reservationMain" title="Manage reservation">Reservation</g:link></li>
-				<li class="art5"><g:link controller="rateMile" action="list" title="Properties">Properties</g:link></li>
-				<li class="art5"><g:link controller="user" action="list" title="Manage user">User</g:link></li>
+				<li class="art5"><g:link controller="rateMile" action="list" title="Properties">Taux</g:link></li>
 				<li class="art5"><g:link controller="location" action="list" title="Manage location">Adresse</g:link></li>
+				<li class="art5"><g:link controller="administrator" action="listProperties" title="Manage user">Paramétrages</g:link></li>
 				<li class="art7"><g:link controller="administrator" action="disconnect" title="Manage reservation">Disconnect</g:link></li>
 			</ul>
 			<!--fin nav-->
