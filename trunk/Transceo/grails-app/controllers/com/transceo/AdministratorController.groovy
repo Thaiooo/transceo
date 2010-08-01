@@ -315,4 +315,8 @@ class AdministratorController {
 		def o = Travel.get(params.id.toLong()) 
 		render(view:"/administrator/reservation/details", model:[travel: o, ADMIN_VIEW: true, backAction:params.backAction])
 	}
+	
+	def listProperties = {
+		render(view:"/administrator/properties/list", model:[])
+	}
 }
