@@ -14,7 +14,9 @@
     		<tbody>
 		    	<g:each in="${adresses}">
     				<tr>
-    					<td><g:link action="initUpdate" id="${it.id}"><g:message code="common.button.edit"/></g:link></td>
+    					<td>
+    						<g:link action="initUpdate" id="${it.id}"><g:message code="common.button.edit"/></g:link>
+    					</td>
     					<td>${it.label}</td>
     				</tr>
     			</g:each>

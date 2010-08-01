@@ -25,6 +25,15 @@
 					<g:renderErrors bean="${adresse}" />
 				</div>
 			</g:hasErrors>
+			<g:if test="${flash.message != null}">
+		    	<div class="erreur_message">
+			    	<ul>
+						<li>
+							<g:message code="${flash.message}" ></g:message>
+						</li>
+					</ul>
+				</div>
+		    </g:if>
 			
 			<g:hiddenField name="id" value="${adresse.id}" />
 			
@@ -56,6 +65,7 @@
 			</p>
 	   		<p class="boutons">
 				<g:actionSubmit action="update" value="${message(code:'common.button.update')}" />
+				<g:actionSubmit action="delete" value="${message(code:'common.button.delete')}" />
 				<g:actionSubmit action="list" value="${message(code:'common.button.back')}" />
 			</p>
 	    </g:form>
