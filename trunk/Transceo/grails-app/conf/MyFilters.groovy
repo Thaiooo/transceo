@@ -18,6 +18,15 @@ class MyFilters {
 					}
 					break
 					
+					case 'location':
+					if (session[SessionConstant.ADMIN.name()] == null) {
+						redirect(controller:"administrator" ,action:"login")
+						return false
+					}else{
+						return true
+					}
+					break
+					
 					case 'member':
 					if(actionName == "searchMember"){
 						if (session[SessionConstant.ADMIN.name()] == null) {
@@ -51,13 +60,13 @@ class MyFilters {
 				switch (controllerName) {
 					case 'member':
 					if(actionName == "initAddFriend" || 
-							actionName == "showMyProfile" || 
-							actionName == "initAddFriend" ||
-							actionName == "addFriend" ||
-							actionName == "initUpdateCustomerInformation" ||
-							actionName == "updateCustomerInformation" ||
-							actionName == "initChangePassword" ||							
-							actionName == "changePassword"								
+					actionName == "showMyProfile" || 
+					actionName == "initAddFriend" ||
+					actionName == "addFriend" ||
+					actionName == "initUpdateCustomerInformation" ||
+					actionName == "updateCustomerInformation" ||
+					actionName == "initChangePassword" ||							
+					actionName == "changePassword"								
 					){
 						if (session[SessionConstant.USER.name()] == null) {
 							redirect(controller:"login" ,action:"login")
@@ -72,8 +81,8 @@ class MyFilters {
 					
 					case 'travel':
 					if(actionName == "initMemberQuotation" ||
-						actionName == "initMemberBook" ||
-						actionName == "show"
+					actionName == "initMemberBook" ||
+					actionName == "show"
 					){
 						if (session[SessionConstant.USER.name()] == null) {
 							redirect(controller:"login" ,action:"login")
