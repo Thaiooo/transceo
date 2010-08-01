@@ -37,4 +37,22 @@ class LocationController {
 			redirect(action: "list")
 		}
 	}
+	
+	def delete = {
+		def adresse = Location.get(params.id)
+		def nbTravel = Travel.countByDepart(adresse)
+		if(nbTravel > 0){
+			flash.message = "message.localisation.delete.invalidate"
+			render(view:"/administrator/location/update", model:[adresse:adresse])
+		}else{
+			nbTravel = Travel.countByDestination(adresse)
+			if(nbTravel > 0){
+				flash.message = "message.localisation.delete.invalidate"
+				render(view:"/administrator/location/update", model:[adresse:adresse])
+			}else{
+				adresse.delete()
+				redirect(action: "list")
+			}
+		}
+	}
 }
