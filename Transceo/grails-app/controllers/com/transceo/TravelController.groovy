@@ -1,8 +1,5 @@
 package com.transceo
 
-
-import org.codehaus.groovy.grails.web.servlet.FlashScope;
-
 class TravelController {
 	def travelService
 	
