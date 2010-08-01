@@ -1,6 +1,7 @@
 package com.transceo
 
 class LocationController {
+	
 	def list = {
 		def adresses = Location.list()
 		render(view:"/administrator/location/list", model:[adresses: adresses])
@@ -11,14 +12,29 @@ class LocationController {
 	}
 	
 	def initUpdate = {
-		render(view:"/administrator/location/update", model:[])
+		def adresse = Location.get(params.id)
+		render(view:"/administrator/location/update", model:[adresse:adresse])
 	}
 	
 	def create = {
-		redirect(action: "list")	
+		def location = new Location(params)
+		if(!location.validate()){
+			render(view:"/administrator/location/create", model:[adresse:location])
+		}else{
+			location.save()
+			redirect(action: "list")
+		}
 	}
 	
 	def update = {
-		redirect(action: "list")	
+		def adresse = Location.get(params.id)
+		adresse.properties = params
+		
+		if(!adresse.validate()){
+			render(view:"/administrator/location/update", model:[adresse:adresse])
+		}else{
+			adresse.save()
+			redirect(action: "list")
+		}
 	}
 }
