@@ -11,7 +11,7 @@
 	<g:set var="country" value=""></g:set>
 </g:else>
 
-<g:if test="${adresse != null && adresse.class.name == 'com.transceo.Location'}">
+<g:if test="${adresse != null && adresse.class.name == 'com.transceo.Location' && (fill == false || fill == null)}" >
 	<g:message code="message.additional.info" />
 </g:if>
 <g:else>
@@ -23,18 +23,19 @@
 	</g:hasErrors>	
 	<p>
 		<g:message code="travel.adresse" /> <strong><g:message code="common.required" /></strong>
-		<g:textField name="${beanName}.adresse" value="${adresseName}"/>
+		<g:textField id="${beanName}_adresse" name="${beanName}.adresse" value="${adresseName}"/>
 	</p>
 	<p>
 		<g:message code="travel.postal" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField name="${beanName}.postal" value="${postal}" size="5" maxize="5"/>
+	    <g:textField name="${beanName}_postal" value="${postal}" size="5" maxize="5"/>
 	    <g:message code="travel.city" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField id="${beanName}City" name="${beanName}.city" value="${city}"/>
+	    <g:textField id="${beanName}_city" name="${beanName}.city" value="${city}"/>
 	</p>
 	<p>
 		<g:message code="travel.country" /> <strong><g:message code="common.required" /></strong>
 	    <g:set var="label" value="${message(code:'common.country.select')}" />
-   		<g:select name="${beanName}.country" 
+   		<g:select id="${beanName}_country" 
+   			name="${beanName}.country" 
    			from="${com.transceo.CountryCode.values()}" 
    			value="${country}" 
    			valueMessagePrefix="country" 
