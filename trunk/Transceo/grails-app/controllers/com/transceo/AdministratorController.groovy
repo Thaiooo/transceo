@@ -319,4 +319,8 @@ class AdministratorController {
 	def listProperties = {
 		render(view:"/administrator/properties/list", model:[])
 	}
+	
+	def initSimulation = {
+		render(view:"/administrator/reservation/simulation", model:[])
+	}
 }

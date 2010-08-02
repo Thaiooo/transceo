@@ -8,7 +8,7 @@
 			optionValue="label" 
 			noSelection='["":"${label}"]'
 			value="${selectId}"
-			onchange="${remoteFunction(controller:'travel', action:'dispalyAdresseSection', update:adrZoneID, params:'\'beanName=' + beanName + '&id=\' + this.value')}"
+			onchange="${remoteFunction(controller:'travel', action:'dispalyAdresseSection2', update:adrZoneID, params:'\'beanName=' + beanName + '&id=\' + this.value')}"
 		/>
 	</legend>
 	

@@ -204,10 +204,20 @@ class TravelController {
 	
 	def dispalyAdresseSection = {
 		if(params.id == ''){
-			render(template:"/common/travel/editAdresse", model:[beanName:'depart'])
+			render(template:"/common/travel/editAdresse", model:[beanName:params.beanName])
 		}else{
 			def adresse = Location.get(params.id)
-			render(template:"/common/travel/editAdresse", model:[beanName:'depart', adresse:adresse])
+			render(template:"/common/travel/editAdresse", model:[beanName:params.beanName, adresse:adresse])
+		}
+	}
+	
+	def dispalyAdresseSection2 = {
+		println params
+		if(params.id == ''){
+			render(template:"/common/travel/editAdresse", model:[beanName:params.beanName])
+		}else{
+			def adresse = Location.get(params.id)
+			render(template:"/common/travel/editAdresse", model:[beanName:params.beanName, adresse:adresse, fill:true])
 		}
 	}
 }
