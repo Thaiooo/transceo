@@ -30,19 +30,27 @@ class AdministratorController {
 	
 	def initUpdateCustomerInformation = {
 		def o = Customer.get(params.id.toLong())
-		render(view:"/administrator/member/edit", model:[member: o])		
+		render(view:"/administrator/member/edit", model:[member: o])
 	}
 	
 	def initUpdateReservationInformation = {
-		def o = Travel.get(params.id.toLong()) 
-		def locationDepartId = o.depart.id
-		render(view:"/administrator/reservation/edit", model:[travel: o, depart: o.depart, destination:o.destination, locationDepartId:locationDepartId])		
+		def o = Travel.get(params.id.toLong())
+		def locationDepartId = null
+		if(o.depart.class.name == Location.class.name){
+			locationDepartId = o.depart.id
+		}
+		def locationDestId
+		if(o.destination != null && o.destination.class.name == Location.class.name){
+			locationDestId = o.destination.id
+		}
+		
+		render(view:"/administrator/reservation/edit", model:[travel: o, depart: o.depart, destination:o.destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
 	}
 	
 	
 	def showProfile = {
 		def o = Customer.get(params.id.toLong()) 		
-		render(view:"/administrator/member/view", model:[member: o])		
+		render(view:"/administrator/member/view", model:[member: o])
 	}
 	
 	def searchMember = {
@@ -58,19 +66,19 @@ class AdministratorController {
 		criteria.country=params.country
 		
 		session[SessionConstant.CRITERIA.name()] = criteria
-		commonSearchMember(criteria)	
+		commonSearchMember(criteria)
 	}
 	
 	def sortMember = {
 		def criteria = session[SessionConstant.CRITERIA.name()]
 		criteria.sort=params.sort
 		criteria.order=params.order
-		commonSearchMember(criteria)	
+		commonSearchMember(criteria)
 	}
 	
 	def backMember = {
 		def criteria = session[SessionConstant.CRITERIA.name()]
-		commonSearchMember(criteria)		
+		commonSearchMember(criteria)
 	}
 	
 	def paginateMember = {
@@ -78,7 +86,7 @@ class AdministratorController {
 		criteria.offset=params.offset
 		criteria.max=params.max
 		session[SessionConstant.CRITERIA.name()] = criteria 
-		commonSearchMember(criteria)		
+		commonSearchMember(criteria)
 	}
 	
 	private commonSearchMember(criteria) {
@@ -90,7 +98,7 @@ class AdministratorController {
 	}
 	
 	def initCustomerReservation = {
-		render(view:"/administrator/reservation/customerReservation", model:[])		
+		render(view:"/administrator/reservation/customerReservation", model:[])
 	}
 	
 	def initMemberReservation = {
@@ -100,7 +108,7 @@ class AdministratorController {
 	
 	def closeTravel = {
 		travelService.close(params.id)
-		redirect(action:"reservationToProcess", controller:"administrator")		
+		redirect(action:"reservationToProcess", controller:"administrator")
 	}
 	
 	def reservationToPrice = {
@@ -108,7 +116,7 @@ class AdministratorController {
 		criteria.status = [TravelStatus.QUOTATION_ASK]
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
-		render(view:"/administrator/reservation/toPrice", model:[travels: travels])			
+		render(view:"/administrator/reservation/toPrice", model:[travels: travels])
 	}
 	
 	
@@ -127,7 +135,7 @@ class AdministratorController {
 		criteria.status = [TravelStatus.QUOTATION_TO_CONFIRM]
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
-		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])			
+		render(view:"/administrator/reservation/toConfirm", model:[travels: travels])
 	}
 	
 	def sortReservationToConfirm = {
@@ -145,7 +153,7 @@ class AdministratorController {
 		criteria.status = [TravelStatus.QUOTATION_CONFIRM, TravelStatus.BOOK_ASK]
 		criteria.max = -1 
 		def travels = travelService.findReservation(criteria)
-		render(view:"/administrator/reservation/toProcess", model:[travels: travels])			
+		render(view:"/administrator/reservation/toProcess", model:[travels: travels])
 	}
 	
 	def sortReservationToProcess = {
@@ -176,6 +184,7 @@ class AdministratorController {
 	}
 	
 	def validateAndConfirmReservation = {
+		println params
 		if(params.price == null || !params.price.isInteger()){
 			flash.message = "administrate.price.required"
 			def o = Travel.get(params.id.toLong()) 
@@ -183,7 +192,7 @@ class AdministratorController {
 		}else{
 			travelService.confirm(params.id, params.price.toInteger())
 			redirect(action:"reservationToProcess", controller:"administrator")
-		}	
+		}
 	}
 	
 	def cancelReservation = {
@@ -197,7 +206,7 @@ class AdministratorController {
 	
 	def cancelTravel = {
 		travelService.cancel(params.id)
-		redirect(action:"reservationToProcess", controller:"administrator")		
+		redirect(action:"reservationToProcess", controller:"administrator")
 	}
 	
 	def reservationMain = {
@@ -243,12 +252,12 @@ class AdministratorController {
 		criteria.offset=params.offset
 		criteria.max=params.max
 		session[SessionConstant.CRITERIA.name()] = criteria 
-		commonSearchReservation(criteria)		
+		commonSearchReservation(criteria)
 	}
 	
 	def backReservation = {
 		def criteria = session[SessionConstant.CRITERIA.name()]
-		commonSearchReservation(criteria)		
+		commonSearchReservation(criteria)
 	}
 	
 	private commonSearchReservation (criteria) {
@@ -263,19 +272,19 @@ class AdministratorController {
 	def showForConfirmReservation = {
 		session[SessionConstant.ADMIN_PAGE.name()] = 'confirm'
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/reservation/administrate", model:[travel: o])		
+		render(view:"/administrator/reservation/administrate", model:[travel: o])
 	}
 	
 	def showForPriceReservation = {
 		session[SessionConstant.ADMIN_PAGE.name()] = 'price'
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction, ADMIN_VIEW: true])		
+		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction, ADMIN_VIEW: true])
 	}
 	
 	def showForValidateReservation = {
 		session[SessionConstant.ADMIN_PAGE.name()] = 'validate'
 		def o = Travel.get(params.id.toLong()) 
-		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction])		
+		render(view:"/administrator/reservation/administrate", model:[travel: o, backAction:params.backAction])
 	}
 	
 	def updateCustomerInformation = {
@@ -292,16 +301,86 @@ class AdministratorController {
 	def updateReservationInformation = {
 		def o = Travel.get(params.id.toLong())
 		o.properties = params
+		
+		if(o.depart.class.name == Location.class.name){
+			if(StringUtils.isBlank(params.location_depart)){
+				// Location vers Adresse
+				o.depart.discard()
+				def depart = new Adresse()
+				depart.properties = params.depart
+				o.depart = depart
+			}else{
+				// Changement de location
+				def depart = Location.get(params.location_depart)
+				o.depart = depart
+			}
+		}else{
+			if(StringUtils.isNotBlank(params.location_depart)){
+				// Adresse vers Location
+				o.depart.delete()
+				def depart = Location.get(params.location_depart)
+				o.depart = depart
+			}
+		}
+		
+		if(o.destination != null){
+			if(o.destination.class.name == Location.class.name){
+				if(StringUtils.isBlank(params.location_destination)){
+					// Location vers Adresse
+					o.destination.discard()
+					def destination = new Adresse()
+					destination.properties = params.destination
+					o.destination = destination
+				}else{
+					// Changement de location
+					def destination = Location.get(params.location_destination)
+					o.destination = destination
+				}
+			}else{
+				if(StringUtils.isNotBlank(params.location_destination)){
+					// Adresse vers Location
+					o.destination.delete()
+					def destination = Location.get(params.location_destination)
+					o.destination = destination
+				}
+			}
+		}
+		
 		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
-			o.travelDate = DateUtils.parseDate(params.date)	
+			o.travelDate = DateUtils.parseDate(params.date)
 		}else{
 			o.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
-		if(o.validate()){
+		
+		def validate = true
+		if(!o.validate() && validate){
+			validate = false
+		}
+		if(!o.depart.validate() && validate){
+			validate = false
+		}
+		if(null != o.destination && !o.destination.validate() && validate){
+			validate = false
+		}
+		
+		if(validate){
+			o.depart.save()
+			if(null != o.destination){
+				o.destination.save()
+			}
 			o.save()
 			redirect(controller:"administrator",action:"showReservationDetails", id:o.id)
 		} else {
-			render(view:"/administrator/reservation/edit", model:[member: o])
+			o.depart.discard()
+			if(null != o.destination){
+				o.destination.discard()
+			}
+			o.discard()
+			
+			render(view:"/administrator/reservation/edit", 
+			model:[travel: o, depart: o.depart, destination:o.destination
+			, locationDepartId:params.location_depart, locationDestId:params.location_destination]
+			)
 		}
 	}
 	

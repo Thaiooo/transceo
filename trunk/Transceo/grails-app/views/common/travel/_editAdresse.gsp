@@ -27,7 +27,7 @@
 	</p>
 	<p>
 		<g:message code="travel.postal" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField name="${beanName}_postal" value="${postal}" size="5" maxize="5"/>
+	    <g:textField id="${beanName}_postal" name="${beanName}.postal" value="${postal}" size="5" maxize="5"/>
 	    <g:message code="travel.city" /> <strong><g:message code="common.required" /></strong>
 	    <g:textField id="${beanName}_city" name="${beanName}.city" value="${city}"/>
 	</p>
