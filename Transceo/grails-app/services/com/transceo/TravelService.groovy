@@ -220,6 +220,13 @@ class TravelService {
 		travel.save()
 	}
 	
+	def confirm(id, price){
+		def travel = Travel.get(id)
+		travel.status = TravelStatus.QUOTATION_CONFIRM
+		travel.price = price
+		travel.save()
+	}
+	
 	def validate(id, price){		
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.QUOTATION_TO_CONFIRM

@@ -40,7 +40,7 @@ class TravelController {
 	
 	def confirmReservation = {
 		def code = ConfirmationCode.findByIdAndCode(params.id, params.code)
-		if(code.travel.status == TravelStatus.QUOTATION_ASK){
+		if(code.travel.status == TravelStatus.QUOTATION_TO_CONFIRM){
 			travelService.customerConfirm(code.travel)
 			redirect(
 			controller: "common",

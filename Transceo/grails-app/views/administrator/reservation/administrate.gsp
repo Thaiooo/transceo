@@ -7,8 +7,10 @@
     	<g:set var="legend" value="${message(code:'view.travel.section.customer')}" />
     	<g:render template="/common/member/viewSection" bean="${travel.customer}" var="customer" model='["legend":"${legend}", "editAble":false]'/>
     	<br/>
+    	
     	<g:render template="/common/travel/viewTravelSection" bean="${travel}" var="travel"/>
 		<br/>
+		
     	<g:if test="${session[com.transceo.SessionConstant.ADMIN_PAGE.name()] == 'price'}">
     		<g:render template="/administrator/reservation/actionPriceSection" bean="${travel}" var="travel" model='["price":"${price}"]'/>
     		<br/>    	
@@ -20,6 +22,8 @@
     		<g:link controller="administrator" action="reservationToConfirm"><g:message code="common.button.back" /></g:link>
     	</g:elseif>
     	<g:else>
+    		${travel.class.name}
+    		${travel.status}
     		<g:render template="/administrator/reservation/actionValidateSection" bean="${travel}" var="travel"/>
     		<br/>    	
     		<g:link controller="administrator" action="reservationToProcess"><g:message code="common.button.back" /></g:link>
