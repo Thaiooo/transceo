@@ -212,12 +212,16 @@ class TravelController {
 	}
 	
 	def dispalyAdresseSection2 = {
-		println params
 		if(params.id == ''){
 			render(template:"/common/travel/editAdresse", model:[beanName:params.beanName])
 		}else{
 			def adresse = Location.get(params.id)
 			render(template:"/common/travel/editAdresse", model:[beanName:params.beanName, adresse:adresse, fill:true])
 		}
+	}
+	
+	def dispalyTravelDetailsPopup = {
+		def o = Travel.get(params.id.toLong())
+		render(template:"/common/travel/viewDetailsSection", model:[travel: o])
 	}
 }
