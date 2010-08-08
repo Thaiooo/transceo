@@ -21,7 +21,7 @@
     	</g:form>
     </fieldset>
 	<br/>    
-    <g:render template="/common/travel/viewTravelSection" bean="${travel}" var="travel" model="['resume':true]"/>
+    <g:render template="/common/travel/viewDetailsAndMapSection" bean="${travel}" var="travel" model="['resume':true]"/>
     	
     </body>
 </html>
