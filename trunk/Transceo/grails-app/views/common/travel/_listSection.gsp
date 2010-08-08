@@ -4,9 +4,9 @@
 		<g:message code="message.no.travel" />
 	</g:if>
 	<g:else>
-		<table border = "1">
+		<table class="spip">
 			<thead>
-				<tr>
+				<tr class="row_first">
 					<th></th>
 				    <th><g:message code="view.member.travels.creationdate" /></th>
 				    <th><g:message code="view.member.travels.traveldate" /></th>
@@ -17,26 +17,26 @@
 				</tr>
 			</thead>
 			<tbody>
-				<g:each in="${member.travels}">
-					<tr>
+				<g:each status="i" in="${member.travels}" var="item">
+    				<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 						<td width="50px">
 							<g:if test="${ADMIN_VIEW == true}">
-								<g:link controller="administrator" action="showTravel" id="${it.id}"><g:message code="view.member.travels.view" /></g:link>
+								<g:link controller="administrator" action="showTravel" id="${item.id}"><g:message code="view.member.travels.view" /></g:link>
 							</g:if>
 							<g:else>
-								<g:link controller="travel" action="show" id="${it.id}"><g:message code="view.member.travels.view" /></g:link>
+								<g:link controller="travel" action="show" id="${item.id}"><g:message code="view.member.travels.view" /></g:link>
 							</g:else>
 						</td>
-					    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/></td>
-					    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${it.travelDate}"/></td>
-					    <td>${it.depart.adresse} ${it.depart.city}, ${it.depart.country}</td>
+					    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/></td>
+					    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${item.travelDate}"/></td>
+					    <td>${item.depart.adresse} ${item.depart.city}, ${item.depart.country}</td>
 					    <td>
-					    	<g:if test="${it.destination != null}">
-					    		${it.destination.adresse} ${it.destination.city}, ${it.destination.country}
+					    	<g:if test="${item.destination != null}">
+					    		${item.destination.adresse} ${item.destination.city}, ${item.destination.country}
 					    	</g:if>
 					    </td>
-					    <td>${it.price}</td>
-					    <td><g:message code="reservation.status.${it.status}" /></td>
+					    <td>${item.price}&#8364;</td>
+					    <td><g:message code="reservation.status.${item.status}" /></td>
 					</tr>
 				</g:each>
 			</tbody>
