@@ -1,9 +1,8 @@
-
 html { font-size: 100%; } /* Cf.: http://pompage.net/pompe/definir-des-tailles-de-polices-en-CSS/ */
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: #2c2c2c;
-	background-image: url(../images/bg.jpg);
+	background-image: url(images/bg.jpg);
 	background-repeat: repeat-x;
 	margin: 0px;
 	padding: 0px;
@@ -63,7 +62,7 @@ strong {
 	z-index: 1000;
 }
 #descriptif {
-	background-image: url(../images/bg-descriptif.jpg);
+	background-image: url(images/bg-descriptif.jpg);
 	background-repeat: no-repeat;
 	height: 100px;
 	width: 539px;
@@ -107,12 +106,12 @@ strong {
 	border: 1px solid #FFF;
 }
 #langue input.fr   {
-	background-image: url(../images/drapo_fr.gif);
+	background-image: url(images/drapo_fr.gif);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 #langue  input.en {
-	background-image: url(../images/drapo_en.gif);
+	background-image: url(images/drapo_en.gif);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -123,9 +122,6 @@ strong {
 	vertical-align: top;
 	padding: 0 20px 0 0;
 }
-
-
-
 #formulaire_contact {
 	width: 520px;
 	float: right;
@@ -134,7 +130,7 @@ strong {
 	margin: 0px;
 	padding: 0px;
 }
-#formulaire_contact legend {
+#formulaire_contact  legend {
 	display: none;
 }
 #formulaire_contact ul {
@@ -157,7 +153,7 @@ text-align: center
 width: 900px;
 }
 
-#formulaire_contact label   {
+#formulaire_contact  label   {
 	float: left;
 	width: 240px;
 	display: block;
@@ -175,9 +171,9 @@ width: 900px;
 	padding: 2px 7px;
 	border: none;
 	display: block;
-	background-image: url(../images/stripe2.gif);
+	background-image: url(images/stripe2.gif);
 }
-#formulaire_contact input.submit   {
+#formulaire_contact  input.submit   {
 	float: right;
 	width: auto;
 	height: auto;
@@ -190,7 +186,7 @@ width: 900px;
 	margin: 0 4px 0 0;
 }
 #formulaire_contact textarea {
-	background-image: url(../images/stripe2.gif);
+	background-image: url(images/stripe2.gif);
 	border: none;
 }
 #formulaire_contact label strong {
@@ -199,15 +195,6 @@ width: 900px;
 	font-size: 0.75em;
 	text-transform: lowercase;
 }
-
-#formulaire_contact strong {
-	font-weight: bold;
-	color: #181818;
-	font-size: 0.75em;
-	text-transform: lowercase;
-}
-
-
 #formulaire_contact .erreur_message {
 	font-size: 0.75em;
 	color: #FF0000;
@@ -216,112 +203,17 @@ width: 900px;
 #formulaire_contact .erreur_message:hover {
 	display: none;
 }
-
-/* ========================================================================= */
-
-#formulaire_register {
-	width: 520px;
-	float: left;
-}
-#formulaire_register .texte {
-	margin: 0px;
-	padding: 0px;
-}
-#formulaire_register legend {
-	display: none;
-}
-#formulaire_register ul {
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-	display: inline;
-}
-#formulaire_register ul li  {
-	align: left;
-	display: block;
-	float: left;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-}
-
-#formulaire_register ul li.saisie_texte label  {
-text-align: center
-width: 900px;
-}
-
-#formulaire_register label   {
-	float: left;
-	width: 240px;
-	display: block;
-	height: 14px;
-	margin: 4px 0;
-	padding: 2px 0;
-	font-weight: normal;
-	color: #999999;
-}
-#formulaire_register  input   {
-	float: right;
-	width: 260px;
-	height: 14px;
-	margin: 4px 0;
-	padding: 2px 7px;
-	border: none;
-	display: block;
-	background-image: url(../images/stripe2.gif);
-}
-#formulaire_register input.submit   {
-	float: right;
-	width: auto;
-	height: auto;
-	padding: 2px;
-	border: 1px solid #666666;
-	display: block;
-	background-color: #333333;
-	background-image: none;
-	color: #FFFFFF;
-	margin: 4px 0px 0 0;
-}
-#formulaire_register textarea {
-	background-image: url(../images/stripe2.gif);
-	border: none;
-}
-#formulaire_register label strong {
-	font-weight: bold;
-	color: #181818;
-	font-size: 0.75em;
-	text-transform: lowercase;
-}
-
-#formulaire_register strong {
-	font-weight: bold;
-	color: #181818;
-	font-size: 0.75em;
-	text-transform: lowercase;
-}
-
-#formulaire_register a {
-	text-decoration: underline;
-}
-
-/* ========================================================================= */
-
-.erreur_message {
-	color: #FF0000;
-	padding: 4px 0 4px 0px;
-}
-
 #contenu {
 	background-repeat: repeat-y;
 	margin: 0px;
 	padding: 0px;
-	background-image: url(../images/bg-zonetxt.jpg);
+	background-image: url(images/bg-zonetxt.jpg);
 }
 .nettoyeur {
 	clear: both;
 }
 #diapo-cadre {
-	background-image: url(../images/diapo-cadre.png);
+	background-image: url(images/diapo-cadre.png);
 	background-repeat: no-repeat;
 	height: 326px;
 	clear: both;
@@ -342,7 +234,7 @@ width: 900px;
 	font-weight: bold;
 	color: #FFFFFF;
 	z-index: 100;
-	background-image: url(../images/bg_telephone.png);
+	background-image: url(images/bg_telephone.png);
 	background-repeat: no-repeat;
 	background-position: center top;
 	height: 69px;
@@ -356,7 +248,7 @@ width: 900px;
 	padding: 10px;
 }
 ul.nav {
-	background-image: url(../images/bg-nav.jpg);
+	background-image: url(images/bg-nav.jpg);
 	background-repeat: no-repeat;
 	height: 24px;
 	width: 836px;
@@ -398,7 +290,7 @@ ul.nav  li.art7  a:hover {
 	color: #FFFFFF;
 }
 .intro{
-	background-image: url(../images/bg-zonetxt.jpg);
+	background-image: url(images/bg-zonetxt.jpg);
 	background-repeat: repeat-y;
 	padding: 50px 30px 0 30px;
 }
@@ -410,7 +302,7 @@ ul.nav  li.art7  a:hover {
 	z-index: 1000;
 }
 #pied {
-	background-image: url(../images/bg-pied.png);
+	background-image: url(images/bg-pied.png);
 	background-repeat: no-repeat;
 	padding-top: 26px;
 	clear: both;
@@ -459,3 +351,21 @@ div.trait-gauche {
 	height: 320px;
 }
 img, .spip_logos { margin: 0; padding: 0; border: 0; }
+
+table.spip {
+	background-color: #262626;
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+table.spip .row_first {
+	background-color: #333;
+}
+table.spip .row_odd {background-color: #444;}
+table.spip .row_even {
+	background-color: #535353;
+}
+
+table.spip td {
+	text-align: center;
+	margin: 0px;
+	padding: 2px;
