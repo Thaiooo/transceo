@@ -41,7 +41,7 @@
 	</p>
 	<p>
 	    <g:message code="view.member.country" /> :
-	    ${customer.country}
+	    <g:message code="country.${customer.country}" />
 	</p>
 </g:if>
 
