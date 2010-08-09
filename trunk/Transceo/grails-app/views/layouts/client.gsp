@@ -67,7 +67,6 @@
 		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
-		
 		</script>
 		
 		<g:layoutHead />
@@ -139,8 +138,8 @@
 			<!--Contenu principal-->
 			<div id="contenu">
 				<div id="article6">
-					<div class="crayon article-titre-6  titre"><h2><g:layoutTitle default="Grails" /></h2></div>
-	    			<div class="crayon article-texte-6  texte effet_slide">
+					<div class="crayon article-titre-1  titre"><h2><g:layoutTitle default="Grails" /></h2></div>
+	    			<div class="crayon article-texte-1  texte effet_slide">
 						<g:layoutBody />
 					</div>
 					<div class="nettoyeur"></div>
@@ -148,6 +147,7 @@
 			</div>
 			<!--Fin contenu principal-->
 
+			<%-- 
 			<div id="langue">
 				<g:form controller="page" action="changeLanguage">
 					<g:hiddenField name="redirectController" value="${params.controller}" />
@@ -156,6 +156,7 @@
 					<input class="en" name="lang" type="submit" value="en" title="English version"/>
 				</g:form>
 			</div>
+			--%>
 
 			<!--pied-->
 			<div id="pied">
