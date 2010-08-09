@@ -39,13 +39,6 @@
 
 	<body class="page_sommaire">
 		<div id="page_admin">
-			<%-- 
-			<div>
-				<g:if test="${session.ADMIN != null}">
-					${session.ADMIN.firstName} ${session.ADMIN.lastName}
-				</g:if>			
-			</div>
-			--%>
 			<!--nav-->
 			<ul class="nav">
 				<li><g:link controller="administrator" action="searchMember" title="Search Members">Members</g:link></li>
