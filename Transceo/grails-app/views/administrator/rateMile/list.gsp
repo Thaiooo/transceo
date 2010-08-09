@@ -4,26 +4,24 @@
 		<meta name="layout" content="admin" />		
     </head>
     <body>
-    	<table border = "1">
+    	<table class="spip">
     		<thead>
-	    		<tr>
+	    		<tr class="row_first">
 	    			<th></th>
 	    			<th><g:message code="view.rate.level"/></th>
 	    			<th><g:message code="view.rate.value"/></th>
 	    		</tr>
     		</thead>
     		<tbody>
-		    	<g:each in="${rates}">
-    				<tr>
-    					<td><g:link action="initUpdate" id="${it.id}"><g:message code="common.button.edit"/></g:link></td>
-    					<td>${it.level}</td>
-    					<td>${it.rate}</td>
+    			<g:each status="i" in="${rates}" var="item">
+					<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
+    					<td><g:link action="initUpdate" id="${item.id}"><g:message code="common.button.edit"/></g:link></td>
+    					<td>${item.level}</td>
+    					<td>${item.rate}</td>
     				</tr>
     			</g:each>
     		</tbody>
     	</table>
-    	
-    	<br/>
     	
     	<g:link action="initAdd"><g:message code="common.button.add"/></g:link>
     </body>
