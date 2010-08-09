@@ -2,9 +2,9 @@
     		<g:message code="message.search.reservation.empty" />
     	</g:if>
     	<g:else>
-	    	<table border = "1">
-	    		<thead>
-		    		<tr>
+	    	<table class="spip" width="100%">
+    			<thead>
+	    			<tr class="row_first">
 		    			<th></th>
 		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
 		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'view.travel.member')}" />
@@ -16,16 +16,16 @@
 		    		</tr>
 	    		</thead>
 	    		<tbody>
-			    	<g:each in="${reservations}">
-			     		<tr>
+	    			<g:each status="i" in="${reservations}" var="item">
+						<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 			     			<td>
-			     				<g:link controller="administrator" action="showReservationDetails" id="${it.id}"><g:message code="view.travel.action.view" /></g:link>
+			     				<g:link controller="administrator" action="showReservationDetails" id="${item.id}"><g:message code="view.travel.action.view" /></g:link>
 			     			</td>
 			     			<td>
-			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/>
+			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/>
 			     			</td>
 			     			<td>
-			     				<g:if test="${it.customer.class.name == com.transceo.Member.class.name}">
+			     				<g:if test="${item.customer.class.name == com.transceo.Member.class.name}">
 			     					<g:message code="common.yes" />
 			     				</g:if>
 			     				<g:else>
@@ -33,27 +33,27 @@
 			     				</g:else>
 			     			</td>
 			     			<td>
-			     			<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.travelDate}"/></td>
-			     			<td>${it.depart.adresse} ${it.depart.postal} ${it.depart.city}, ${it.depart.country}</td>
+			     			<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.travelDate}"/></td>
+			     			<td>${item.depart.adresse} ${item.depart.postal} ${item.depart.city}, ${item.depart.country}</td>
 			     			<td>
-			     				<g:if test="${it.destination != null}">
-			     					${it.destination.adresse} ${it.destination.postal} ${it.destination.city}, ${it.destination.country}
+			     				<g:if test="${item.destination != null}">
+			     					${item.destination.adresse} ${item.destination.postal} ${item.destination.city}, ${item.destination.country}
 			     				</g:if>
 			     			</td>
-			     			<td>${it.numberOfPersonne}</td>
-			     			<td><g:message code="reservation.status.${it.status}" /></td>
+			     			<td>${item.numberOfPersonne}</td>
+			     			<td><g:message code="reservation.status.${item.status}" /></td>
 			     		</tr>
 			     	</g:each>
 	    		</tbody>
 	    	</table>
 	    	
-	    	<div>   	
-	    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
-	    		max="2"
-	            maxsteps="0" 
-	            controller="administrator" 
-	            action="paginateReservation" 
-	            total="${total}" 
-			/>
-		</div>
+	    	<div id="pagination"> 	
+		    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
+		    		max="2"
+		            maxsteps="0" 
+		            controller="administrator" 
+		            action="paginateReservation" 
+		            total="${total}" 
+				/>
+			</div>
     	</g:else>

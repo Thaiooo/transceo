@@ -4,7 +4,7 @@
 		<g:message code="message.no.travel" />
 	</g:if>
 	<g:else>
-		<table class="spip">
+		<table class="spip" width="100%">
 			<thead>
 				<tr class="row_first">
 					<th></th>

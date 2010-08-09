@@ -9,9 +9,9 @@
     		<g:message code="message.reservation.empty" />
     	</g:if>
     	<g:else>
-	    	<table border = "1">
-	    		<thead>
-		    		<tr>
+	    	<table class="spip" width="100%">
+    			<thead>
+	    			<tr class="row_first">
 		    			<th></th>
 		    			<g:sortableColumn action="sortReservationToPrice" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
 		    			<g:sortableColumn action="sortReservationToPrice" property="customer" title="${message(code:'view.travel.member')}" />
@@ -22,16 +22,16 @@
 		    		</tr>
 	    		</thead>
 	    		<tbody>
-			    	<g:each in="${travels}">
-			     		<tr>
+	    			<g:each status="i" in="${travels}" var="item">
+						<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 			     			<td>
-			     				<g:link controller="administrator" action="showForPriceReservation" id="${it.id}"><g:message code="view.travel.action.administrate" /></g:link>
+			     				<g:link controller="administrator" action="showForPriceReservation" id="${item.id}"><g:message code="view.travel.action.administrate" /></g:link>
 			     			</td>
 			     			<td>
-			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.creationDate}"/>
+			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/>
 			     			</td>
 			     			<td>
-			     				<g:if test="${it.customer.class.name == com.transceo.Member.class.name}">
+			     				<g:if test="${item.customer.class.name == com.transceo.Member.class.name}">
 			     					<g:message code="common.yes" />
 			     				</g:if>
 			     				<g:else>
@@ -39,10 +39,10 @@
 			     				</g:else>
 			     			</td>
 			     			<td>
-			     			<g:formatDate format="${message(code:'common.date.time.format')}" date="${it.travelDate}"/></td>
-			     			<td>${it.depart.adresse} ${it.depart.postal} ${it.depart.city}, ${it.depart.country}</td>
-			     			<td>${it.destination.adresse} ${it.destination.postal} ${it.destination.city}, ${it.destination.country}</td>
-			     			<td>${it.numberOfPersonne}</td>
+			     			<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.travelDate}"/></td>
+			     			<td>${item.depart.adresse} ${item.depart.postal} ${item.depart.city}, ${item.depart.country}</td>
+			     			<td>${item.destination.adresse} ${item.destination.postal} ${item.destination.city}, ${item.destination.country}</td>
+			     			<td>${item.numberOfPersonne}</td>
 			     		</tr>
 			     	</g:each>
 	    		</tbody>

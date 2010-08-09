@@ -16,7 +16,7 @@ class MemberController {
 	
 	def initAddFriend = {
 		def user = session[SessionConstant.USER.name()]
-		render(view:"/client/member/addFriend", model:[user:user])
+		render(template:"/client/member/addFriend", model:[user:user])
 	}
 	
 	def activate = {
@@ -91,13 +91,10 @@ class MemberController {
 		
 		if(invitation.validate()){
 			memberService.createInvitation(invitation)
-			redirect(
-			controller: "common", 
-			action: "displayMessage", 
-			params:[codeMessage:"message.add.friend.confirmation", codeTitle:"title.add.friend.confirmation"]
-			)
+			def message = g.message(code:"message.add.friend.confirmation")
+			render(message)
 		}else{
-			render(view:"/client/member/addFriend", model:[invitation: invitation, user: session[SessionConstant.USER.name()]])
+			render(template:"/client/member/addFriend", model:[invitation: invitation, user: session[SessionConstant.USER.name()]])
 		}
 	}
 	
@@ -112,6 +109,17 @@ class MemberController {
 		}
 	}
 	
+	def updateCustomerInformation2 = {
+		def o = Member.get(params.id.toLong())
+		o.properties = params
+		if(o.validate()){
+			o.save()
+			render("")
+		} else {
+			render(view:"/client/member/_edit", model:[member: o])
+		}
+	}
+	
 	def showMyProfile = {
 		def o = Member.get(session[SessionConstant.USER.name()].id)
 		render(view:"/client/member/view", model:[member: o])
@@ -119,7 +127,7 @@ class MemberController {
 	
 	def initUpdateCustomerInformation = {
 		def o = Member.get(session[SessionConstant.USER.name()].id)
-		render(view:"/client/member/edit", model:[member: o])
+		render(template:"/client/member/edit", model:[member: o])
 	}
 	
 	def delete = {
@@ -154,7 +162,7 @@ class MemberController {
 	}
 	
 	def initChangePassword = {
-		render(view:"/client/member/changePassword", model:[])
+		render(template:"/client/member/changePassword", model:[])
 	}
 	
 	def changePassword = {
@@ -195,6 +203,44 @@ class MemberController {
 			)
 		}else{
 			render(view:"/client/member/changePassword", model:[password: params.password, oldPassword: params.oldPassword])
+		}
+	}
+	
+	def changePassword2 = {
+		def success = true
+		if(params.oldPassword == ''){
+			flash.message = "message.old.password.required"
+			success = false
+		}else if(params.password == ''){
+			flash.message = "message.password.required"
+			success = false
+		} else if(params.confirmPassword == ''){
+			flash.message = "message.confirm.password.required"
+			success = false
+		} else if (params.confirmPassword != params.password){
+			flash.message = "message.confirm.password.invalidate"
+			success = false
+		} else if (params.password.size() < 5){
+			flash.message = "message.password.invalidate"
+			success = false
+		}
+		if(success){
+			def currentMember = session[SessionConstant.USER.name()]
+			def user = memberService.findUser(currentMember.code, params.oldPassword)
+			if (user == null){
+				flash.message = "message.old.password.error"
+				success = false
+			}else{
+				user.password = params.password
+				user.save()
+			}
+		}
+		
+		if(success){
+			def message = g.message(code:"message.change.password.confirmation")
+			render message
+		}else{
+			render(template:"/client/member/changePassword", model:[password: params.password, oldPassword: params.oldPassword])
 		}
 	}
 }

@@ -1,6 +1,6 @@
-		<table border = "1">
+		<table class="spip" width="100%">
     		<thead>
-	    		<tr>
+	    		<tr class="row_first">
 	    			<th></th>
 	    			<g:sortableColumn action="sortMember" property="code" title="${message(code:'search.member.code')}" />
 	    			<g:sortableColumn action="sortMember" property="firstName" title="${message(code:'search.member.firstName')}" />	    			
@@ -14,46 +14,46 @@
 	    		</tr>
     		</thead>
     		<tbody>
-		    	<g:each in="${members}">
-		     		<tr>
+    			<g:each status="i" in="${members}" var="item">
+					<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 		     			<td>
-		     				<g:link action="showProfile" id="${it.id}"><g:message code="search.member.view" /></g:link>
-		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
+		     				<g:link action="showProfile" id="${item.id}"><g:message code="search.member.view" /></g:link>
+		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
 		     				<br/>
-		     				<g:link controller="administrator" action="initMemberReservation" id="${it.id}"><g:message code="search.member.create.reservation" /></g:link>
+		     				<g:link controller="administrator" action="initMemberReservation" id="${item.id}"><g:message code="search.member.create.reservation" /></g:link>
 		     				</g:if>
 		     			</td>
 		     			<td>
-		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
-		     					${it.code}
+		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
+		     					${item.code}
 		     				</g:if>
 		     			</td>
-		     			<td>${it.firstName}</td>
-		     			<td>${it.lastName}</td>
-		     			<td width="120px">${it.phoneNumber}</td>
+		     			<td>${item.firstName}</td>
+		     			<td>${item.lastName}</td>
+		     			<td width="120px">${item.phoneNumber}</td>
 						<td>
-							<g:if test="${it.class.name != com.transceo.Customer.class.name}">
-								${it.eMail}
+							<g:if test="${item.class.name != com.transceo.Customer.class.name}">
+								${item.eMail}
 							</g:if>
 						</td>
 						<td>
-							<g:if test="${it.class.name == com.transceo.Member.class.name}">
-								${it.adresse}
+							<g:if test="${item.class.name == com.transceo.Member.class.name}">
+								${item.adresse}
 							</g:if>
 						</td>
 		     			<td>
-		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
-		     					${it.city}
+		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
+		     					${item.city}
 		     				</g:if>	
 		     			</td>
 		     			<td>
-		     				<g:if test="${it.class.name == com.transceo.Member.class.name}">
-		     					${it.postal}
+		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
+		     					${item.postal}
 		     				</g:if>
 		     			</td>
 						<td width="20px">
-							<g:if test="${it.class.name == com.transceo.Member.class.name}">
-		     					${it.active}
+							<g:if test="${item.class.name == com.transceo.Member.class.name}">
+		     					${item.active}
 		     				</g:if>
 						</td>
 		     		</tr>
@@ -61,7 +61,7 @@
 			</tbody>
     	</table>
     	
-		<div>   	
+		<div id="pagination">   	
 	    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
 	    		max="2"  
 	            maxsteps="0" 
