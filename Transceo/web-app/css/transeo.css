@@ -42,6 +42,12 @@ strong {
 	font-weight: bold;
 	color: #FFFFFF;
 }
+#page_admin {
+	width: 896px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 30px;
+}
 #page {
 	width: 896px;
 	margin-right: auto;
