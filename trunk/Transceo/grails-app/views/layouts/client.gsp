@@ -72,7 +72,7 @@
 		<g:layoutHead />
 	</head>
 
-	<body class="page_article">
+	<body class="page_sommaire">
 		<div id="page">
 
 			<!--Entete de la page + titre du site-->
