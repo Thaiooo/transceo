@@ -23,7 +23,7 @@ h3, h3.spip {
 	margin: 0px;
 	padding: 10px 0 0 0;
 }
-p    {
+p {
 	margin: 0px;
 	padding: 5px 0;
 }
@@ -62,7 +62,7 @@ strong {
 	z-index: 10;
 	top: 0px;
 }
-#entete  img {
+#entete img {
 	float: left;
 	position: absolute;
 	z-index: 1000;
@@ -77,13 +77,13 @@ strong {
 	margin-left: 356px;
 	position: absolute;
 }
-#descriptif  h1 {
+#descriptif h1 {
 	font-size: 1em;
 	line-height: 1.7em;
 	margin: 0px;
 	padding: 0px;
 }
-#descriptif   h1  strong {
+#descriptif h1 strong {
 	font-size: 1.5em;
 	font-weight: bold;
 }
@@ -94,7 +94,7 @@ strong {
 	top: 28px;
 	margin-left: 850px;
 }
-#langue   input  {
+#langue input {
 	display: block;
 	list-style-type: none;
 	font-size: 0px;
@@ -108,116 +108,133 @@ strong {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 }
-#langue  input:hover   {
+#langue input:hover {
 	border: 1px solid #FFF;
 }
-#langue input.fr   {
+#langue input.fr {
 	background-image: url(../images/drapo_fr.gif);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-#langue  input.en {
+#langue input.en {
 	background-image: url(../images/drapo_en.gif);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-.page_article     table  {
+.page_article table {
 	width: 100%;
 }
-.page_article       table    td    {
+.page_article table td {
 	vertical-align: top;
 	padding: 0 20px 0 0;
 }
+
 #formulaire_contact {
 	width: 520px;
-	float: right;
-}
-#formulaire_contact .texte {
-	margin: 0px;
-	padding: 0px;
-}
-#formulaire_contact  legend {
-	display: none;
-}
-#formulaire_contact ul {
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-	display: inline;
-}
-#formulaire_contact ul li  {
-	align: left;
-	display: block;
 	float: left;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
 }
-
-#formulaire_contact ul li.saisie_texte label  {
-text-align: center
-width: 900px;
-}
-
-#formulaire_contact  label   {
-	float: left;
-	width: 240px;
-	display: block;
-	height: 14px;
-	margin: 4px 0;
-	padding: 2px 0;
-	font-weight: normal;
-	color: #999999;
-}
-#formulaire_contact  input   {
-	float: right;
-	width: 260px;
-	height: 14px;
-	margin: 4px 0;
-	padding: 2px 7px;
-	border: none;
-	display: block;
-	background-image: url(../images/stripe2.gif);
-}
-#formulaire_contact  input.submit   {
-	float: right;
-	width: auto;
-	height: auto;
-	padding: 2px;
-	border: 1px solid #666666;
-	display: block;
-	background-color: #333333;
-	background-image: none;
-	color: #FFFFFF;
-	margin: 0 4px 0 0;
-}
-#formulaire_contact textarea {
-	background-image: url(../images/stripe2.gif);
-	border: none;
-}
-#formulaire_contact label strong {
-	font-weight: bold;
-	color: #181818;
-	font-size: 0.75em;
-	text-transform: lowercase;
-}
-#formulaire_contact .erreur_message {
-	font-size: 0.75em;
+	#formulaire_contact .texte {
+		margin: 0px;
+		padding: 0px;
+	}
+	#formulaire_contact legend {
+		display: none;
+	}
+	#formulaire_contact ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	#formulaire_contact ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire_contact ul li.saisie_texte label {
+		text-align: center
+		width: 900px;
+	}
+	
+	#formulaire_contact label {
+		float: left;
+		width: 240px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+	#formulaire_contact input {
+		float: right;
+		width: 260px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_contact select {
+		width: 274px;
+		margin: 4px 0;
+		padding: 0px;
+		border: none;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_contact option {
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_contact input.submit {
+		float: right;
+		width: auto;
+		height: auto;
+		padding: 2px;
+		border: 1px solid #666666;
+		display: block;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		margin: 0 4px 0 0;
+	}
+	
+	#formulaire_contact textarea {
+		background-image: url(../images/stripe2.gif);
+		border: none;
+	}
+	
+	#formulaire_contact label strong {
+		font-weight: bold;
+		color: #181818;
+		font-size: 0.75em;
+		text-transform: lowercase;
+	}
+	
+.erreur_message {
+	margin-bottom: 10px;
 	color: #FF0000;
-	padding: 4px 0 4px 170px;
 }
-#formulaire_contact .erreur_message:hover {
-	display: none;
-}
+	
 #contenu {
 	background-repeat: repeat-y;
 	margin: 0px;
 	padding: 0px;
 	background-image: url(../images/bg-zonetxt.jpg);
 }
+
 .nettoyeur {
 	clear: both;
 }
+
 #diapo-cadre {
 	background-image: url(../images/diapo-cadre.png);
 	background-repeat: no-repeat;
@@ -226,6 +243,7 @@ width: 900px;
 	z-index: 8;
 	position: absolute;
 }
+
 #cycle {
 	height: 309px;
 	overflow: hidden;
@@ -233,7 +251,8 @@ width: 900px;
 	margin-bottom: 17px;
 	padding-top: -37px;
 }
-#telephone   {
+
+#telephone {
 	font-size: 1.5em;
 	position: absolute;
 	display: block;
@@ -253,6 +272,7 @@ width: 900px;
 	text-align: center;
 	padding: 10px;
 }
+
 ul.nav {
 	background-image: url(../images/bg-nav.jpg);
 	background-repeat: no-repeat;
@@ -262,39 +282,41 @@ ul.nav {
 	list-style-type: none;
 	margin: 0px;
 }
-ul.nav  li {
-	float: left;
-}
-ul.nav  li  a {
-	text-transform: uppercase;
-	margin-right: 16px;
-	display: block;
-	padding-right: 16px;
-	border-right-width: 1px;
-	border-right-style: solid;
-	border-right-color: #666666;
-	line-height: 1em;
-}
-ul.nav  li  a:hover {
-	color: #FF0000;
-	text-decoration: none;
-}
-ul.nav   li.art7 {
-	float: right;
-}
-ul.nav    li.art7    a {
-	color: #FF0000;
-	margin: 0px;
-	padding: 0px;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	float: right;
-}
-ul.nav  li.art7  a:hover {
-	color: #FFFFFF;
-}
+
+	ul.nav li {
+		float: left;
+	}
+	ul.nav li a {
+		text-transform: uppercase;
+		margin-right: 16px;
+		display: block;
+		padding-right: 16px;
+		border-right-width: 1px;
+		border-right-style: solid;
+		border-right-color: #666666;
+		line-height: 1em;
+	}
+	ul.nav li a:hover {
+		color: #FF0000;
+		text-decoration: none;
+	}
+	ul.nav li.art7 {
+		float: right;
+	}
+	ul.nav li.art7 a {
+		color: #FF0000;
+		margin: 0px;
+		padding: 0px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		float: right;
+	}
+	ul.nav li.art7 a:hover {
+		color: #FFFFFF;
+	}
+	
 .intro{
 	background-image: url(../images/bg-zonetxt.jpg);
 	background-repeat: repeat-y;
@@ -375,3 +397,4 @@ table.spip td {
 	text-align: center;
 	margin: 0px;
 	padding: 2px;
+}
