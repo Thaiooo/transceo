@@ -66,21 +66,21 @@ class MemberController {
 	
 	def registerFriend = {
 		def invitation = Invitation.get(params.invitationId)
-		def Member member = memberService.register(invitation.author, params)
-		
-		if(member.validate()){
-			if(params.password == params.confirmPassword){
-				redirect(
-				controller: "common", 
-				action: "displayMessage", 
-				params:[codeMessage:"message.register.confirmation", codeTitle:"title.register.confirmation"]
-				)
-			}else{
-				flash.message = "member.confirmpassword.invalidate"
-				render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
-			}
-		}else{
-			render(view:"/client/member/registerFriend", model:[invitation: invitation, member: member])
+		try{
+			def Member member = memberService.register(invitation.author, params)
+			redirect(
+			controller: "common",
+			action: "displayMessage",
+			params:[codeMessage:"message.register.confirmation", codeTitle:"title.register.confirmation"]
+			)
+		} catch (InvalidSponsorException e) {
+			flash.message = "member.sponsor.invalidate"
+			render(view:"/client/member/registerFriend", model:[member: e.getMember(), invitation: invitation])
+		} catch (InvalidConfirmationPasswordException e) {
+			flash.message = "member.confirmpassword.invalidate"
+			render(view:"/client/member/registerFriend", model:[member: e.getMember(), invitation: invitation])
+		} catch (InvalidMemberException e) {
+			render(view:"/client/member/registerFriend", model:[member: e.getMember(), invitation: invitation])
 		}
 	}
 	
