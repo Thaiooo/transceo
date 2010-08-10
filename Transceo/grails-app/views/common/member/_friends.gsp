@@ -21,18 +21,18 @@
 	<g:message code="message.no.friends" />
 </g:if>
 <g:else>
-	<table border = "1">
-		<thead>
-			<tr>
+	<table class="spip" width="300px">
+    		<thead>
+	    		<tr class="row_first">
 				<th><g:message code="view.member.friends.firstanme" /></th>
 			    <th><g:message code="view.member.friends.lasttanme" /></th>
 			</tr>
 		</thead>
 		<tbody>
-			<g:each in="${member.friends}">
-				<tr>
-					<td>${it.firstName}</td>
-					<td>${it.lastName}</td>
+			<g:each status="i" in="${member.friends}" var="item">
+				<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
+					<td>${item.firstName}</td>
+					<td>${item.lastName}</td>
 				</tr>
 			</g:each>
 		</tbody>

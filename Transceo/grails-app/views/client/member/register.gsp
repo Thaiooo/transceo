@@ -67,7 +67,7 @@
 			   		<g:textField name="firm" value="${firm}"/>
 			   		</li>
 
-			   		<li>
+					<li>
 			   		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="phoneNumber" value="${phoneNumber}"/>
 			   		</li>
@@ -92,7 +92,7 @@
 			   		<g:textField name="city" value="${city}"/>
 			   		</li>
 
-			   		<li>
+					<li>
 			   		<label><g:set var="label" value="${message(code:'common.country.select')}" />
 			   		<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:select name="country"
@@ -112,11 +112,11 @@
 			   		<label><g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:passwordField name="confirmPassword"/>
 			   		</li>
-		    	</ul>
+				</ul>
 
-		    	<p class="boutons">
-		    		<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" />
-		    	</p>
+				<p class="boutons">
+					<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" />
+				</p>
 
 	    	</g:form>
     	</div>
