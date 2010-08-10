@@ -32,7 +32,6 @@
 		<g:textField class="text" name="firstName" value="${firstName}" />
 	</li>
 
- 
 	<li>
 		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label> 
 		<g:textField class="text" name="lastName" value="${lastName}" />

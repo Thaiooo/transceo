@@ -302,6 +302,15 @@ strong {
 		background-image: url(../images/stripe2.gif);
 	}
 	
+		
+	#formulaire_popup textarea {
+		background-image: url(../images/stripe2.gif);
+		width: 260px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+	}
+	
 	#formulaire_popup input.submit {
 		float: right;
 		width: auto;
