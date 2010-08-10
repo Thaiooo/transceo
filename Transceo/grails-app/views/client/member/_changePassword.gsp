@@ -7,26 +7,26 @@
 				</ul>
 			</div>
    		</g:if>
-		<div class="formulaire_spip formulaire_editer_message_contact" id=formulaire_register>
+		<div id="password_popup">
 			<g:formRemote name="form" update="customer_canvas" url="[controller: 'member', action:'changePassword2']">
-				<div id="changePasswordPopupContent">
-		    		<p>
-		    		<g:message code="subscribe.password.old" /> <strong><g:message code="common.required" /></strong>
-		    		<g:passwordField name="oldPassword" value="${oldPassword}"/>
-		    		</p>
+				<ul>
+		    		<li>
+						<label><g:message code="subscribe.password.old" /> <strong><g:message code="common.required" /></strong></label>
+		    			<g:passwordField name="oldPassword" value="${oldPassword}"/>
+		    		</li>
 		    		
-		    		<p>
-		    		<g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong>
-		    		<g:passwordField name="password" value="${password}"/>
-		    		</p>
+		    		<li>
+						<label><g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong></label>
+		    			<g:passwordField name="password" value="${password}"/>
+		    		</li>
 		    		
-		    		<p>
-		    		<g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong>
-		    		<g:passwordField name="confirmPassword"/>
-		    		</p>
-	    		</div>
+		    		<li>
+						<label><g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
+		    			<g:passwordField name="confirmPassword"/>
+		    		</li>
+		    	</ul>
 	
-	    		<div id="buttonSection">
+	    		<p class="boutons">
 	    			<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
 	    		</div>
     		</g:formRemote>
