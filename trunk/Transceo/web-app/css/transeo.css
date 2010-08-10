@@ -480,3 +480,24 @@ table.spip td {
 	margin-top: 4px;
 }
 
+#view_info {
+	margin-bottom: 10px;
+}
+
+#view_info p {
+	align: left;
+	display: block;	
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 0px;
+	width: 500px;
+}
+
+#view_info strong {
+	float: left;
+	width: 200px;
+	display: block;
+}
+
+#view_info label {
+}
