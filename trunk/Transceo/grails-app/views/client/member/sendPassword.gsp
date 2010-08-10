@@ -13,15 +13,15 @@
 				</ul>
 			</div>
 	   	</g:if>
-	    <div class="formulaire_spip formulaire_editer_message_contact" id=formulaire_register>
+	    <div id="formulaire_password">
 			<g:form name="form" controller="member" action="sendPassword" >
-				<p>
-					<g:message code="sendPassword.code" />
-		    		<g:textField name="code" value="${code}"/>
-		    	</p>
-		    	<p class="boutons">
-		    		<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
-		    	</p>
+				<ul>
+					<li>
+				   		<label><g:message code="sendPassword.code" /></label>
+				   		<g:textField name="code" value="${code}"/>
+				   		<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
+			   		</li>
+			   	</ul>
 			</g:form>
 		</div>
 	</body>

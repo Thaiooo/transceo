@@ -129,6 +129,63 @@ strong {
 	padding: 0 20px 0 0;
 }
 
+#formulaire_password {
+	width: 420px;
+	float: left;
+}
+
+	#formulaire_password ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	
+	#formulaire_password ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire_password label {
+		float: left;
+		width: 70px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+	#formulaire_password input {
+		float: left;
+		width: 38px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_password input.submit {
+		float: right;
+		width: auto;
+		height: auto;
+		padding: 2px;
+		border: 1px solid #666666;
+		display: block;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		margin-top: 2px;
+		margin-left: 5px;
+	}
+	
 #formulaire_contact {
 	width: 520px;
 	float: left;
