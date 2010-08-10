@@ -1,7 +1,7 @@
 <html>
     <head>
         <title><g:message code="title.member.register" /></title>
-		<meta name="layout" content="client" />		
+		<meta name="layout" content="client" />
     </head>
     <body>
     	<g:if test="${member != null}">
@@ -29,100 +29,96 @@
     		<g:set var="password" value=""></g:set>
     	</g:else>
 
-		
-			<g:hasErrors bean="${member}">
-				<div class="erreur_message">
-					<g:renderErrors bean="${member}" />
-				</div>
-			</g:hasErrors>
-			<g:if test="${flash.message != null}">
-	    		<div class="erreur_message">
-	    			<ul>
-						<li>
-							<g:message code="${flash.message}" ></g:message>
-						</li>
-					</ul>
-				</div>
-	   		</g:if>
-   		
-   		<div id="formulaire_contact">	
-				<g:form controller="member" action="register" method="post" >
-					<ul>	
-						<li>
-			    		<label><g:message code="subscribe.sponsor.code" /></label>
-			    		<g:textField name="sponsorCode" value="${sponsorCode}"/>
-			    		</li>		
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="firstName" value="${firstName}"/>    		
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="lastName" value="${lastName}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.firm" /></label>
-			    		<g:textField name="firm" value="${firm}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="phoneNumber" value="${phoneNumber}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="eMail" value="${eMail}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="adresse" value="${adresse}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.postal" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="postal" value="${postal}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.city" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:textField name="city" value="${city}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:set var="label" value="${message(code:'common.country.select')}" />
-			    		<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:select name="country" 
-			    			from="${com.transceo.CountryCode.values()}" 
-			    			value="${country}" 
-			    			valueMessagePrefix="country" 
-			    			noSelection='["":"${label}"]'
-			    		/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:passwordField name="password" value="${password}"/>
-			    		</li>
-			    		
-			    		<li>
-			    		<label><g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
-			    		<g:passwordField name="confirmPassword"/>
-			    		</li>
-		    		</ul>
-		
-		    		<p class="boutons">
-		    			<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" />
-		    		</p>
-		    		
-	    		</g:form>
-    	</div>	
-    	
-    	
-    	
+		<g:hasErrors bean="${member}">
+			<div class="erreur_message">
+				<g:renderErrors bean="${member}" />
+			</div>
+		</g:hasErrors>
+		<g:if test="${flash.message != null}">
+	    	<div class="erreur_message">
+	    		<ul>
+					<li>
+						<g:message code="${flash.message}" ></g:message>
+					</li>
+				</ul>
+			</div>
+	   	</g:if>
+
+   		<div id="formulaire_contact">
+			<g:form controller="member" action="register" method="post" >
+				<ul>
+					<li>
+			   		<label><g:message code="subscribe.sponsor.code" /></label>
+			   		<g:textField name="sponsorCode" value="${sponsorCode}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="firstName" value="${firstName}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="lastName" value="${lastName}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.firm" /></label>
+			   		<g:textField name="firm" value="${firm}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="phoneNumber" value="${phoneNumber}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="eMail" value="${eMail}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="adresse" value="${adresse}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.postal" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="postal" value="${postal}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.city" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:textField name="city" value="${city}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:set var="label" value="${message(code:'common.country.select')}" />
+			   		<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:select name="country"
+			   			from="${com.transceo.CountryCode.values()}"
+			   			value="${country}"
+			   			valueMessagePrefix="country"
+			   			noSelection='["":"${label}"]'
+			   		/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:passwordField name="password" value="${password}"/>
+			   		</li>
+
+			   		<li>
+			   		<label><g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:passwordField name="confirmPassword"/>
+			   		</li>
+		    	</ul>
+
+		    	<p class="boutons">
+		    		<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" />
+		    	</p>
+
+	    	</g:form>
+    	</div>
     </body>
 </html>
