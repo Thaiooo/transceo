@@ -204,7 +204,7 @@ strong {
 		background-color: #333333;
 		background-image: none;
 		color: #FFFFFF;
-		margin: 0 4px 0 0;
+		//margin: 0 4px 0 0;
 	}
 	
 	#formulaire_contact textarea {
@@ -218,7 +218,7 @@ strong {
 		font-size: 0.75em;
 		text-transform: lowercase;
 	}
-	
+
 .erreur_message {
 	margin-bottom: 10px;
 	color: #FF0000;
@@ -397,4 +397,12 @@ table.spip td {
 	text-align: center;
 	margin: 0px;
 	padding: 2px;
+}
+
+.link {
+	width: 500px;
+}
+
+.link a {
+	text-decoration: underline;
 }
