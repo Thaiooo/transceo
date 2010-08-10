@@ -185,6 +185,81 @@ strong {
 		margin-top: 2px;
 		margin-left: 5px;
 	}
+
+
+#formulaire_popup {
+	width: 375px;
+	float: left;
+}
+	#formulaire_popup ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	#formulaire_popup ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire_popup label {
+		float: left;
+		width: 100px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+	#formulaire_popup input {
+		float: right;
+		width: 260px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_popup select {
+		width: 274px;
+		margin: 4px 0;
+		padding: 0px;
+		border: none;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_popup option {
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_popup input.submit {
+		float: right;
+		width: auto;
+		height: auto;
+		padding: 2px;
+		border: 1px solid #666666;
+		display: block;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		margin: 4px 0px 0 0;
+	}
+	
+	#formulaire_popup label strong {
+		font-weight: bold;
+		color: #181818;
+		font-size: 0.75em;
+		text-transform: lowercase;
+	}
+
 	
 #formulaire_contact {
 	width: 520px;
