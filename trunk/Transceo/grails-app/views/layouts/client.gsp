@@ -4,7 +4,6 @@
 		<title><g:layoutTitle default="Grails" /></title>
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="${resource(dir:'css',file:'spip_formulaires.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo.css')}" />
 		<!--[if IE]>
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo_ie.css')}" />
