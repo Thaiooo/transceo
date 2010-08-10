@@ -30,6 +30,7 @@
 	    		<p class="boutons">
 	    			<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
 	    		</p>
+	    		
 	    	</g:form>
     	</div>
     	
@@ -37,5 +38,6 @@
 		    <a href="<g:createLink controller="member" action="initRegister" />#ancre" ><g:message code="login.register" /></a>
 			<a href="${ resource(dir:'client/member', file:'sendPassword.gsp') }"><g:message code="login.forgot.password" /></a>
 		</div>
+		
     </body>
 </html>
