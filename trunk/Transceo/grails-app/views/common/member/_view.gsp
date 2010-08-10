@@ -71,7 +71,7 @@
 	</p>
 </g:if>
 
-<div class="bouton">
+<div class="boutons">
 	<g:if test="${editAble == true}">
 		<a class="editCustomer" id="${member.id}"><g:message code="common.button.edit" /></a>	
 	</g:if>

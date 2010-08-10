@@ -39,7 +39,7 @@
 	</table>
 </g:else>
 
-<div class="bouton">
+<div class="boutons">
 	<p>
 		<a id="addFriend" ><g:message code="common.button.add" /></a>
 	</p>
