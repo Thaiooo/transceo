@@ -12,21 +12,23 @@
 				</ul>
 			</div>
     	</g:if>
+    <div id="formulaire_popup">
     	<g:formRemote name="updateForm" update="friend_canvas" 
 			url="[controller: 'member', action:'addFriend']"
 			onComplete="closeCustomerPopup();"
 		>
-			<div id="addFriendPopupContent">
-	    		<p>
-	    			<g:message code="sponsor.email" />
+			<ul>
+	    		<li>
+					<label><g:message code="sponsor.email" /> <strong><g:message code="common.required" /></strong></label>
 	    			<g:textField name="eMail"  value="${fieldValue(bean:inviation,field:'eMail')}"/>
-	    		</p>
-	    		<p>
-		    		<g:message code="sponsor.message" />
+	    		</li>
+	    		<li>
+					<label><g:message code="sponsor.message" /></label>
 		    		<textarea name="message" cols=40 rows=6><g:message code="message.invitation" args='["${user.lastName}"]'/></textarea>
-	    		</p>
-    		</div>
-    		<div id="buttonSection">
-	    		<g:submitButton name="send" value="${message(code:'common.button.send')}" />
+	    		</li>
+    		</ul>
+    		<p class="boutons">
+	    		<g:submitButton class="submit" name="send" value="${message(code:'common.button.send')}" />
     		</div>
     	</g:formRemote>
+    </div>
