@@ -14,14 +14,14 @@
 	</div>
 </g:hasErrors>
 
-<g:formRemote name="updateForm" update="customer_canvas" 
-	url="[controller: 'member', action:'updateCustomerInformation2']"
-	onComplete="closeCustomerPopup();"
->
-	<div id="editProfilePopupContent">
+<div id="formulaire_popup">
+	<g:formRemote name="updateForm" update="customer_canvas" 
+		url="[controller: 'member', action:'updateCustomerInformation2']"
+		onComplete="closeCustomerPopup();"
+	>
 		<g:render template="/common/member/editMemberInformation" bean="${member}" var="customer"/>
-	</div>
-	<div id="buttonSection">
-		<g:submitButton name="save" value="${message(code:'common.button.save')}" />
-	</div>
-</g:formRemote>
+		<p class="boutons">
+			<g:submitButton class="submit" name="save" value="${message(code:'common.button.save')}" />
+		</p>
+	</g:formRemote>
+</div>

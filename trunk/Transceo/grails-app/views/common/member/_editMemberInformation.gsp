@@ -26,44 +26,51 @@
 </g:else>
 
 <g:hiddenField name="id" value="${id}" />
-<p>
-	<g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="firstName" value="${firstName}" />
-</p>
-<p>
-	<g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="lastName" value="${lastName}" />
-</p>
-<p>
-	<g:message code="subscribe.firm" />
-	<input type="text" class="text" name="firm" value="${firm}"  />
-</p>
-<p>
-	<g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
-</p>
-<p>
-	<g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="eMail" value="${eMail}" />
-</p>
+<ul>
+	<li>
+		<label><g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="firstName" value="${firstName}" />
+	</li>
 
-<p>
-	<g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="adresse" value="${adresse}" />
-</p>
-<p>
-	<g:message code="subscribe.postal" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="postal" value="${postal}" size="5"/>
-	<g:message code="subscribe.city" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="city" value="${city}"/>
-</p>
-<p>
-	<g:set var="label" value="${message(code:'common.country.select')}" />
-	<g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong>
-	<g:select name="country" 
-		from="${com.transceo.CountryCode.values()}" 
-		value="${country}" 
-		valueMessagePrefix="country" 
-	   	noSelection='["":"${label}"]'
-	/>
-</p>
+ 
+	<li>
+		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="lastName" value="${lastName}" />
+	</li>
+	
+	<li>
+		<label><g:message code="subscribe.firm" /></label>
+		<input type="text" class="text" name="firm" value="${firm}"  />
+	</li>
+	<li>
+		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
+	</li>
+	<li>
+		<label><g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="eMail" value="${eMail}" />
+	</li>
+	
+	<li>
+		<label><g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="adresse" value="${adresse}" />
+	</li>
+	<li>
+		<label><g:message code="subscribe.postal" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="postal" value="${postal}" size="5"/>
+	</li>
+	<li>
+		<label><g:message code="subscribe.city" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:textField class="text" name="city" value="${city}"/>
+	</li>
+	<li>
+		<g:set var="label" value="${message(code:'common.country.select')}" />
+		<label><g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:select name="country" 
+			from="${com.transceo.CountryCode.values()}" 
+			value="${country}" 
+			valueMessagePrefix="country" 
+		   	noSelection='["":"${label}"]'
+		/>
+	</li>
+</ul>
