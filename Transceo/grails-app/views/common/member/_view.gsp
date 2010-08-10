@@ -24,52 +24,58 @@
 
 <div id="customer_canvas" title="Editer"></div>
 
-<g:if test="${customer.class.name == com.transceo.Member.class.name}">
-	<p>
-		<g:message code="view.member.code" /> :
-    	${customer.code}
-    </p>
-</g:if>
-<p>    		
-	<g:message code="view.member.firstName" /> :
-    ${customer.firstName}
-</p>
-<p>
-    <g:message code="view.member.lastName" /> :
-    ${customer.lastName}
-</p>
-<p>
-    <g:message code="view.member.firm" /> :
-    ${customer.firm}
-</p>
-<p>
-<g:message code="view.member.phoneNumber" /> :
-    ${customer.phoneNumber}
-</p>
-<g:if test="${customer.class.name != com.transceo.Customer.class.name}">
-	<p>
-	    <g:message code="view.member.eMail" /> :
-	    ${customer.eMail}
-	</p>
-</g:if>
-<g:if test="${customer.class.name == com.transceo.Member.class.name}">
-	<p>
-	    <g:message code="view.member.adresse" /> :
-	    ${customer.adresse}
+<div id="view_info">
+	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
+		<p>
+			<strong><g:message code="view.member.code" /></strong>
+		    <label>${customer.code}</label>
+	    </p>
+	</g:if>
+	
+	<p>    		
+		<strong><g:message code="view.member.firstName" /></strong>
+	    <label>${customer.firstName}</label>
 	</p>
 	<p>
-	    <g:message code="view.member.city" /> :
-	    ${customer.city}
+	    <strong><g:message code="view.member.lastName" /></strong>
+	    <label>${customer.lastName}</label>
 	</p>
 	<p>
-	    <g:message code="view.member.postal" /> :
-	    ${customer.postal}
+	    <strong><g:message code="view.member.firm" /></strong>
+	    <label>
+	    	<g:if test="${customer.firm == null}">dd&nbsp;</g:if>
+	    	<g:else>${customer.firm}</g:else>
+	    </label>
 	</p>
 	<p>
-	    <g:message code="view.member.country" /> :
-	    <g:message code="country.${customer.country}" />
+		<strong><g:message code="view.member.phoneNumber" /></strong>
+	    <label>${customer.phoneNumber}</label>
 	</p>
-</g:if>
+	<g:if test="${customer.class.name != com.transceo.Customer.class.name}">
+		<p>
+		    <strong><g:message code="view.member.eMail" /></strong>
+		    <label>${customer.eMail}</label>
+		</p>
+	</g:if>
+	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
+		<p>
+		    <strong><g:message code="view.member.adresse" /></strong>
+		    <label>${customer.adresse}</label>
+		</p>
+		<p>
+		    <strong><g:message code="view.member.city" /></strong>
+		    <label>${customer.city}</label>
+		</p>
+		<p>
+		    <strong><g:message code="view.member.postal" /></strong>
+		    <label>${customer.postal}</label>
+		</p>
+		<p>
+		    <strong><g:message code="view.member.country" /></strong>
+		    <label><g:message code="country.${customer.country}" /></label>
+		</p>
+	</g:if>
+</div>
 
 <div class="boutons">
 	<g:if test="${editAble == true}">
