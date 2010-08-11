@@ -28,7 +28,7 @@
 				<g:render template="/common/member/mile" bean="${member}"/>
 			</div>
 			<div id="tabs-4">
-				<g:render template="/common/member/friends" bean="${member}"/>
+				<g:render template="/common/member/friends" bean="${member}"/>								
 			</div>
 			<div id="tabs-5">
 				<g:render template="/client/reservation/list" bean="${member}"/>
