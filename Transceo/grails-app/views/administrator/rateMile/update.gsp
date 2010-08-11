@@ -18,9 +18,10 @@
     		<br/>
     		<g:message code="edit.rate.value" />
     		<g:textField name="rate" value="${fieldValue(bean:rate,field:'rate')}" size="3"/>
-    		<p>
-    		<g:submitButton name="save" value="${message(code:'common.button.save')}" />
-    		<g:link action="list"><g:message code="common.button.back"/></g:link>
+    		
+    		<p class="boutons">
+    			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
+    			<g:link action="list"><g:message code="common.button.back"/></g:link>
     		</p>
     	</g:form>
     </body>
