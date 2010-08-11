@@ -331,6 +331,91 @@ strong {
 		text-transform: lowercase;
 	}
 
+#formulaire_reservation {
+}
+	
+	#formulaire_reservation input {
+		//float: right;
+		//width: 260px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		//display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_reservation input.adresse {
+		width: 247px;
+	}
+	
+	#formulaire_reservation input.postal {
+		width: 38px;
+	}
+	
+	#formulaire_reservation input.city {
+		width: 155px;
+	}
+	
+	#formulaire_reservation input.date {
+		width: 155px;
+	}
+	
+	#formulaire_reservation select.country {
+		width: 282px;
+	}
+	
+	#formulaire_reservation select {
+		//width: 274px;
+		margin: 4px 0;
+		padding: 0px;
+		border: none;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_reservation option {
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_reservation textarea {
+		background-image: url(../images/stripe2.gif);
+		width: 260px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+	}
+	
+	#formulaire_reservation input.submit {
+		float: right;
+		width: auto;
+		height: auto;
+		padding: 2px;
+		border: 1px solid #666666;
+		display: block;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		margin: 4px 0px 0 0;
+	}
+	
+	#formulaire_reservation .boutons a {
+		float: right;
+		border: 1px solid #666666;
+		width: auto;
+		height: auto;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		text-decoration: none;
+		padding-left: 6px;
+		padding-right: 6px;
+		padding-top: 2px;
+		padding-bottom: 3px;
+		margin-top: 4px;
+		margin-left: 4px;
+	}
+		
+
 	
 #formulaire_contact {
 	width: 520px;
@@ -611,7 +696,7 @@ table.spip td {
 }
 
 .boutons a {
-	//float: right;
+	// float: right;
 	border: 1px solid #666666;
 	width: auto;
 	height: auto;
