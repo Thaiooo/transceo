@@ -23,18 +23,18 @@
 	</g:hasErrors>	
 	<p>
 		<g:message code="travel.adresse" /> <strong><g:message code="common.required" /></strong>
-		<g:textField id="${beanName}_adresse" name="${beanName}.adresse" value="${adresseName}"/>
+		<g:textField class="adresse" id="${beanName}_adresse" name="${beanName}.adresse" value="${adresseName}"/>
 	</p>
 	<p>
 		<g:message code="travel.postal" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField id="${beanName}_postal" name="${beanName}.postal" value="${postal}" size="5" maxize="5"/>
+	    <g:textField class="postal" id="${beanName}_postal" name="${beanName}.postal" value="${postal}" size="5" maxize="5"/>
 	    <g:message code="travel.city" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField id="${beanName}_city" name="${beanName}.city" value="${city}"/>
+	    <g:textField class="city" id="${beanName}_city" name="${beanName}.city" value="${city}"/>
 	</p>
 	<p>
 		<g:message code="travel.country" /> <strong><g:message code="common.required" /></strong>
 	    <g:set var="label" value="${message(code:'common.country.select')}" />
-   		<g:select id="${beanName}_country" 
+   		<g:select class="country" id="${beanName}_country" 
    			name="${beanName}.country" 
    			from="${com.transceo.CountryCode.values()}" 
    			value="${country}" 
