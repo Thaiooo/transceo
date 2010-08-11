@@ -23,6 +23,8 @@
     		</tbody>
     	</table>
     	
-    	<g:link action="initAdd"><g:message code="common.button.add"/></g:link>
+    	<p class="boutons">
+    		<g:link action="initAdd"><g:message code="common.button.add"/></g:link>
+    	</p>
     </body>
 </html>
