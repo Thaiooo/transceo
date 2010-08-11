@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$('#addFriend').click(function() {
 		var travelId = $(this).attr('id');
-		var title = "<g:message code="title.register.friend" />";
+		var title = "<g:message code="title.popup.register.friend" />";
 		${remoteFunction(controller:'member', action:'initAddFriend', update:'friend_canvas', params:'\'id=\' + travelId', onComplete:'displayFriendPopup(title)')};
 	});
 
@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div id="friend_canvas" title="Editer"></div>
+<div id="friend_canvas"></div>
 
 <g:if test="${member.friends.size() == 0}">
 	<g:message code="message.no.friends" />

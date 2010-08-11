@@ -1,13 +1,13 @@
 <script type="text/javascript">
 	$('.editCustomer').click(function() {
 		var travelId = $(this).attr('id');
-		var title = "Editer";
+		var title = "<g:message code="title.member.my.profile.edit" />";
 		${remoteFunction(controller:'member', action:'initUpdateCustomerInformation', update:'customer_canvas', params:'\'id=\' + travelId', onComplete:'displayCustomerPopup(title)')};
 	});
 
 	$('.changePassword').click(function() {
 		var travelId = $(this).attr('id');
-		var title = "Mot de passe";
+		var title = "<g:message code="title.member.password" />";
 		${remoteFunction(controller:'member', action:'initChangePassword', update:'customer_canvas', params:'\'id=\' + travelId', onComplete:'displayCustomerPopup(title)')};
 	});
 
@@ -22,7 +22,7 @@
 
 </script>
 
-<div id="customer_canvas" title="Editer"></div>
+<div id="customer_canvas"></div>
 
 <div id="view_info">
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
