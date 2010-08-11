@@ -45,7 +45,7 @@
 
 	<table width="100%">
 		<tr>
-			<td >
+			<td valign="top">
 				<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${depart}" 
@@ -53,7 +53,7 @@
 					model='["beanName":"depart", "legend":"${legendDepart}", "adrZoneID":"adrZone1", "locationId":"${locationDepartId}"]'
 				/>
 			</td>
-			<td>
+			<td valign="top">
 				<g:set var="legendDestination" value="${message(code:'view.travel.section.travel.destination')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${destination}" 
