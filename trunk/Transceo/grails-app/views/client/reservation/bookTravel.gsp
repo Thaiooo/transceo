@@ -4,7 +4,7 @@
 		<meta name="layout" content="client" />
     </head>
     <body>
-		<div>
+		<div id="formulaire_reservation">
 			<g:form controller="travel" action="customerBook" method="post" >
 				<g:if test="${customer == null || customer.id == '' || customer.id == null}">
 					<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
@@ -16,8 +16,8 @@
 				<br/>
 				<g:render template="/common/location/editSection" bean="${travel}"/>
 				<p class="boutons">
-					<g:submitButton id="create" name="create" value="${message(code:'common.button.submit')}" />
 					<a href="<g:createLink controller="travel" action="initReservation" />#ancre" ><g:message code="common.button.back"/></a>
+					<g:submitButton class="submit" id="create" name="create" value="${message(code:'common.button.submit')}" />
 				</p>
 			</g:form>
 		</div>
