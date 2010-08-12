@@ -111,6 +111,47 @@ class AdministratorController {
 		redirect(action:"reservationToProcess", controller:"administrator")
 	}
 	
+	def closeReservation = {
+		def o = Travel.get(params.id.toLong())
+		def location = Location.get(params.location_destination)
+		def validate = true
+		if(params.price == null || !params.price.isDouble()){
+			flash.message = "administrate.price.required"
+			validate = false
+		}else{
+			o.price = params.price.toDouble()
+		}
+		if(location == null){
+			def destination = new Adresse(params.destination)
+			if(!destination.validate() || !validate){
+				session[SessionConstant.ADMIN_PAGE.name()] = 'validate'
+				render(
+				view:"/administrator/reservation/administrate",
+				model:[travel: o, destination:destination, locationDestId:params.location_destination, price:params.price, backAction:params.backAction]
+				)
+			}else{
+				destination.save()
+				o.destination = destination
+				o.status = TravelStatus.SUCCESS
+				o.save()
+				redirect(action:"reservationToProcess", controller:"administrator")
+			}
+		}else{
+			if(!validate){
+				session[SessionConstant.ADMIN_PAGE.name()] = 'validate'
+				render(
+				view:"/administrator/reservation/administrate",
+				model:[travel: o, locationDestId:params.location_destination, price:params.price, backAction:params.backAction]
+				)
+			}else{
+				o.destination = location
+				o.status = TravelStatus.SUCCESS
+				o.save()
+				redirect(action:"reservationToProcess", controller:"administrator")
+			}
+		}
+	}
+	
 	def reservationToPrice = {
 		def criteria = new Expando()
 		criteria.status = [TravelStatus.QUOTATION_ASK]
@@ -184,7 +225,6 @@ class AdministratorController {
 	}
 	
 	def validateAndConfirmReservation = {
-		println params
 		if(params.price == null || !params.price.isInteger()){
 			flash.message = "administrate.price.required"
 			def o = Travel.get(params.id.toLong()) 

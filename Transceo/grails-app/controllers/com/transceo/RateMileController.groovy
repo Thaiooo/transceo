@@ -36,4 +36,16 @@ class RateMileController {
 			redirect(action: "list")	
 		}
 	}
+	
+	def deleteRate = {
+		def rate = RateMile.get(params.id)
+		rate.delete(flush:true)
+		def rates = RateMile.list(sort:"level", order:"asc")
+		def level = 0
+		rates.each{
+			it.level = level
+			level++
+		}
+		redirect(action: "list")
+	}
 }
