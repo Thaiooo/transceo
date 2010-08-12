@@ -2,6 +2,7 @@
     		<thead>
 	    		<tr class="row_first">
 	    			<th></th>
+	    			<g:sortableColumn action="sortMember" property="id" title="${message(code:'search.member.id')}" />
 	    			<g:sortableColumn action="sortMember" property="code" title="${message(code:'search.member.code')}" />
 	    			<g:sortableColumn action="sortMember" property="firstName" title="${message(code:'search.member.firstName')}" />	    			
 	    			<g:sortableColumn action="sortMember" property="lastName" title="${message(code:'search.member.lastName')}" />
@@ -23,6 +24,7 @@
 		     				<g:link controller="administrator" action="initMemberReservation" id="${item.id}"><g:message code="search.member.create.reservation" /></g:link>
 		     				</g:if>
 		     			</td>
+		     			<td>${item.id}</td>
 		     			<td>
 		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
 		     					${item.code}

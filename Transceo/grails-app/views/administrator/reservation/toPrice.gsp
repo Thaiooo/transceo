@@ -13,6 +13,7 @@
     			<thead>
 	    			<tr class="row_first">
 		    			<th></th>
+		    			<g:sortableColumn action="sortReservationToPrice" property="id" title="${message(code:'view.travel.id')}" />
 		    			<g:sortableColumn action="sortReservationToPrice" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
 		    			<g:sortableColumn action="sortReservationToPrice" property="customer" title="${message(code:'view.travel.member')}" />
 		    			<g:sortableColumn action="sortReservationToPrice" property="travelDate" title="${message(code:'view.travel.traveldate')}" />
@@ -27,6 +28,7 @@
 			     			<td>
 			     				<g:link controller="administrator" action="showForPriceReservation" id="${item.id}"><g:message code="view.travel.action.administrate" /></g:link>
 			     			</td>
+			     			<td>${item.id}</td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/>
 			     			</td>
