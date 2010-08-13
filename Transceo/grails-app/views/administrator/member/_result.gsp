@@ -18,10 +18,13 @@
     			<g:each status="i" in="${members}" var="item">
 					<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 		     			<td>
-		     				<g:link action="showProfile" id="${item.id}"><g:message code="search.member.view" /></g:link>
+		     				<g:link action="showProfile" id="${item.id}">
+		     					<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'search.member.view')}" />
+		     				</g:link>
 		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
-		     				<br/>
-		     				<g:link controller="administrator" action="initMemberReservation" id="${item.id}"><g:message code="search.member.create.reservation" /></g:link>
+		     				<g:link controller="administrator" action="initMemberReservation" id="${item.id}">
+		     					<img src="${resource(dir:'images',file:'plus.png')}" alt="${message(code:'search.member.create.reservation')}" />
+		     				</g:link>
 		     				</g:if>
 		     			</td>
 		     			<td>${item.id}</td>
