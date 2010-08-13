@@ -19,20 +19,20 @@
 					<p>
 					<g:message code="label.page.client.reservation.8" />
 					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="travel" action="initCustomerBook" />#ancre" ><g:message code="label.page.client.reservation.9" /></a>
+						<a href="<g:createLink controller="travel" action="initBookATravel" />#ancre" ><g:message code="label.page.client.reservation.9" /></a>
 					</g:if>
 					<g:else>
-						<a href="<g:createLink controller="travel" action="initMemberBook" />#ancre" ><g:message code="label.page.client.reservation.9" /></a>
+						<a href="<g:createLink controller="travel" action="initBookATravelForMember" />#ancre" ><g:message code="label.page.client.reservation.9" /></a>
 					</g:else>
 					</p>
 					<h3 class="spip"><g:message code="label.page.client.reservation.10" /></h3>
 					<p>
 					<g:message code="label.page.client.reservation.11" />
 					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="travel" action="initCustomerQuotation" />#ancre" ><g:message code="label.page.client.reservation.12" /></a>
+						<a href="<g:createLink controller="travel" action="initQuoteATravel" />#ancre" ><g:message code="label.page.client.reservation.12" /></a>
 					</g:if>
 					<g:else>
-						<a href="<g:createLink controller="travel" action="initMemberQuotation" />#ancre" ><g:message code="label.page.client.reservation.12" /></a>
+						<a href="<g:createLink controller="travel" action="initQuoteATravelForMember" />#ancre" ><g:message code="label.page.client.reservation.12" /></a>
 					</g:else>
 					</p>					
 				</td>

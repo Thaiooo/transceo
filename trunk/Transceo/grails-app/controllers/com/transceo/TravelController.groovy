@@ -12,20 +12,20 @@ class TravelController {
 		render(view:"/client/reservation/main", model:[])
 	}
 	
-	def initCustomerQuotation = {
-		render(view:"/client/reservation/quotationTravel", model:[])
+	def initQuoteATravel = {
+		render(view:"/client/reservation/quoteATravel", model:[])
 	}
 	
-	def initMemberQuotation = {
-		render(view:"/client/reservation/quotationTravel", model:[customer: session[SessionConstant.USER.name()]])
+	def initQuoteATravelForMember = {
+		render(view:"/client/reservation/quoteATravel", model:[customer: session[SessionConstant.USER.name()]])
 	}
 	
-	def initCustomerBook = {
-		render(view:"/client/reservation/bookTravel", model:[])
+	def initBookATravel = {
+		render(view:"/client/reservation/bookATravel", model:[])
 	}
 	
-	def initMemberBook = {
-		render(view:"/client/reservation/bookTravel", model:[customer: session[SessionConstant.USER.name()]])
+	def initBookATravelForMember = {
+		render(view:"/client/reservation/bookATravel", model:[customer: session[SessionConstant.USER.name()]])
 	}
 	
 	def initConfirmation = {
@@ -52,7 +52,7 @@ class TravelController {
 		}
 	}
 	
-	def customerBook = {
+	def bookATravel = {
 		def validate = true
 		def locationId = ""
 		
@@ -98,9 +98,9 @@ class TravelController {
 		// ===============================================
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/bookTravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
+				render(view:"/administrator/reservation/bookATravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
 			}else{
-				render(view:"/client/reservation/bookTravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
+				render(view:"/client/reservation/bookATravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
 			}
 		}else{
 			travelService.create(travel)
@@ -175,7 +175,7 @@ class TravelController {
 			if(params.ADMIN_VIEW == "true"){
 				render(view:"/administrator/reservation/quotationTravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
 			}else{
-				render(view:"/client/reservation/quotationTravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
+				render(view:"/client/reservation/quoteATravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
 			}
 		}else{
 			travelService.create(travel)
