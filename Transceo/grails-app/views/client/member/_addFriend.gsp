@@ -1,8 +1,13 @@
 <script type="text/javascript">
+	var barValue = 0;
 	function displayProgressBar() {
-		$("#progressbar").progressbar({
-			value: 59
-		});
+		barValue = barValue + 1;
+		if(barValue < 105){
+			$("#progressbar").progressbar({
+				value: barValue
+			});
+			setTimeout("displayProgressBar()", 100);		
+		}
 	};
 </script>
 
