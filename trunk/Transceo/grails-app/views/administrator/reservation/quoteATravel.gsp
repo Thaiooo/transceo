@@ -4,7 +4,7 @@
 		<meta name="layout" content="admin" />
     </head>
     <body>
-		<g:form controller="travel" action="customerReserve" method="post" >
+		<g:form controller="travel" action="quoteATravel" method="post" >
 			<g:hiddenField class="text" name="ADMIN_VIEW" value="true" />
 			<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
 			<br/>

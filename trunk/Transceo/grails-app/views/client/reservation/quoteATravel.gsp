@@ -5,7 +5,7 @@
     </head>
     <body>
 		<div id="formulaire_reservation">
-			<g:form controller="travel" action="customerReserve" method="post" >
+			<g:form controller="travel" action="quoteATravel" method="post" >
 				<g:if test="${customer == null || customer.id == '' || customer.id == null}">
 					<g:render template="/common/member/editCustomerQuotationSection" bean="${customer}"/>
 				</g:if>

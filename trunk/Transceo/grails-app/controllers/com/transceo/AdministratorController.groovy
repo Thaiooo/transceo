@@ -97,8 +97,8 @@ class AdministratorController {
 		render(view:"/administrator/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
-	def initCustomerReservation = {
-		render(view:"/administrator/reservation/customerReservation", model:[])
+	def initQuoteATravel = {
+		render(view:"/administrator/reservation/quoteATravel", model:[])
 	}
 	
 	def initMemberReservation = {
