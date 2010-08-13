@@ -117,12 +117,11 @@
 						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="${message(code:'menu.register.alt')}" ><g:message code="menu.register" /></a>
 					</li>
 				</g:if>
-				<li class="art6">
-					<g:if test="${session.USER != null}">
-						<a href="<g:createLink controller="login" action="disconnect" />#ancre" title="${message(code:'menu.disconnect.alt')}" ><g:message code="menu.disconnect" /></a>
-					</g:if>
-				</li>
 				<li class="art7">
+					<g:if test="${session.USER != null}">
+						<a class="disconnect" href="<g:createLink controller="login" action="disconnect" />#ancre" title="${message(code:'menu.disconnect.alt')}" >
+						</a>
+					</g:if>
 					<g:if test="${session.USER == null}">
 						<a href="<g:createLink controller="login" action="login" />#ancre" title="${message(code:'menu.login.alt')}" ><g:message code="menu.login" /></a>
 					</g:if>
