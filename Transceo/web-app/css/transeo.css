@@ -176,7 +176,11 @@ strong {
 		float: right;
 		width: auto;
 		height: auto;
-		padding: 2px;
+		padding-top: 0px;
+		padding-bottom: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		font-size: 1.1em;
 		border: 1px solid #666666;
 		display: block;
 		background-color: #333333;
@@ -184,6 +188,10 @@ strong {
 		color: #FFFFFF;
 		margin-top: 2px;
 		margin-left: 5px;
+	}
+	
+	#formulaire_password input.submit:hover {
+		cursor:pointer;
 	}
 
 
@@ -232,13 +240,21 @@ strong {
 		float: right;
 		width: auto;
 		height: auto;
-		padding: 2px;
+		padding-top: 0px;
+		padding-bottom: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		font-size: 1.1em;
 		border: 1px solid #666666;
 		display: block;
 		background-color: #333333;
 		background-image: none;
 		color: #FFFFFF;
 		margin: 4px 0px 0 0;
+	}
+	
+	#password_popup input.submit:hover {
+		cursor:pointer;
 	}
 	
 	#password_popup label strong {
@@ -315,13 +331,21 @@ strong {
 		float: right;
 		width: auto;
 		height: auto;
-		padding: 2px;
+		padding-top: 0px;
+		padding-bottom: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		font-size: 1.1em;
 		border: 1px solid #666666;
 		display: block;
 		background-color: #333333;
 		background-image: none;
 		color: #FFFFFF;
 		margin: 4px 0px 0 0;
+	}
+	
+	#formulaire_popup input.submit:hover {
+		cursor:pointer;
 	}
 	
 	#formulaire_popup label strong {
@@ -389,13 +413,21 @@ strong {
 		float: right;
 		width: auto;
 		height: auto;
-		padding: 2px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		font-size: 1.1em;
 		border: 1px solid #666666;
 		display: block;
 		background-color: #333333;
 		background-image: none;
 		color: #FFFFFF;
 		margin: 4px 0px 0 0;
+	}
+	
+	#formulaire_reservation input.submit:hover {
+		cursor:pointer;
 	}
 	
 	#formulaire_reservation .boutons a {
@@ -413,6 +445,7 @@ strong {
 		padding-bottom: 3px;
 		margin-top: 4px;
 		margin-left: 4px;
+		cursor:pointer;
 	}
 		
 
@@ -486,13 +519,21 @@ strong {
 		float: right;
 		width: auto;
 		height: auto;
-		padding: 2px;
+		padding-top: 0px;
+		padding-bottom: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		font-size: 1.1em;
 		border: 1px solid #666666;
 		display: block;
 		background-color: #333333;
 		background-image: none;
 		color: #FFFFFF;
 		margin: 4px 6px 0 0;
+	}
+	
+	#formulaire_contact input.submit:hover {
+		cursor:pointer;
 	}
 	
 	#formulaire_contact textarea {
@@ -605,6 +646,21 @@ ul.nav {
 		color: #FFFFFF;
 	}
 	
+	ul.nav li.art7 a.disconnect {
+		background: transparent url(../images/deconnecter1.gif) no-repeat;
+		height: 16px;
+		width: 16px;
+		margin-left: 10px;
+	}
+	
+	ul.nav li.art7 a.disconnect:hover {
+		background: transparent url(../images/deconnecter2.gif) no-repeat;
+	}
+	
+	
+	
+	
+	
 .intro{
 	background-image: url(../images/bg-zonetxt.jpg);
 	background-repeat: repeat-y;
@@ -709,6 +765,7 @@ table.spip td {
 	padding-top: 2px;
 	padding-bottom: 3px;
 	margin-top: 4px;
+	cursor:pointer;
 }
 
 #view_info {
@@ -731,4 +788,8 @@ table.spip td {
 }
 
 #view_info label {
+}
+
+.shwoDetails{
+	cursor:pointer;
 }
