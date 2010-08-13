@@ -80,8 +80,8 @@ class MyFilters {
 					break
 					
 					case 'travel':
-					if(actionName == "initMemberQuotation" ||
-					actionName == "initMemberBook" ||
+					if(actionName == "initQuoteATravelForMember" ||
+					actionName == "initBookATravelForMember" ||
 					actionName == "show"
 					){
 						if (session[SessionConstant.USER.name()] == null) {
