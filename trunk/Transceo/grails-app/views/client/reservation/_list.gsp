@@ -105,8 +105,10 @@
 		<tbody>
 			<g:each status="i" in="${member.travels}" var="item">
 				<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
-					<td width="50px">
-						<a class="shwoDetails" id="${item.id}"><g:message code="view.member.travels.view" /></a>
+					<td width="22px">
+						<a class="shwoDetails" id="${item.id}">
+							<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'view.member.travels.view')}" />
+						</a>
 					</td>
 				    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/></td>
 				    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${item.travelDate}"/></td>
