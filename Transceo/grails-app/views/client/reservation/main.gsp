@@ -6,7 +6,7 @@
     <body>
 		<table id="form">
 			<tr>
-				<td width="60%">
+				<td width="60%" valign="top">
 					<h3 class="spip"><g:message code="label.page.client.reservation.1" /></h3>
 					<p><g:message code="label.page.client.reservation.2" /></p>
 					<p><strong><g:message code="label.page.client.reservation.3" /></strong></p>
@@ -14,7 +14,7 @@
 					<p><g:message code="label.page.client.reservation.5" args='["${grailsApplication.config.transeo.contact.tel}"]'/></p>
 					<p><g:message code="label.page.client.reservation.6" /><a href='mailto:${grailsApplication.config.transeo.contact.mail}' class='spip_mail'>${grailsApplication.config.transeo.contact.mail}</a></p>
 				</td>
-				<td>
+				<td valign="top">
 					<h3 class="spip"><g:message code="label.page.client.reservation.7" /></h3>
 					<p>
 					<g:message code="label.page.client.reservation.8" />
