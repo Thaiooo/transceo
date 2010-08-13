@@ -116,7 +116,7 @@ class TravelController {
 		}
 	}
 	
-	def customerReserve = {
+	def quoteATravel = {
 		def validate = true
 		
 		// ===============================================
