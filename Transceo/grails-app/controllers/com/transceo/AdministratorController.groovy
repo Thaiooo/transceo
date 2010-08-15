@@ -103,7 +103,7 @@ class AdministratorController {
 	
 	def initMemberReservation = {
 		def member = Member.get(params.id)
-		render(view:"/administrator/reservation/memberReservation", model:[member: member])
+		render(view:"/administrator/reservation/memberReservation", model:[customer: member])
 	}
 	
 	def closeTravel = {
