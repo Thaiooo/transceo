@@ -81,7 +81,6 @@ class MyFilters {
 					
 					case 'travel':
 					if(actionName == "initQuoteATravelForMember" ||
-					actionName == "initBookATravelForMember" ||
 					actionName == "show"
 					){
 						if (session[SessionConstant.USER.name()] == null) {
