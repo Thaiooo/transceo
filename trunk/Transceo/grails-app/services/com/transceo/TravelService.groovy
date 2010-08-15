@@ -285,4 +285,21 @@ class TravelService {
 		}
 		return results
 	}
+	
+	def deleteExpireReservation() {
+		def maxHour = config.transeo.reservation.purge.hour.toInteger()
+		
+		def gc = new GregorianCalendar()
+		gc.add(Calendar.HOUR_OF_DAY, (maxHour * -1))
+		
+		def c = Travel.createCriteria()
+		def results = c {
+			'in'("status",[TravelStatus.QUOTATION_ASK, TravelStatus.QUOTATION_TO_CONFIRM, TravelStatus.QUOTATION_CONFIRM, TravelStatus.BOOK_ASK])
+			le ("travelDate", gc.time)
+		}
+		
+		results.each(){ 
+			it.status =  TravelStatus.CANCEL
+		}
+	}
 }
