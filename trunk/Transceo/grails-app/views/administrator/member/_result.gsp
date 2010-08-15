@@ -22,7 +22,7 @@
 		     					<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'search.member.view')}" />
 		     				</g:link>
 		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
-		     				<g:link controller="administrator" action="initMemberReservation" id="${item.id}">
+		     				<g:link controller="administrator" action="initCreateReservation" id="${item.id}">
 		     					<img src="${resource(dir:'images',file:'plus.png')}" alt="${message(code:'search.member.create.reservation')}" />
 		     				</g:link>
 		     				</g:if>

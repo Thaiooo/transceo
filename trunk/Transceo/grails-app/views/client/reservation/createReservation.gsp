@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Devis en ligne</title>
+        <title><g:message code="title.reservation.create" /></title>
 		<meta name="layout" content="client" />
     </head>
     <body>
@@ -20,6 +20,7 @@
 					<g:set var="legend" value="${message(code:'view.travel.section.customer')}" />
     				<g:render template="/common/member/viewResumeSection" bean="${customer}" var="customer" model='["legend":"${legend}", "editAble":false]'/>
 				</g:else>
+				
 				<br/>
 				<g:render template="/common/travel/editSectionWithSelectionType" bean="${travel}"/>
 				<p class="boutons">

@@ -97,13 +97,12 @@ class AdministratorController {
 		render(view:"/administrator/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
-	def initQuoteATravel = {
-		render(view:"/administrator/reservation/quoteATravel", model:[])
-	}
-	
-	def initMemberReservation = {
-		def member = Member.get(params.id)
-		render(view:"/administrator/reservation/memberReservation", model:[customer: member])
+	def initCreateReservation = {
+		def member
+		if(StringUtils.isNotBlank(params.id)){
+			member = Member.get(params.id)
+		}
+		render(view:"/administrator/reservation/createReservation", model:[customer: member])
 	}
 	
 	def closeTravel = {
@@ -253,7 +252,7 @@ class AdministratorController {
 		render(view:"/administrator/reservation/main", model:[])
 	}
 	
-	def initCreateReservation = {
+	def initChooseCustomerType = {
 		render(view:"/administrator/reservation/chooseCustomerType", model:[])
 	}
 	

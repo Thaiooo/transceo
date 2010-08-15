@@ -9,7 +9,7 @@
     			<g:link controller="administrator" action="searchMember"><g:message code="reservation.type.member" /></g:link>
 			</li>
 			<li>
-				<g:link controller="administrator" action="initQuoteATravel"><g:message code="reservation.type.customer" /></g:link>
+				<g:link controller="administrator" action="initCreateReservation"><g:message code="reservation.type.customer" /></g:link>
 			</li>
 		</ul>
     </body>

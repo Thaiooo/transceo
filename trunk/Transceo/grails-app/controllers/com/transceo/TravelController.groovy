@@ -51,7 +51,15 @@ class TravelController {
 		def customer 
 		
 		if(params.ADMIN_VIEW == "true"){
-			customer = Member.get(params.customerId.toLong())
+			if(params.customerId != null){
+				customer = Member.get(params.customerId.toLong())
+			}else{
+				customer = new CustomerQuotation()
+				customer.properties = params
+				if(!customer.validate()){
+					validate = false
+				}
+			}
 		}else{
 			if(session[SessionConstant.USER.name()] != null){
 				customer = Member.get(session[SessionConstant.USER.name()].id)
@@ -106,7 +114,7 @@ class TravelController {
 		// ===============================================
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/memberReservation", 
+				render(view:"/administrator/reservation/createReservation", 
 				model:[
 				customer:customer, 
 				travel:travel, 
@@ -133,7 +141,7 @@ class TravelController {
 		}else{
 			travelService.create(travel)
 			if(params.ADMIN_VIEW == "true"){
-				redirect(controller: "administrator", action: "initCreateReservation")
+				redirect(controller: "administrator", action: "initChooseCustomerType")
 			} else{
 				redirect(
 				controller: "common", 
@@ -151,7 +159,15 @@ class TravelController {
 		def customer
 		
 		if(params.ADMIN_VIEW == "true"){
-			customer = Member.get(params.customerId.toLong())
+			if(params.customerId != null){
+				customer = Member.get(params.customerId.toLong())
+			}else{
+				customer = new Customer()
+				customer.properties = params
+				if(!customer.validate()){
+					validate = false
+				}
+			}
 		}else{
 			if(session[SessionConstant.USER.name()] != null){
 				customer = Member.get(session[SessionConstant.USER.name()].id)
@@ -208,7 +224,7 @@ class TravelController {
 		// ===============================================
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/memberReservation", 
+				render(view:"/administrator/reservation/createReservation", 
 				model:[
 				customer:customer, 
 				travel:travel, 
@@ -235,7 +251,7 @@ class TravelController {
 		}else{
 			travelService.create(travel)
 			if(params.ADMIN_VIEW == "true"){
-				redirect(controller: "administrator", action: "initCreateReservation")
+				redirect(controller: "administrator", action: "initChooseCustomerType")
 			} else{
 				redirect(
 				controller: "common",
