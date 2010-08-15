@@ -5,16 +5,23 @@
     </head>
     <body>
 		<div id="formulaire_reservation">
-			<g:form controller="travel" action="quoteATravel" method="post" >
+			<g:form controller="travel" action="bookOrQuoteATravel" method="post" >
 				<g:if test="${customer == null || customer.id == '' || customer.id == null}">
-					<g:render template="/common/member/editCustomerQuotationSection" bean="${customer}"/>
+					<div id="customerInformation">
+						<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'reservation'}">
+							<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
+						</g:if>
+						<g:else>
+							<g:render template="/common/member/editCustomerQuotationSection" bean="${customer}"/>
+						</g:else>
+					</div>
 				</g:if>
 				<g:else>
 					<g:set var="legend" value="${message(code:'view.travel.section.customer')}" />
     				<g:render template="/common/member/viewResumeSection" bean="${customer}" var="customer" model='["legend":"${legend}", "editAble":false]'/>
 				</g:else>
 				<br/>
-				<g:render template="/common/travel/editSection" bean="${travel}"/>
+				<g:render template="/common/travel/editSectionWithSelectionType" bean="${travel}"/>
 				<p class="boutons">
 					<a href="<g:createLink controller="travel" action="initReservation" />#ancre" ><g:message code="common.button.back"/></a>
 					<g:submitButton class="submit" name="create" value="${message(code:'common.button.submit')}" />
