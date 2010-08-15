@@ -37,5 +37,11 @@
 		<p>
 		<g:message code="label.properties.customer.purge.day" />: ${grailsApplication.config.transeo.customer.purge.day} 
 		</p>
+		<p>
+		<g:message code="label.properties.reservation.purge.cron" />: ${grailsApplication.config.transeo.reservation.purge.cron} 
+		</p>
+		<p>
+		<g:message code="label.properties.reservation.purge.hour" />: ${grailsApplication.config.transeo.reservation.purge.hour} 
+		</p>
     </body>
 </html>
