@@ -109,12 +109,15 @@ class MemberService {
 	}
 	
 	def deleteExpireActivation () {
+		
+		def maxDay = config.transeo.customer.purge.day.toInteger()
+		
 		def gc = new GregorianCalendar()
-		gc.add(Calendar.DAY_OF_YEAR, -30)
+		gc.add(Calendar.DAY_OF_YEAR, (maxDay * -1))
 		
 		def c = Member.createCriteria()
 		def results = c { 
-			eq("active", true) 
+			eq("active", false) 
 			le ("subscribeDate", gc.time)
 		}
 		

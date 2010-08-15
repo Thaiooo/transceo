@@ -29,7 +29,7 @@ Pour rappel, veuillez trouver ci-dessous vos informations de connexion :
 
 <p>
 NB :<br/>
-&nbsp;&nbsp;&nbsp;- Votre demande de création de compte sera conservée 30 jours. Si vous n'activez pas votre compte avant ce délai, votre demande sera automatiquement supprimée.<br/>
+&nbsp;&nbsp;&nbsp;- Votre demande de création de compte sera conservée ${grailsApplication.config.transeo.customer.purge.day} jours. Si vous n'activez pas votre compte avant ce délai, votre demande sera automatiquement supprimée.<br/>
 </p>
 
 <p>

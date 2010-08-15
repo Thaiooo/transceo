@@ -31,5 +31,11 @@
 		<p>
 		<g:message code="label.properties.contact.mail"/>: ${grailsApplication.config.transeo.contact.mail}
 		</p>
+		<p>
+		<g:message code="label.properties.customer.purge.cron" />: ${grailsApplication.config.transeo.customer.purge.cron} 
+		</p>
+		<p>
+		<g:message code="label.properties.customer.purge.day" />: ${grailsApplication.config.transeo.customer.purge.day} 
+		</p>
     </body>
 </html>

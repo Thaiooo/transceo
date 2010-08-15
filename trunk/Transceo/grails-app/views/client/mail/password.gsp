@@ -1,4 +1,4 @@
 <%@ page contentType="text/html"%>
 
-<p>Your code: ${member.code}</p>
-<p>Your password: ${member.password}</p>
+<p>Votre code: ${member.code}</p>
+<p>Votre mot de passe : ${member.password}</p>
