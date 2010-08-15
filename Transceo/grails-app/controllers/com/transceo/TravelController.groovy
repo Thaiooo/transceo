@@ -20,14 +20,6 @@ class TravelController {
 		render(view:"/client/reservation/quoteATravel", model:[customer: session[SessionConstant.USER.name()]])
 	}
 	
-	def initBookATravel = {
-		render(view:"/client/reservation/bookATravel", model:[])
-	}
-	
-	def initBookATravelForMember = {
-		render(view:"/client/reservation/bookATravel", model:[customer: session[SessionConstant.USER.name()]])
-	}
-	
 	def initConfirmation = {
 		def confirmation = ConfirmationCode.findByIdAndCode(params.id, params.code)
 		if(confirmation == null){
@@ -52,82 +44,23 @@ class TravelController {
 		}
 	}
 	
-	def bookATravel = {
-		def validate = true
-		def locationId = ""
-		
-		// ===============================================
-		def customer 
-		if(session[SessionConstant.USER.name()] != null){
-			customer = Member.get(session[SessionConstant.USER.name()].id)
-		}else{
-			customer = new Customer()
-			customer.properties = params
-			if(!customer.validate()){
-				validate = false
-			}
-		}
-		
-		// ===============================================
-		def travel = new Travel()
-		travel.properties = params
-		travel.creationDate = new Date()
-		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
-			travel.travelDate = DateUtils.parseDate(params.date)
-		}else{
-			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
-		}
-		travel.customer = customer
-		travel.status = TravelStatus.BOOK_ASK
-		
-		// ===============================================
-		if(params.location_depart != ""){
-			travel.depart = Adresse.get(params.location_depart)
-			locationId = params.location_depart
-		}
-		def depart = travel.depart
-		if(depart == null || !depart.validate()){
-			validate = false
-		}
-		
-		// ===============================================
-		if(!travel.validate()){
-			validate = false
-		}
-		
-		// ===============================================
-		if(!validate){
-			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/bookATravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
-			}else{
-				render(view:"/client/reservation/bookATravel", model:[customer:customer, travel:travel, depart:depart, locationId:locationId])
-			}
-		}else{
-			travelService.create(travel)
-			if(params.ADMIN_VIEW == "true"){
-				redirect(controller: "administrator", action: "initCreateReservation")
-			} else{
-				redirect(
-				controller: "common", 
-				action: "displayMessage", 
-				params:[codeMessage:"message.book.confirmation", codeTitle:"title.book.confirmation"]
-				)
-			}
-		}
-	}
-	
 	def quoteATravel = {
 		def validate = true
 		
 		// ===============================================
 		def customer 
-		if(session[SessionConstant.USER.name()] != null){
-			customer = Member.get(session[SessionConstant.USER.name()].id)
+		
+		if(params.ADMIN_VIEW == "true"){
+			customer = Member.get(params.customerId.toLong())
 		}else{
-			customer = new CustomerQuotation()
-			customer.properties = params
-			if(!customer.validate()){
-				validate = false
+			if(session[SessionConstant.USER.name()] != null){
+				customer = Member.get(session[SessionConstant.USER.name()].id)
+			}else{
+				customer = new CustomerQuotation()
+				customer.properties = params
+				if(!customer.validate()){
+					validate = false
+				}
 			}
 		}
 		
@@ -173,9 +106,29 @@ class TravelController {
 		// ===============================================
 		if(!validate){
 			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/quotationTravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
+				render(view:"/administrator/reservation/memberReservation", 
+				model:[
+				customer:customer, 
+				travel:travel, 
+				depart:depart, 
+				destination:destination, 
+				locationDepartId:locationDepartId, 
+				locationDestId:locationDestId,
+				reservationType: 'quote'
+				]
+				)
 			}else{
-				render(view:"/client/reservation/quoteATravel", model:[customer:customer, travel:travel, depart:depart, destination:destination, locationDepartId:locationDepartId, locationDestId:locationDestId])
+				render(view:"/client/reservation/quoteATravel", 
+				model:[
+				customer:customer, 
+				travel:travel, 
+				depart:depart, 
+				destination:destination, 
+				locationDepartId:locationDepartId, 
+				locationDestId:locationDestId,
+				reservationType: 'quote'
+				]
+				)
 			}
 		}else{
 			travelService.create(travel)
@@ -188,6 +141,116 @@ class TravelController {
 				params:[codeMessage:"message.quotation.confirmation", codeTitle:"title.quotation.confirmation"]
 				)
 			}
+		}
+	}
+	
+	def bookATravel = {
+		def validate = true
+		
+		// ===============================================
+		def customer
+		
+		if(params.ADMIN_VIEW == "true"){
+			customer = Member.get(params.customerId.toLong())
+		}else{
+			if(session[SessionConstant.USER.name()] != null){
+				customer = Member.get(session[SessionConstant.USER.name()].id)
+			}else{
+				customer = new Customer()
+				customer.properties = params
+				if(!customer.validate()){
+					validate = false
+				}
+			}
+		}
+		
+		// ===============================================
+		def travel = new Travel()
+		travel.properties = params
+		travel.creationDate = new Date()
+		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
+			travel.travelDate = DateUtils.parseDate(params.date)
+		}else{
+			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
+		}
+		travel.customer = customer
+		travel.status = TravelStatus.BOOK_ASK
+		
+		// ===============================================
+		def locationDepartId = ""
+		if(params.location_depart != ""){
+			travel.depart = Adresse.get(params.location_depart)
+			locationDepartId = params.location_depart
+		}
+		def depart = travel.depart
+		if(depart == null || !depart.validate()){
+			validate = false
+		}
+		
+		def locationDestId = "";
+		// ===============================================
+		if(params.location_destination != ""){
+			travel.destination = Adresse.get(params.location_destination)
+			locationDestId = params.location_destination
+		}
+		def destination = travel.destination;
+		if(destination != null){
+			if(!destination.validate()){
+				validate = false
+			}
+		}
+		
+		// ===============================================
+		if(!travel.validate()){
+			validate = false
+		}
+		
+		// ===============================================
+		if(!validate){
+			if(params.ADMIN_VIEW == "true"){
+				render(view:"/administrator/reservation/memberReservation", 
+				model:[
+				customer:customer, 
+				travel:travel, 
+				depart:depart, 
+				destination:destination, 
+				locationDepartId:locationDepartId, 
+				locationDestId:locationDestId,
+				reservationType: 'reservation'
+				]
+				)
+			}else{
+				render(view:"/client/reservation/quoteATravel", 
+				model:[
+				customer:customer, 
+				travel:travel, 
+				depart:depart, 
+				destination:destination, 
+				locationDepartId:locationDepartId, 
+				locationDestId:locationDestId,
+				reservationType: 'reservation'
+				]
+				)
+			}
+		}else{
+			travelService.create(travel)
+			if(params.ADMIN_VIEW == "true"){
+				redirect(controller: "administrator", action: "initCreateReservation")
+			} else{
+				redirect(
+				controller: "common",
+				action: "displayMessage",
+				params:[codeMessage:"message.quotation.confirmation", codeTitle:"title.quotation.confirmation"]
+				)
+			}
+		}
+	}
+	
+	def bookOrQuoteATravel = {
+		if(params.reservationType == "reservation"){
+			bookATravel()
+		}else{
+			quoteATravel()
 		}
 	}
 	
@@ -223,5 +286,13 @@ class TravelController {
 	def dispalyTravelDetailsPopup = {
 		def o = Travel.get(params.id.toLong())
 		render(template:"/common/travel/viewDetailsSection", model:[travel: o])
+	}
+	
+	def showFormForQuotation = {
+		render(template:"/common/member/editCustomerQuotationSection", model:[])
+	}
+	
+	def showFormForBook = {
+		render(template:"/common/member/editCustomerSection", model:[])
 	}
 }
