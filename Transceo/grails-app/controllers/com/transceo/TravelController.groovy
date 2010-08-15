@@ -13,11 +13,11 @@ class TravelController {
 	}
 	
 	def initQuoteATravel = {
-		render(view:"/client/reservation/quoteATravel", model:[])
+		render(view:"/client/reservation/createReservation", model:[])
 	}
 	
 	def initQuoteATravelForMember = {
-		render(view:"/client/reservation/quoteATravel", model:[customer: session[SessionConstant.USER.name()]])
+		render(view:"/client/reservation/createReservation", model:[customer: session[SessionConstant.USER.name()]])
 	}
 	
 	def initConfirmation = {
@@ -118,7 +118,7 @@ class TravelController {
 				]
 				)
 			}else{
-				render(view:"/client/reservation/quoteATravel", 
+				render(view:"/client/reservation/createReservation", 
 				model:[
 				customer:customer, 
 				travel:travel, 
@@ -220,7 +220,7 @@ class TravelController {
 				]
 				)
 			}else{
-				render(view:"/client/reservation/quoteATravel", 
+				render(view:"/client/reservation/createReservation", 
 				model:[
 				customer:customer, 
 				travel:travel, 
