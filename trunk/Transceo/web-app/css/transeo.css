@@ -728,6 +728,7 @@ table.spip {
 	background-color: #262626;
 	margin-top: 5px;
 	margin-bottom: 20px;
+	width: 100%;
 }
 table.spip .row_first {
 	background-color: #333;
