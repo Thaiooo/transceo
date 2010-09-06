@@ -15,11 +15,11 @@ environments {
 	development {
 		dataSource {
 			// one of 'create', 'create-drop','update'
-			dbCreate = "create-drop" 
+			// dbCreate = "create-drop" 
 			driverClassName = "com.mysql.jdbc.Driver"
-			url = "jdbc:mysql://localhost/transceo"
-			username = ""
-			password = ""
+			url = "jdbc:mysql://localhost/transeo"
+			username = "transeo"
+			password = "transeo"
 			loggingSql = false
 		}
 	}
@@ -32,10 +32,11 @@ environments {
 	}
 	production {
 		dataSource {
+			//jndiName = "java:comp/env/jdbc/TranseoDB"
 			driverClassName = "com.mysql.jdbc.Driver"
-			url = "jdbc:mysql://localhost/Transeo"
-			username = ""
-			password = ""
+			url = "jdbc:mysql://localhost/transeo"
+			username = "transeo"
+			password = "transeo"
 			loggingSql = false
 		}
 	}
