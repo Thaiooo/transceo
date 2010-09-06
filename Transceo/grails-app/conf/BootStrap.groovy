@@ -20,6 +20,7 @@ class BootStrap {
 	}
 	
 	private void insertData() {
+		/*
 		// =================================================
 		// =================================================
 		def sequence = new CodeSequence(sequence: 3)
@@ -73,7 +74,6 @@ class BootStrap {
 		m1.miles = 1000
 		m1.save()
 
-		/*		
 		// =================================================
 		def depart = new Adresse()
 		depart.adresse = "46 RUE AFFORTY"
@@ -284,12 +284,12 @@ class BootStrap {
 		
 		// =================================================
 		// =================================================
+		/*
 		def r1 = new RateMile()
 		r1.level = 0
 		r1.rate = 100
 		r1.save()
 		
-		/*
 		// =================================================
 		def r2 = new RateMile()
 		r2.level = 1
