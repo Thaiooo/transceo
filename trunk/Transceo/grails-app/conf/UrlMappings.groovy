@@ -5,7 +5,7 @@ class UrlMappings {
 			 // apply constraints here
 		  }
 	  }
-      "/administrate_transceo" {
+      "/administrate_transeo" {
           controller = "administrator"
           action = "login"
        }
