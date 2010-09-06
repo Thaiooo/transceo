@@ -32,12 +32,7 @@ environments {
 	}
 	production {
 		dataSource {
-			//jndiName = "java:comp/env/jdbc/TranseoDB"
-			driverClassName = "com.mysql.jdbc.Driver"
-			url = "jdbc:mysql://localhost/transeo"
-			username = "transeo"
-			password = "transeo"
-			loggingSql = false
+			jndiName = "java:comp/env/jdbc/TranseoDB"
 		}
 	}
 }

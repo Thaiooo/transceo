@@ -10,9 +10,6 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
-grails.config.locations = [ "classpath:transeo-app-config.properties", 
-                            "classpath:transeo-mail-config.groovy"]
-
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -51,9 +48,13 @@ grails.spring.bean.packages = []
 environments {
     production {
 		grails.serverURL = "www.thaiooo.fr"
+		grails.config.locations = ["classpath:transeo-app-config.properties",
+			"classpath:transeo-mail-config.groovy"]
     }
     development {
         grails.serverURL = "http://localhost:8080/${appName}"
+		grails.config.locations = ["file:D:/Dev/workspace/Transceo/config/transeo-app-config.properties",
+			"file:D:/Dev/workspace/Transceo/config/transeo-mail-config.groovy"]
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
