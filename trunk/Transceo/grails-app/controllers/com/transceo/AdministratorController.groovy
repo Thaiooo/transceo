@@ -7,6 +7,7 @@ import groovy.util.Expando;
 class AdministratorController {
 	def memberService
 	def travelService
+	def pageService
 	
 	def login = {
 		if(params.login == null){
@@ -440,5 +441,21 @@ class AdministratorController {
 	
 	def initSimulation = {
 		render(view:"/administrator/reservation/simulation", model:[])
+	}
+	
+	def initEditPage = {
+		def wikiContent = pageService.getWikiContent(params.id + "_fr.txt")
+		render(view:"/administrator/page/edit", model:[wikiContent: wikiContent, id: params.id])
+	}
+	
+	def editPage = {
+		def page = params.id + "_fr.txt"
+		pageService.setWikiContent(page, params.wikiContent)
+		redirect(action:"viewPage", id:params.id)
+	}
+	
+	def viewPage = {
+		def htmlContent = pageService.getHTMLContent(params.id + "_fr.txt")
+		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, id: params.id])
 	}
 }

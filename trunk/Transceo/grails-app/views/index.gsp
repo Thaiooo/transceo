@@ -4,6 +4,5 @@
 		<meta name="layout" content="client" />
     </head>
     <body>
-		${htmlContent}
 	</body>
 </html>

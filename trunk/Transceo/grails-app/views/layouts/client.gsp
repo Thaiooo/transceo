@@ -22,6 +22,9 @@
 		
 		<script type="text/javascript"> 
 			$(document).ready(function(){
+				// Pour aller sur l'ancre
+				document.location="#ancre";
+				
 		    	// Scripts de correction transparence PNG pour IE6 
 		        $(document).pngFix();
 
@@ -104,29 +107,29 @@
 					<g:link class="accueil" controller="page" action="home" title="${message(code:'menu.home.alt')}" ><g:message code="menu.home" /></g:link>
 				</li>
 				<li class="art3">
-					<a href="<g:createLink controller="page" action="prestation" />#ancre" title="${message(code:'menu.prestations.alt')}" ><g:message code="menu.prestations" /></a>
+					<a href="<g:createLink controller="page" action="view" id="prestation" />" title="${message(code:'menu.prestations.alt')}" ><g:message code="menu.prestations" /></a>
 				</li>
 				<li class="art4">
-					<a href="<g:createLink controller="page" action="vehicule" />#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
+					<a href="<g:createLink controller="page" action="viewColumn" id="vehicule"/>" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
 				</li>
 				<li class="art5">
-					<a href="<g:createLink controller="travel" action="initReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
+					<a href="<g:createLink controller="travel" action="initReservation" />" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
 				</li>
 				<g:if test="${session.USER == null}">
 					<li class="art6">
-						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="${message(code:'menu.register.alt')}" ><g:message code="menu.register" /></a>
+						<a href="<g:createLink controller="member" action="initRegister" />" title="${message(code:'menu.register.alt')}" ><g:message code="menu.register" /></a>
 					</li>
 				</g:if>
 				<li class="art7">
 					<g:if test="${session.USER != null}">
-						<a class="disconnect" href="<g:createLink controller="login" action="disconnect" />#ancre" title="${message(code:'menu.disconnect.alt')}" >
+						<a class="disconnect" href="<g:createLink controller="login" action="disconnect" />" title="${message(code:'menu.disconnect.alt')}" >
 						</a>
 					</g:if>
 					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="login" action="login" />#ancre" title="${message(code:'menu.login.alt')}" ><g:message code="menu.login" /></a>
+						<a href="<g:createLink controller="login" action="login" />" title="${message(code:'menu.login.alt')}" ><g:message code="menu.login" /></a>
 					</g:if>
 					<g:else>
-						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="${message(code:'menu.account.alt')}" ><g:message code="menu.account" /></a>
+						<a href="<g:createLink controller="member" action="showMyProfile" />" title="${message(code:'menu.account.alt')}" ><g:message code="menu.account" /></a>
 					</g:else>
 				</li>
 			</ul>
