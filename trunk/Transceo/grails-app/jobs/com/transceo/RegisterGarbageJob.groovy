@@ -8,6 +8,7 @@ class RegisterGarbageJob {
 	def memberService
 	
 	def execute(){
+		println "Purge utilisateur..."
 		memberService.deleteExpireActivation()
 	} 
 }
