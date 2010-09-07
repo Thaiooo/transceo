@@ -8,6 +8,7 @@ class ReservationGarbageJob {
 	def travelService
 	
 	def execute(){
+		println "Purge réservation..."
 		travelService.deleteExpireReservation()
 	} 
 }

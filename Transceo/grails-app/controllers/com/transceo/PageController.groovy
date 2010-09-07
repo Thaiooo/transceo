@@ -15,12 +15,14 @@ class PageController {
 	
 	def home = {
 		def htmlContent = getContent(directory + File.separator + "page_1_fr.txt")
+		println htmlContent
 		//redirect(uri:"/#ancre")
 		render(view:"/index", model:[htmlContent: htmlContent])
 	}
 	
 	def prestation = {
 		def htmlContent = getContent(directory + File.separator + "page_2_fr.txt")
+		println htmlContent
 		render(view:"/client/prestation", model:[htmlContent: htmlContent])
 	}
 	
