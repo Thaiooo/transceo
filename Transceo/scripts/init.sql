@@ -8,6 +8,9 @@ USE transeo;
 -- Init séquence
 INSERT INTO code_sequence (version ,sequence) VALUES ('0', '1');
 
+INSERT INTO rate_mile (version ,rate, level) VALUES (0, 100, 0);
+
+
 -- Location
 INSERT INTO adresse (version ,adresse ,postal ,country ,city ,class ,label)
 VALUES ('0', 'Aéroport de Paris Roissy Charles de Gaulle', '95711', 'FR', 'Roissy Charles de Gaulle', 'com.transceo.Location', 'Aéroport de Paris Roissy Charles de Gaulle');
@@ -16,3 +19,4 @@ VALUES ('0', 'Gare de Paris Saint Lazare', '75008', 'FR', 'Paris', 'com.transceo
 
 -- Admin user
 INSERT INTO administrator(version,last_name,login,first_name,password) values (0,'admin','admin','admin','aaaaa');
+
