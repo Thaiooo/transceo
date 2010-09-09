@@ -8,8 +8,9 @@
     	<div id="formulaire_reservation">
 	    	<g:form name="form" controller="administrator" action="editPage"  method="post">
 				<g:hiddenField name="id" value="${id}" />    	
-	    		<g:textArea name="wikiContent" value="${content}"/>
+	    		<g:textArea class="wikiContent" name="wikiContent" value="${content}"/>
 	    		<p class="boutons">
+	    			<g:link controller="administrator" action="editPageMain" title="">Annuler</g:link>
 	    			<g:submitButton class="submit" name="update" value="Update" />
 	    		</p>
 	    	</g:form>

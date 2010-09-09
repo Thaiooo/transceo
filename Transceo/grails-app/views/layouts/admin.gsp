@@ -46,6 +46,7 @@
 				<li class="art5"><g:link controller="rateMile" action="list" title="Properties">Taux</g:link></li>
 				<li class="art5"><g:link controller="location" action="list" title="Manage location">Adresse</g:link></li>
 				<li class="art5"><g:link controller="administrator" action="listProperties" title="Manage user">Paramétrages</g:link></li>
+				<li class="art5"><g:link controller="administrator" action="editPageMain" title="">Contenu</g:link></li>
 				<li class="art7"><g:link controller="administrator" action="disconnect" title="Manage reservation">Disconnect</g:link></li>
 			</ul>
 			<!--fin nav-->

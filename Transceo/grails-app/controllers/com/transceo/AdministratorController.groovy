@@ -443,6 +443,10 @@ class AdministratorController {
 		render(view:"/administrator/reservation/simulation", model:[])
 	}
 	
+	def editPageMain =  {
+		render(view:"/administrator/page/main", model:[])
+	}
+	
 	def initEditPage = {
 		def wikiContent = pageService.getWikiContent(params.id + "_fr.txt")
 		render(view:"/administrator/page/edit", model:[wikiContent: wikiContent, id: params.id])

@@ -355,6 +355,7 @@ strong {
 		text-transform: lowercase;
 	}
 
+
 #formulaire_reservation {
 }
 	
@@ -408,6 +409,11 @@ strong {
 		padding: 2px 7px;
 		border: none;
 	}
+	
+		#formulaire_reservation textarea.wikiContent {
+			width: 821px;
+			height: 400px;
+		}
 	
 	#formulaire_reservation input.submit {
 		float: right;
