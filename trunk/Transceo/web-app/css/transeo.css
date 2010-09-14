@@ -361,7 +361,7 @@ strong {
 	
 	#formulaire_reservation input {
 		//float: right;
-		//width: 260px;
+		width: 260px;
 		height: 14px;
 		margin: 4px 0;
 		padding: 2px 7px;
@@ -371,7 +371,7 @@ strong {
 	}
 	
 	#formulaire_reservation input.adresse {
-		width: 247px;
+		//width: 247px;
 	}
 	
 	#formulaire_reservation input.postal {
@@ -379,15 +379,15 @@ strong {
 	}
 	
 	#formulaire_reservation input.city {
-		width: 155px;
+		//width: 155px;
 	}
 	
 	#formulaire_reservation input.date {
-		width: 155px;
+		width: 70px;
 	}
-	
+
 	#formulaire_reservation select.country {
-		width: 282px;
+		width: 275px;
 	}
 	
 	#formulaire_reservation select {
@@ -399,7 +399,6 @@ strong {
 	}
 	
 	#formulaire_reservation option {
-		background-image: url(../images/stripe2.gif);
 	}
 	
 	#formulaire_reservation textarea {
@@ -414,6 +413,11 @@ strong {
 			width: 821px;
 			height: 400px;
 		}
+		
+	#formulaire_reservation input.radio {
+		width: 20px;
+		background-image: none;
+	}
 	
 	#formulaire_reservation input.submit {
 		float: right;
@@ -438,6 +442,7 @@ strong {
 	
 	#formulaire_reservation .boutons a {
 		float: right;
+		/*
 		border: 1px solid #666666;
 		width: auto;
 		height: auto;
@@ -452,8 +457,67 @@ strong {
 		margin-top: 4px;
 		margin-left: 4px;
 		cursor:pointer;
+		*/
 	}
-		
+	
+	#formulaire_reservation ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	
+	#formulaire_reservation ul li {
+		align: left;
+		display: block;
+		//float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire_reservation ul li.saisie_texte label {
+		text-align: center
+		width: 900px;
+	}
+	
+	#formulaire_reservation label {
+		float: left;
+		width: 240px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+	#formulaire_reservation label.adresse {
+		width: 95px;
+	}
+	
+	#formulaire_reservation label strong {
+		font-weight: bold;
+		color: #181818;
+		font-size: 0.75em;
+		text-transform: lowercase;
+	}
+	
+	#formulaire_reservation fieldset {
+		border: 2px #272727 solid;
+		padding:10px;
+	}
+	
+	#formulaire_reservation fieldset.adresse {
+		width: 370px;
+	}
+		 
+	#formulaire_reservation legend {
+		position:relative;
+		top: -15px;
+		color:#999999;
+		padding:2px;
+	}
 
 	
 #formulaire_contact {

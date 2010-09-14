@@ -27,6 +27,18 @@ class PageService {
 		return htmlContent
 	}
 	
+	public String getPreviewHTMLContent(String wikiContent){
+		StringWriter writer = new StringWriter()
+		HtmlDocumentBuilder builder = new HtmlDocumentBuilder(writer)
+		builder.setEmitAsDocument(false)
+		MarkupParser parser = new MarkupParser(new TextileLanguage())
+		parser.setBuilder(builder)
+		parser.parse(wikiContent)
+		def htmlContent = writer.toString()
+		
+		return htmlContent
+	}
+	
 	public String getWikiContent(String fileName){
 		File f = new File(directory + File.separator + fileName)
 		if(!f.exists()){

@@ -21,25 +21,29 @@
 			<g:renderErrors bean="${adresse}" />
 		</div>
 	</g:hasErrors>	
-	<p>
-		<g:message code="travel.adresse" /> <strong><g:message code="common.required" /></strong>
-		<g:textField class="adresse" id="${beanName}_adresse" name="${beanName}.adresse" value="${adresseName}"/>
-	</p>
-	<p>
-		<g:message code="travel.postal" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField class="postal" id="${beanName}_postal" name="${beanName}.postal" value="${postal}" size="5" maxize="5"/>
-	    <g:message code="travel.city" /> <strong><g:message code="common.required" /></strong>
-	    <g:textField class="city" id="${beanName}_city" name="${beanName}.city" value="${city}"/>
-	</p>
-	<p>
-		<g:message code="travel.country" /> <strong><g:message code="common.required" /></strong>
-	    <g:set var="label" value="${message(code:'common.country.select')}" />
-   		<g:select class="country" id="${beanName}_country" 
-   			name="${beanName}.country" 
-   			from="${com.transceo.CountryCode.values()}" 
-   			value="${country}" 
-   			valueMessagePrefix="country" 
-   			noSelection='["":"${label}"]'
-	    />
-	</p>
+	<ul>
+		<li>
+			<label class="adresse"><g:message code="travel.adresse" /> <strong><g:message code="common.required" /></strong></label>
+			<g:textField class="adresse" id="${beanName}_adresse" name="${beanName}.adresse" value="${adresseName}"/>
+		</li>
+		<li>
+			<label class="adresse"><g:message code="travel.postal" /> <strong><g:message code="common.required" /></strong></label>
+		    <g:textField class="postal" id="${beanName}_postal" name="${beanName}.postal" value="${postal}" size="5" maxize="5"/>
+		</li>
+		<li>				
+		    <label class="adresse"><g:message code="travel.city" /> <strong><g:message code="common.required" /></strong></label>
+		    <g:textField class="city" id="${beanName}_city" name="${beanName}.city" value="${city}"/>
+		</li>
+		<li>
+			<label class="adresse"><g:message code="travel.country" /> <strong><g:message code="common.required" /></strong></label>
+		    <g:set var="label" value="${message(code:'common.country.select')}" />
+	   		<g:select class="country" id="${beanName}_country" 
+	   			name="${beanName}.country" 
+	   			from="${com.transceo.CountryCode.values()}" 
+	   			value="${country}" 
+	   			valueMessagePrefix="country" 
+	   			noSelection='["":"${label}"]'
+		    />
+		</li>
+	</ul>
 </g:else>

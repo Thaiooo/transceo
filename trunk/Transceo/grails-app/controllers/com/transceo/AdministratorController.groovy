@@ -462,4 +462,9 @@ class AdministratorController {
 		def htmlContent = pageService.getHTMLContent(params.id + "_fr.txt")
 		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, id: params.id])
 	}
+	
+	def previewPage = {
+		def htmlContent = pageService.getPreviewHTMLContent(params.wikiContent)
+		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, id: params.id])
+	}
 }
