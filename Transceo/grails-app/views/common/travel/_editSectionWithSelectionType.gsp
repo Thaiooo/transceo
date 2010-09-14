@@ -18,17 +18,17 @@
 		</g:else>
 
 		<g:if test="${customer == null || customer.id == '' || customer.id == null}">		
-			<g:radio name="reservationType" value="reservation" checked="${selectReservationType}"
+			<g:radio class="radio" name="reservationType" value="reservation" checked="${selectReservationType}"
 				onchange="${remoteFunction(controller:'travel', action:'showFormForBook', update:'customerInformation')}"
 			/>Réservation
-			<g:radio name="reservationType" value="quote" checked="${selectQuoteType}"
+			<g:radio class="radio" name="reservationType" value="quote" checked="${selectQuoteType}"
 				onchange="${remoteFunction(controller:'travel', action:'showFormForQuotation', update:'customerInformation')}" 
 			/>Demande de devis
 		</g:if>
 		<g:else>
-			<g:radio name="reservationType" value="reservation" checked="${selectReservationType}"
+			<g:radio class="radio" name="reservationType" value="reservation" checked="${selectReservationType}"
 			/>Réservation
-			<g:radio name="reservationType" value="quote" checked="${selectQuoteType}"
+			<g:radio class="radio" name="reservationType" value="quote" checked="${selectQuoteType}"
 			/>Demande de devis
 		</g:else>
 	</legend>
@@ -52,21 +52,26 @@
 		<g:set var="comment" value="" />
 	</g:else>
 
-	<p>
-		<g:message code="travel.date" /> <strong><g:message code="common.required" /></strong>
-		<input type="text" class="text" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
-		<label for="info_telephone"><g:message code="travel.time" /> <strong><g:message code="common.required" /></strong></label>			
-		<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
-		<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
-	</p>
-	<p>
-		<g:message code="travel.personne.number" />
-		<g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/>
-	</p>
-	<p>
-		<g:message code="travel.comment" />
-		<g:textArea name="comment" value="${comment}" rows="4" cols="40" class="no_barre"/>
-	</p>
+	<ul>
+		<li>
+			<label><g:message code="travel.date" /> <strong><g:message code="common.required" /></strong></label>
+			<input type="text" class="date" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
+		</li>
+		<li>
+			<label for="info_telephone"><g:message code="travel.time" /> <strong><g:message code="common.required" /></strong></label>			
+			<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
+			<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
+		</li>
+		<li>
+			<label><g:message code="travel.personne.number" /></label>
+			<g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/>
+		</li>
+		<li>
+			<label><g:message code="travel.comment" /></label>
+			<g:textArea name="comment" value="${comment}" rows="4" cols="40" class="no_barre"/>
+		</li>
+	</ul>
+	
 	<br/>
 
 	<table width="100%">

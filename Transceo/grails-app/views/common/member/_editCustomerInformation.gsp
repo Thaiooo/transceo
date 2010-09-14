@@ -13,20 +13,23 @@
 	<g:set var="phoneNumber" value=""></g:set>
 </g:else>
 
+
 <g:hiddenField name="id" value="${id}" />
-<p>
-	<g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="firstName" value="${firstName}" />
-</p>
-<p>
-	<g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="lastName" value="${lastName}" />
-</p>
-<p>
-	<g:message code="subscribe.firm" />
-	<input type="text" class="text" name="firm" value="${firm}"  />
-</p>
-<p>
-	<g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong>
-	<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
-</p>
+<ul>
+	<li>
+		<label><g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong></label>
+		<g:textField class="text" name="firstName" value="${firstName}" />
+	</li>
+	<li>
+		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label>
+		<g:textField class="text" name="lastName" value="${lastName}" />
+	</li>
+	<li>
+		<label><g:message code="subscribe.firm" /></label>
+		<input type="text" class="text" name="firm" value="${firm}"  />
+	</li>
+	<li>
+		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label>
+		<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
+	</li>
+</ul>
