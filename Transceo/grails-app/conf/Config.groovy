@@ -47,7 +47,7 @@ grails.spring.bean.packages = []
 // set per-environment serverURL stem for creating absolute links
 environments {
     production {
-		grails.serverURL = "www.thaiooo.fr"
+		grails.serverURL = "www.transeo-paris.com"
 		grails.config.locations = ["classpath:transeo-app-config.properties",
 			"classpath:transeo-mail-config.groovy"]
     }
