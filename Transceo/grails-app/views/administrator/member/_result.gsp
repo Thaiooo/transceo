@@ -68,8 +68,6 @@
     	
 		<div id="pagination">   	
 	    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
-	    		max="2"  
-	            maxsteps="0" 
 	            controller="administrator" 
 	            action="paginateMember" 
 	            total="${total}" 
