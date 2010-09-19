@@ -5,7 +5,7 @@
     </head>
     <body>
 		<div id="formulaire_reservation">
-			<g:form controller="travel" action="bookOrQuoteATravel" method="post" >
+			<g:form controller="travel" method="post" >
 				<g:if test="${customer == null || customer.id == '' || customer.id == null}">
 					<div id="customerInformation">
 						<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'reservation'}">
@@ -24,8 +24,8 @@
 				<br/>
 				<g:render template="/common/travel/editSectionWithSelectionType" bean="${travel}"/>
 				<p class="boutons">
-					<a href="<g:createLink controller="travel" action="initReservation" />#ancre" ><g:message code="common.button.back"/></a>
-					<g:submitButton class="submit" name="create" value="${message(code:'common.button.submit')}" />
+					<g:actionSubmit class="submit" value="${message(code:'common.button.back')}" action="initReservation" /> 
+					<g:actionSubmit class="submit" value="${message(code:'common.button.submit')}" action="bookOrQuoteATravel" /> 
 				</p>
 			</g:form>
 		</div>
