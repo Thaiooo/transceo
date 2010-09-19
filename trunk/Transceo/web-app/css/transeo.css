@@ -309,15 +309,13 @@ strong {
 	#formulaire_popup select {
 		width: 274px;
 		margin: 4px 0;
-		padding: 0px;
+		padding-left: 3px;
 		border: none;
-		background-image: url(../images/stripe2.gif);
+		//background-image: url(../images/stripe2.gif);
 	}
 	
 	#formulaire_popup option {
-		background-image: url(../images/stripe2.gif);
 	}
-	
 		
 	#formulaire_popup textarea {
 		background-image: url(../images/stripe2.gif);
@@ -391,11 +389,10 @@ strong {
 	}
 	
 	#formulaire_reservation select {
-		//width: 274px;
 		margin: 4px 0;
-		padding: 0px;
+		padding-left: 3px;
 		border: none;
-		background-image: url(../images/stripe2.gif);
+		//background-image: url(../images/stripe2.gif);
 	}
 	
 	#formulaire_reservation option {
@@ -433,7 +430,10 @@ strong {
 		background-color: #333333;
 		background-image: none;
 		color: #FFFFFF;
-		margin: 4px 0px 0 0;
+		margin-top: 4px;
+		margin-bottom: 0px;
+		margin-left: 4px;
+		margin-right: 0px;
 	}
 	
 	#formulaire_reservation input.submit:hover {
@@ -458,6 +458,24 @@ strong {
 		margin-left: 4px;
 		cursor:pointer;
 		*/
+	}
+	
+	#formulaire_reservation .boutons input {
+		float: right;
+		border: 1px solid #666666;
+		width: auto;
+		height: auto;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		text-decoration: none;
+		padding-left: 6px;
+		padding-right: 6px;
+		padding-top: 2px;
+		padding-bottom: 3px;
+		margin-top: 4px;
+		margin-left: 4px;
+		cursor:pointer;
 	}
 	
 	#formulaire_reservation ul {
@@ -575,13 +593,12 @@ strong {
 	#formulaire_contact select {
 		width: 274px;
 		margin: 4px 0;
-		padding: 0px;
+		padding-left: 3px;
 		border: none;
-		background-image: url(../images/stripe2.gif);
+		//background-image: url(../images/stripe2.gif);
 	}
 	
 	#formulaire_contact option {
-		background-image: url(../images/stripe2.gif);
 	}
 	
 	#formulaire_contact input.submit {
