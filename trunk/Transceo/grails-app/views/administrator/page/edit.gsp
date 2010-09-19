@@ -28,9 +28,8 @@
 				<g:hiddenField name="id" value="${id}" />    	
 	    		<g:textArea class="wikiContent" id="wikiContent" name="wikiContent" value="${content}"/>
 	    		<p class="boutons">
-	    			<a><g:actionSubmit value="Sauvegarder" action="editPage" /></a>
-	    			<a><g:actionSubmit value="Prévisualiser" action="previewPage" /></a>
-	    			<a><g:actionSubmit value="Annuler" action="editPageMain" /></a>
+	    			<g:actionSubmit value="Annuler" action="editPageMain" />
+	    			<g:actionSubmit value="Sauvegarder" action="editPage" />
 	    		</p>
 	    	</g:form>
 	    </div>
