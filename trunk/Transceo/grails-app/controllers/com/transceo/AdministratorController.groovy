@@ -1,6 +1,7 @@
 package com.transceo
 
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.groovy.grails.commons.ConfigurationHolder;
 
 import groovy.util.Expando;
 
@@ -8,6 +9,9 @@ class AdministratorController {
 	def memberService
 	def travelService
 	def pageService
+	
+	def config = ConfigurationHolder.config
+	def max = config.transeo.pagination.size.toInteger()
 	
 	def login = {
 		if(params.login == null){
@@ -85,7 +89,7 @@ class AdministratorController {
 	def paginateMember = {
 		def criteria = session[SessionConstant.CRITERIA.name()]
 		criteria.offset=params.offset
-		criteria.max=params.max
+		criteria.max=max
 		session[SessionConstant.CRITERIA.name()] = criteria 
 		commonSearchMember(criteria)
 	}
@@ -94,7 +98,7 @@ class AdministratorController {
 		def members = memberService.search(criteria)
 		def total = memberService.countMax(criteria)
 		params.offset=criteria.offset
-		params.max=criteria.max
+		params.max=max
 		render(view:"/administrator/member/search", model:[criteria:criteria, members: members, total: total])
 	}
 	
@@ -290,7 +294,7 @@ class AdministratorController {
 	def paginateReservation = {
 		def criteria = session[SessionConstant.CRITERIA.name()]
 		criteria.offset=params.offset
-		criteria.max=params.max
+		criteria.max=max
 		session[SessionConstant.CRITERIA.name()] = criteria 
 		commonSearchReservation(criteria)
 	}
@@ -304,7 +308,7 @@ class AdministratorController {
 		def reservations = travelService.findReservation(criteria)
 		def total = travelService.countMax(criteria)
 		params.offset=criteria.offset
-		params.max=criteria.max
+		params.max=max
 		render(view:"/administrator/reservation/search", model:[criteria:criteria, reservations:reservations, total:total])
 	}
 	
