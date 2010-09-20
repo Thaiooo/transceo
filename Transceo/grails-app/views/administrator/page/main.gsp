@@ -8,7 +8,7 @@
     	<ul class="spip">
     		<li><g:link controller="administrator" action="viewPage" id="acceuil">Acceuil</g:link></li>
     		<li><g:link controller="administrator" action="viewPage" id="prestation">Prestation</g:link></li>
-    		<li><g:link controller="administrator" action="viewPage" id="vehicule">Chauffeurs-Véhicule</g:link></li>
+    		<li><g:link controller="administrator" action="viewPageColumn" id="vehicule">Chauffeurs-Véhicule</g:link></li>
     	</ul>
 	</body>
 </html>

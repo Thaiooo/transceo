@@ -14,5 +14,7 @@
 				</td>
 			</tr>
 		</table>
+		<g:link controller="administrator" action="initEditPageColum" id="${id}">Editer</g:link>
+		<g:link controller="administrator" action="editPageMain" title="">Retour</g:link>
 	</body>
 </html>
