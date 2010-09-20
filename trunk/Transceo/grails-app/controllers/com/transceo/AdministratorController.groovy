@@ -456,15 +456,36 @@ class AdministratorController {
 		render(view:"/administrator/page/edit", model:[wikiContent: wikiContent, id: params.id])
 	}
 	
+	def initEditPageColum = {
+		def wikiContent1 = pageService.getWikiContent(params.id + "_1_fr.txt")
+		def wikiContent2 = pageService.getWikiContent(params.id + "_2_fr.txt")
+		render(view:"/administrator/page/editPageColumn", model:[wikiContent1: wikiContent1, wikiContent2: wikiContent2, id: params.id])
+	}
+	
 	def editPage = {
 		def page = params.id + "_fr.txt"
 		pageService.setWikiContent(page, params.wikiContent)
 		redirect(action:"viewPage", id:params.id)
 	}
 	
+	def editPageColumn = {
+		def page = params.id + "_1_fr.txt"
+		pageService.setWikiContent(page, params.wikiContent1)
+		page = params.id + "_2_fr.txt"
+		pageService.setWikiContent(page, params.wikiContent2)
+		redirect(action:"viewPageColumn", id:params.id)
+	}
+	
 	def viewPage = {
 		def htmlContent = pageService.getHTMLContent(params.id + "_fr.txt")
 		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, id: params.id])
+	}
+	
+	def viewPageColumn = {
+		def htmlContent1 = pageService.getHTMLContent(params.id + "_1_fr.txt")
+		def htmlContent2 = pageService.getHTMLContent(params.id + "_2_fr.txt")
+		
+		render(view:"/administrator/page/viewColumn", model:[htmlContent1: htmlContent1, htmlContent2: htmlContent2, id: params.id])
 	}
 	
 	def previewPage = {

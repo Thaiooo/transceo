@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title></title>
+        <title>Visualisation</title>
 		<meta name="layout" content="admin" />
     </head>
     <body>

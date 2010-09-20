@@ -20,24 +20,6 @@
 		<g:javascript src="jquery/jquery.cycle.all.min.js" />
 		<g:javascript src="jquery/jquery.pngFix.pack.js" />
 		
-		<script type="text/javascript"> 
-			$(function() {		
-				//lancer effet sélectionné
-				function runEffect(){
-					//option
-					var options = {};
-					//lancer effet
-					$(".effet_slide").show('slide',options,0);
-				};
-		
-				//effet bondi automatique
-				$(function() {
-					runEffect();
-					return false;
-				});
-			});
-		</script>
-		
 	    <g:layoutHead />
 	</head>
 
