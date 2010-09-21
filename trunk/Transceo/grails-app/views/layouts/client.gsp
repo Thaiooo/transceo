@@ -107,13 +107,13 @@
 					<a href="<g:createLink controller="page" action="home" />#ancre" title="${message(code:'menu.home.alt')}" ><g:message code="menu.home" /></a>
 				</li>
 				<li class="art3">
-					<a href="<g:createLink controller="page" action="view" id="prestation" />#ancre" title="${message(code:'menu.prestations.alt')}" ><g:message code="menu.prestations" /></a>
+					<a href="<g:createLink controller="page" action="view" id="page_2" />#ancre" title="${message(code:'menu.prestations.alt')}" ><g:message code="menu.prestations" /></a>
 				</li>
 				<li class="art4">
-					<a href="<g:createLink controller="page" action="viewColumn" id="vehicule"/>#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
+					<a href="<g:createLink controller="page" action="viewColumn" id="page_3"/>#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
 				</li>
 				<li class="art5">
-					<a href="<g:createLink controller="travel" action="initReservation" />#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
+					<a href="<g:createLink controller="page" action="viewColumn" id="page_4"/>#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
 				</li>
 				<g:if test="${session.USER == null}">
 					<li class="art6">
