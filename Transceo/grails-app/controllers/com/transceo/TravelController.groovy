@@ -9,7 +9,7 @@ class TravelController {
 	}
 	
 	def initReservation = {
-		render(view:"/client/reservation/main", model:[])
+		redirect(controller:"page", action:"viewColumn", id:"page_4")
 	}
 	
 	def initQuoteATravel = {
