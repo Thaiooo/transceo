@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Visualisation</title>
+        <title>Page: ${title}</title>
 		<meta name="layout" content="admin" />
     </head>
     <body>

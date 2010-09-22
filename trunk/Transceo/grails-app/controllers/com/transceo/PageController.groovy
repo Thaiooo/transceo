@@ -7,7 +7,7 @@ class PageController {
 	def pageService
 	
 	def home = {
-		redirect(controller:"page", action:"view", id:"acceuil")
+		redirect(controller:"page", action:"view", id:"page_1")
 	}
 	
 	def changeLanguage = {
@@ -19,14 +19,25 @@ class PageController {
 	}
 	
 	def view = {
-		def htmlContent = pageService.getHTMLContent(params.id + "_fr.txt")
-		render(view:"/client/page/view", model:[htmlContent: htmlContent, id: params.id])
+		def page = params.id + File.separator + "content_fr.txt"
+		def htmlContent = pageService.getHTMLContent(page)
+		
+		def titleId = params.id + File.separator + "title_fr.txt"
+		def title = pageService.getWikiContent(titleId)
+		
+		render(view:"/client/page/view", model:[htmlContent: htmlContent, title: title])
 	}
 	
 	def viewColumn = {
-		def htmlContent1 = pageService.getHTMLContent(params.id + "_1_fr.txt")
-		def htmlContent2 = pageService.getHTMLContent(params.id + "_2_fr.txt")
+		def page = params.id + File.separator + "content_1_fr.txt"
+		def htmlContent1 = pageService.getHTMLContent(page)
 		
-		render(view:"/client/page/viewColumn", model:[htmlContent1: htmlContent1, htmlContent2: htmlContent2])
+		page = params.id + File.separator + "content_2_fr.txt"
+		def htmlContent2 = pageService.getHTMLContent(page)
+		
+		def titleId = params.id + File.separator + "title_fr.txt"
+		def title = pageService.getWikiContent(titleId)
+		
+		render(view:"/client/page/viewColumn", model:[htmlContent1: htmlContent1, htmlContent2: htmlContent2, title: title])
 	}
 }
