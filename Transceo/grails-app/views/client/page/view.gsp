@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title><g:message code="title.presentation" /></title>
+        <title>${title}</title>
 		<meta name="layout" content="client" />
     </head>
     <body>

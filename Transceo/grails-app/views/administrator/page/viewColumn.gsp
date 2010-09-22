@@ -1,13 +1,15 @@
 <html>
     <head>
-        <title><g:message code="title.vehicule" /></title>
+        <title>Page: ${title}</title>
 		<meta name="layout" content="admin" />
     </head>
     <body>
 		<table>
 			<tr>
-				<td valign="top">
+				<td valign="top" width="50%">
 					${htmlContent1}
+				</td>
+				<td width="1%">
 				</td>
 				<td valign="top">
 					${htmlContent2}
