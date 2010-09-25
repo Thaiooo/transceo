@@ -38,6 +38,11 @@ class AdministratorController {
 		render(view:"/administrator/member/edit", model:[member: o])
 	}
 	
+	def initUpdateMile = {
+		def o = Customer.get(params.id.toLong())
+		render(view:"/administrator/member/editMile", model:[member: o])
+	}
+	
 	def initUpdateReservationInformation = {
 		def o = Travel.get(params.id.toLong())
 		def locationDepartId = null
@@ -339,6 +344,28 @@ class AdministratorController {
 			redirect(controller:"administrator",action:"showProfile", id:o.id)
 		} else {
 			render(view:"/administrator/member/edit", model:[member: o])
+		}
+	}
+
+	def updateMile = {
+		def o = Customer.get(params.id.toLong())
+		if(StringUtils.isNotBlank(params.miles) && params.miles.isInteger()){
+			o.miles = params.miles.toInteger()
+		}else{
+			o.miles = 0
+		}
+		
+		if(StringUtils.isNotBlank(params.friendMiles) && params.friendMiles.isInteger()){
+			o.friendMiles = params.friendMiles.toInteger()
+		}else{
+			o.friendMiles = 0
+		}
+		
+		if(o.validate()){
+			o.save()
+			redirect(controller:"administrator",action:"showProfile", id:o.id)
+		} else {
+			render(view:"/administrator/member/editeMile", model:[member: o])
 		}
 	}
 	
