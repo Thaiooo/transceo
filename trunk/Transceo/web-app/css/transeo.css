@@ -129,72 +129,6 @@ strong {
 	padding: 0 20px 0 0;
 }
 
-#formulaire_password {
-	width: 420px;
-	float: left;
-}
-
-	#formulaire_password ul {
-		margin: 0px;
-		padding: 0px;
-		list-style-type: none;
-		display: inline;
-	}
-	
-	#formulaire_password ul li {
-		align: left;
-		display: block;
-		float: left;
-		margin: 0px;
-		padding: 0px;
-		list-style-type: none;
-	}
-	
-	#formulaire_password label {
-		float: left;
-		width: 70px;
-		display: block;
-		height: 14px;
-		margin: 4px 0;
-		padding: 2px 0;
-		font-weight: normal;
-		color: #999999;
-	}
-	
-	#formulaire_password input {
-		float: left;
-		width: 38px;
-		height: 14px;
-		margin: 4px 0;
-		padding: 2px 7px;
-		border: none;
-		display: block;
-		background-image: url(../images/stripe2.gif);
-	}
-	
-	#formulaire_password input.submit {
-		float: right;
-		width: auto;
-		height: auto;
-		padding-top: 0px;
-		padding-bottom: 2px;
-		padding-left: 2px;
-		padding-right: 2px;
-		font-size: 1.1em;
-		border: 1px solid #666666;
-		display: block;
-		background-color: #333333;
-		background-image: none;
-		color: #FFFFFF;
-		margin-top: 2px;
-		margin-left: 5px;
-	}
-	
-	#formulaire_password input.submit:hover {
-		cursor:pointer;
-	}
-
-
 #password_popup {
 	width: 375px;
 	float: left;
@@ -264,6 +198,230 @@ strong {
 		text-transform: lowercase;
 	}
 	
+#formulaire {
+	width: 520px;
+	float: left;
+}
+	#formulaire ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	#formulaire ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire ul li.saisie_texte label {
+		text-align: center
+		width: 900px;
+	}
+
+	#formulaire legend {
+		position:relative;
+		color:#999999;
+		padding:2px;
+	}
+	
+	#formulaire label {
+		float: left;
+		width: 240px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+		#formulaire label strong {
+			font-weight: bold;
+			color: #181818;
+			font-size: 0.75em;
+			text-transform: lowercase;
+		}
+	
+	#formulaire input {
+		float: right;
+		width: 260px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+		#formulaire input.submit {
+			float: right;
+			width: auto;
+			height: auto;
+			padding-top: 0px;
+			padding-bottom: 2px;
+			padding-left: 2px;
+			padding-right: 2px;
+			font-size: 1.1em;
+			border: 1px solid #666666;
+			display: block;
+			background-color: #333333;
+			background-image: none;
+			color: #FFFFFF;
+			margin: 4px 6px 0 0;
+		}
+	
+		#formulaire input.submit:hover {
+			cursor:pointer;
+		}
+	
+	#formulaire select {
+		width: 274px;
+		margin: 4px 0;
+		padding-left: 3px;
+		border: none;
+	}
+	
+	#formulaire option {
+	}
+	
+	#formulaire textarea {
+		background-image: url(../images/stripe2.gif);
+		width: 260px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+	}
+	
+		#formulaire textarea.wikiContent {
+			width: 821px;
+			height: 400px;
+		}
+	
+	#formulaire fieldset {
+		border: 2px #272727 solid;
+		padding:10px;
+	}
+	
+	#formulaire .texte {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+#formulaire_page {
+}
+	#formulaire_page input {
+		float: right;
+		width: 260px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+		#formulaire_page input.submit {
+			float: right;
+			width: auto;
+			height: auto;
+			padding-top: 0px;
+			padding-bottom: 2px;
+			padding-left: 2px;
+			padding-right: 2px;
+			font-size: 1.1em;
+			border: 1px solid #666666;
+			display: block;
+			background-color: #333333;
+			background-image: none;
+			color: #FFFFFF;
+			margin: 4px 6px 0 0;
+		}
+	
+		#formulaire_page input.submit:hover {
+			cursor:pointer;
+		}
+	
+	#formulaire_page textarea {
+		background-image: url(../images/stripe2.gif);
+		width: 260px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+	}
+	
+		#formulaire_page textarea.wikiContent {
+			width: 815px;
+			height: 400px;
+		}
+	
+#formulaire_password {
+	width: 420px;
+	float: left;
+}
+
+	#formulaire_password ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	
+	#formulaire_password ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire_password label {
+		float: left;
+		width: 70px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+	#formulaire_password input {
+		float: left;
+		width: 38px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+	#formulaire_password input.submit {
+		float: right;
+		width: auto;
+		height: auto;
+		padding-top: 0px;
+		padding-bottom: 2px;
+		padding-left: 2px;
+		padding-right: 2px;
+		font-size: 1.1em;
+		border: 1px solid #666666;
+		display: block;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		margin-top: 2px;
+		margin-left: 5px;
+	}
+	
+	#formulaire_password input.submit:hover {
+		cursor:pointer;
+	}
 
 #formulaire_popup {
 	width: 375px;
@@ -294,7 +452,14 @@ strong {
 		font-weight: normal;
 		color: #999999;
 	}
-	
+		
+		#formulaire_popup label strong {
+			font-weight: bold;
+			color: #181818;
+			font-size: 0.75em;
+			text-transform: lowercase;
+		}
+		
 	#formulaire_popup input {
 		float: right;
 		width: 260px;
@@ -311,7 +476,6 @@ strong {
 		margin: 4px 0;
 		padding-left: 3px;
 		border: none;
-		//background-image: url(../images/stripe2.gif);
 	}
 	
 	#formulaire_popup option {
@@ -345,139 +509,10 @@ strong {
 	#formulaire_popup input.submit:hover {
 		cursor:pointer;
 	}
-	
-	#formulaire_popup label strong {
-		font-weight: bold;
-		color: #181818;
-		font-size: 0.75em;
-		text-transform: lowercase;
-	}
-
 
 #formulaire_reservation {
 }
-	
-	#formulaire_reservation input {
-		//float: right;
-		width: 260px;
-		height: 14px;
-		margin: 4px 0;
-		padding: 2px 7px;
-		border: none;
-		//display: block;
-		background-image: url(../images/stripe2.gif);
-	}
-	
-	#formulaire_reservation input.adresse {
-		//width: 247px;
-	}
-	
-	#formulaire_reservation input.postal {
-		width: 38px;
-	}
-	
-	#formulaire_reservation input.city {
-		//width: 155px;
-	}
-	
-	#formulaire_reservation input.date {
-		width: 70px;
-	}
 
-	#formulaire_reservation select.country {
-		width: 275px;
-	}
-	
-	#formulaire_reservation select {
-		margin: 4px 0;
-		padding-left: 3px;
-		border: none;
-		//background-image: url(../images/stripe2.gif);
-	}
-	
-	#formulaire_reservation option {
-	}
-	
-	#formulaire_reservation textarea {
-		background-image: url(../images/stripe2.gif);
-		width: 260px;
-		margin: 4px 0;
-		padding: 2px 7px;
-		border: none;
-	}
-	
-		#formulaire_reservation textarea.wikiContent {
-			width: 821px;
-			height: 400px;
-		}
-		
-	#formulaire_reservation input.radio {
-		width: 20px;
-		background-image: none;
-	}
-	
-	#formulaire_reservation input.submit {
-		float: right;
-		width: auto;
-		height: auto;
-		padding-top: 2px;
-		padding-bottom: 2px;
-		padding-left: 2px;
-		padding-right: 2px;
-		font-size: 1.1em;
-		border: 1px solid #666666;
-		display: block;
-		background-color: #333333;
-		background-image: none;
-		color: #FFFFFF;
-		margin-top: 4px;
-		margin-bottom: 0px;
-		margin-left: 4px;
-		margin-right: 0px;
-	}
-	
-	#formulaire_reservation input.submit:hover {
-		cursor:pointer;
-	}
-	
-	#formulaire_reservation .boutons a {
-		float: right;
-		/*
-		border: 1px solid #666666;
-		width: auto;
-		height: auto;
-		background-color: #333333;
-		background-image: none;
-		color: #FFFFFF;
-		text-decoration: none;
-		padding-left: 6px;
-		padding-right: 6px;
-		padding-top: 2px;
-		padding-bottom: 3px;
-		margin-top: 4px;
-		margin-left: 4px;
-		cursor:pointer;
-		*/
-	}
-	
-	#formulaire_reservation .boutons input {
-		float: right;
-		border: 1px solid #666666;
-		width: auto;
-		height: auto;
-		background-color: #333333;
-		background-image: none;
-		color: #FFFFFF;
-		text-decoration: none;
-		padding-left: 6px;
-		padding-right: 6px;
-		padding-top: 2px;
-		padding-bottom: 3px;
-		margin-top: 4px;
-		margin-left: 4px;
-		cursor:pointer;
-	}
-	
 	#formulaire_reservation ul {
 		margin: 0px;
 		padding: 0px;
@@ -499,6 +534,12 @@ strong {
 		width: 900px;
 	}
 	
+	#formulaire_reservation legend {
+		position:relative;
+		color:#999999;
+		padding:2px;
+	}
+	
 	#formulaire_reservation label {
 		float: left;
 		width: 240px;
@@ -510,15 +551,92 @@ strong {
 		color: #999999;
 	}
 	
-	#formulaire_reservation label.adresse {
-		width: 95px;
+		#formulaire_reservation label strong {
+			font-weight: bold;
+			color: #181818;
+			font-size: 0.75em;
+			text-transform: lowercase;
+		}
+	
+		#formulaire_reservation label.adresse {
+			width: 95px;
+		}
+	
+	#formulaire_reservation input {
+		//float: right;
+		width: 260px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		//display: block;
+		background-image: url(../images/stripe2.gif);
 	}
 	
-	#formulaire_reservation label strong {
-		font-weight: bold;
-		color: #181818;
-		font-size: 0.75em;
-		text-transform: lowercase;
+		#formulaire_reservation input.submit {
+			float: right;
+			width: auto;
+			height: auto;
+			padding-top: 2px;
+			padding-bottom: 2px;
+			padding-left: 2px;
+			padding-right: 2px;
+			font-size: 1.1em;
+			border: 1px solid #666666;
+			display: block;
+			background-color: #333333;
+			background-image: none;
+			color: #FFFFFF;
+			margin-top: 4px;
+			margin-bottom: 0px;
+			margin-left: 4px;
+			margin-right: 0px;
+		}
+		
+		#formulaire_reservation input.submit:hover {
+			cursor:pointer;
+		}
+	
+		#formulaire_reservation input.radio {
+			width: 20px;
+			background-image: none;
+		}
+	
+		#formulaire_reservation input.adresse {
+			//width: 247px;
+		}
+		
+		#formulaire_reservation input.postal {
+			width: 38px;
+		}
+		
+		#formulaire_reservation input.city {
+			//width: 155px;
+		}
+		
+		#formulaire_reservation input.date {
+			width: 70px;
+		}
+	
+		#formulaire_reservation select.country {
+			width: 275px;
+		}
+	
+	#formulaire_reservation select {
+		margin: 4px 0;
+		padding-left: 3px;
+		border: none;
+	}
+	
+	#formulaire_reservation option {
+	}
+	
+	#formulaire_reservation textarea {
+		background-image: url(../images/stripe2.gif);
+		width: 260px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
 	}
 	
 	#formulaire_reservation fieldset {
@@ -526,113 +644,9 @@ strong {
 		padding:10px;
 	}
 	
-	#formulaire_reservation fieldset.adresse {
-		width: 370px;
-	}
-		 
-	#formulaire_reservation legend {
-		position:relative;
-		color:#999999;
-		padding:2px;
-	}
-
-	
-#formulaire {
-	width: 520px;
-	float: left;
-}
-	#formulaire .texte {
-		margin: 0px;
-		padding: 0px;
-	}
-	#formulaire legend {
-		display: none;
-	}
-	#formulaire ul {
-		margin: 0px;
-		padding: 0px;
-		list-style-type: none;
-		display: inline;
-	}
-	#formulaire ul li {
-		align: left;
-		display: block;
-		float: left;
-		margin: 0px;
-		padding: 0px;
-		list-style-type: none;
-	}
-	
-	#formulaire ul li.saisie_texte label {
-		text-align: center
-		width: 900px;
-	}
-	
-	#formulaire label {
-		float: left;
-		width: 240px;
-		display: block;
-		height: 14px;
-		margin: 4px 0;
-		padding: 2px 0;
-		font-weight: normal;
-		color: #999999;
-	}
-	
-	#formulaire input {
-		float: right;
-		width: 260px;
-		height: 14px;
-		margin: 4px 0;
-		padding: 2px 7px;
-		border: none;
-		display: block;
-		background-image: url(../images/stripe2.gif);
-	}
-	
-	#formulaire select {
-		width: 274px;
-		margin: 4px 0;
-		padding-left: 3px;
-		border: none;
-		//background-image: url(../images/stripe2.gif);
-	}
-	
-	#formulaire option {
-	}
-	
-	#formulaire input.submit {
-		float: right;
-		width: auto;
-		height: auto;
-		padding-top: 0px;
-		padding-bottom: 2px;
-		padding-left: 2px;
-		padding-right: 2px;
-		font-size: 1.1em;
-		border: 1px solid #666666;
-		display: block;
-		background-color: #333333;
-		background-image: none;
-		color: #FFFFFF;
-		margin: 4px 6px 0 0;
-	}
-	
-	#formulaire input.submit:hover {
-		cursor:pointer;
-	}
-	
-	#formulaire textarea {
-		background-image: url(../images/stripe2.gif);
-		border: none;
-	}
-	
-	#formulaire label strong {
-		font-weight: bold;
-		color: #181818;
-		font-size: 0.75em;
-		text-transform: lowercase;
-	}
+		#formulaire_reservation fieldset.adresse {
+			width: 370px;
+		}	
 
 .erreur_message {
 	margin-bottom: 10px;
@@ -838,22 +852,6 @@ table.spip td {
 	text-decoration: underline;
 }
 
-.boutons a {
-	// float: right;
-	border: 1px solid #666666;
-	width: auto;
-	height: auto;
-	background-color: #333333;
-	background-image: none;
-	color: #FFFFFF;
-	text-decoration: none;
-	padding-left: 6px;
-	padding-right: 6px;
-	padding-top: 2px;
-	padding-bottom: 3px;
-	margin-top: 4px;
-	cursor:pointer;
-}
 
 #view_info {
 	margin-bottom: 10px;
@@ -878,5 +876,22 @@ table.spip td {
 }
 
 .shwoDetails{
+	cursor:pointer;
+}
+
+.boutons a {
+	// float: right;
+	border: 1px solid #666666;
+	width: auto;
+	height: auto;
+	background-color: #333333;
+	background-image: none;
+	color: #FFFFFF;
+	text-decoration: none;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	margin-top: 4px;
 	cursor:pointer;
 }
