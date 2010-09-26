@@ -14,7 +14,7 @@
 			</div>
     	</g:if>
     	
-    	<div id="formulaire_contact">
+    	<div id="formulaire">
 	    	<g:form controller="login" action="login" method="post" >
 	    		<ul>
 					<li>

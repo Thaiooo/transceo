@@ -9,7 +9,7 @@
 				<g:renderErrors bean="${member}" />
 			</div>
 		</g:hasErrors>
-		<div id="formulaire_contact">
+		<div id="formulaire">
 	    	<g:form name="updateForm" controller="administrator" >
 	    		<g:if test="${member.class.name == com.transceo.Member.class.name}">
 	    			<g:render template="/common/member/editMemberInformation" bean="${member}" var="customer"/>
