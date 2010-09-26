@@ -44,7 +44,7 @@
 			</div>
 	   	</g:if>
 
-   		<div id="formulaire_contact">
+   		<div id="formulaire">
 	    	<g:form controller="member" action="registerFriend" method="post" >
 	    		<g:hiddenField name="invitationId" value="${invitation.id}" />
 				<ul>

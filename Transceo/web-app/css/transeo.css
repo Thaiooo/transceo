@@ -537,24 +537,24 @@ strong {
 	}
 
 	
-#formulaire_contact {
+#formulaire {
 	width: 520px;
 	float: left;
 }
-	#formulaire_contact .texte {
+	#formulaire .texte {
 		margin: 0px;
 		padding: 0px;
 	}
-	#formulaire_contact legend {
+	#formulaire legend {
 		display: none;
 	}
-	#formulaire_contact ul {
+	#formulaire ul {
 		margin: 0px;
 		padding: 0px;
 		list-style-type: none;
 		display: inline;
 	}
-	#formulaire_contact ul li {
+	#formulaire ul li {
 		align: left;
 		display: block;
 		float: left;
@@ -563,12 +563,12 @@ strong {
 		list-style-type: none;
 	}
 	
-	#formulaire_contact ul li.saisie_texte label {
+	#formulaire ul li.saisie_texte label {
 		text-align: center
 		width: 900px;
 	}
 	
-	#formulaire_contact label {
+	#formulaire label {
 		float: left;
 		width: 240px;
 		display: block;
@@ -579,7 +579,7 @@ strong {
 		color: #999999;
 	}
 	
-	#formulaire_contact input {
+	#formulaire input {
 		float: right;
 		width: 260px;
 		height: 14px;
@@ -590,7 +590,7 @@ strong {
 		background-image: url(../images/stripe2.gif);
 	}
 	
-	#formulaire_contact select {
+	#formulaire select {
 		width: 274px;
 		margin: 4px 0;
 		padding-left: 3px;
@@ -598,10 +598,10 @@ strong {
 		//background-image: url(../images/stripe2.gif);
 	}
 	
-	#formulaire_contact option {
+	#formulaire option {
 	}
 	
-	#formulaire_contact input.submit {
+	#formulaire input.submit {
 		float: right;
 		width: auto;
 		height: auto;
@@ -618,16 +618,16 @@ strong {
 		margin: 4px 6px 0 0;
 	}
 	
-	#formulaire_contact input.submit:hover {
+	#formulaire input.submit:hover {
 		cursor:pointer;
 	}
 	
-	#formulaire_contact textarea {
+	#formulaire textarea {
 		background-image: url(../images/stripe2.gif);
 		border: none;
 	}
 	
-	#formulaire_contact label strong {
+	#formulaire label strong {
 		font-weight: bold;
 		color: #181818;
 		font-size: 0.75em;
