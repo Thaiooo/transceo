@@ -23,14 +23,14 @@
     	<div id="preview_canvas"></div>
     	
     	<g:set var="content" value="${wikiContent}"></g:set>
-    	<div id="formulaire_reservation">
+    	<div id="formulaire_page">
 	    	<g:form name="form" controller="administrator" method="post">
 				<g:hiddenField name="id" value="${id}" />    	
 	    		<g:textArea class="wikiContent" id="wikiContent2" name="wikiContent1" value="${wikiContent1}"/>
 	    		<g:textArea class="wikiContent" id="wikiContent2" name="wikiContent2" value="${wikiContent2}"/>
 	    		<p class="boutons">
-	    			<g:actionSubmit value="Annuler" action="editPageMain" />
-	    			<g:actionSubmit value="Sauvegarder" action="editPageColumn" />
+	    			<g:actionSubmit class="submit" value="Annuler" action="editPageMain" />
+	    			<g:actionSubmit class="submit" value="Sauvegarder" action="editPageColumn" />
 	    		</p>
 	    	</g:form>
 	    </div>
