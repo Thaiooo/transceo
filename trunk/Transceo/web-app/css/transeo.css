@@ -273,6 +273,10 @@ strong {
 			color: #FFFFFF;
 			margin: 4px 6px 0 0;
 		}
+		
+		#formulaire input.date {
+			width: 70px;
+		}
 	
 		#formulaire input.submit:hover {
 			cursor:pointer;
