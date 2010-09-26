@@ -4,7 +4,7 @@ class SpecialCondition {
 	Date startDate
 	Date endDate
 	String description
-	double rate
+	Double rate
 	
 	static constraints = {
 		startDate(nullable: false)
