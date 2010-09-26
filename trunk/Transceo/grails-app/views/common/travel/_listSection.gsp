@@ -1,5 +1,3 @@
-<fieldset>
-	<legend><g:message code="view.member.section.travel" /></legend>
 	<g:if test="${member.travels.size() == 0}">
 		<g:message code="message.no.travel" />
 	</g:if>
@@ -42,4 +40,3 @@
 			</tbody>
 		</table>
 	</g:else>
-</fieldset>
