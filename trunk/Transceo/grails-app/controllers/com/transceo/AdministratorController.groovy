@@ -533,4 +533,30 @@ class AdministratorController {
 		def htmlContent = pageService.getPreviewHTMLContent(params.wikiContent)
 		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, id: params.id])
 	}
+	
+	def initAddSpecialCondition = {
+		render(view:"/administrator/member/addSpecialCondition", model:[memberId:params.id])
+	}
+	
+	def createSpecialCondition = {
+		def sp = new SpecialCondition()
+		sp.properties = params
+		def validate = sp.validate()
+		sp.startDate = DateUtils.parseDate(params.startDate)
+		sp.endDate = DateUtils.parseDate(params.endDate)
+		validate = sp.validate()
+		if(validate){
+			def o = Member.get(params.memberId.toLong())
+			sp.save()
+			o.specialeConditions.add(sp)
+			o.save()
+			redirect(controller:"administrator",action:"showProfile", id:params.memberId)
+		}else{
+			render(view:"/administrator/member/addSpecialCondition", model:[memberId:params.memberId, specialCondition: sp])
+		}
+	}
+	
+	def backToCustomerProfile = {
+		redirect(controller:"administrator",action:"showProfile", id:params.memberId)
+	}
 }
