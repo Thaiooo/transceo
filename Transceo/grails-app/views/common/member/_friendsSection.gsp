@@ -1,5 +1,3 @@
-<fieldset>
-	<legend><g:message code="view.member.section.friend" /></legend>
 	<g:if test="${member.friends.size() == 0}">
 		<g:message code="message.no.friends" />
 	</g:if>
@@ -24,4 +22,3 @@
 	<p>
 		<a href="<g:createLink controller="member" action="initAddFriend" />" title="Add Friend" ><g:message code="common.button.add" /></a>
 	</p>
-</fieldset>

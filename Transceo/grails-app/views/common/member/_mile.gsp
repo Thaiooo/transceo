@@ -11,4 +11,7 @@
 		<strong><g:message code="view.member.miles.total" /></strong> 
 		<label>${member.miles + member.friendMiles}</label>
 	</p>
+	<g:if test="${editAble == true}">	
+		<g:link action="initUpdateMile" id="${member.id}"><g:message code="common.button.edit" /></g:link>
+	</g:if>
 </div>
