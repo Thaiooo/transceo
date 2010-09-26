@@ -16,8 +16,9 @@ class Member extends CustomerQuotation {
 	Long activationId
 	Member sponsor
 	Set<Member> friends = new HashSet<Member>()
+	Set<SpecialCondition> specialeConditions = new HashSet<SpecialCondition>()
 	
-	static hasMany = [ friends: Member]
+	static hasMany = [ friends: Member, specialeConditions: SpecialCondition]
 	
 	static mapping = {
 		version true
