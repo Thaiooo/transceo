@@ -538,6 +538,11 @@ class AdministratorController {
 		render(view:"/administrator/member/addSpecialCondition", model:[memberId:params.id])
 	}
 	
+	def initUpdateSpecialCondition = {
+		def o = SpecialCondition.get(params.id.toLong())
+		render(view:"/administrator/member/updateSpecialCondition", model:[specialCondition:o, memberId:params.memberId])
+	}
+	
 	def createSpecialCondition = {
 		def sp = new SpecialCondition()
 		sp.properties = params
@@ -557,6 +562,35 @@ class AdministratorController {
 	}
 	
 	def backToCustomerProfile = {
+		redirect(controller:"administrator",action:"showProfile", id:params.memberId)
+	}
+	
+	def updateSpecialCondition = {
+		def sp = SpecialCondition.get(params.id.toLong())
+		sp.properties = params
+		def validate = sp.validate()
+		sp.startDate = DateUtils.parseDate(params.startDate)
+		sp.endDate = DateUtils.parseDate(params.endDate)
+		validate = sp.validate()
+		if(validate){
+			sp.save(flush:true)
+			redirect(controller:"administrator",action:"showProfile", id:params.memberId)
+		} else {
+			render(view:"/administrator/member/addSpecialCondition", model:[memberId:params.memberId, specialCondition: sp])
+		}
+	}
+	
+	def deleteSpecialCondition = {
+		def m = Member.get(params.memberId.toLong())
+		def toDelete
+		m.specialeConditions.each {
+			if(it.id == params.id.toLong()){
+				toDelete = it
+			}
+		}
+		m.specialeConditions.remove(toDelete)
+		toDelete.delete()
+		
 		redirect(controller:"administrator",action:"showProfile", id:params.memberId)
 	}
 }
