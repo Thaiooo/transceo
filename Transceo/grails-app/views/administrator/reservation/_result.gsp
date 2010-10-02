@@ -6,21 +6,21 @@
     			<thead>
 	    			<tr class="row_first">
 		    			<th></th>
-		    			<g:sortableColumn action="sortReservation" property="id" title="${message(code:'view.travel.id')}" />
-		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
-		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'view.travel.member')}" />
-		    			<g:sortableColumn action="sortReservation" property="travelDate" title="${message(code:'view.travel.traveldate')}" />
-		    			<th><g:message code="view.travel.depart" /></th>
-		    			<th><g:message code="view.travel.destination" /></th>
-		    			<g:sortableColumn action="sortReservation" property="numberOfPersonne" title="${message(code:'view.travel.number.personne')}" />
-		    			<g:sortableColumn action="sortReservation" property="status" title="${message(code:'view.travel.status')}" />
+		    			<g:sortableColumn action="sortReservation" property="id" title="${message(code:'travel.id')}" />
+		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'travel.creationdate')}" />
+		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'travel.member')}" />
+		    			<g:sortableColumn action="sortReservation" property="travelDate" title="${message(code:'travel.traveldate')}" />
+		    			<th><g:message code="travel.depart" /></th>
+		    			<th><g:message code="travel.destination" /></th>
+		    			<g:sortableColumn action="sortReservation" property="numberOfPersonne" title="${message(code:'travel.number.personne')}" />
+		    			<g:sortableColumn action="sortReservation" property="status" title="${message(code:'travel.status')}" />
 		    		</tr>
 	    		</thead>
 	    		<tbody>
 	    			<g:each status="i" in="${reservations}" var="item">
 						<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 			     			<td>
-			     				<g:link controller="administrator" action="showReservationDetails" id="${item.id}"><g:message code="view.travel.action.view" /></g:link>
+			     				<g:link controller="administrator" action="showReservationDetails" id="${item.id}"><g:message code="travel.action.view" /></g:link>
 			     			</td>
 			     			<td>${item.id}</td>
 			     			<td>

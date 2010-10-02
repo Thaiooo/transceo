@@ -4,7 +4,7 @@
 		<meta name="layout" content="admin" />		
     </head>
     <body>
-    	<g:set var="legend" value="${message(code:'view.travel.section.customer')}" />
+    	<g:set var="legend" value="${message(code:'travel.section.customer')}" />
     	<g:render template="/common/member/viewSection" bean="${travel.customer}" var="customer" model='["legend":"${legend}", "editAble":false]'/>
     	<br/>
     	
