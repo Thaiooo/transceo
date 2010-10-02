@@ -24,8 +24,8 @@
 	<table class="spip" width="300px">
     		<thead>
 	    		<tr class="row_first">
-				<th><g:message code="view.member.friends.firstanme" /></th>
-			    <th><g:message code="view.member.friends.lasttanme" /></th>
+				<th><g:message code="friends.firstanme" /></th>
+			    <th><g:message code="friends.lasttanme" /></th>
 			</tr>
 		</thead>
 		<tbody>

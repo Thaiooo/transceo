@@ -5,7 +5,7 @@
     </head>
     <body>
     <fieldset>
-		<legend><g:message code="view.travel.section.prix.confirmation" /></legend>
+		<legend><g:message code="travel.section.prix.confirmation" /></legend>
 		<g:form name="form" controller="travel" action="confirmReservation" >
     		<g:hiddenField name="id" value="${code.id}" />
     		<g:hiddenField name="code" value="${code.code}" />

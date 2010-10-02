@@ -1,19 +1,19 @@
 <fieldset>
 	<legend>${legend}</legend>
 	<p>    		
-		<g:message code="view.member.firstName" />:
+		<g:message code="firstName" />:
 	    ${customer.firstName}
 	</p>
 	<p>
-	    <g:message code="view.member.lastName" />:
+	    <g:message code="lastName" />:
 	    ${customer.lastName}
 	</p>
 	<p>
-	<g:message code="view.member.phoneNumber" />:
+	<g:message code="phoneNumber" />:
 	    ${customer.phoneNumber}
 	</p>
 	<p>
-	    <g:message code="view.member.eMail" />:
+	    <g:message code="eMail" />:
 	    ${customer.eMail}
 	</p>
 </fieldset>

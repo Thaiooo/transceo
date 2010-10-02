@@ -2,47 +2,47 @@
 	<legend>${legend}</legend>
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
-			<g:message code="view.member.code" /> :
+			<g:message code="code" /> :
 	    	${customer.code}
 	    </p>
 	</g:if>
 	<p>    		
-		<g:message code="view.member.firstName" /> :
+		<g:message code="firstName" /> :
 	    ${customer.firstName}
 	</p>
 	<p>
-	    <g:message code="view.member.lastName" /> :
+	    <g:message code="lastName" /> :
 	    ${customer.lastName}
 	</p>
 	<p>
-	    <g:message code="view.member.firm" /> :
+	    <g:message code="firm" /> :
 	    ${customer.firm}
 	</p>
 	<p>
-	<g:message code="view.member.phoneNumber" /> :
+	<g:message code="phoneNumber" /> :
 	    ${customer.phoneNumber}
 	</p>
 	<g:if test="${customer.class.name != com.transceo.Customer.class.name}">
 		<p>
-		    <g:message code="view.member.eMail" /> :
+		    <g:message code="eMail" /> :
 		    ${customer.eMail}
 		</p>
 	</g:if>
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
-		    <g:message code="view.member.adresse" /> :
+		    <g:message code="adresse" /> :
 		    ${customer.adresse}
 		</p>
 		<p>
-		    <g:message code="view.member.city" /> :
+		    <g:message code="city" /> :
 		    ${customer.city}
 		</p>
 		<p>
-		    <g:message code="view.member.postal" /> :
+		    <g:message code="postal" /> :
 		    ${customer.postal}
 		</p>
 		<p>
-		    <g:message code="view.member.country" /> :
+		    <g:message code="country" /> :
 		    ${customer.country}
 		</p>
 	</g:if>
