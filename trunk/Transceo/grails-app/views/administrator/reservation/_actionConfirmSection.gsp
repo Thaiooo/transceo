@@ -1,5 +1,5 @@
 <fieldset>
-	<legend><g:message code="view.travel.section.action" /></legend>
+	<legend><g:message code="travel.section.action" /></legend>
 	<g:form controller="administrator" method="post" >
   		<g:hiddenField name="id" value="${travel.id}" />
   		<g:message code="travel.price" /> ${travel.price} <g:message code="travel.price.devise" />

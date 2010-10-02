@@ -13,19 +13,19 @@
     			<thead>
 	    			<tr class="row_first">
 		    			<th></th>
-		    			<g:sortableColumn action="sortReservationToProcess" property="id" title="${message(code:'view.travel.id')}" />
-		    			<g:sortableColumn action="sortReservationToProcess" property="creationDate" title="${message(code:'view.travel.creationdate')}" />
-		    			<g:sortableColumn action="sortReservationToProcess" property="customer" title="${message(code:'view.travel.member')}" />
-		    			<g:sortableColumn action="sortReservationToProcess" property="travelDate" title="${message(code:'view.travel.traveldate')}" />
-		    			<th><g:message code="view.travel.depart" /></th>
-		    			<th><g:message code="view.travel.destination" /></th>
-		    			<g:sortableColumn action="sortReservationToProcess" property="numberOfPersonne" title="${message(code:'view.travel.number.personne')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="id" title="${message(code:'travel.id')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="creationDate" title="${message(code:'travel.creationdate')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="customer" title="${message(code:'travel.member')}" />
+		    			<g:sortableColumn action="sortReservationToProcess" property="travelDate" title="${message(code:'travel.traveldate')}" />
+		    			<th><g:message code="travel.depart" /></th>
+		    			<th><g:message code="travel.destination" /></th>
+		    			<g:sortableColumn action="sortReservationToProcess" property="numberOfPersonne" title="${message(code:'travel.number.personne')}" />
 		    		</tr>
 	    		</thead>
 	    		<tbody>
 			    	<g:each status="i" in="${travels}" var="item">
 						<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
-			     			<td><g:link controller="administrator" action="showForValidateReservation" id="${item.id}"><g:message code="view.travel.action.administrate" /></g:link></td>
+			     			<td><g:link controller="administrator" action="showForValidateReservation" id="${item.id}"><g:message code="travel.action.administrate" /></g:link></td>
 			     			<td>${item.id}</td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/>

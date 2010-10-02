@@ -1,7 +1,7 @@
 <%@page import="com.transceo.TravelStatus"%>
 
 <fieldset>
-	<legend><g:message code="view.travel.section.action" /></legend>
+	<legend><g:message code="travel.section.action" /></legend>
     <g:if test="${travel.status == TravelStatus.BOOK_ASK}">
 		<g:if test="${flash.message != null}">
 	    	<div class="erreur_message">
@@ -19,7 +19,7 @@
 	    	<g:message code="travel.price" /> <g:textField name="price" value="${price}"/>
 			</p>
 			
-			<g:set var="legendDestination" value="${message(code:'view.travel.section.travel.destination')}" />
+			<g:set var="legendDestination" value="${message(code:'travel.section.travel.destination')}" />
 	    	<g:render template="/common/travel/editAdresseSection"
 				bean="${destination}"
 				var="adresse"

@@ -20,7 +20,7 @@
 	    		</g:if>
 	    		<g:else>
 	    			<g:hiddenField name="customerId" value="${customer.id}" />
-	    		    <g:set var="legend" value="${message(code:'view.travel.section.customer')}" />
+	    		    <g:set var="legend" value="${message(code:'travel.section.customer')}" />
 	    			<g:render template="/common/member/viewSection" bean="${customer}" var="customer" model='["legend":"${legend}", "editAble":false]'/>
 	    		</g:else>
 	    		

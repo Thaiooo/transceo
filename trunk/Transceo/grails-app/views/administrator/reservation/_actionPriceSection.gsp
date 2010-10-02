@@ -1,5 +1,5 @@
 <fieldset>
-	<legend><g:message code="view.travel.section.action" /></legend>
+	<legend><g:message code="travel.section.action" /></legend>
 	<g:if test="${flash.message != null}">
     	<div class="erreur_message">
 	    	<ul>
