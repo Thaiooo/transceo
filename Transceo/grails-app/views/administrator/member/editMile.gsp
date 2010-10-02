@@ -28,11 +28,11 @@
 				
 				<ul>
 					<li>
-						<label><g:message code="view.member.miles" /></label> 
+						<label><g:message code="miles" /></label> 
 						<g:textField class="text" name="miles" value="${miles}" />
 					</li>
 					<li>
-						<label><g:message code="view.member.miles.friend" /></label> 
+						<label><g:message code="miles.friend" /></label> 
 						<g:textField class="text" name="friendMiles" value="${friendMiles}" />
 					</li>
 				</ul>
