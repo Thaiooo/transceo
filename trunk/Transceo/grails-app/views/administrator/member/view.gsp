@@ -11,14 +11,14 @@
 		</script>
 		<div id="tabs">
 			<ul>
-				<li><a href="#tabs-1"><g:message code="view.member.section.profile" /></a></li>
+				<li><a href="#tabs-1"><g:message code="section.profile" /></a></li>
 				<g:if test="${member.class.name == com.transceo.Member.class.name}">
-					<li><a href="#tabs-2"><g:message code="view.member.section.sponsor" /></a></li>
-					<li><a href="#tabs-3"><g:message code="view.member.section.mile" /></a></li>
-					<li><a href="#tabs-4"><g:message code="view.member.section.friend" /></a></li>
-					<li><a href="#tabs-5"><g:message code="view.member.section.condition" /></a></li>
+					<li><a href="#tabs-2"><g:message code="section.sponsor" /></a></li>
+					<li><a href="#tabs-3"><g:message code="section.mile" /></a></li>
+					<li><a href="#tabs-4"><g:message code="section.friend" /></a></li>
+					<li><a href="#tabs-5"><g:message code="section.condition" /></a></li>
 				</g:if>
-				<li><a href="#tabs-6"><g:message code="view.member.section.travel" /></a></li>
+				<li><a href="#tabs-6"><g:message code="section.travel" /></a></li>
 			</ul>
 			<div id="tabs-1">
 		    	<g:render template="/common/member/viewSection2" bean="${member}" var="customer" model='["editAble":true]'/>
