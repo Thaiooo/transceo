@@ -94,12 +94,12 @@
 		<thead>
 			<tr class="row_first">
 				<th></th>
-			    <th><g:message code="view.member.travels.creationdate" /></th>
-			    <th><g:message code="view.member.travels.traveldate" /></th>
-			    <th><g:message code="view.member.travels.depart" /></th>
-			    <th><g:message code="view.member.travels.destination" /></th>
-			    <th><g:message code="view.member.travels.price" /></th>
-			    <th><g:message code="view.member.travels.status" /></th>
+			    <th><g:message code="travels.creationdate" /></th>
+			    <th><g:message code="travels.traveldate" /></th>
+			    <th><g:message code="travels.depart" /></th>
+			    <th><g:message code="travels.destination" /></th>
+			    <th><g:message code="travels.price" /></th>
+			    <th><g:message code="travels.status" /></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -107,7 +107,7 @@
 				<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 					<td width="22px">
 						<a class="shwoDetails" id="${item.id}">
-							<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'view.member.travels.view')}" />
+							<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'travels.view')}" />
 						</a>
 					</td>
 				    <td><g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/></td>

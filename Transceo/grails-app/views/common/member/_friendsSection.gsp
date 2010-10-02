@@ -5,8 +5,8 @@
 		<table border = "1">
 			<thead>
 				<tr>
-					<th><g:message code="view.member.friends.firstanme" /></th>
-				    <th><g:message code="view.member.friends.lasttanme" /></th>
+					<th><g:message code="friends.firstanme" /></th>
+				    <th><g:message code="friends.lasttanme" /></th>
 				</tr>
 			</thead>
 			<tbody>

@@ -6,7 +6,7 @@
 
 <fieldset>
 	<legend>
-		<g:message code="view.travel.section.travel.choose" />
+		<g:message code="travel.section.travel.choose" />
 		
 		<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'reservation'}">
 			<g:set var="selectReservationType" value="${Boolean.TRUE}" />
@@ -77,7 +77,7 @@
 	<table width="100%">
 		<tr>
 			<td valign="top">
-				<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
+				<g:set var="legendDepart" value="${message(code:'travel.section.travel.depart')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${depart}" 
 					var="adresse"  
@@ -85,7 +85,7 @@
 				/>
 			</td>
 			<td valign="top">
-				<g:set var="legendDestination" value="${message(code:'view.travel.section.travel.destination')}" />
+				<g:set var="legendDestination" value="${message(code:'travel.section.travel.destination')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${destination}" 
 					var="adresse"  

@@ -5,7 +5,7 @@
 </jq:jquery>
 
 <fieldset>
-	<legend><g:message code="view.travel.section.travel" /></legend>
+	<legend><g:message code="travel.section.travel" /></legend>
    	<g:hasErrors bean="${travel}">
 		<div class="erreur_message">
 			<g:renderErrors bean="${travel}" />
@@ -46,7 +46,7 @@
 	<table width="100%">
 		<tr>
 			<td valign="top">
-				<g:set var="legendDepart" value="${message(code:'view.travel.section.travel.depart')}" />
+				<g:set var="legendDepart" value="${message(code:'travel.section.travel.depart')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${depart}" 
 					var="adresse"  
@@ -54,7 +54,7 @@
 				/>
 			</td>
 			<td valign="top">
-				<g:set var="legendDestination" value="${message(code:'view.travel.section.travel.destination')}" />
+				<g:set var="legendDestination" value="${message(code:'travel.section.travel.destination')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${destination}" 
 					var="adresse"  
