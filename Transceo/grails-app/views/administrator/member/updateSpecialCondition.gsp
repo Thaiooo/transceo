@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title><g:message code="title.add.speical.condition" /></title>
+        <title><g:message code="title.update.speical.condition" /></title>
 		<meta name="layout" content="admin" />		
     </head>
     <body>
@@ -64,7 +64,8 @@
 				
 				<p class="boutons">
 					<g:actionSubmit class="submit" action="backToCustomerProfile" value="${message(code:'common.button.back')}" />
-					<g:actionSubmit class="submit" action="createSpecialCondition" value="${message(code:'common.button.submit')}" />
+					<g:actionSubmit class="submit" action="deleteSpecialCondition" value="${message(code:'common.button.delete')}" />
+					<g:actionSubmit class="submit" action="updateSpecialCondition" value="${message(code:'common.button.update')}" />
 				</p>
 			</g:form>
 		</div>

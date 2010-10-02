@@ -1,15 +1,17 @@
 package com.transceo
 
 class SpecialCondition {
+	String label
 	Date startDate
 	Date endDate
-	String description
-	Double rate
+	Double value
+	String type
 	
 	static constraints = {
-		startDate(nullable: false)
+		label(nullable: false, blank: false)
+		startDate(nullable: false, blank: false)
 		endDate(nullable: true)
-		description(nullable: true)
-		rate(nullable: false)
+		value(nullable: false, blank: false)
+		type(nullable: false, blank: false)
 	}
 }
