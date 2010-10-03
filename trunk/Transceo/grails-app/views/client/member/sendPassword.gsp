@@ -17,7 +17,7 @@
 			<g:form name="form" controller="member" action="sendPassword" >
 				<ul>
 					<li>
-				   		<label><g:message code="sendPassword.code" /></label>
+				   		<label><g:message code="member.code" /></label>
 				   		<g:textField name="code" value="${code}"/>
 				   		<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
 			   		</li>

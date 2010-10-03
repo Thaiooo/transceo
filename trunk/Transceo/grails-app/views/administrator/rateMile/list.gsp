@@ -8,8 +8,8 @@
     		<thead>
 	    		<tr class="row_first">
 	    			<th></th>
-	    			<th><g:message code="view.rate.level"/></th>
-	    			<th><g:message code="view.rate.value"/></th>
+	    			<th><g:message code="rate.level"/></th>
+	    			<th><g:message code="rate.value"/></th>
 	    		</tr>
     		</thead>
     		<tbody>

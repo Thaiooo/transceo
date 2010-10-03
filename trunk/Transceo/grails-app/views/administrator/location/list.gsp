@@ -8,7 +8,7 @@
     		<thead>
 	    		<tr class="row_first">
 	    			<th></th>
-	    			<th><g:message code="view.adresse.label"/></th>
+	    			<th><g:message code="adresse.label"/></th>
 	    		</tr>
     		</thead>
     		<tbody>
