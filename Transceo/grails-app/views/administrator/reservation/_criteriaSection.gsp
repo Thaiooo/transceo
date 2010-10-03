@@ -21,9 +21,9 @@
 	</g:if>
 	
 	<fieldset>
-		<legend><g:message code="reservation.section.criteria.legend" /></legend>
+		<legend><g:message code="travel.section.criteria.legend" /></legend>
 		<fieldset>
-			<legend><g:message code="reservation.section.customer.legend" /></legend>
+			<legend><g:message code="travel.section.customer.legend" /></legend>
 			<p>
 			<g:message code="member.code" />
 			<g:textField name="code" value="${code}" size="4"/>
@@ -41,7 +41,7 @@
 		</fieldset>
 		<br/>
 		<fieldset>
-			<legend><g:message code="reservation.section.travel.legend" /></legend>
+			<legend><g:message code="travel.section.travel.legend" /></legend>
 			<p>
 			<g:message code="travel.creation.date" />
 			<g:select from="${com.transceo.DateCriteria.values()}" name="creationDateCriteria" value="${creationDateCriteria}" valueMessagePrefix="date.criteria"/>

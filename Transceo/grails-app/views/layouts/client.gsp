@@ -79,14 +79,14 @@
 
 			<!--Entete de la page + titre du site-->
 			<div id="entete">
-				<a rel="start home" href="http://transeo-vip.com/" title="<g:message code="label.page.client.layout.1.1" />" class="accueil"><img class="spip_logos" alt="" src="${resource(dir:'images',file:'siteon0.png')}" width="362" height="163" /> <strong class="masque"><g:message code="label.page.client.layout.1.2" /></strong></a>
+				<a rel="start home" href="http://transeo-vip.com/" title="<g:message code="label.page.layout.1.1" />" class="accueil"><img class="spip_logos" alt="" src="${resource(dir:'images',file:'siteon0.png')}" width="362" height="163" /> <strong class="masque"><g:message code="label.page.layout.1.2" /></strong></a>
 				<div id="descriptif">
-					<h1><p><g:message code="label.page.client.layout.2" /></p></h1>
+					<h1><p><g:message code="label.page.layout.2" /></p></h1>
 				</div>
 			</div>
 
 			<!--téléphone-->
-			<div id="telephone"><a name="ancre" id="ancre"></a><g:message code="label.page.client.layout.3" /><br/>${grailsApplication.config.transeo.contact.tel}</div>
+			<div id="telephone"><a name="ancre" id="ancre"></a><g:message code="label.page.layout.3" /><br/>${grailsApplication.config.transeo.contact.tel}</div>
 
 			<!--cadre-->
 			<div id="diapo-cadre"><img src="${resource(dir:'images',file:'diapo-cadre.png')}" alt="diaporama" /></div>
@@ -104,20 +104,20 @@
 			<!--nav-->
 			<ul class="nav">
 				<li>
-					<a href="<g:createLink controller="page" action="home" />#ancre" title="${message(code:'menu.home.alt')}" ><g:message code="menu.home" /></a>
+					<a href="<g:createLink controller="page" action="home" />#ancre" title="${message(code:'menu.home.alt')}" ><g:message code="label.menu.home" /></a>
 				</li>
 				<li class="art3">
-					<a href="<g:createLink controller="page" action="view" id="page_2" />#ancre" title="${message(code:'menu.prestations.alt')}" ><g:message code="menu.prestations" /></a>
+					<a href="<g:createLink controller="page" action="view" id="page_2" />#ancre" title="${message(code:'menu.prestations.alt')}" ><g:message code="label.menu.prestations" /></a>
 				</li>
 				<li class="art4">
-					<a href="<g:createLink controller="page" action="viewColumn" id="page_3"/>#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="menu.vehicule" /></a>
+					<a href="<g:createLink controller="page" action="viewColumn" id="page_3"/>#ancre" title="${message(code:'menu.vehicule.alt')}" ><g:message code="label.menu.vehicule" /></a>
 				</li>
 				<li class="art5">
-					<a href="<g:createLink controller="page" action="viewColumn" id="page_4"/>#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="menu.reservation" /></a>
+					<a href="<g:createLink controller="page" action="viewColumn" id="page_4"/>#ancre" title="${message(code:'menu.reservation.alt')}" ><g:message code="label.menu.reservation" /></a>
 				</li>
 				<g:if test="${session.USER == null}">
 					<li class="art6">
-						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="${message(code:'menu.register.alt')}" ><g:message code="menu.register" /></a>
+						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="${message(code:'menu.register.alt')}" ><g:message code="label.menu.register" /></a>
 					</li>
 				</g:if>
 				<li class="art7">
@@ -126,10 +126,10 @@
 						</a>
 					</g:if>
 					<g:if test="${session.USER == null}">
-						<a href="<g:createLink controller="login" action="login" />#ancre" title="${message(code:'menu.login.alt')}" ><g:message code="menu.login" /></a>
+						<a href="<g:createLink controller="login" action="login" />#ancre" title="${message(code:'menu.login.alt')}" ><g:message code="label.menu.login" /></a>
 					</g:if>
 					<g:else>
-						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="${message(code:'menu.account.alt')}" ><g:message code="menu.account" /></a>
+						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="${message(code:'menu.account.alt')}" ><g:message code="label.menu.account" /></a>
 					</g:else>
 				</li>
 			</ul>

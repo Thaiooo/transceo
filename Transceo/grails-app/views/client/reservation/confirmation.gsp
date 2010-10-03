@@ -10,10 +10,10 @@
     		<g:hiddenField name="id" value="${code.id}" />
     		<g:hiddenField name="code" value="${code.code}" />
     		<p>
-    			<g:message code="label.page.client.reservation.confirmation.1" args='["${travel.price}"]'/>
+    			<g:message code="label.page.reservation.confirmation.1" args='["${travel.price}"]'/>
     		</p>
     		<p>
-	    		<g:message code="label.page.client.reservation.confirmation.2" />
+	    		<g:message code="label.page.reservation.confirmation.2" />
     		</p>
     		<p>
     			<g:submitButton name="save" value="${message(code:'common.button.confirm')}" />

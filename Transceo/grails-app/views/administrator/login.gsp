@@ -15,11 +15,11 @@
     	</g:if>
     	<g:form name="administrator" controller="administrator" action="login" method="post" >
     		<p>
-    		<g:message code="login.login" />
+    		<g:message code="label.page.login.login" />
     		<g:textField name="login" value="${userLogin}"/>
     		</p>
     		<p>
-    		<g:message code="login.password" />
+    		<g:message code="label.page.login.password" />
     		<g:passwordField name="password" value="${password}"/>
     		</p>
     		<p>

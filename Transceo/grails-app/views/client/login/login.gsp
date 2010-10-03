@@ -18,11 +18,11 @@
 	    	<g:form controller="login" action="login" method="post" >
 	    		<ul>
 					<li>
-			   			<label><g:message code="login.code" /></label>
+			   			<label><g:message code="label.page.login.code" /></label>
 			   			<g:textField name="code" value="${code}"/>
 			   		</li>
 					<li>	    		
-	    				<label><g:message code="login.password" /></label>
+	    				<label><g:message code="label.page.login.password" /></label>
 	    				<g:passwordField name="password" value="${password}"/>
 					</li>
 				</ul>
@@ -35,8 +35,8 @@
     	</div>
     	
     	<div class="link">
-		    <a href="<g:createLink controller="member" action="initRegister" />#ancre" ><g:message code="login.register" /></a>
-			<a href="${ resource(dir:'client/member', file:'sendPassword.gsp') }"><g:message code="login.forgot.password" /></a>
+		    <a href="<g:createLink controller="member" action="initRegister" />#ancre" ><g:message code="label.page.login.register" /></a>
+			<a href="${ resource(dir:'client/member', file:'sendPassword.gsp') }"><g:message code="label.page.login.forgot.password" /></a>
 		</div>
 		
     </body>

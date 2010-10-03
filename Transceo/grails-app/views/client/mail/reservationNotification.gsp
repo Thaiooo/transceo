@@ -1,6 +1,6 @@
 <%@ page contentType="text/html"%>
 
-<u><strong><g:message code="label.reservation.notification" /></strong></u>
+<u><strong><g:message code="title.mail.reservation.notification" /></strong></u>
 
 <p>
   	<strong><g:message code="travel.creation.date" /> : </strong> <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>

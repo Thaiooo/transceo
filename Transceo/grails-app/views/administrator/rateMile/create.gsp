@@ -13,9 +13,9 @@
     	
     	<g:form action="create" method="post" >
     		<g:hiddenField name="level" value="${level}" />
-    		<g:message code="edit.rate.level" /> ${level}
+    		<g:message code="rate.level" /> ${level}
     		<br/>
-    		<g:message code="edit.rate.value" />
+    		<g:message code="rate.value" />
     		<g:textField name="rate" value="${fieldValue(bean:rate,field:'rate')}"/>
     		<p>
     		<g:submitButton name="create" value="${message(code:'common.button.add')}" />
