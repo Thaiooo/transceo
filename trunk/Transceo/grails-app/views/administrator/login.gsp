@@ -23,7 +23,7 @@
     		<g:passwordField name="password" value="${password}"/>
     		</p>
     		<p>
-    		<g:submitButton name="submit" value="${message(code:'common.button.submit')}" />
+    		<g:submitButton name="submit" value="${message(code:'label.common.button.submit')}" />
     		</p>
     	</g:form>
     </body>

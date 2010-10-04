@@ -1,5 +1,5 @@
 <fieldset>
-	<legend><g:message code="travel.section.customer" /></legend>
+	<legend><g:message code="label.travel.section.customer" /></legend>
 	<g:hasErrors bean="${customer}">
 		<div class="erreur_message">
 			<g:renderErrors bean="${customer}" />

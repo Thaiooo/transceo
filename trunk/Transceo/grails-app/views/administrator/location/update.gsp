@@ -38,23 +38,23 @@
 			<g:hiddenField name="id" value="${adresse.id}" />
 			
 			<p>
-				<g:message code="travel.label" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.label" /> <strong><g:message code="common.required" /></strong>
 				<g:textField name="label" value="${label}"/>
 			</p>	
 			<p>
-				<g:message code="travel.adresse" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.adresse" /> <strong><g:message code="common.required" /></strong>
 				<g:textField name="adresse" value="${adresseName}"/>
 			</p>
 			<p>
-				<g:message code="travel.postal" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.postal" /> <strong><g:message code="common.required" /></strong>
 			    <g:textField name="postal" value="${postal}" size="5" maxize="5"/>
 			</p>
 			<p>
-			    <g:message code="travel.city" /> <strong><g:message code="common.required" /></strong>
+			    <g:message code="label.travel.city" /> <strong><g:message code="common.required" /></strong>
 			    <g:textField id="City" name="city" value="${city}"/>
 			</p>
 			<p>
-				<g:message code="travel.country" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.country" /> <strong><g:message code="common.required" /></strong>
 			    <g:set var="label" value="${message(code:'common.country.select')}" />
 				<g:select name="country" 
 					from="${com.transceo.CountryCode.values()}" 
@@ -64,9 +64,9 @@
 			    />
 			</p>
 	   		<p class="boutons">
-				<g:actionSubmit action="update" value="${message(code:'common.button.update')}" />
-				<g:actionSubmit action="delete" value="${message(code:'common.button.delete')}" />
-				<g:actionSubmit action="list" value="${message(code:'common.button.back')}" />
+				<g:actionSubmit action="update" value="${message(code:'label.common.button.update')}" />
+				<g:actionSubmit action="delete" value="${message(code:'label.common.button.delete')}" />
+				<g:actionSubmit action="list" value="${message(code:'label.common.button.back')}" />
 			</p>
 	    </g:form>
     </body>

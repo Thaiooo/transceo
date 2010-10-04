@@ -79,9 +79,9 @@
 
 <div class="boutons">
 	<g:if test="${editAble == true}">
-		<a class="editCustomer" id="${member.id}"><g:message code="common.button.edit" /></a>	
+		<a class="editCustomer" id="${member.id}"><g:message code="label.common.button.edit" /></a>	
 	</g:if>
 	<g:if test="${session[com.transceo.SessionConstant.USER.name()] != null}">
-		<a class="changePassword" id="${member.id}"><g:message code="common.button.change.password" /></a>
+		<a class="changePassword" id="${member.id}"><g:message code="label.common.button.change.password" /></a>
 	</g:if>
 </div>

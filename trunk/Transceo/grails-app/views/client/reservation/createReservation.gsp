@@ -24,8 +24,8 @@
 				<br/>
 				<g:render template="/common/travel/editSectionWithSelectionType" bean="${travel}"/>
 				<p class="boutons">
-					<g:actionSubmit class="submit" value="${message(code:'common.button.back')}" action="initReservation" /> 
-					<g:actionSubmit class="submit" value="${message(code:'common.button.submit')}" action="bookOrQuoteATravel" /> 
+					<g:actionSubmit class="submit" value="${message(code:'label.common.button.back')}" action="initReservation" /> 
+					<g:actionSubmit class="submit" value="${message(code:'label.common.button.submit')}" action="bookOrQuoteATravel" /> 
 				</p>
 			</g:form>
 		</div>

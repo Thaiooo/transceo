@@ -5,7 +5,7 @@
 </jq:jquery>
 
 <fieldset>
-	<legend><g:message code="travel.section.travel" /></legend>
+	<legend><g:message code="label.travel.section.travel" /></legend>
    	<g:hasErrors bean="${travel}">
 		<div class="erreur_message">
 			<g:renderErrors bean="${travel}" />
@@ -27,18 +27,18 @@
 	</g:else>
 
 	<p>
-		<g:message code="travel.date" /> <strong><g:message code="common.required" /></strong>
+		<g:message code="label.travel.date" /> <strong><g:message code="common.required" /></strong>
 		<input type="text" class="text" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
-		<label for="info_telephone"><g:message code="travel.time" /> <strong><g:message code="common.required" /></strong></label>			
+		<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="common.required" /></strong></label>			
 		<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
 		<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
 	</p>
 	<p>
-		<g:message code="travel.personne.number" />
+		<g:message code="label.travel.personne.number" />
 		<g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/>
 	</p>
 	<p>
-		<g:message code="travel.comment" />
+		<g:message code="label.travel.comment" />
 		<g:textArea name="comment" value="${comment}" rows="8" cols="30" class="no_barre"/>
 	</p>
 	<br/>

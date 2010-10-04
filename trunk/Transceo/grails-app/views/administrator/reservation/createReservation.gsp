@@ -28,13 +28,13 @@
 	    		<g:render template="/common/travel/editSectionWithSelectionType" bean="${travel}" var="travel" model='["reservationType":"${reservationType}"]'/>
 	    		
 	    		<p class="boutons">
-		    		<g:submitButton class="submit" name="create" value="${message(code:'common.button.submit')}" />
+		    		<g:submitButton class="submit" name="create" value="${message(code:'label.common.button.submit')}" />
 		    		
 		    		<g:if test="${customer == null || customer.id == '' || customer.id == null}">
-						<g:link controller="administrator" action="initChooseCustomerType" title="Reservation to price"><g:message code="common.button.back" /></g:link>
+						<g:link controller="administrator" action="initChooseCustomerType" title="Reservation to price"><g:message code="label.common.button.back" /></g:link>
 					</g:if>
 					<g:else>
-						<g:link controller="administrator" action="backMember"><g:message code="common.button.back" /></g:link>
+						<g:link controller="administrator" action="backMember"><g:message code="label.common.button.back" /></g:link>
 					</g:else>
 	    		</p>
 	    	</g:form>

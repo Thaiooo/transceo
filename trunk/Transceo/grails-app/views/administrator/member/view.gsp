@@ -44,7 +44,7 @@
     
     	<br/>
     	<div class="boutons">
-    		<g:link class="editCustomer" controller="administrator" action="backMember"><g:message code="common.button.back"/></g:link>
+    		<g:link class="editCustomer" controller="administrator" action="backMember"><g:message code="label.common.button.back"/></g:link>
     	</div>    	
     </body>
 </html>

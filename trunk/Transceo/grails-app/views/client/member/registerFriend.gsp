@@ -116,7 +116,7 @@
 				</ul>
 
 				<p class="boutons">
-					<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" />
+					<g:submitButton name="register" value="${message(code:'label.common.button.subscribe')}" class="submit" />
 				</p>
 
 	    	</g:form>

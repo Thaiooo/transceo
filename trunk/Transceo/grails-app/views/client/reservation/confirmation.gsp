@@ -5,7 +5,7 @@
     </head>
     <body>
     <fieldset>
-		<legend><g:message code="travel.section.prix.confirmation" /></legend>
+		<legend><g:message code="label.travel.section.prix.confirmation" /></legend>
 		<g:form name="form" controller="travel" action="confirmReservation" >
     		<g:hiddenField name="id" value="${code.id}" />
     		<g:hiddenField name="code" value="${code.code}" />
@@ -16,7 +16,7 @@
 	    		<g:message code="label.page.reservation.confirmation.2" />
     		</p>
     		<p>
-    			<g:submitButton name="save" value="${message(code:'common.button.confirm')}" />
+    			<g:submitButton name="save" value="${message(code:'label.common.button.confirm')}" />
     		</p>
     	</g:form>
     </fieldset>

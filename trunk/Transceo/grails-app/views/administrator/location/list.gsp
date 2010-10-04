@@ -8,14 +8,14 @@
     		<thead>
 	    		<tr class="row_first">
 	    			<th></th>
-	    			<th><g:message code="adresse.label"/></th>
+	    			<th><g:message code="label.adresse.label"/></th>
 	    		</tr>
     		</thead>
     		<tbody>
     			<g:each status="i" in="${adresses}" var="item">
 					<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
     					<td>
-    						<g:link action="initUpdate" id="${item.id}"><g:message code="common.button.edit"/></g:link>
+    						<g:link action="initUpdate" id="${item.id}"><g:message code="label.common.button.edit"/></g:link>
     					</td>
     					<td>${item.label}</td>
     				</tr>
@@ -23,7 +23,7 @@
     		</tbody>
     	</table>
     	<p class="boutons">
-    		<g:link action="initAdd"><g:message code="common.button.add"/></g:link>
+    		<g:link action="initAdd"><g:message code="label.common.button.add"/></g:link>
     	</p>
     </body>
 </html>

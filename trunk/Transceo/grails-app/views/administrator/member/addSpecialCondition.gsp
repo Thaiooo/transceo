@@ -63,8 +63,8 @@
 				</ul>
 				
 				<p class="boutons">
-					<g:actionSubmit class="submit" action="backToCustomerProfile" value="${message(code:'common.button.back')}" />
-					<g:actionSubmit class="submit" action="createSpecialCondition" value="${message(code:'common.button.submit')}" />
+					<g:actionSubmit class="submit" action="backToCustomerProfile" value="${message(code:'label.common.button.back')}" />
+					<g:actionSubmit class="submit" action="createSpecialCondition" value="${message(code:'label.common.button.submit')}" />
 				</p>
 			</g:form>
 		</div>

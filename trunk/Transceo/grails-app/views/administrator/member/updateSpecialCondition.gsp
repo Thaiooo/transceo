@@ -63,9 +63,9 @@
 				</ul>
 				
 				<p class="boutons">
-					<g:actionSubmit class="submit" action="backToCustomerProfile" value="${message(code:'common.button.back')}" />
-					<g:actionSubmit class="submit" action="deleteSpecialCondition" value="${message(code:'common.button.delete')}" />
-					<g:actionSubmit class="submit" action="updateSpecialCondition" value="${message(code:'common.button.update')}" />
+					<g:actionSubmit class="submit" action="backToCustomerProfile" value="${message(code:'label.common.button.back')}" />
+					<g:actionSubmit class="submit" action="deleteSpecialCondition" value="${message(code:'label.common.button.delete')}" />
+					<g:actionSubmit class="submit" action="updateSpecialCondition" value="${message(code:'label.common.button.update')}" />
 				</p>
 			</g:form>
 		</div>

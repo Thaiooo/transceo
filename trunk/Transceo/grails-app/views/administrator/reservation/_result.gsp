@@ -10,8 +10,8 @@
 		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'travel.creationdate')}" />
 		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'travel.member')}" />
 		    			<g:sortableColumn action="sortReservation" property="travelDate" title="${message(code:'travel.traveldate')}" />
-		    			<th><g:message code="travel.depart" /></th>
-		    			<th><g:message code="travel.destination" /></th>
+		    			<th><g:message code="label.travel.depart" /></th>
+		    			<th><g:message code="label.travel.destination" /></th>
 		    			<g:sortableColumn action="sortReservation" property="numberOfPersonne" title="${message(code:'travel.number.personne')}" />
 		    			<g:sortableColumn action="sortReservation" property="status" title="${message(code:'travel.status')}" />
 		    		</tr>
@@ -20,7 +20,7 @@
 	    			<g:each status="i" in="${reservations}" var="item">
 						<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 			     			<td>
-			     				<g:link controller="administrator" action="showReservationDetails" id="${item.id}"><g:message code="travel.action.view" /></g:link>
+			     				<g:link controller="administrator" action="showReservationDetails" id="${item.id}"><g:message code="label.travel.action.view" /></g:link>
 			     			</td>
 			     			<td>${item.id}</td>
 			     			<td>
@@ -50,7 +50,7 @@
 	    	</table>
 	    	
 	    	<div id="pagination"> 	
-		    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
+		    	<g:paginate next="${message(code:'label.common.button.paginate.next')}" prev="${message(code:'label.common.button.paginate.back')}"
 		            controller="administrator" 
 		            action="paginateReservation" 
 		            total="${total}" 

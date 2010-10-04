@@ -28,7 +28,7 @@
 				</ul>
 				
 	    		<p class="boutons">
-	    			<g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" />
+	    			<g:submitButton name="register" value="${message(code:'label.common.button.submit')}" class="submit" />
 	    		</p>
 	    		
 	    	</g:form>

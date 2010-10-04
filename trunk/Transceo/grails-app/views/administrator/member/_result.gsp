@@ -67,7 +67,7 @@
     	</table>
     	
 		<div id="pagination">   	
-	    	<g:paginate next="${message(code:'common.button.paginate.next')}" prev="${message(code:'common.button.paginate.back')}"
+	    	<g:paginate next="${message(code:'label.common.button.paginate.next')}" prev="${message(code:'label.common.button.paginate.back')}"
 	            controller="administrator" 
 	            action="paginateMember" 
 	            total="${total}" 
