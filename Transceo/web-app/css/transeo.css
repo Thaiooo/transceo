@@ -42,6 +42,18 @@ strong {
 	font-weight: bold;
 	color: #FFFFFF;
 }
+
+fieldset {
+	border: 2px #272727 solid;
+	padding:10px;
+}
+
+legend {
+	position:relative;
+	color:#999999;
+	padding:2px;
+}
+
 #page_admin {
 	width: 896px;
 	margin-right: auto;
@@ -222,12 +234,6 @@ strong {
 		width: 900px;
 	}
 
-	#formulaire legend {
-		position:relative;
-		color:#999999;
-		padding:2px;
-	}
-	
 	#formulaire label {
 		float: left;
 		width: 240px;
@@ -304,11 +310,6 @@ strong {
 			width: 821px;
 			height: 400px;
 		}
-	
-	#formulaire fieldset {
-		border: 2px #272727 solid;
-		padding:10px;
-	}
 	
 	#formulaire .texte {
 		margin: 0px;
@@ -538,12 +539,6 @@ strong {
 		width: 900px;
 	}
 	
-	#formulaire_reservation legend {
-		position:relative;
-		color:#999999;
-		padding:2px;
-	}
-	
 	#formulaire_reservation label {
 		float: left;
 		width: 240px;
@@ -641,11 +636,6 @@ strong {
 		margin: 4px 0;
 		padding: 2px 7px;
 		border: none;
-	}
-	
-	#formulaire_reservation fieldset {
-		border: 2px #272727 solid;
-		padding:10px;
 	}
 	
 		#formulaire_reservation fieldset.adresse {
