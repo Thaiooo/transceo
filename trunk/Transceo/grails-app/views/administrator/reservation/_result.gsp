@@ -43,7 +43,7 @@
 			     				</g:if>
 			     			</td>
 			     			<td>${item.numberOfPersonne}</td>
-			     			<td><g:message code="reservation.status.${item.status}" /></td>
+			     			<td><g:message code="label.reservation.status.${item.status}" /></td>
 			     		</tr>
 			     	</g:each>
 	    		</tbody>

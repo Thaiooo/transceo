@@ -41,7 +41,7 @@
 	   			name="${beanName}.country" 
 	   			from="${com.transceo.CountryCode.values()}" 
 	   			value="${country}" 
-	   			valueMessagePrefix="country" 
+	   			valueMessagePrefix="label.country" 
 	   			noSelection='["":"${label}"]'
 		    />
 		</li>

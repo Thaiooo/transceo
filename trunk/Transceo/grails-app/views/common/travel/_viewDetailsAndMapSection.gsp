@@ -22,8 +22,8 @@
 				}
   
 				function calcRoute() {
-					var start = "${travel.depart.adresse} ${travel.depart.city}, <g:message code="country.${travel.depart.country}" />";
-					var end = "${travel.destination.adresse} ${travel.destination.city}, <g:message code="country.${travel.destination.country}" />";
+					var start = "${travel.depart.adresse} ${travel.depart.city}, <g:message code="label.country.${travel.depart.country}" />";
+					var end = "${travel.destination.adresse} ${travel.destination.city}, <g:message code="label.country.${travel.destination.country}" />";
 					var request = {
 						origin:start, 
 						destination:end,
@@ -63,7 +63,7 @@
 				}
 				
 				function codeAddress() {
-				    var address = "${travel.depart.adresse}, ${travel.depart.city}, <g:message code="country.${travel.depart.country}" />";
+				    var address = "${travel.depart.adresse}, ${travel.depart.city}, <g:message code="label.country.${travel.depart.country}" />";
 				    if (geocoder) {
 				      geocoder.geocode( { 'address': address}, function(results, status) {
 				        if (status == google.maps.GeocoderStatus.OK) {
@@ -76,7 +76,7 @@
 				          });
 
 						  // Pour l'info bulle				          
-				          var contentString = "<br/>${travel.depart.adresse} <br/> ${travel.depart.postal} ${travel.depart.city} <br/> <g:message code="country.${travel.depart.country}" />";
+				          var contentString = "<br/>${travel.depart.adresse} <br/> ${travel.depart.postal} ${travel.depart.city} <br/> <g:message code="label.country.${travel.depart.country}" />";
 				      	  var infowindow = new google.maps.InfoWindow({
 				        	content: contentString
 				      	  });
@@ -105,15 +105,15 @@
 	</p>
 	<g:if test="${resume != true}">
 		<p>
-			<g:message code="travel.status" />: <g:message code="reservation.status.${travel.status}" /> 
+			<g:message code="travel.status" />: <g:message code="label.reservation.status.${travel.status}" /> 
 		</p>
 	</g:if>
 	<p>
-		<g:message code="travel.depart" />: ${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="country.${travel.depart.country}" />  
+		<g:message code="travel.depart" />: ${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="label.country.${travel.depart.country}" />  
 	</p>
 	<g:if test="${travel.destination != null}">
 		<p>
-			<g:message code="travel.destination" />: ${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, <g:message code="country.${travel.destination.country}" />
+			<g:message code="travel.destination" />: ${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, <g:message code="label.country.${travel.destination.country}" />
 		</p>
 	</g:if>
 	<p>
