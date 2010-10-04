@@ -36,11 +36,11 @@
 	>
 		<ul>
     		<li>
-				<label><g:message code="sponsor.email" /> <strong><g:message code="common.required" /></strong></label>
+				<label><g:message code="label.popup.sponsor.email" /> <strong><g:message code="common.required" /></strong></label>
     			<g:textField name="eMail"  value="${fieldValue(bean:inviation,field:'eMail')}"/>
     		</li>
     		<li>
-				<label><g:message code="sponsor.message" /></label>
+				<label><g:message code="label.popup.sponsor.message" /></label>
 	    		<textarea name="message" cols=40 rows=6><g:message code="message.invitation" args='["${user.lastName}"]'/></textarea>
     		</li>
 		</ul>
