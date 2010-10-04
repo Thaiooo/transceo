@@ -33,7 +33,5 @@
 	    		<p class="boutons"><g:submitButton name="register" value="${message(code:'label.common.button.submit')}" class="submit" /></p>
     		</form>
 		</div>
-    	
-    	
     </body>
 </html>
