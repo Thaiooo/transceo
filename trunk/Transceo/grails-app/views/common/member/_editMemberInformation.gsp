@@ -28,43 +28,43 @@
 <g:hiddenField name="id" value="${id}" />
 <ul>
 	<li>
-		<label><g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.firstName" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="firstName" value="${firstName}" />
 	</li>
 
 	<li>
-		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.lastName" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="lastName" value="${lastName}" />
 	</li>
 	
 	<li>
-		<label><g:message code="subscribe.firm" /></label>
+		<label><g:message code="label.member.firm" /></label>
 		<input type="text" class="text" name="firm" value="${firm}"  />
 	</li>
 	<li>
-		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.phone" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
 	</li>
 	<li>
-		<label><g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.mail" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="eMail" value="${eMail}" />
 	</li>
 	
 	<li>
-		<label><g:message code="subscribe.adresse" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.adresse" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="adresse" value="${adresse}" />
 	</li>
 	<li>
-		<label><g:message code="subscribe.postal" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.postal" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="postal" value="${postal}" size="5"/>
 	</li>
 	<li>
-		<label><g:message code="subscribe.city" /> <strong><g:message code="common.required" /></strong></label> 
+		<label><g:message code="label.member.city" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:textField class="text" name="city" value="${city}"/>
 	</li>
 	<li>
-		<g:set var="label" value="${message(code:'common.country.select')}" />
-		<label><g:message code="subscribe.country" /> <strong><g:message code="common.required" /></strong></label> 
+		<g:set var="label" value="${message(code:'label.common.country.select')}" />
+		<label><g:message code="label.member.country" /> <strong><g:message code="label.common.required" /></strong></label> 
 		<g:select name="country" 
 			from="${com.transceo.CountryCode.values()}" 
 			value="${country}" 

@@ -53,12 +53,12 @@
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.firstName" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.firstName" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="firstName" value="${firstName}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.lastName" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.lastName" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="lastName" value="${lastName}"/>
 			   		</li>
 
@@ -68,33 +68,33 @@
 			   		</li>
 
 					<li>
-			   		<label><g:message code="label.member.phone" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.phone" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="phoneNumber" value="${phoneNumber}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.mail" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.mail" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="eMail" value="${eMail}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.adresse" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.adresse" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="adresse" value="${adresse}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.postal" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.postal" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="postal" value="${postal}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.city" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.city" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:textField name="city" value="${city}"/>
 			   		</li>
 
 					<li>
-			   		<label><g:set var="label" value="${message(code:'common.country.select')}" />
-			   		<g:message code="label.member.country" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:set var="label" value="${message(code:'label.common.country.select')}" />
+			   		<g:message code="label.member.country" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:select name="country"
 			   			from="${com.transceo.CountryCode.values()}"
 			   			value="${country}"
@@ -104,12 +104,12 @@
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.password" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.password" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:passwordField name="password" value="${password}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="label.member.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.password.confirm" /> <strong><g:message code="label.common.required" /></strong></label>
 			   		<g:passwordField name="confirmPassword"/>
 			   		</li>
 				</ul>

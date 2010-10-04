@@ -19,7 +19,7 @@
 	    	<g:message code="label.travel.price" /> <g:textField name="price" value="${price}"/>
 			</p>
 			
-			<g:set var="legendDestination" value="${message(code:'travel.section.travel.destination')}" />
+			<g:set var="legendDestination" value="${message(code:'label.travel.section.travel.destination')}" />
 	    	<g:render template="/common/travel/editAdresseSection"
 				bean="${destination}"
 				var="adresse"

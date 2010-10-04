@@ -16,17 +16,17 @@
 		<div class="formulaire_spip formulaire_editer_message_contact" id=formulaire_register>
 			<form controller="member" action="changePassword" method="post" >
 	    		<p>
-	    		<g:message code="subscribe.password.old" /> <strong><g:message code="common.required" /></strong>
+	    		<g:message code="label.member.password.old" /> <strong><g:message code="label.common.required" /></strong>
 	    		<g:passwordField name="oldPassword" value="${oldPassword}"/>
 	    		</p>
 	    		
 	    		<p>
-	    		<g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong>
+	    		<g:message code="label.member.password" /> <strong><g:message code="label.common.required" /></strong>
 	    		<g:passwordField name="password" value="${password}"/>
 	    		</p>
 	    		
 	    		<p>
-	    		<g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong>
+	    		<g:message code="label.member.password.confirm" /> <strong><g:message code="label.common.required" /></strong>
 	    		<g:passwordField name="confirmPassword"/>
 	    		</p>
 	

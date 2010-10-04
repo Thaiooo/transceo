@@ -17,7 +17,7 @@
 					</div>
 				</g:if>
 				<g:else>
-					<g:set var="legend" value="${message(code:'travel.section.customer')}" />
+					<g:set var="legend" value="${message(code:'label.travel.section.customer')}" />
     				<g:render template="/common/member/viewResumeSection" bean="${customer}" var="customer" model='["legend":"${legend}", "editAble":false]'/>
 				</g:else>
 				

@@ -9,7 +9,7 @@
 
 <ul>
 	<li>
-	<label><g:message code="subscribe.eMail" /> <strong><g:message code="common.required" /></strong></label>
+	<label><g:message code="label.member.mail" /> <strong><g:message code="label.common.required" /></strong></label>
 	<g:textField class="text" name="eMail" value="${eMail}" />
 	</li>
 </ul>

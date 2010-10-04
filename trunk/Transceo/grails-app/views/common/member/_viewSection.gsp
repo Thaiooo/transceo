@@ -2,48 +2,48 @@
 	<legend>${legend}</legend>
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
-			<g:message code="code" /> :
+			<g:message code="label.member.code" /> :
 	    	${customer.code}
 	    </p>
 	</g:if>
 	<p>    		
-		<g:message code="firstName" /> :
+		<g:message code="label.member.firstName" /> :
 	    ${customer.firstName}
 	</p>
 	<p>
-	    <g:message code="lastName" /> :
+	    <g:message code="label.member.lastName" /> :
 	    ${customer.lastName}
 	</p>
 	<p>
-	    <g:message code="firm" /> :
+	    <g:message code="label.member.firm" /> :
 	    ${customer.firm}
 	</p>
 	<p>
-	<g:message code="phoneNumber" /> :
+	<g:message code="label.member.phone" /> :
 	    ${customer.phoneNumber}
 	</p>
 	<g:if test="${customer.class.name != com.transceo.Customer.class.name}">
 		<p>
-		    <g:message code="eMail" /> :
+		    <g:message code="label.member.mail" /> :
 		    ${customer.eMail}
 		</p>
 	</g:if>
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
-		    <g:message code="adresse" /> :
+		    <g:message code="label.member.adresse" /> :
 		    ${customer.adresse}
 		</p>
 		<p>
-		    <g:message code="city" /> :
+		    <g:message code="label.member.city" /> :
 		    ${customer.city}
 		</p>
 		<p>
-		    <g:message code="postal" /> :
+		    <g:message code="label.member.postal" /> :
 		    ${customer.postal}
 		</p>
 		<p>
-		    <g:message code="country" /> :
-		    ${customer.country}
+		    <g:message code="label.member.country" /> :
+		    <g:message code="label.country.${customer.country}" />
 		</p>
 	</g:if>
 	<g:if test="${editAble == true}">	

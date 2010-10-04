@@ -2,16 +2,16 @@
     		<thead>
 	    		<tr class="row_first">
 	    			<th></th>
-	    			<g:sortableColumn action="sortMember" property="id" title="${message(code:'member.id')}" />
-	    			<g:sortableColumn action="sortMember" property="code" title="${message(code:'member.code')}" />
-	    			<g:sortableColumn action="sortMember" property="firstName" title="${message(code:'member.firstName')}" />	    			
-	    			<g:sortableColumn action="sortMember" property="lastName" title="${message(code:'member.lastName')}" />
-	    			<g:sortableColumn action="sortMember" property="phoneNumber" title="${message(code:'member.phone')}" />
-	    			<g:sortableColumn action="sortMember" property="eMail" title="${message(code:'member.mail')}" />
-	    			<g:sortableColumn action="sortMember" property="adresse" title="${message(code:'member.adresse')}" />
-	    			<g:sortableColumn action="sortMember" property="city" title="${message(code:'member.city')}" />
-	    			<g:sortableColumn action="sortMember" property="postal" title="${message(code:'member.postal')}" />
-	    			<g:sortableColumn action="sortMember" property="active" title="${message(code:'member.activate')}" />
+	    			<g:sortableColumn action="sortMember" property="id" title="${message(code:'label.member.id')}" />
+	    			<g:sortableColumn action="sortMember" property="code" title="${message(code:'label.member.code')}" />
+	    			<g:sortableColumn action="sortMember" property="firstName" title="${message(code:'label.member.firstName')}" />	    			
+	    			<g:sortableColumn action="sortMember" property="lastName" title="${message(code:'label.member.lastName')}" />
+	    			<g:sortableColumn action="sortMember" property="phoneNumber" title="${message(code:'label.member.phone')}" />
+	    			<g:sortableColumn action="sortMember" property="eMail" title="${message(code:'label.member.mail')}" />
+	    			<g:sortableColumn action="sortMember" property="adresse" title="${message(code:'label.member.adresse')}" />
+	    			<g:sortableColumn action="sortMember" property="city" title="${message(code:'label.member.city')}" />
+	    			<g:sortableColumn action="sortMember" property="postal" title="${message(code:'label.member.postal')}" />
+	    			<g:sortableColumn action="sortMember" property="active" title="${message(code:'label.member.activate')}" />
 	    		</tr>
     		</thead>
     		<tbody>
@@ -19,11 +19,11 @@
 					<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 		     			<td>
 		     				<g:link action="showProfile" id="${item.id}">
-		     					<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'member.view')}" />
+		     					<img src="${resource(dir:'images',file:'loupe.png')}" alt="${message(code:'label.member.view')}" />
 		     				</g:link>
 		     				<g:if test="${item.class.name == com.transceo.Member.class.name}">
 		     				<g:link controller="administrator" action="initCreateReservation" id="${item.id}">
-		     					<img src="${resource(dir:'images',file:'plus.png')}" alt="${message(code:'member.create.reservation')}" />
+		     					<img src="${resource(dir:'images',file:'plus.png')}" alt="${message(code:'label.member.create.reservation')}" />
 		     				</g:link>
 		     				</g:if>
 		     			</td>

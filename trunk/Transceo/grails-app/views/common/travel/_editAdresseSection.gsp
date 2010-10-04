@@ -1,7 +1,7 @@
 <fieldset class="adresse">
 	<legend>${legend}
 		<g:set var="selectId" value="${locationId.toString()}" />		
-		<g:set var="label" value="${message(code:'travel.location.adresse.other')}" />
+		<g:set var="label" value="${message(code:'label.travel.location.adresse.other')}" />
 		<g:select name="location_${beanName}"
 			class="adresse" 
 			from="${com.transceo.Location.list()}"
