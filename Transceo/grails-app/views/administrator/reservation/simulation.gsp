@@ -55,7 +55,7 @@
 		<table width="100%">
 			<tr>
 				<td >
-					<g:set var="legendDepart" value="${message(code:'travel.section.travel.depart')}" />
+					<g:set var="legendDepart" value="${message(code:'label.travel.section.travel.depart')}" />
 					<g:render template="/common/travel/editAdresseSection2"
 						bean="${depart}"
 						var="adresse"
@@ -63,7 +63,7 @@
 					/>
 				</td>
 				<td>
-					<g:set var="legendDestination" value="${message(code:'travel.section.travel.destination')}" />
+					<g:set var="legendDestination" value="${message(code:'label.travel.section.travel.destination')}" />
 					<g:render template="/common/travel/editAdresseSection2"
 						bean="${destination}"
 						var="adresse"

@@ -17,19 +17,19 @@
 <g:hiddenField name="id" value="${id}" />
 <ul>
 	<li>
-		<label><g:message code="subscribe.firstName" /> <strong><g:message code="common.required" /></strong></label>
+		<label><g:message code="label.member.firstName" /> <strong><g:message code="label.common.required" /></strong></label>
 		<g:textField class="text" name="firstName" value="${firstName}" />
 	</li>
 	<li>
-		<label><g:message code="subscribe.lastName" /> <strong><g:message code="common.required" /></strong></label>
+		<label><g:message code="label.member.lastName" /> <strong><g:message code="label.common.required" /></strong></label>
 		<g:textField class="text" name="lastName" value="${lastName}" />
 	</li>
 	<li>
-		<label><g:message code="subscribe.firm" /></label>
+		<label><g:message code="label.member.firm" /></label>
 		<input type="text" class="text" name="firm" value="${firm}"  />
 	</li>
 	<li>
-		<label><g:message code="subscribe.phoneNumber" /> <strong><g:message code="common.required" /></strong></label>
+		<label><g:message code="label.member.phone" /> <strong><g:message code="label.common.required" /></strong></label>
 		<g:textField class="text" name="phoneNumber" value="${phoneNumber}" />
 	</li>
 </ul>

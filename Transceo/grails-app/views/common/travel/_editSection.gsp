@@ -27,9 +27,9 @@
 	</g:else>
 
 	<p>
-		<g:message code="label.travel.date" /> <strong><g:message code="common.required" /></strong>
+		<g:message code="label.travel.date" /> <strong><g:message code="label.common.required" /></strong>
 		<input type="text" class="text" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
-		<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="common.required" /></strong></label>			
+		<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="label.common.required" /></strong></label>			
 		<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
 		<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
 	</p>
@@ -46,7 +46,7 @@
 	<table width="100%">
 		<tr>
 			<td valign="top">
-				<g:set var="legendDepart" value="${message(code:'travel.section.travel.depart')}" />
+				<g:set var="legendDepart" value="${message(code:'label.travel.section.travel.depart')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${depart}" 
 					var="adresse"  
@@ -54,7 +54,7 @@
 				/>
 			</td>
 			<td valign="top">
-				<g:set var="legendDestination" value="${message(code:'travel.section.travel.destination')}" />
+				<g:set var="legendDestination" value="${message(code:'label.travel.section.travel.destination')}" />
 				<g:render template="/common/travel/editAdresseSection" 
 					bean="${destination}" 
 					var="adresse"  

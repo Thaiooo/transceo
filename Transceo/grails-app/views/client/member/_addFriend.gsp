@@ -36,7 +36,7 @@
 	>
 		<ul>
     		<li>
-				<label><g:message code="label.popup.sponsor.email" /> <strong><g:message code="common.required" /></strong></label>
+				<label><g:message code="label.popup.sponsor.email" /> <strong><g:message code="label.common.required" /></strong></label>
     			<g:textField name="eMail"  value="${fieldValue(bean:inviation,field:'eMail')}"/>
     		</li>
     		<li>

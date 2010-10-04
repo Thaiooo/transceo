@@ -38,24 +38,24 @@
 			<g:hiddenField name="id" value="${adresse.id}" />
 			
 			<p>
-				<g:message code="label.travel.label" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.label" /> <strong><g:message code="label.common.required" /></strong>
 				<g:textField name="label" value="${label}"/>
 			</p>	
 			<p>
-				<g:message code="label.travel.adresse" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.adresse" /> <strong><g:message code="label.common.required" /></strong>
 				<g:textField name="adresse" value="${adresseName}"/>
 			</p>
 			<p>
-				<g:message code="label.travel.postal" /> <strong><g:message code="common.required" /></strong>
+				<g:message code="label.travel.postal" /> <strong><g:message code="label.common.required" /></strong>
 			    <g:textField name="postal" value="${postal}" size="5" maxize="5"/>
 			</p>
 			<p>
-			    <g:message code="label.travel.city" /> <strong><g:message code="common.required" /></strong>
+			    <g:message code="label.travel.city" /> <strong><g:message code="label.common.required" /></strong>
 			    <g:textField id="City" name="city" value="${city}"/>
 			</p>
 			<p>
-				<g:message code="label.travel.country" /> <strong><g:message code="common.required" /></strong>
-			    <g:set var="label" value="${message(code:'common.country.select')}" />
+				<g:message code="label.travel.country" /> <strong><g:message code="label.common.required" /></strong>
+			    <g:set var="label" value="${message(code:'label.common.country.select')}" />
 				<g:select name="country" 
 					from="${com.transceo.CountryCode.values()}" 
 					value="${country}" 

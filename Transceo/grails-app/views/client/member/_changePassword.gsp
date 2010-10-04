@@ -11,17 +11,17 @@
 	<g:formRemote name="form" update="customer_canvas" url="[controller: 'member', action:'changePassword2']">
 		<ul>
     		<li>
-				<label><g:message code="subscribe.password.old" /> <strong><g:message code="common.required" /></strong></label>
+				<label><g:message code="label.member.password.old" /> <strong><g:message code="label.common.required" /></strong></label>
     			<g:passwordField name="oldPassword" value="${oldPassword}"/>
     		</li>
 
     		<li>
-				<label><g:message code="subscribe.password" /> <strong><g:message code="common.required" /></strong></label>
+				<label><g:message code="label.member.password" /> <strong><g:message code="label.common.required" /></strong></label>
     			<g:passwordField name="password" value="${password}"/>
     		</li>
 
     		<li>
-				<label><g:message code="subscribe.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
+				<label><g:message code="label.member.password.confirm" /> <strong><g:message code="label.common.required" /></strong></label>
     			<g:passwordField name="confirmPassword"/>
     		</li>
     	</ul>

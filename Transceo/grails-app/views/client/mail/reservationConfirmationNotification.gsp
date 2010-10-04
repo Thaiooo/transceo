@@ -9,12 +9,12 @@
 	<strong><g:message code="label.mail.customer" /> : </strong> ${travel.customer.firstName} ${travel.customer.lastName}
 </p>
 <p>
-	<strong><g:message code="subscribe.phoneNumber" /> : </strong>${travel.customer.phoneNumber}
+	<strong><g:message code="label.member.phone" /> : </strong>${travel.customer.phoneNumber}
 </p>
 
 <g:if test="${travel.customer.class.name != 'com.transceo.Customer'}">
 	<p>
-		<strong><g:message code="subscribe.eMail" /></strong> : ${travel.customer.eMail}
+		<strong><g:message code="label.member.mail" /></strong> : ${travel.customer.eMail}
 	</p>
 </g:if>
 <p>

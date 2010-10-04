@@ -1,5 +1,5 @@
 <g:if test="${member.specialeConditions == null || member.specialeConditions.size() == 0}">
-	<g:message code="speciale.condition.empty"/>
+	<g:message code="message.speciale.condition.empty"/>
 </g:if>
 <g:else>
 	<table class="spip">
