@@ -1,10 +1,10 @@
 <fieldset>
 	<legend><g:message code="label.travel.section.travel" /></legend>
 	<p>
-    	<g:message code="label.travel.creation.date" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
+    	<g:message code="label.travel.creation.date" />: <g:formatDate format="${message(code:'label.common.date.time.format')}" date="${travel.creationDate}"/>
 	</p>
 	<p>
-		<g:message code="label.travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
+		<g:message code="label.travel.traveldate" />: <g:formatDate format="${message(code:'label.common.date.time.format')}" date="${travel.travelDate}"/>
 	</p>
 	<p>
 		<g:message code="label.travel.status" />: <g:message code="label.reservation.status.${travel.status}" /> 
