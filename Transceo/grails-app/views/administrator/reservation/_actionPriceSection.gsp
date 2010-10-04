@@ -1,5 +1,5 @@
 <fieldset>
-	<legend><g:message code="travel.section.action" /></legend>
+	<legend><g:message code="label.travel.section.action" /></legend>
 	<g:if test="${flash.message != null}">
     	<div class="erreur_message">
 	    	<ul>
@@ -15,11 +15,11 @@
 	</g:if>
 	<g:form controller="administrator" method="post" >
   		<g:hiddenField name="id" value="${travel.id}" />
-  		<g:message code="travel.price" />
-		<g:textField name="price"/> <g:message code="travel.price.devise" />
+  		<g:message code="label.travel.price" />
+		<g:textField name="price"/> <g:message code="label.travel.price.devise" />
 		<br/>
-		<g:actionSubmit value="${message(code:'common.button.validate')}" action="validateReservation" />
-		<g:actionSubmit value="${message(code:'common.button.validate.confirm')}" action="validateAndConfirmReservation" />
-   		<g:actionSubmit value="${message(code:'common.button.cancel')}" action="cancelReservation" />
+		<g:actionSubmit value="${message(code:'label.common.button.validate')}" action="validateReservation" />
+		<g:actionSubmit value="${message(code:'label.common.button.validate.confirm')}" action="validateAndConfirmReservation" />
+   		<g:actionSubmit value="${message(code:'label.common.button.cancel')}" action="cancelReservation" />
    	</g:form>
 </fieldset>

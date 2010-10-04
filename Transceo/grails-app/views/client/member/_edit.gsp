@@ -21,7 +21,7 @@
 	>
 		<g:render template="/common/member/editMemberInformation" bean="${member}" var="customer"/>
 		<p class="boutons">
-			<g:submitButton class="submit" name="save" value="${message(code:'common.button.save')}" />
+			<g:submitButton class="submit" name="save" value="${message(code:'label.common.button.save')}" />
 		</p>
 	</g:formRemote>
 </div>

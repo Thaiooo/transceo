@@ -94,33 +94,33 @@
 </jq:jquery>
 
 <fieldset>
-	<legend><g:message code="travel.section.travel" /></legend>
+	<legend><g:message code="label.travel.section.travel" /></legend>
 	<g:if test="${resume != true}">
 		<p>
-	    	<g:message code="travel.creation.date" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
+	    	<g:message code="label.travel.creation.date" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
 		</p>
 	</g:if>
 	<p>
-		<g:message code="travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
+		<g:message code="label.travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
 	</p>
 	<g:if test="${resume != true}">
 		<p>
-			<g:message code="travel.status" />: <g:message code="label.reservation.status.${travel.status}" /> 
+			<g:message code="label.travel.status" />: <g:message code="label.reservation.status.${travel.status}" /> 
 		</p>
 	</g:if>
 	<p>
-		<g:message code="travel.depart" />: ${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="label.country.${travel.depart.country}" />  
+		<g:message code="label.travel.depart" />: ${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="label.country.${travel.depart.country}" />  
 	</p>
 	<g:if test="${travel.destination != null}">
 		<p>
-			<g:message code="travel.destination" />: ${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, <g:message code="label.country.${travel.destination.country}" />
+			<g:message code="label.travel.destination" />: ${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, <g:message code="label.country.${travel.destination.country}" />
 		</p>
 	</g:if>
 	<p>
-		<g:message code="travel.number.personne" />: ${travel.numberOfPersonne}
+		<g:message code="label.travel.number.personne" />: ${travel.numberOfPersonne}
 	</p>
 	<p>
-		<g:message code="travel.comment" />: ${travel.comment}
+		<g:message code="label.travel.comment" />: ${travel.comment}
 	</p>
 	<br/>
 	<div id="map_canvas" style="width: 810px; height: 300px"></div>
@@ -128,7 +128,7 @@
     	<br/>
     	<div id="directionsPanel" style="width:100%; height:100%;"></div>
 	    <p>
-			<g:link action="initUpdateReservationInformation" id="${travel.id}"><g:message code="common.button.edit" /></g:link>
+			<g:link action="initUpdateReservationInformation" id="${travel.id}"><g:message code="label.common.button.edit" /></g:link>
 		</p>
 	</g:if>
 </fieldset>

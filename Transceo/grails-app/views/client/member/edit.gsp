@@ -12,8 +12,8 @@
     	<g:form name="updateForm" controller="member" action="updateCustomerInformation" >
     		<g:render template="/common/member/editMemberInformation" bean="${member}" var="customer"/>
     		<p>
-    			<g:submitButton name="save" value="${message(code:'common.button.save')}" />
-    			<g:link controller="member" action="showMyProfile"><g:message code="common.button.cancel" /></g:link>
+    			<g:submitButton name="save" value="${message(code:'label.common.button.save')}" />
+    			<g:link controller="member" action="showMyProfile"><g:message code="label.common.button.cancel" /></g:link>
     		</p>
     	</g:form>
     </body>

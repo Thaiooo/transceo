@@ -45,7 +45,7 @@
     		</li>
 		</ul>
 		<p class="boutons">
-    		<g:submitButton class="submit" name="send" value="${message(code:'common.button.send')}" />
+    		<g:submitButton class="submit" name="send" value="${message(code:'label.common.button.send')}" />
 		</div>
 	</g:formRemote>
 </div>

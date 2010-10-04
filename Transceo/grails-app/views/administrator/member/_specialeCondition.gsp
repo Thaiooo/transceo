@@ -16,7 +16,7 @@
 			<g:each status="i" in="${member.specialeConditions}" var="item">
 				<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 					<td>
-						<g:link action="initUpdateSpecialCondition" id="${item.id}" params="[memberId:member.id]"><g:message code="common.button.edit"/></g:link>
+						<g:link action="initUpdateSpecialCondition" id="${item.id}" params="[memberId:member.id]"><g:message code="label.common.button.edit"/></g:link>
 					</td>
 					<td>${item.label}</td>
 					<td><g:formatDate format="${message(code:'common.date.format')}" date="${item.startDate}"/></td>
@@ -28,5 +28,5 @@
 	</table>
 </g:else>
 <p class="boutons">
-	<g:link action="initAddSpecialCondition" id="${member.id}"><g:message code="common.button.add"/></g:link>
+	<g:link action="initAddSpecialCondition" id="${member.id}"><g:message code="label.common.button.add"/></g:link>
 </p>

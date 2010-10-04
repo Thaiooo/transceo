@@ -41,6 +41,6 @@
 
 <div class="boutons">
 	<p>
-		<a id="addFriend" ><g:message code="common.button.add" /></a>
+		<a id="addFriend" ><g:message code="label.common.button.add" /></a>
 	</p>
 </div>

@@ -17,15 +17,15 @@
 		    			<g:sortableColumn action="sortReservationToConfirm" property="creationDate" title="${message(code:'travel.creationdate')}" />
 		    			<g:sortableColumn action="sortReservationToConfirm" property="customer" title="${message(code:'travel.member')}" />
 		    			<g:sortableColumn action="sortReservationToConfirm" property="travelDate" title="${message(code:'travel.traveldate')}" />
-		    			<th><g:message code="travel.depart" /></th>
-		    			<th><g:message code="travel.destination" /></th>
+		    			<th><g:message code="label.travel.depart" /></th>
+		    			<th><g:message code="label.travel.destination" /></th>
 		    			<g:sortableColumn action="sortReservationToConfirm" property="numberOfPersonne" title="${message(code:'travel.number.personne')}" />
 		    		</tr>
 	    		</thead>
 	    		<tbody>
 	    			<g:each status="i" in="${travels}" var="item">
 						<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
-			     			<td><g:link controller="administrator" action="showForConfirmReservation" id="${item.id}"><g:message code="travel.action.administrate" /></g:link></td>
+			     			<td><g:link controller="administrator" action="showForConfirmReservation" id="${item.id}"><g:message code="label.travel.action.administrate" /></g:link></td>
 			     			<td>${item.id}</td>
 			     			<td>
 			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/>

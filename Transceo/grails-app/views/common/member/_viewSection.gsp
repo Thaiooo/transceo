@@ -47,9 +47,9 @@
 		</p>
 	</g:if>
 	<g:if test="${editAble == true}">	
-		<g:link action="initUpdateCustomerInformation" id="${member.id}"><g:message code="common.button.edit" /></g:link>
+		<g:link action="initUpdateCustomerInformation" id="${member.id}"><g:message code="label.common.button.edit" /></g:link>
 	</g:if>
 	<g:if test="${session[com.transceo.SessionConstant.USER.name()] != null}">
-		<g:link controller="member" action="initChangePassword"><g:message code="common.button.change.password" /></g:link>
+		<g:link controller="member" action="initChangePassword"><g:message code="label.common.button.change.password" /></g:link>
 	</g:if>
 </fieldset>

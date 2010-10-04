@@ -74,14 +74,14 @@
 		</table>
 
 		<p class="boutons">
-			<g:submitButton id="simulate" name="simulate" value="${message(code:'common.button.simulate')}" />
-			<a href="<g:createLink controller="administrator" action="reservationMain" />" ><g:message code="common.button.back"/></a>
+			<g:submitButton id="simulate" name="simulate" value="${message(code:'label.common.button.simulate')}" />
+			<a href="<g:createLink controller="administrator" action="reservationMain" />" ><g:message code="label.common.button.back"/></a>
 		</p>
 
 		<br/>
 
 		<fieldset>
-			<legend><g:message code="travel.section.plan" /></legend>
+			<legend><g:message code="label.travel.section.plan" /></legend>
 			<div id="map_canvas" style="width: 810px; height: 300px"></div>
 			<div id="directionsPanel" style="width:100%; height:100%;"></div>
 		</fieldset>

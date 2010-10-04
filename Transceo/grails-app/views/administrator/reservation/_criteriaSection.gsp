@@ -21,40 +21,40 @@
 	</g:if>
 	
 	<fieldset>
-		<legend><g:message code="travel.section.criteria.legend" /></legend>
+		<legend><g:message code="label.travel.section.criteria.legend" /></legend>
 		<fieldset>
-			<legend><g:message code="travel.section.customer.legend" /></legend>
+			<legend><g:message code="label.travel.section.customer.legend" /></legend>
 			<p>
-			<g:message code="member.code" />
+			<g:message code="label.member.code" />
 			<g:textField name="code" value="${code}" size="4"/>
-			<g:message code="member.firstName" />
+			<g:message code="label.member.firstName" />
 			<g:textField name="firstName" value="${firstName}"/>
-			<g:message code="member.lastName" />
+			<g:message code="label.member.lastName" />
 			<g:textField name="lastName" value="${lastName}"/>
 			</p>
 			<p>
-			<g:message code="member.phone" />
+			<g:message code="label.member.phone" />
 			<g:textField name="phoneNumber" value="${phoneNumber}"/>
-			<g:message code="member.mail" />
+			<g:message code="label.member.mail" />
 			<g:textField name="eMail" value="${eMail}"/>
 			</p>
 		</fieldset>
 		<br/>
 		<fieldset>
-			<legend><g:message code="travel.section.travel.legend" /></legend>
+			<legend><g:message code="label.travel.section.travel.legend" /></legend>
 			<p>
-			<g:message code="travel.creation.date" />
+			<g:message code="label.travel.creation.date" />
 			<g:select from="${com.transceo.DateCriteria.values()}" name="creationDateCriteria" value="${creationDateCriteria}" valueMessagePrefix="label.date.criteria"/>
 			<input type="text" class="text" size="10" id="creationDate" name="creationDate" value="<g:formatDate format="dd/MM/yyyy" date="${creationDate}"/>"/>
-			<g:message code="travel.date" /> 			 
+			<g:message code="label.travel.date" /> 			 
 			<g:select from="${com.transceo.DateCriteria.values()}" name="reservationDateCriteria" value="${reservationDateCriteria}" valueMessagePrefix="label.date.criteria"/>
 			<input type="text" class="text" size="10" id="reservationDate" name="reservationDate" value="<g:formatDate format="dd/MM/yyyy" date="${reservationDate}"/>"/>
-			<g:message code="travel.status" />						
+			<g:message code="label.travel.status" />						
 			<g:select name="status" from="${com.transceo.TravelStatus.values()}" value="${status}" valueMessagePrefix="label.reservation.status"/>
 			</p>
 		</fieldset>
 		<p>
-		<g:submitButton name="search" value="${message(code:'common.button.search')}" />
+		<g:submitButton name="search" value="${message(code:'label.common.button.search')}" />
 		</p>
 	</fieldset>
 </form>

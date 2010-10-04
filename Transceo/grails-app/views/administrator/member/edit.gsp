@@ -21,8 +21,8 @@
 	    			<g:render template="/common/member/editCustomerQuotationInformation" bean="${member}" var="customer"/>
 	    		</g:if>
 	    		<p class="boutons">
-	    			<g:actionSubmit class="submit" action="showProfile" value="${message(code:'common.button.cancel')}" />
-	    			<g:actionSubmit class="submit" action="updateCustomerInformation" value="${message(code:'common.button.save')}" />
+	    			<g:actionSubmit class="submit" action="showProfile" value="${message(code:'label.common.button.cancel')}" />
+	    			<g:actionSubmit class="submit" action="updateCustomerInformation" value="${message(code:'label.common.button.save')}" />
 	    		</p>
 	    	</g:form>
     	</div>

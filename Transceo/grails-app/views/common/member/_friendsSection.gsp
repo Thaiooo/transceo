@@ -20,5 +20,5 @@
 		</table>
 	</g:else>
 	<p>
-		<a href="<g:createLink controller="member" action="initAddFriend" />" title="Add Friend" ><g:message code="common.button.add" /></a>
+		<a href="<g:createLink controller="member" action="initAddFriend" />" title="Add Friend" ><g:message code="label.common.button.add" /></a>
 	</p>

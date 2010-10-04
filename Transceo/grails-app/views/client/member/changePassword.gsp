@@ -30,7 +30,7 @@
 	    		<g:passwordField name="confirmPassword"/>
 	    		</p>
 	
-	    		<p class="boutons"><g:submitButton name="register" value="${message(code:'common.button.submit')}" class="submit" /></p>
+	    		<p class="boutons"><g:submitButton name="register" value="${message(code:'label.common.button.submit')}" class="submit" /></p>
     		</form>
 		</div>
     	

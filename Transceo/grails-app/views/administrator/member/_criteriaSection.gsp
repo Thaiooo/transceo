@@ -13,33 +13,33 @@
 	</g:if>
 
 	<fieldset>
-		<legend><g:message code="member.legend" /></legend>
+		<legend><g:message code="label.member.legend" /></legend>
 		<p>
-		<g:message code="member.code" />
+		<g:message code="label.member.code" />
 		<g:textField name="code" value="${code}" size="4"/>
-		<g:message code="member.firstName" />
+		<g:message code="label.member.firstName" />
 		<g:textField name="firstName" value="${firstName}"/>
-		<g:message code="member.lastName" />
+		<g:message code="label.member.lastName" />
 		<g:textField name="lastName" value="${lastName}"/>
 		</p>
 		<p>
-		<g:message code="member.phone" />
+		<g:message code="label.member.phone" />
 		<g:textField name="phoneNumber" value="${phoneNumber}"/>
-		<g:message code="member.mail" />
+		<g:message code="label.member.mail" />
 		<g:textField name="eMail" value="${eMail}"/>
 		</p>
 		<p>
-		<g:message code="member.adresse" />
+		<g:message code="label.member.adresse" />
 		<g:textField name="adresse" value="${adresse}"/>
-		<g:message code="member.postal" />
+		<g:message code="label.member.postal" />
 		<g:textField name="postal" value="${postal}" size="5"/>
-		<g:message code="member.city" />
+		<g:message code="label.member.city" />
 		<g:textField name="city" value="${city}"/>
-		<g:message code="member.country" />
+		<g:message code="label.member.country" />
 		<g:textField name="country" value="${country}"/>
 		</p>
 		<p>
-		<g:submitButton name="search" value="${message(code:'common.button.search')}" />
+		<g:submitButton name="search" value="${message(code:'label.common.button.search')}" />
 		</p>
 	</fieldset>
 </form>

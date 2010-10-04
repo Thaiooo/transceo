@@ -48,53 +48,53 @@
 			<g:form controller="member" action="register" method="post" >
 				<ul>
 					<li>
-			   		<label><g:message code="member.sponsor.code" /></label>
+			   		<label><g:message code="label.member.sponsor.code" /></label>
 			   		<g:textField name="sponsorCode" value="${sponsorCode}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.firstName" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.firstName" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="firstName" value="${firstName}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.lastName" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.lastName" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="lastName" value="${lastName}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.firm" /></label>
+			   		<label><g:message code="label.member.firm" /></label>
 			   		<g:textField name="firm" value="${firm}"/>
 			   		</li>
 
 					<li>
-			   		<label><g:message code="member.phone" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.phone" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="phoneNumber" value="${phoneNumber}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.mail" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.mail" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="eMail" value="${eMail}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.adresse" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.adresse" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="adresse" value="${adresse}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.postal" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.postal" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="postal" value="${postal}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.city" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.city" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:textField name="city" value="${city}"/>
 			   		</li>
 
 					<li>
 			   		<label><g:set var="label" value="${message(code:'common.country.select')}" />
-			   		<g:message code="member.country" /> <strong><g:message code="common.required" /></strong></label>
+			   		<g:message code="label.member.country" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:select name="country"
 			   			from="${com.transceo.CountryCode.values()}"
 			   			value="${country}"
@@ -104,18 +104,18 @@
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.password" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.password" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:passwordField name="password" value="${password}"/>
 			   		</li>
 
 			   		<li>
-			   		<label><g:message code="member.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
+			   		<label><g:message code="label.member.password.confirm" /> <strong><g:message code="common.required" /></strong></label>
 			   		<g:passwordField name="confirmPassword"/>
 			   		</li>
 				</ul>
 
 				<p class="boutons">
-					<g:submitButton name="register" value="${message(code:'common.button.subscribe')}" class="submit" />
+					<g:submitButton name="register" value="${message(code:'label.common.button.subscribe')}" class="submit" />
 				</p>
 
 	    	</g:form>

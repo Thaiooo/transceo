@@ -3,7 +3,7 @@
 <u><strong><g:message code="title.mail.reservation.notification" /></strong></u>
 
 <p>
-  	<strong><g:message code="travel.creation.date" /> : </strong> <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>
+  	<strong><g:message code="label.travel.creation.date" /> : </strong> <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>
 </p>
 <p>    		
 	<strong><g:message code="label.mail.customer" /> : </strong> ${travel.customer.firstName} ${travel.customer.lastName}
@@ -18,16 +18,16 @@
 	</p>
 </g:if>
 <p>
-	<strong><g:message code="travel.date" /> : </strong><g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
+	<strong><g:message code="label.travel.date" /> : </strong><g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.travelDate}"/>
 </p>
 <p>
-	<strong><g:message code="travel.depart" /> : </strong>${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, ${travel.depart.country} 
+	<strong><g:message code="label.travel.depart" /> : </strong>${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, ${travel.depart.country} 
 </p>
 <g:if test="${travel.destination != null}">
 	<p>
-		<strong><g:message code="travel.destination" /> : </strong>${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, ${travel.destination.country}
+		<strong><g:message code="label.travel.destination" /> : </strong>${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, ${travel.destination.country}
 	</p>
 </g:if>
 <p>
-	<strong><g:message code="travel.comment" /> : </strong>${travel.comment}
+	<strong><g:message code="label.travel.comment" /> : </strong>${travel.comment}
 </p>

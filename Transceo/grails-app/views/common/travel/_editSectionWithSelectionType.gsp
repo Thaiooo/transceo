@@ -6,7 +6,7 @@
 
 <fieldset>
 	<legend>
-		<g:message code="travel.section.travel.choose" />
+		<g:message code="label.travel.section.travel.choose" />
 		
 		<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'reservation'}">
 			<g:set var="selectReservationType" value="${Boolean.TRUE}" />
@@ -54,20 +54,20 @@
 
 	<ul>
 		<li>
-			<label><g:message code="travel.date" /> <strong><g:message code="common.required" /></strong></label>
+			<label><g:message code="label.travel.date" /> <strong><g:message code="common.required" /></strong></label>
 			<input type="text" class="date" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
 		</li>
 		<li>
-			<label for="info_telephone"><g:message code="travel.time" /> <strong><g:message code="common.required" /></strong></label>			
+			<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="common.required" /></strong></label>			
 			<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
 			<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
 		</li>
 		<li>
-			<label><g:message code="travel.personne.number" /></label>
+			<label><g:message code="label.travel.personne.number" /></label>
 			<g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/>
 		</li>
 		<li>
-			<label><g:message code="travel.comment" /></label>
+			<label><g:message code="label.travel.comment" /></label>
 			<g:textArea name="comment" value="${comment}" rows="4" cols="40" class="no_barre"/>
 		</li>
 	</ul>
