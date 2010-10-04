@@ -6,14 +6,14 @@
     			<thead>
 	    			<tr class="row_first">
 		    			<th></th>
-		    			<g:sortableColumn action="sortReservation" property="id" title="${message(code:'travel.id')}" />
-		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'travel.creationdate')}" />
-		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'travel.member')}" />
-		    			<g:sortableColumn action="sortReservation" property="travelDate" title="${message(code:'travel.traveldate')}" />
+		    			<g:sortableColumn action="sortReservation" property="id" title="${message(code:'label.travel.id')}" />
+		    			<g:sortableColumn action="sortReservation" property="creationDate" title="${message(code:'label.travel.creation.date')}" />
+		    			<g:sortableColumn action="sortReservation" property="customer" title="${message(code:'label.travel.member')}" />
+		    			<g:sortableColumn action="sortReservation" property="travelDate" title="${message(code:'label.travel.traveldate')}" />
 		    			<th><g:message code="label.travel.depart" /></th>
 		    			<th><g:message code="label.travel.destination" /></th>
-		    			<g:sortableColumn action="sortReservation" property="numberOfPersonne" title="${message(code:'travel.number.personne')}" />
-		    			<g:sortableColumn action="sortReservation" property="status" title="${message(code:'travel.status')}" />
+		    			<g:sortableColumn action="sortReservation" property="numberOfPersonne" title="${message(code:'label.travel.number.personne')}" />
+		    			<g:sortableColumn action="sortReservation" property="status" title="${message(code:'label.travel.status')}" />
 		    		</tr>
 	    		</thead>
 	    		<tbody>
@@ -24,7 +24,7 @@
 			     			</td>
 			     			<td>${item.id}</td>
 			     			<td>
-			     				<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.creationDate}"/>
+			     				<g:formatDate format="${message(code:'label.common.date.time.format')}" date="${item.creationDate}"/>
 			     			</td>
 			     			<td>
 			     				<g:if test="${item.customer.class.name == com.transceo.Member.class.name}">
@@ -35,7 +35,7 @@
 			     				</g:else>
 			     			</td>
 			     			<td>
-			     			<g:formatDate format="${message(code:'common.date.time.format')}" date="${item.travelDate}"/></td>
+			     			<g:formatDate format="${message(code:'label.common.date.time.format')}" date="${item.travelDate}"/></td>
 			     			<td>${item.depart.adresse} ${item.depart.postal} ${item.depart.city}, ${item.depart.country}</td>
 			     			<td>
 			     				<g:if test="${item.destination != null}">
