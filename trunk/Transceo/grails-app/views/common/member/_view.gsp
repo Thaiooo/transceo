@@ -27,51 +27,51 @@
 <div id="view_info">
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
-			<strong><g:message code="code" /></strong>
+			<strong><g:message code="label.member.code" /></strong>
 		    <label>${customer.code}</label>
 	    </p>
 	</g:if>
 	
 	<p>    		
-		<strong><g:message code="firstName" /></strong>
+		<strong><g:message code="label.member.firstName" /></strong>
 	    <label>${customer.firstName}</label>
 	</p>
 	<p>
-	    <strong><g:message code="lastName" /></strong>
+	    <strong><g:message code="label.member.lastName" /></strong>
 	    <label>${customer.lastName}</label>
 	</p>
 	<p>
-	    <strong><g:message code="firm" /></strong>
+	    <strong><g:message code="label.member.firm" /></strong>
 	    <label>
-	    	<g:if test="${customer.firm == null}">dd&nbsp;</g:if>
+	    	<g:if test="${customer.firm == null}">&nbsp;</g:if>
 	    	<g:else>${customer.firm}</g:else>
 	    </label>
 	</p>
 	<p>
-		<strong><g:message code="phoneNumber" /></strong>
+		<strong><g:message code="label.member.phone" /></strong>
 	    <label>${customer.phoneNumber}</label>
 	</p>
 	<g:if test="${customer.class.name != com.transceo.Customer.class.name}">
 		<p>
-		    <strong><g:message code="eMail" /></strong>
+		    <strong><g:message code="label.member.mail" /></strong>
 		    <label>${customer.eMail}</label>
 		</p>
 	</g:if>
 	<g:if test="${customer.class.name == com.transceo.Member.class.name}">
 		<p>
-		    <strong><g:message code="adresse" /></strong>
+		    <strong><g:message code="label.member.adresse" /></strong>
 		    <label>${customer.adresse}</label>
 		</p>
 		<p>
-		    <strong><g:message code="city" /></strong>
+		    <strong><g:message code="label.member.city" /></strong>
 		    <label>${customer.city}</label>
 		</p>
 		<p>
-		    <strong><g:message code="postal" /></strong>
+		    <strong><g:message code="label.member.postal" /></strong>
 		    <label>${customer.postal}</label>
 		</p>
 		<p>
-		    <strong><g:message code="country" /></strong>
+		    <strong><g:message code="label.member.country" /></strong>
 		    <label><g:message code="label.country.${customer.country}" /></label>
 		</p>
 	</g:if>

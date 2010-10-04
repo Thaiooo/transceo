@@ -13,7 +13,11 @@ class TravelController {
 	}
 	
 	def initQuoteATravel = {
-		render(view:"/client/reservation/createReservation", model:[])
+		if(session.USER == null){
+			render(view:"/client/reservation/createReservation", model:[])
+		}else{
+			render(view:"/client/reservation/createReservation", model:[customer: session[SessionConstant.USER.name()]])
+		}
 	}
 	
 	def initQuoteATravelForMember = {

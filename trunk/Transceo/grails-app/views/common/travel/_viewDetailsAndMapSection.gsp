@@ -97,11 +97,11 @@
 	<legend><g:message code="label.travel.section.travel" /></legend>
 	<g:if test="${resume != true}">
 		<p>
-	    	<g:message code="label.travel.creation.date" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.creationDate}"/>
+	    	<g:message code="label.travel.creation.date" />: <g:formatDate format="${message(code:'label.common.date.time.format')}" date="${travel.creationDate}"/>
 		</p>
 	</g:if>
 	<p>
-		<g:message code="label.travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
+		<g:message code="label.travel.traveldate" />: <g:formatDate format="${message(code:'label.common.date.time.format')}" date="${travel.travelDate}"/>
 	</p>
 	<g:if test="${resume != true}">
 		<p>

@@ -28,10 +28,10 @@
 			     			</td>
 			     			<td>
 			     				<g:if test="${item.customer.class.name == com.transceo.Member.class.name}">
-			     					<g:message code="common.yes" />
+			     					<g:message code="label.common.yes" />
 			     				</g:if>
 			     				<g:else>
-			     					<g:message code="common.no" />
+			     					<g:message code="label.common.no" />
 			     				</g:else>
 			     			</td>
 			     			<td>
