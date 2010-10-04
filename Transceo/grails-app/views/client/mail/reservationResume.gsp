@@ -6,7 +6,7 @@
   	<strong><g:message code="travel.creation.date" /> : </strong> <g:formatDate format="yyyy-MM-dd HH:mm" date="${travel.creationDate}"/>
 </p>
 <p>    		
-	<strong><g:message code="customer" /> : </strong> ${travel.customer.firstName} ${travel.customer.lastName}
+	<strong><g:message code="label.mail.customer" /> : </strong> ${travel.customer.firstName} ${travel.customer.lastName}
 </p>
 <p>
 	<strong><g:message code="subscribe.phoneNumber" /> : </strong>${travel.customer.phoneNumber}

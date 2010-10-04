@@ -72,7 +72,7 @@
 		</p>
 		<p>
 		    <strong><g:message code="country" /></strong>
-		    <label><g:message code="country.${customer.country}" /></label>
+		    <label><g:message code="label.country.${customer.country}" /></label>
 		</p>
 	</g:if>
 </div>

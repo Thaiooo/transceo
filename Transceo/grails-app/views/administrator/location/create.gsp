@@ -48,7 +48,7 @@
 				<g:select name="country" 
 					from="${com.transceo.CountryCode.values()}" 
 					value="${country}" 
-					valueMessagePrefix="country" 
+					valueMessagePrefix="label.country" 
 					noSelection='["":"${label}"]'
 			    />
 			</p>

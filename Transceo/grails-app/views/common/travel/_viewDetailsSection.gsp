@@ -7,16 +7,16 @@
 		<g:message code="travel.traveldate" />: <g:formatDate format="${message(code:'common.date.time.format')}" date="${travel.travelDate}"/>
 	</p>
 	<p>
-		<g:message code="travel.status" />: <g:message code="reservation.status.${travel.status}" /> 
+		<g:message code="travel.status" />: <g:message code="label.reservation.status.${travel.status}" /> 
 	</p>
 	<p>
 		<g:message code="travel.depart" />: 
-		<span id="depart">${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="country.${travel.depart.country}" /></span>
+		<span id="depart">${travel.depart.adresse}, ${travel.depart.postal} ${travel.depart.city}, <g:message code="label.country.${travel.depart.country}" /></span>
 	</p>
 	<g:if test="${travel.destination != null}">
 		<p>
 			<g:message code="travel.destination" />: 
-			<span id="destination">${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, <g:message code="country.${travel.destination.country}" /></span>
+			<span id="destination">${travel.destination.adresse}, ${travel.destination.postal} ${travel.destination.city}, <g:message code="label.country.${travel.destination.country}" /></span>
 		</p>
 	</g:if>
 	<p>
