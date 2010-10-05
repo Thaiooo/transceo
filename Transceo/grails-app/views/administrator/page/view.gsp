@@ -5,7 +5,7 @@
     </head>
     <body>
 		${htmlContent}
-		<g:link controller="administrator" action="initEditPage" id="${id}">Editer</g:link>
+		<g:link controller="administrator" action="initEditPage" id="${id}" params="[lang:lang]">Editer</g:link>
 		<g:link controller="administrator" action="editPageMain" title="">Retour</g:link>
 	</body>
 </html>

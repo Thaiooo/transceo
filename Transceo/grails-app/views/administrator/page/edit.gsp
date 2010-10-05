@@ -26,6 +26,7 @@
     	<div id="formulaire_page">
 	    	<g:form name="form" controller="administrator" method="post">
 				<g:hiddenField name="id" value="${id}" />    	
+				<g:hiddenField name="lang" value="${lang}" />
 	    		<g:textArea class="wikiContent" id="wikiContent" name="wikiContent" value="${content}"/>
 	    		<p class="boutons">
 	    			<g:actionSubmit class="submit" value="Annuler" action="editPageMain" />

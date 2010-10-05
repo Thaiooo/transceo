@@ -346,7 +346,7 @@ class AdministratorController {
 			render(view:"/administrator/member/edit", model:[member: o])
 		}
 	}
-
+	
 	def updateMile = {
 		def o = Customer.get(params.id.toLong())
 		if(StringUtils.isNotBlank(params.miles) && params.miles.isInteger()){
@@ -479,54 +479,54 @@ class AdministratorController {
 	}
 	
 	def initEditPage = {
-		def page = params.id + File.separator + "content_fr.txt"
+		def page = params.id + File.separator + "content_" + params.lang + ".txt"
 		def wikiContent = pageService.getWikiContent(page)
-		render(view:"/administrator/page/edit", model:[wikiContent: wikiContent, id: params.id])
+		render(view:"/administrator/page/edit", model:[wikiContent: wikiContent, id: params.id, lang: params.lang])
 	}
 	
 	def initEditPageColum = {
-		def page = params.id + File.separator + "content_1_fr.txt"
+		def page = params.id + File.separator + "content_1_" + params.lang + ".txt"
 		def wikiContent1 = pageService.getWikiContent(page)
-		page = params.id + File.separator + "content_2_fr.txt"
+		page = params.id + File.separator + "content_2_" + params.lang + ".txt"
 		def wikiContent2 = pageService.getWikiContent(page)
-		render(view:"/administrator/page/editPageColumn", model:[wikiContent1: wikiContent1, wikiContent2: wikiContent2, id: params.id])
+		render(view:"/administrator/page/editPageColumn", model:[wikiContent1: wikiContent1, wikiContent2: wikiContent2, id: params.id, lang: params.lang])
 	}
 	
 	def editPage = {
-		def page = params.id + File.separator + "content_fr.txt"
+		def page = params.id + File.separator + "content_" + params.lang + ".txt"
 		pageService.setWikiContent(page, params.wikiContent)
-		redirect(action:"viewPage", id:params.id)
+		redirect(action:"viewPage", id:params.id, params:[lang:params.lang])
 	}
 	
 	def editPageColumn = {
-		def page = params.id + File.separator + "content_1_fr.txt"
+		def page = params.id + File.separator + "content_1_" + params.lang + ".txt"
 		pageService.setWikiContent(page, params.wikiContent1)
-		page = params.id + File.separator + "content_2_fr.txt"
+		page = params.id + File.separator + "content_2_" + params.lang + ".txt"
 		pageService.setWikiContent(page, params.wikiContent2)
-		redirect(action:"viewPageColumn", id:params.id)
+		redirect(action:"viewPageColumn", id:params.id, params:[lang:params.lang])
 	}
 	
 	def viewPage = {
-		def page = params.id + File.separator + "content_fr.txt"
+		def page = params.id + File.separator + "content_" + params.lang + ".txt"
 		def htmlContent = pageService.getHTMLContent(page)
 		
-		def titleId = params.id + File.separator + "title_fr.txt"
+		def titleId = params.id + File.separator + "title_" + params.lang + ".txt"
 		def title = pageService.getWikiContent(titleId)
 		
-		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, title: title, id: params.id])
+		render(view:"/administrator/page/view", model:[htmlContent: htmlContent, title: title, id: params.id, lang: params.lang])
 	}
 	
 	def viewPageColumn = {
-		def page = params.id + File.separator + "content_1_fr.txt"
+		def page = params.id + File.separator + "content_1_" + params.lang + ".txt"
 		def htmlContent1 = pageService.getHTMLContent(page)
 		
-		page = params.id + File.separator + "content_2_fr.txt"
+		page = params.id + File.separator + "content_2_" + params.lang + ".txt"
 		def htmlContent2 = pageService.getHTMLContent(page)
 		
-		def titleId = params.id + File.separator + "title_fr.txt"
+		def titleId = params.id + File.separator + "title_" + params.lang + ".txt"
 		def title = pageService.getWikiContent(titleId)
 		
-		render(view:"/administrator/page/viewColumn", model:[htmlContent1: htmlContent1, htmlContent2: htmlContent2,  title: title, id: params.id])
+		render(view:"/administrator/page/viewColumn", model:[htmlContent1: htmlContent1, htmlContent2: htmlContent2,  title: title, id: params.id, lang: params.lang])
 	}
 	
 	def previewPage = {
