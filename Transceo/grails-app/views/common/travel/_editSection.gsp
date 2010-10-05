@@ -34,7 +34,7 @@
 		<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
 	</p>
 	<p>
-		<g:message code="label.travel.personne.number" />
+		<g:message code="label.travel.number.personne" />
 		<g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/>
 	</p>
 	<p>
