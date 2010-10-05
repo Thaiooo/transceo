@@ -148,7 +148,6 @@
 			</div>
 			<!--Fin contenu principal-->
 
-			<%-- 
 			<div id="langue">
 				<g:form controller="page" action="changeLanguage">
 					<g:hiddenField name="redirectController" value="${params.controller}" />
@@ -157,7 +156,6 @@
 					<input class="en" name="lang" type="submit" value="en" title="English version"/>
 				</g:form>
 			</div>
-			--%>
 
 			<!--pied-->
 			<div id="pied">
