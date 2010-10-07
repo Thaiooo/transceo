@@ -5,7 +5,8 @@ class SpecialCondition {
 	Date startDate
 	Date endDate
 	Double value
-	String type
+	SpecialConditionType type
+	Member member
 	
 	static constraints = {
 		label(nullable: false, blank: false)
