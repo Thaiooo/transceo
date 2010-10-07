@@ -19,6 +19,7 @@ class Member extends CustomerQuotation {
 	Set<SpecialCondition> specialeConditions = new HashSet<SpecialCondition>()
 	
 	static hasMany = [ friends: Member, specialeConditions: SpecialCondition]
+	static mappedBy = [specialeConditions: "member"]
 	
 	static mapping = {
 		version true
