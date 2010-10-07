@@ -249,7 +249,7 @@ class TravelService {
 		}
 	}
 	
-	def close(long id){		
+	def close(String id){		
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.SUCCESS
 		travel.destination.save()

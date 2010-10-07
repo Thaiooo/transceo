@@ -59,7 +59,7 @@ class AdministratorController {
 	
 	
 	def showProfile = {
-		def o = Customer.get(params.id.toLong()) 		
+		def o = Customer.get(params.id.toLong())
 		render(view:"/administrator/member/view", model:[member: o])
 	}
 	
@@ -139,10 +139,8 @@ class AdministratorController {
 				model:[travel: o, destination:destination, locationDestId:params.location_destination, price:params.price, backAction:params.backAction]
 				)
 			}else{
-				destination.save()
 				o.destination = destination
-				o.status = TravelStatus.SUCCESS
-				o.save()
+				travelService.close(o)
 				redirect(action:"reservationToProcess", controller:"administrator")
 			}
 		}else{
@@ -153,9 +151,7 @@ class AdministratorController {
 				model:[travel: o, locationDestId:params.location_destination, price:params.price, backAction:params.backAction]
 				)
 			}else{
-				o.destination = location
-				o.status = TravelStatus.SUCCESS
-				o.save()
+				travelService.close(o)
 				redirect(action:"reservationToProcess", controller:"administrator")
 			}
 		}
@@ -544,14 +540,15 @@ class AdministratorController {
 	}
 	
 	def createSpecialCondition = {
+		def o = Member.get(params.memberId.toLong())
 		def sp = new SpecialCondition()
 		sp.properties = params
 		def validate = sp.validate()
 		sp.startDate = DateUtils.parseDate(params.startDate)
 		sp.endDate = DateUtils.parseDate(params.endDate)
+		sp.member = o
 		validate = sp.validate()
 		if(validate){
-			def o = Member.get(params.memberId.toLong())
 			sp.save()
 			o.specialeConditions.add(sp)
 			o.save()
