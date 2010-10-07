@@ -249,12 +249,29 @@ class TravelService {
 		}
 	}
 	
-	def close(id){		
+	def close(long id){		
 		def travel = Travel.get(id)
 		travel.status = TravelStatus.SUCCESS
+		travel.destination.save()
 		
 		// Distrubuer les miles
 		if(travel.customer.class.name == Member.class.name){
+			def additionnalMiles = applySpecialCondition(travel.customer.specialeConditions, travel.price)
+			travel.customer.miles += additionnalMiles
+			setMiles(travel.customer, 0, travel.price)
+		}
+		
+		travel.save()
+	}
+	
+	def close(Travel travel){
+		travel.status = TravelStatus.SUCCESS
+		travel.destination.save()
+		
+		// Distrubuer les miles
+		if(travel.customer.class.name == Member.class.name){
+			def additionnalMiles = applySpecialCondition(travel.customer.specialeConditions, travel.price)
+			travel.customer.miles += additionnalMiles
 			setMiles(travel.customer, 0, travel.price)
 		}
 		
@@ -301,5 +318,25 @@ class TravelService {
 		results.each(){ 
 			it.status =  TravelStatus.CANCEL
 		}
+	}
+	
+	private double applySpecialCondition(specialConditions, price){
+		def currentDate = new Date()
+		def miles = 0;
+		specialConditions.each{
+			def start = it.startDate
+			def end = null
+			if(it.endDate != null){
+				end = it.endDate + 1
+			}
+			if(start.before(currentDate) && (end == null || end.after(currentDate))){
+				if(SpecialConditionType.MILE == it.type){
+					miles += it.value
+				}else{
+					miles += (price / 100 * it.value)
+				}
+			}
+		}
+		return miles
 	}
 }
