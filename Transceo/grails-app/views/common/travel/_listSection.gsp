@@ -19,10 +19,10 @@
     				<tr class="${ (i % 2) == 0 ? 'row_even' : 'row_odd'}">
 						<td width="50px">
 							<g:if test="${ADMIN_VIEW == true}">
-								<g:link controller="administrator" action="showTravel" id="${item.id}"><g:message code="label.travel.view" /></g:link>
+								<g:link controller="administrator" action="showTravel" id="${item.id}"><g:message code="label.travel.action.view" /></g:link>
 							</g:if>
 							<g:else>
-								<g:link controller="travel" action="show" id="${item.id}"><g:message code="label.travel.view" /></g:link>
+								<g:link controller="travel" action="show" id="${item.id}"><g:message code="label.travel.action.view" /></g:link>
 							</g:else>
 						</td>
 					    <td><g:formatDate format="${message(code:'label.common.date.time.format')}" date="${item.creationDate}"/></td>
