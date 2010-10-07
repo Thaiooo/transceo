@@ -41,24 +41,24 @@
 				
 				<ul>
 					<li>
-						<label><g:message code="special.condition.label" /><strong><g:message code="label.common.required" /></strong></label>
+						<label><g:message code="label.special.condition.label" /><strong><g:message code="label.common.required" /></strong></label>
 						<g:textField class="text" name="label" value="${label}" />
 					</li>
 					<li>
-						<label><g:message code="special.condition.startDate" /> <strong><g:message code="label.common.required" /></strong></label>
+						<label><g:message code="label.special.condition.startDate" /> <strong><g:message code="label.common.required" /></strong></label>
 						<input type="text" class="date" size="10" id="startDate" name="startDate" value="<g:formatDate format="dd/MM/yyyy" date="${startDate}"/>"/>
 					</li>
 					<li>
-						<label><g:message code="special.condition.endDate" /></label>
+						<label><g:message code="label.special.condition.endDate" /></label>
 						<input type="text" class="date" size="10" id="endDate" name="endDate" value="<g:formatDate format="dd/MM/yyyy" date="${endDate}"/>"/>
 					</li>
 					<li>
-						<label><g:message code="special.condition.rate" /><strong><g:message code="label.common.required" /></strong></label>
+						<label><g:message code="label.special.condition.value" /><strong><g:message code="label.common.required" /></strong></label>
 						<input type="text" class="text" name="value" value="${value}"  />
 					</li>
 					<li>
-						<label><g:message code="special.condition.type" /><strong><g:message code="label.common.required" /></strong></label>
-						<g:select name="type" from="${com.transceo.SpecialConditionType.values()}" value="${type}" valueMessagePrefix="special.condition.type"/>
+						<label><g:message code="label.special.condition.type" /><strong><g:message code="label.common.required" /></strong></label>
+						<g:select name="type" from="${com.transceo.SpecialConditionType.values()}" value="${type}" valueMessagePrefix="label.special.condition.type"/>
 					</li>
 				</ul>
 				

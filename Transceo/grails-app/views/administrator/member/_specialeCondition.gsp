@@ -6,10 +6,10 @@
 		<thead>
 			<tr class="row_first">
 				<th></th>
-				<th><g:message code="speciale.condition.label"/></th>
-				<th><g:message code="speciale.condition.startDate"/></th>
-				<th><g:message code="speciale.condition.endDate"/></th>
-				<th><g:message code="speciale.condition.value"/></th>
+				<th><g:message code="label.special.condition.label"/></th>
+				<th><g:message code="label.special.condition.startDate"/></th>
+				<th><g:message code="label.special.condition.endDate"/></th>
+				<th><g:message code="label.special.condition.value"/></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,9 +19,9 @@
 						<g:link action="initUpdateSpecialCondition" id="${item.id}" params="[memberId:member.id]"><g:message code="label.common.button.edit"/></g:link>
 					</td>
 					<td>${item.label}</td>
-					<td><g:formatDate format="${message(code:'common.date.format')}" date="${item.startDate}"/></td>
-					<td><g:formatDate format="${message(code:'common.date.format')}" date="${item.endDate}"/></td>
-					<td>${item.value} <g:message code="special.condition.type.${item.type}" /></td>
+					<td><g:formatDate format="${message(code:'label.common.date.format')}" date="${item.startDate}"/></td>
+					<td><g:formatDate format="${message(code:'label.common.date.format')}" date="${item.endDate}"/></td>
+					<td>${item.value} <g:message code="label.special.condition.type.${item.type}" /></td>
 				</tr>
 			</g:each>
 		</tbody>
