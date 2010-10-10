@@ -3,7 +3,10 @@
 	<head>
 		<title><g:layoutTitle default="Titre" /></title>
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			
+		<meta name="description" content= "Transport de personne VIP" />
+		<meta name="keywords" content= "transport de personne, transport VIP, vip, transport, taxi, privé, chauffeur, transeo" />
+				
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo.css')}" />
 		<!--[if IE]>
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo_ie.css')}" />
