@@ -4,8 +4,8 @@
 		<title><g:layoutTitle default="Titre" /></title>
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			
-		<meta name="description" content= "Transport de personne VIP" />
-		<meta name="keywords" content= "transport de personne, transport VIP, vip, transport, taxi, privé, chauffeur, transeo" />
+		<meta name="TRANSEO met à la disposition de sa clientèle d'affaires un parc de voitures haut de gamme avec chauffeur pour des déplacements sur toute la France 24 h sur 24 - 365 jours par an." />
+		<meta name="keywords" content="Transports, de personnes, transports de personnes toutes distances, transports école, transports voyage, navettes, professionnel du voyage, déplacement, déplacements, collectivités, associations, aéroports, gares, Taxi, VSL, Transports conventionnés, location de véhicules avec chauffeur, transport de voyageurs, visite touristique, tourisme, city tour, low cost, bas prix, nouveau, Paris, ile de france, idf, taxi parisien, voiture affaire,taxi business, transfert, shuttle, services transports, transport à la demande, transport de personnes, transport affaire, transport VIP, transport privé, transport prive, chauffeur, Transeo, Transéo" />
 				
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo.css')}" />
 		<!--[if IE]>
