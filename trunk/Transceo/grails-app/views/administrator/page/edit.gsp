@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title><g:message code="title.presentation" /></title>
+        <title><g:message code="title.admin.page.edit" /></title>
 		<meta name="layout" content="admin" />
     </head>
     <body>
@@ -27,7 +27,26 @@
 	    	<g:form name="form" controller="administrator" method="post">
 				<g:hiddenField name="id" value="${id}" />    	
 				<g:hiddenField name="lang" value="${lang}" />
-	    		<g:textArea class="wikiContent" id="wikiContent" name="wikiContent" value="${content}"/>
+				
+				<ul>
+					<li>
+			   			<label><g:message code="label.page.admin.page.title" /></label>
+			   			<g:textField id="title" name="title" value="${title}"/>
+			   		</li>
+			   		<li>
+			   			<label><g:message code="label.page.admin.page.description" /></label>
+			   			<g:textField id="description" name="description" value="${description}"/>
+			   		</li>
+			   		<li>
+			   			<label><g:message code="label.page.admin.page.keyword" /></label>
+			   			<g:textField id="keywords" name="keywords" value="${keywords}"/>
+			   		</li>
+			   		<li>
+			   			<label><g:message code="label.page.admin.page.content" /></label>
+			   			<g:textArea class="wikiContent" id="wikiContent" name="wikiContent" value="${content}"/>
+			   		</li>
+			   	</ul>
+	    		
 	    		<p class="boutons">
 	    			<g:actionSubmit class="submit" value="Annuler" action="editPageMain" />
 	    			<g:actionSubmit class="submit" value="Sauvegarder" action="editPage" />

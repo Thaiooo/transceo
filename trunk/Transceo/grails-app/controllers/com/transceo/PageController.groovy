@@ -12,17 +12,7 @@ class PageController {
 	}
 	
 	def changeLanguage = {
-		println params
-		println session
 		redirect(controller:"page", action:"home", params:[lang:params.lang])
-		
-		/*
-		 if(StringUtils.isBlank(params.redirectController) || StringUtils.isBlank(params.redirectAction)){
-		 redirect(controller:"page", action:"home", params:[lang:params.lang])
-		 }else{
-		 redirect(action:params.redirectAction,controller:params.redirectController, params:[lang:params.lang])
-		 }
-		 */
 	}
 	
 	def view = {
@@ -31,14 +21,24 @@ class PageController {
 		if(null != local){
 			languageCode = local.getLanguage()
 		}
-		
+	
+		// Charger le contenu de la page	
 		def page = params.id + File.separator + "content_" + languageCode + ".txt"
 		def htmlContent = pageService.getHTMLContent(page)
 		
+		// Charger le titre de la page
 		def titleId = params.id + File.separator + "title_" + languageCode + ".txt"
 		def title = pageService.getWikiContent(titleId)
 		
-		render(view:"/client/page/view", model:[htmlContent: htmlContent, title: title])
+		// Charger la description de la page
+		def descriptionId = params.id + File.separator + "description_" + languageCode + ".txt"
+		def description = pageService.getWikiContent(descriptionId)
+		
+		// Charger les mots clé de la page
+		def keywordsId = params.id + File.separator + "keywords_" + languageCode + ".txt"
+		def keywords = pageService.getWikiContent(keywordsId)
+		
+		render(view:"/client/page/view", model:[htmlContent:htmlContent, title:title, description:description, keywords:keywords])
 	}
 	
 	def viewColumn = {
@@ -48,15 +48,26 @@ class PageController {
 			languageCode = local.getLanguage()
 		}
 		
+		// Charger le contenu de la page (colonne 1)
 		def page = params.id + File.separator + "content_1_" + languageCode + ".txt"
 		def htmlContent1 = pageService.getHTMLContent(page)
 		
+		// Charger le contenu de la page (colonne 2)
 		page = params.id + File.separator + "content_2_" + languageCode + ".txt"
 		def htmlContent2 = pageService.getHTMLContent(page)
 		
+		// Charger le titre de la page
 		def titleId = params.id + File.separator + "title_" + languageCode + ".txt"
 		def title = pageService.getWikiContent(titleId)
 		
-		render(view:"/client/page/viewColumn", model:[htmlContent1: htmlContent1, htmlContent2: htmlContent2, title: title])
+		// Charger la description de la page
+		def descriptionId = params.id + File.separator + "description_" + languageCode + ".txt"
+		def description = pageService.getWikiContent(descriptionId)
+		
+		// Charger les mots clé de la page
+		def keywordsId = params.id + File.separator + "keywords_" + languageCode + ".txt"
+		def keywords = pageService.getWikiContent(keywordsId)
+		
+		render(view:"/client/page/viewColumn", model:[htmlContent1:htmlContent1, htmlContent2:htmlContent2, title:title, description:description, keywords:keywords])
 	}
 }

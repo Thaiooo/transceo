@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title><g:message code="title.contenu" /></title>
+        <title><g:message code="title.admin.page" /></title>
 		<meta name="layout" content="admin" />
     </head>
     <body>
