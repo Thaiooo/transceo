@@ -318,9 +318,39 @@ legend {
 	
 #formulaire_page {
 }
+	#formulaire_page ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	#formulaire_page ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+
+	#formulaire_page label {
+		float: left;
+		width: 90px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+
+	#formulaire_page table {
+		width: 100%;
+	}
+	
 	#formulaire_page input {
 		float: right;
-		width: 260px;
+		width: 725px;
 		height: 14px;
 		margin: 4px 0;
 		padding: 2px 7px;
@@ -352,6 +382,7 @@ legend {
 	
 	#formulaire_page textarea {
 		background-image: url(../images/stripe2.gif);
+		float: right;
 		width: 260px;
 		margin: 4px 0;
 		padding: 2px 7px;
@@ -359,7 +390,7 @@ legend {
 	}
 	
 		#formulaire_page textarea.wikiContent {
-			width: 815px;
+			width: 725px;
 			height: 400px;
 		}
 	
@@ -873,19 +904,35 @@ table.spip td {
 	cursor:pointer;
 }
 
-.boutons a {
-	// float: right;
-	border: 1px solid #666666;
-	width: auto;
-	height: auto;
-	background-color: #333333;
-	background-image: none;
-	color: #FFFFFF;
-	text-decoration: none;
-	padding-left: 6px;
-	padding-right: 6px;
-	padding-top: 2px;
-	padding-bottom: 3px;
-	margin-top: 4px;
-	cursor:pointer;
+.boutons {
+	text-align: right;
+}
+	.boutons a {
+		// float: right;
+		border: 1px solid #666666;
+		width: auto;
+		height: auto;
+		background-color: #333333;
+		background-image: none;
+		color: #FFFFFF;
+		text-decoration: none;
+		padding-left: 6px;
+		padding-right: 6px;
+		padding-top: 2px;
+		padding-bottom: 3px;
+		margin-top: 4px;
+		cursor:pointer;
+	}
+
+.adminPage {
+	width: 100%;
+	border-collapse:collapse;
+}
+
+.adminPage tr td {
+	padding:10px;
+}
+
+.adminPage .label{
+	border-right:2px solid #333333;
 }
