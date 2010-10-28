@@ -8,7 +8,7 @@ class PageController {
 	def pageService
 	
 	def home = {
-		redirect(controller:"page", action:"view", id:"page_1")
+		redirect(controller:"page", action:"view", id:"accueil")
 	}
 	
 	def changeLanguage = {
