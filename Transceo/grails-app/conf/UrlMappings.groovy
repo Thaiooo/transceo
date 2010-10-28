@@ -8,7 +8,7 @@ class UrlMappings {
       "/administrate_transeo" {
           controller = "administrator"
           action = "login"
-       }
+      }
 	  "500"(view:'/error')
 	  "/" {
 		  controller = "page"
