@@ -162,7 +162,7 @@
 
 			<!--pied-->
 			<div id="pied">
-			&copy;&nbsp;2010 Transeo | <a href="http://www.loaloa.net/">Design Loaloa Studio & T Consulting</a>
+			&copy;&nbsp;2010 Transeo | <a href="http://www.loaloa.net/">Design Loaloa Studio</a>
 			</div>
 			<!--fin pied-->
 
