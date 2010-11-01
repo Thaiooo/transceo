@@ -13,6 +13,6 @@ class UrlMappings {
 	  "/" {
 		  controller = "page"
 		  action = "home"
-	  } 
+	  }
 	}
 }
