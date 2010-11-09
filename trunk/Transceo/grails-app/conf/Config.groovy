@@ -53,8 +53,8 @@ environments {
     }
     development {
         grails.serverURL = "http://localhost:8080/${appName}"
-		grails.config.locations = ["file:D:/Dev/workspace/Transceo/config/transeo-app-config.properties",
-			"file:D:/Dev/workspace/Transceo/config/transeo-mail-config.groovy"]
+		grails.config.locations = ["file:D:/Dev/workspace-sts/Transceo/config/transeo-app-config.properties",
+			"file:D:/Dev/workspace-sts/Transceo/config/transeo-mail-config.groovy"]
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
