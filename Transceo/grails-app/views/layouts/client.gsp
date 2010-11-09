@@ -4,7 +4,15 @@
 		<title><g:layoutTitle default="Titre" /></title>
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			
-		<meta name="${description}" />
+		
+		<g:if test="${description != null}">
+			<meta name="${description}" />
+		</g:if>
+		
+		<g:if test="${keywords != null}">
+			<meta name="keywords" content="${keywords}" />
+		</g:if>
+		
 		<meta name="keywords" content="${keywords}" />
 				
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo.css')}" />
