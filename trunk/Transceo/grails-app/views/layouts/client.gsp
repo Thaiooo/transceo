@@ -12,8 +12,6 @@
 		<g:if test="${keywords != null}">
 			<meta name="keywords" content="${keywords}" />
 		</g:if>
-		
-		<meta name="keywords" content="${keywords}" />
 				
 		<link rel="stylesheet" href="${resource(dir:'css',file:'transeo.css')}" />
 		<!--[if IE]>
