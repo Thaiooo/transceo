@@ -1,7 +1,6 @@
 <html>
     <head>
         <title>
-        	
         	<g:if test="${reservationType != com.transceo.ReservationType.BOOKING.name()}">
 				<g:message code="title.devis.create" />
 			</g:if>

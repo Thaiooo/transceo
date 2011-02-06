@@ -308,13 +308,28 @@ class TravelController {
 		def validate = true
 
 		// ===============================================
+		def travel = session[SessionConstant.TRAVEL.name()]
+		travel.creationDate = new Date()
+		
+		// ===============================================
 		def customer
+		def reservationType
 
+		if(travel.class.name == Travel.class.name){
+			reservationType = ReservationType.BOOKING.name()
+		}else{
+			reservationType = ReservationType.PRICING.name()
+		}
+		
 		if(params.ADMIN_VIEW == "true"){
 			if(params.customerId != null){
 				customer = Member.get(params.customerId.toLong())
 			}else{
-				customer = new Customer()
+				if(travel.class.name == Travel.class.name){
+					customer = new Customer()
+				}else{
+					customer = new CustomerQuotation()
+				}
 				customer.properties = params
 				if(!customer.validate()){
 					validate = false
@@ -324,17 +339,17 @@ class TravelController {
 			if(session[SessionConstant.USER.name()] != null){
 				customer = Member.get(session[SessionConstant.USER.name()].id)
 			}else{
-				customer = new Customer()
+				if(travel.class.name == Travel.class.name){
+					customer = new Customer()
+				}else{
+					customer = new CustomerQuotation()
+				}
 				customer.properties = params
 				if(!customer.validate()){
 					validate = false
 				}
 			}
 		}
-
-		// ===============================================
-		def travel = session[SessionConstant.TRAVEL.name()]
-		travel.creationDate = new Date()
 		travel.customer = customer
 
 		// ===============================================
@@ -342,7 +357,7 @@ class TravelController {
 			if(params.ADMIN_VIEW == "true"){
 				render(view:"/administrator/reservation/reservationEtape2", model:[customer:customer])
 			}else{
-				render(view:"/client/reservation/reservationEtape2", model:[customer:customer])
+				render(view:"/client/reservation/reservationEtape2", model:[customer:customer, reservationType:reservationType])
 			}
 		}else{
 			travelService.create(travel)
