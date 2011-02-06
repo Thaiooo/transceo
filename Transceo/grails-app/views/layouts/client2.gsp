@@ -24,10 +24,11 @@
 
 		<!-- Pour jquery -->
 		<link rel="stylesheet" href="${resource(dir:'css',file:'jquery-ui-1.8.4.custom.css')}" />
-		<g:javascript library="jquery" />
-		<g:javascript src="jquery/jquery-ui-1.8.7.custom.min.js" />
+		<g:javascript src="jquery/jquery-1.4.4.js" />
+		<g:javascript src="jquery/jquery-ui-1.8.2.custom.min.js" />
 		<g:javascript src="jquery/jquery.cycle.all.min.js" />
 		<g:javascript src="jquery/jquery.pngFix.pack.js" />
+		<g:javascript src="jquery/jquery.maskedinput-1.2.2.js" />
 		
 		<script type="text/javascript"> 
 			$(document).ready(function(){
