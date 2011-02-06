@@ -2,6 +2,8 @@ package com.transceo
 
 import java.text.SimpleDateFormat;
 
+import org.apache.commons.lang.StringUtils;
+
 class DateUtils {
 	private static final SimpleDateFormat DD_MM_YYYY = new SimpleDateFormat("dd/MM/yyyy")
 	private static final SimpleDateFormat DD_MM_YYYY_HHMM = new SimpleDateFormat("dd/MM/yyyy HH:mm")
@@ -9,7 +11,10 @@ class DateUtils {
 	public static Date parseDate(String date){
 		def d
 		try{
-			d = DD_MM_YYYY.parse(date) 
+			d = DD_MM_YYYY.parse(date)
+			if(!StringUtils.equals(DD_MM_YYYY.format(d), date)){
+				return null
+			}
 		}catch (Exception e) {
 			// Nothing
 		}

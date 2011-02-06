@@ -10,7 +10,7 @@
 	
 	    		<g:if test="${customer == null || customer.id == '' || customer.id == null}">
 	    			<div id="customerInformation">
-						<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'reservation'}">
+						<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'com.transceo.ReservationType.BOOKING.name()'}">
 							<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
 						</g:if>
 						<g:else>
