@@ -4,39 +4,24 @@
 	});
 </jq:jquery>
 
-<fieldset>
-	<legend>
-		<g:message code="label.travel.section.travel.choose" />
-		
-		<g:if test="${reservationType == null || reservationType == 'null' || reservationType == com.transceo.ReservationType.BOOKING.name()}">
-			<g:set var="selectReservationType" value="${Boolean.TRUE}" />
-			<g:set var="selectQuoteType" value="${Boolean.FALSE}" />
+	<div class="erreur_message">
+		<g:renderErrors bean="${travel}" as="list" field="travelDate"/>
+		<g:renderErrors bean="${travel}" as="list" field="travelHour"/>
+		<g:renderErrors bean="${travel}" as="list" field="travelMinute"/>
+		<g:renderErrors bean="${travel}" as="list" field="depart"/>
+		<g:if test="${reservationType == com.transceo.ReservationType.PRICING.name()}">
+			<g:renderErrors bean="${travel}" as="list" field="destination"/>
 		</g:if>
-		<g:else>
-			<g:set var="selectReservationType" value="${Boolean.FALSE}" />
-			<g:set var="selectQuoteType" value="${Boolean.TRUE}" />
-		</g:else>
-
-		<g:if test="${customer == null || customer.id == '' || customer.id == null}">		
-			<g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.BOOKING.name()}" checked="${selectReservationType}"
-				onchange="${remoteFunction(controller:'travel', action:'showFormForBook', update:'customerInformation')}"
-			/>Réservation
-			<g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.PRICING.name()}" checked="${selectQuoteType}"
-				onchange="${remoteFunction(controller:'travel', action:'showFormForQuotation', update:'customerInformation')}" 
-			/>Demande de devis
-		</g:if>
-		<g:else>
-			<g:radio class="radio" name="reservationType" value="reservation" checked="${selectReservationType}"
-			/>Réservation
-			<g:radio class="radio" name="reservationType" value="quote" checked="${selectQuoteType}"
-			/>Demande de devis
-		</g:else>
-	</legend>
-   	<g:hasErrors bean="${travel}">
-		<div class="erreur_message">
-			<g:renderErrors bean="${travel}" />
-		</div>
-	</g:hasErrors>
+	</div>
+	
+	<g:if test="${reservationType == null || reservationType == 'null' || reservationType == com.transceo.ReservationType.BOOKING.name()}">
+		<g:set var="selectReservationType" value="${Boolean.TRUE}" />
+		<g:set var="selectQuoteType" value="${Boolean.FALSE}" />
+	</g:if>
+	<g:else>
+		<g:set var="selectReservationType" value="${Boolean.FALSE}" />
+		<g:set var="selectQuoteType" value="${Boolean.TRUE}" />
+	</g:else>
 
 	<g:if test="${travel != null}">
 		<g:set var="travelDate" value="${travel.travelDate}" />
@@ -54,13 +39,25 @@
 
 	<ul>
 		<li>
+			<label><g:message code="label.travel.section.travel.choose" /></label>
+			<table>
+				<tr>
+					<td><g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.BOOKING.name()}" checked="${selectReservationType}"/>Réservation</td>
+					<td><g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.PRICING.name()}" checked="${selectQuoteType}"/>Demande de devis</td>
+				</tr>
+			</table>
+		</li>
+	</ul>
+	
+	<ul>
+		<li>
 			<label><g:message code="label.travel.date" /> <strong><g:message code="label.common.required" /></strong></label>
 			<input type="text" class="date" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
 		</li>
 		<li>
 			<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="label.common.required" /></strong></label>			
 			<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
-			<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/>
+			<g:select name="travelMinute" from="${['0','15','30','45']}" value="${travelMinute}" noSelection="['':'MM']"/>
 		</li>
 		<li>
 			<label><g:message code="label.travel.number.personne" /></label>
@@ -94,4 +91,3 @@
 			</td>
 		</tr>
 	</table>
-</fieldset>
