@@ -45,7 +45,10 @@ strong {
 
 fieldset {
 	border: 2px #272727 solid;
-	padding:10px;
+	padding-top:0px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
 }
 
 legend {
@@ -762,6 +765,7 @@ legend {
 	
 
 .erreur_message {
+	margin-top: 10px;
 	margin-bottom: 10px;
 	color: #FF0000;
 }
@@ -1164,13 +1168,14 @@ table.spip td {
 	    float:right;
 	}
 
-.etape {
-	padding-bottom: 10px;
+#etape {
+	margin: 0;
+	padding: 0px 0px 10px 0px;
 }
-	.etape div {
-		float: left;
+	#etape li { 
+ 	   display: inline ; 
 	}
 
-.select {
-	background-color: red;
+#current {
+	text-decoration: underline ; 
 }

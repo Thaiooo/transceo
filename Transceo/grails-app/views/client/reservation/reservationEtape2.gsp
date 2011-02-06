@@ -12,13 +12,14 @@
 		<meta name="layout" content="client2" />
     </head>
     <body>
+    	<ul id="etape">
+			<li>Etape 1: Information trajet</li>
+			<li>></li>
+			<li id="current">Etape 2: Information client</li>
+		</ul>
+		
 		<div id="formulaire_reservation">
 			<g:form controller="travel" method="post" >
-				<div class="etape">
-					<div>Etape 1: Information trajet</div> 
-					<div class="select">Etape 2: Information client</div>
-				</div>
-				<br/>
 				<g:if test="${customer == null || customer.id == '' || customer.id == null}">
 					<div id="customerInformation">
 						<g:if test="${reservationType != com.transceo.ReservationType.BOOKING.name()}">
