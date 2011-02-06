@@ -23,12 +23,11 @@
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 
 		<!-- Pour jquery -->
-		<link rel="stylesheet" href="${resource(dir:'css',file:'jquery-ui-1.8.9.custom.css')}" />
-		<g:javascript src="jquery/jquery-1.4.4.js" />
-		<g:javascript src="jquery/jquery-ui-1.8.9.custom.min.js" />
-		<g:javascript src="jquery/jquery.cycle.all.js" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'jquery-ui-1.8.4.custom.css')}" />
+		<g:javascript library="jquery" />
+		<g:javascript src="jquery/jquery-ui-1.8.7.custom.min.js" />
+		<g:javascript src="jquery/jquery.cycle.all.min.js" />
 		<g:javascript src="jquery/jquery.pngFix.pack.js" />
-		<g:javascript src="jquery/jquery.maskedinput-1.2.2.js" />
 		
 		<script type="text/javascript"> 
 			$(document).ready(function(){
@@ -67,11 +66,6 @@
 				});
 
 			});
-
-			$(function(){
-				$("#travelDate").mask("99/99/9999");
-			});
-			
 		</script>
 		
 		<script type="text/javascript">
@@ -159,63 +153,7 @@
 				<div id="article6">
 					<div class="crayon article-titre-1  titre"><h2><g:layoutTitle default="Grails" /></h2></div>
 	    			<div class="crayon article-texte-1  texte effet_slide">
-						<table border = 0>
-							<tr>
-								<td valign="top" width="80%">
-									<g:layoutBody />
-								</td>
-								<td width="1%">
-								</td>
-								<td valign="top">
-									<div id="principal1">
-										<div id="principal2">
-											<div id="haut">
-												<div id="coingh"></div>
-												<div id="coindh"></div>
-											</div>
-											<div id="contenuCadre">
-												<g:form controller="travel" action="initBookEtape1" method="post" >
-													<table>
-														<tr>
-															<td><label><g:message code="label.travel.section.travel.choose" /></label></td>
-															<td><g:select name="reservationType" 
-																from="${com.transceo.ReservationType.values()}" 
-																value="${reservationType}" 
-																valueMessagePrefix="label.reservation.type" 
-														    /></td>
-														</tr>
-														<tr>
-															<td><label><g:message code="label.travel.date" /> <strong><g:message code="label.common.required" /></strong></label></td>
-															<td><input type="text" size="10" id="travelDate" name="travelDate"/></td>
-														</tr>
-														<tr>
-															<td><label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="label.common.required" /></strong></label>	</td>
-															<td>
-															<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
-															<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/></td>
-														</tr>
-														<tr>
-															<td><label><g:message code="label.travel.number.personne" /></label></td>
-															<td><g:select name="numberOfPersonne" from="${1..100}" value="${numberOfPersonne}"/></td>
-														</tr>
-														<tr>
-															<td colspan="2" align="right">
-																<g:submitButton name="register" value="${message(code:'label.common.button.submit')}" class="submit" />
-															</td>
-														</tr>
-													</table>
-										    	</g:form>
-											</div>
-											<div id="bas">
-												<div id="coingb"></div>
-												<div id="coindb"></div>
-											</div>
-										</div>
-									</div>	
-								</td>
-							</tr>
-						</table>
-						
+	    				<g:layoutBody />
 					</div>
 					<div class="nettoyeur"></div>
 				</div>

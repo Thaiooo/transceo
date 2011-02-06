@@ -1,7 +1,7 @@
 <html>
     <head>
         <title><g:message code="title.login" /></title>
-		<meta name="layout" content="client" />		
+		<meta name="layout" content="client2" />		
     </head>
     <body>
     	<g:if test="${flash.message != null}">

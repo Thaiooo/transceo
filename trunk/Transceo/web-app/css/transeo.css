@@ -572,7 +572,7 @@ legend {
 	
 	#formulaire_reservation label {
 		float: left;
-		width: 240px;
+		width: 112px;
 		display: block;
 		height: 14px;
 		margin: 4px 0;
@@ -669,9 +669,97 @@ legend {
 		border: none;
 	}
 	
-		#formulaire_reservation fieldset.adresse {
-			width: 370px;
-		}	
+	#formulaire_reservation fieldset.adresse {
+		width: 370px;
+	}
+
+#formulaire_pre_reserv {
+	width: 204px;
+	float: left;
+	border: 2px solid #222222;
+	padding: 5px;
+	//-moz-border-radius: 10px; 
+	border-radius: 5px;
+	margin-top: 10px; 
+}
+	#formulaire_pre_reserv ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	#formulaire_pre_reserv ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#formulaire_pre_reserv ul li.saisie_texte label {
+		text-align: center
+		width: 900px;
+	}
+
+	#formulaire_pre_reserv label {
+		float: left;
+		width: 90px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+		#formulaire_pre_reserv label strong {
+			font-weight: bold;
+			color: #181818;
+			font-size: 0.75em;
+			text-transform: lowercase;
+		}
+	
+	#formulaire_pre_reserv input {
+		float: right;
+		width: 100px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+	
+		#formulaire_pre_reserv input.submit {
+			float: right;
+			width: auto;
+			height: auto;
+			padding-top: 0px;
+			padding-bottom: 2px;
+			padding-left: 2px;
+			padding-right: 2px;
+			font-size: 1.1em;
+			border: 1px solid #666666;
+			display: block;
+			background-color: #333333;
+			background-image: none;
+			color: #FFFFFF;
+			margin: 4px 0px 0 0;
+		}
+		
+		#formulaire_pre_reserv input.submit:hover {
+			cursor:pointer;
+		}
+	
+	#formulaire_pre_reserv .texte {
+		margin: 0px;
+		padding: 0px;
+	}
+
+
+
+	
 
 .erreur_message {
 	margin-bottom: 10px;
@@ -742,9 +830,9 @@ ul.nav {
 	}
 	ul.nav li a {
 		text-transform: uppercase;
-		margin-right: 16px;
+		margin-right: 7px;
 		display: block;
-		padding-right: 16px;
+		padding-right: 7px;
 		border-right-width: 1px;
 		border-right-style: solid;
 		border-right-color: #666666;
@@ -935,4 +1023,154 @@ table.spip td {
 
 .adminPage .label{
 	border-right:2px solid #333333;
+}
+
+
+
+/* ========================================================= */
+
+#principal1 {
+    width:238px;
+	background-image:url('../images/Cadre-G.jpg');
+	background-repeat: repeat-y;
+    background-color : #2f2f2f;
+}
+
+#principal2 {
+	background-image:url('../images/Cadre-D.jpg');
+	background-repeat: repeat-y;
+    background-position: right;
+}
+
+#haut {
+    height:14px;
+    background-image:url('../images/Cadre-H.jpg');
+}
+
+#haut img {
+    vertical-align:top; /* for ie5*/
+}
+	#coingh {
+        width:14px;
+		height:14px;
+		background-image:url('../images/Cadre-HG.jpg');
+		float: left;
+	}
+	#coindh {
+        width:14px;
+		height:14px;
+		background-image:url('../images/Cadre-HD.jpg');
+		float: right;
+	}
+	
+#contenuCadre {
+	padding-left: 14px;
+}
+	#contenuCadre table, th, td {
+		border-collapse:collapse;
+		border: none;
+	}
+
+	#contenuCadre ul {
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		display: inline;
+	}
+	#contenuCadre ul li {
+		align: left;
+		display: block;
+		float: left;
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+	}
+	
+	#contenuCadre ul li.saisie_texte label {
+		text-align: center
+		width: 900px;
+	}
+
+	#contenuCadre label {
+		/*
+		float: left;
+		*/
+		width: 90px;
+		display: block;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 0;
+		font-weight: normal;
+		color: #999999;
+	}
+	
+		#contenuCadre label strong {
+			font-weight: bold;
+			color: #181818;
+			font-size: 0.75em;
+			text-transform: lowercase;
+		}
+	
+	#contenuCadre input {
+		/*
+		float: right;
+		*/
+		width: 100px;
+		height: 14px;
+		margin: 4px 0;
+		padding: 2px 7px;
+		border: none;
+		display: block;
+		background-image: url(../images/stripe2.gif);
+	}
+		
+		#contenuCadre input.submit {
+			/*
+			float: right;
+			*/
+			width: auto;
+			height: auto;
+			padding-top: 0px;
+			padding-bottom: 2px;
+			padding-left: 2px;
+			padding-right: 2px;
+			margin: 4px 0px 0 0;
+			font-size: 1.1em;
+			border: 1px solid #666666;
+			display: block;
+			background-color: #333333;
+			background-image: none;
+			color: #FFFFFF;
+		}
+		
+		#contenuCadre input.submit:hover {
+			cursor:pointer;
+		}
+	
+#bas {
+    height:14px;
+    background-image:url('../images/Cadre-B.jpg');
+}
+	#coingb {
+        width:14px;
+		height:14px;
+		background-image:url('../images/Cadre-BG.jpg');
+		float: left;
+	}
+	#coindb {
+        width:14px;
+		height:14px;
+		background-image:url('../images/Cadre-BD.jpg');
+	    float:right;
+	}
+
+.etape {
+	padding-bottom: 10px;
+}
+	.etape div {
+		float: left;
+	}
+
+.select {
+	background-color: red;
 }

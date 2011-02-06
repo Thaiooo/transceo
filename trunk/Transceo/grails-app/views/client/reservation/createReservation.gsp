@@ -1,14 +1,14 @@
 <html>
     <head>
         <title><g:message code="title.reservation.create" /></title>
-		<meta name="layout" content="client" />
+		<meta name="layout" content="client2" />
     </head>
     <body>
 		<div id="formulaire_reservation">
 			<g:form controller="travel" method="post" >
 				<g:if test="${customer == null || customer.id == '' || customer.id == null}">
 					<div id="customerInformation">
-						<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'reservation'}">
+						<g:if test="${reservationType == null || reservationType == 'null' || reservationType == 'com.transceo.ReservationType.BOOKING.name()'}">
 							<g:render template="/common/member/editCustomerSection" bean="${customer}"/>
 						</g:if>
 						<g:else>
