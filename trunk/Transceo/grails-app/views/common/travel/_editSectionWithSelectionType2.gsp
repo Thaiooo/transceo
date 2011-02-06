@@ -1,18 +1,20 @@
-<jq:jquery>
+<script type="text/javascript"> 
 	$(function() {
 	    $("#travelDate").datepicker({ dateFormat: 'dd/mm/yy' });
 	});
-</jq:jquery>
+</script>
 
-	<div class="erreur_message">
-		<g:renderErrors bean="${travel}" as="list" field="travelDate"/>
-		<g:renderErrors bean="${travel}" as="list" field="travelHour"/>
-		<g:renderErrors bean="${travel}" as="list" field="travelMinute"/>
-		<g:renderErrors bean="${travel}" as="list" field="depart"/>
-		<g:if test="${reservationType == com.transceo.ReservationType.PRICING.name()}">
-			<g:renderErrors bean="${travel}" as="list" field="destination"/>
-		</g:if>
-	</div>
+	<g:hasErrors bean="${travel}">
+		<div class="erreur_message">
+			<g:renderErrors bean="${travel}" as="list" field="travelDate"/>
+			<g:renderErrors bean="${travel}" as="list" field="travelHour"/>
+			<g:renderErrors bean="${travel}" as="list" field="travelMinute"/>
+			<g:renderErrors bean="${travel}" as="list" field="depart"/>
+			<g:if test="${reservationType == com.transceo.ReservationType.PRICING.name()}">
+				<g:renderErrors bean="${travel}" as="list" field="destination"/>
+			</g:if>
+		</div>
+	</g:hasErrors>	
 	
 	<g:if test="${reservationType == null || reservationType == 'null' || reservationType == com.transceo.ReservationType.BOOKING.name()}">
 		<g:set var="selectReservationType" value="${Boolean.TRUE}" />
