@@ -20,16 +20,16 @@
 		<g:if test="${customer == null || customer.id == '' || customer.id == null}">		
 			<g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.BOOKING.name()}" checked="${selectReservationType}"
 				onchange="${remoteFunction(controller:'travel', action:'showFormForBook', update:'customerInformation')}"
-			/>Réservation
+			/><g:message code="label.travel.book" />
 			<g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.PRICING.name()}" checked="${selectQuoteType}"
 				onchange="${remoteFunction(controller:'travel', action:'showFormForQuotation', update:'customerInformation')}" 
-			/>Demande de devis
+			/><g:message code="label.travel.pricing" />
 		</g:if>
 		<g:else>
 			<g:radio class="radio" name="reservationType" value="reservation" checked="${selectReservationType}"
-			/>Réservation
+			/><g:message code="label.travel.book" />
 			<g:radio class="radio" name="reservationType" value="quote" checked="${selectQuoteType}"
-			/>Demande de devis
+			/>><g:message code="label.travel.pricing" />
 		</g:else>
 	</legend>
    	<g:hasErrors bean="${travel}">
