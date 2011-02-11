@@ -819,6 +819,14 @@ legend {
 	padding: 10px;
 }
 
+	#telephone a {
+		color: #FFFFFF;
+	}
+	#telephone a:hover {
+		color: #FF0000;
+		text-decoration: none;
+	}
+
 ul.nav {
 	background-image: url(../images/bg-nav.jpg);
 	background-repeat: no-repeat;

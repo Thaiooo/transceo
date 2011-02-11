@@ -101,8 +101,15 @@
 			</div>
 
 			<!--téléphone-->
-			<div id="telephone"><a name="ancre" id="ancre"></a><g:message code="label.page.layout.3" /><br/>${grailsApplication.config.transeo.contact.tel}</div>
-
+			<div id="telephone">
+				<a name="ancre" id="ancre"></a>
+				<g:link controller="travel" action="initBookEtape1">
+					<g:message code="label.page.layout.3" />
+				</g:link>
+				<br/>
+				${grailsApplication.config.transeo.contact.tel}
+			</div>
+			
 			<!--cadre-->
 			<div id="diapo-cadre"><img src="${resource(dir:'images',file:'diapo-cadre.png')}" alt="diaporama" /></div>
 
@@ -136,7 +143,7 @@
 					</li>
 				</g:if>
 				<li class="art5">
-					<a href="<g:createLink controller="page" action="view" id="point-fidelite"/>#ancre" title="${message(code:'label.menu.reservation.alt')}" >POINTS DE FIDELITE</a>
+					<a href="<g:createLink controller="page" action="view" id="point-fidelite"/>#ancre" title="${message(code:'label.menu.point.alt')}" ><g:message code="label.menu.point" /></a>
 				</li>
 				<li class="art7">
 					<g:if test="${session.USER != null}">
