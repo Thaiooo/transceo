@@ -44,8 +44,8 @@
 			<label><g:message code="label.travel.section.travel.choose" /></label>
 			<table>
 				<tr>
-					<td><g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.BOOKING.name()}" checked="${selectReservationType}"/>Réservation</td>
-					<td><g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.PRICING.name()}" checked="${selectQuoteType}"/>Demande de devis</td>
+					<td><g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.BOOKING.name()}" checked="${selectReservationType}"/><g:message code="label.travel.book" /></td>
+					<td><g:radio class="radio" name="reservationType" value="${com.transceo.ReservationType.PRICING.name()}" checked="${selectQuoteType}"/><g:message code="label.travel.pricing" /></td>
 				</tr>
 			</table>
 		</li>

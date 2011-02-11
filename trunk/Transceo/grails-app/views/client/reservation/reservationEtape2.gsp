@@ -12,9 +12,9 @@
     </head>
     <body>
     	<ul id="etape">
-			<li>Etape 1: Information trajet</li>
+			<li><g:message code="message.reservation.step.1" /></li>
 			<li>></li>
-			<li id="current">Etape 2: Information client</li>
+			<li id="current"><g:message code="message.reservation.step.2" /></li>
 		</ul>
 		
 		<div id="formulaire_reservation">
