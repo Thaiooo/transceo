@@ -98,9 +98,9 @@
 			<!--téléphone-->
 			<div id="telephone">
 				<a name="ancre" id="ancre"></a>
-				<a href="#">
-				<g:message code="label.page.layout.3" />
-				</a>
+				<g:link controller="travel" action="initBookEtape1">
+					<g:message code="label.page.layout.3" />
+				</g:link>
 				<br/>
 				${grailsApplication.config.transeo.contact.tel}
 			</div>
