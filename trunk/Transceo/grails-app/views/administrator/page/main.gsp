@@ -9,7 +9,7 @@
     		<li>Acceuil (<g:link controller="administrator" action="viewPage" id="accueil" params="[lang:'fr']">FR</g:link> - <g:link controller="administrator" action="viewPage" id="accueil" params="[lang:'en']">EN</g:link>)</li>
     		<li>Prestation (<g:link controller="administrator" action="viewPage" id="prestations" params="[lang:'fr']">FR</g:link> - <g:link controller="administrator" action="viewPage" id="prestations" params="[lang:'en']">EN</g:link>)</li>
     		<li>Chauffeurs-Véhicule (<g:link controller="administrator" action="viewPageColumn" id="chauffeurs-vehicules" params="[lang:'fr']">FR</g:link> - <g:link controller="administrator" action="viewPageColumn" id="chauffeurs-vehicules" params="[lang:'en']">EN</g:link>)</li>
-    		<li>Contact - Réservation (<g:link controller="administrator" action="viewPageColumn" id="contact-reservation" params="[lang:'fr']">FR</g:link> - <g:link controller="administrator" action="viewPageColumn" id="contact-reservation" params="[lang:'en']">EN</g:link>)</li>
+    		<li>Contact - Réservation (<g:link controller="administrator" action="viewPage" id="contact-reservation" params="[lang:'fr']">FR</g:link> - <g:link controller="administrator" action="viewPage" id="contact-reservation" params="[lang:'en']">EN</g:link>)</li>
     		<li>Point de Fidélité (<g:link controller="administrator" action="viewPage" id="point-fidelite" params="[lang:'fr']">FR</g:link> - <g:link controller="administrator" action="viewPage" id="point-fidelite" params="[lang:'en']">EN</g:link>)</li>
     	</ul>
 	</body>

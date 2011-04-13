@@ -12,6 +12,7 @@ class PageController {
 	}
 	
 	def changeLanguage = {
+		session[SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME] = params.lang
 		redirect(controller:"page", action:"home", params:[lang:params.lang])
 	}
 	
