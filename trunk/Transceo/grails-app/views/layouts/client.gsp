@@ -137,16 +137,22 @@
 				<li class="art5">
 					<a href="<g:createLink controller="page" action="view" id="contact-reservation"/>#ancre" title="${message(code:'label.menu.reservation.alt')}" ><g:message code="label.menu.reservation" /></a>
 				</li>
+				
+				<%-- 
 				<g:if test="${session.USER == null}">
 					<li class="art6">
 						<a href="<g:createLink controller="member" action="initRegister" />#ancre" title="${message(code:'label.menu.register.alt')}" ><g:message code="label.menu.register" /></a>
 					</li>
 				</g:if>
+				--%>
+				
 				<%-- 
 				<li class="art5">
 					<a href="<g:createLink controller="page" action="view" id="point-fidelite"/>#ancre" title="${message(code:'label.menu.point.alt')}" ><g:message code="label.menu.point" /></a>
 				</li>
 				--%>
+				
+				<%-- 
 				<li class="art7">
 					<g:if test="${session.USER != null}">
 						<a class="disconnect" href="<g:createLink controller="login" action="disconnect" />#ancre" title="${message(code:'label.menu.disconnect.alt')}" >
@@ -159,6 +165,8 @@
 						<a href="<g:createLink controller="member" action="showMyProfile" />#ancre" title="${message(code:'label.menu.account.alt')}" ><g:message code="label.menu.account" /></a>
 					</g:else>
 				</li>
+				--%>
+				
 			</ul>
 			<!--fin nav-->
 
