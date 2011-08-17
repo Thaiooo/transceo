@@ -13,7 +13,7 @@ class TravelController {
 	}
 
 	def initReservation = {
-		redirect(controller:"page", action:"viewColumn", id:"contact-reservation")
+		redirect(controller:"page", action:"view", id:"contact-reservation")
 	}
 
 	def initBookEtape1 = {
