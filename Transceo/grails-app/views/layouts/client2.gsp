@@ -90,6 +90,8 @@
 	        gapi.plusone.render("plusone-div");
 	    </script>
 	    
+	    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	    
 	</head>
 
 	<body class="page_sommaire">
