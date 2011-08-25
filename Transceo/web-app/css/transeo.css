@@ -1187,3 +1187,21 @@ table.spip td {
 #current {
 	text-decoration: underline ; 
 }
+
+#twitter-button {
+	position:absolute;
+	top:435px;
+	right:333px;
+}
+
+#google-button {
+	position:absolute;
+	top:433px;
+	right:230px;
+}
+
+#facebook-button {
+	position:absolute;
+	top:434px;
+	right:138px;
+}

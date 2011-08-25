@@ -94,11 +94,25 @@
 	    <script type="text/javascript">
 	        gapi.plusone.render("plusone-div");
 	    </script>
+	    
+	    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	</head>
 
 	<body class="page_sommaire">
-		<div id="plusone-div" style="position:absolute;top:433px;right:230px;"></div>
+		<div id="twitter-button">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>
+		</div>
+		<div id="google-button">
+			<div id="plusone-div"></div>
+		</div>
+		<div id="facebook-button">
+			<div id="fb-root"></div>
+			<script src="http://connect.facebook.net/en_US/all.js#appId=204820556243678&amp;xfbml=1"></script>
+			<fb:like href="" send="true" layout="button_count" width="450" show_faces="true" action="like" font="arial">
+			</fb:like>
+		</div>
+		
 		<div id="page">
 
 			<!--Entete de la page + titre du site-->
@@ -175,6 +189,7 @@
 					</g:else>
 				</li>
 				--%>
+				
 			</ul>
 			<!--fin nav-->
 
