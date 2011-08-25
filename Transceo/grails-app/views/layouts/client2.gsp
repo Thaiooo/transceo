@@ -102,7 +102,7 @@
 		<div id="facebook-button">
 			<div id="fb-root"></div>
 			<script src="http://connect.facebook.net/en_US/all.js#appId=204820556243678&amp;xfbml=1"></script>
-			<fb:like href="" send="true" layout="button_count" width="450" show_faces="true" action="like" font="arial">
+			<fb:like href="" send="true" layout="button_count" width="0" show_faces="true" action="like" font="arial">
 			</fb:like>
 		</div>
 	
