@@ -82,9 +82,19 @@
 		</script>
 		
 		<g:layoutHead />
+		
+		<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+			{"parsetags": "explicit", "lang": "fr"}
+	    </script>
+	    <script type="text/javascript">
+	        gapi.plusone.render("plusone-div");
+	    </script>
+	    
 	</head>
 
 	<body class="page_sommaire">
+		<div id="plusone-div" style="position:absolute;top:433px;right:230px;"></div>
+	
 		<div id="page">
 
 			<!--Entete de la page + titre du site-->
