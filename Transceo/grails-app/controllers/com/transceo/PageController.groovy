@@ -22,6 +22,9 @@ class PageController {
 		if(null != local){
 			languageCode = local.getLanguage()
 		}
+		if(languageCode != "fr" && languageCode != "en"){
+			languageCode = "en"
+		}
 	
 		// Charger le contenu de la page	
 		def page = params.id + File.separator + "content_" + languageCode + ".txt"
@@ -47,6 +50,9 @@ class PageController {
 		def languageCode = "fr"
 		if(null != local){
 			languageCode = local.getLanguage()
+		}
+		if(languageCode != "fr" && languageCode != "en"){
+			languageCode = "en"
 		}
 		
 		// Charger le contenu de la page (colonne 1)
