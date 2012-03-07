@@ -786,7 +786,7 @@ legend {
 	background-repeat: no-repeat;
 	height: 326px;
 	clear: both;
-	z-index: 8;
+	z-index: 5;
 	position: absolute;
 }
 
