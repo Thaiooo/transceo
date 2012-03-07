@@ -54,7 +54,9 @@
 	<ul>
 		<li>
 			<label><g:message code="label.travel.date" /> <strong><g:message code="label.common.required" /></strong></label>
-			<input type="text" class="date" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"/>
+			<input type="text" class="date" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"
+				style="z-index: 10; position: relative;"
+			/>
 		</li>
 		<li>
 			<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="label.common.required" /></strong></label>			
