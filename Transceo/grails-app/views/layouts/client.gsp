@@ -218,7 +218,7 @@
 															<td><label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="label.common.required" /></strong></label>	</td>
 															<td>
 															<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
-															<g:select name="travelMinute" from="${0..59}" value="${travelMinute}" noSelection="['':'MM']"/></td>
+															<g:select name="travelMinute" from="${['0','15','30','45']}" value="${travelMinute}" noSelection="['':'MM']"/></td>
 														</tr>
 														<tr>
 															<td><label><g:message code="label.travel.number.personne" /></label></td>
