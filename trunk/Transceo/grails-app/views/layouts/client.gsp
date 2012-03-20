@@ -29,6 +29,7 @@
 		<g:javascript src="jquery/jquery.cycle.all.min.js" />
 		<g:javascript src="jquery/jquery.pngFix.pack.js" />
 		<g:javascript src="jquery/jquery.maskedinput-1.2.2.js" />
+		<g:javascript src="jquery/jquery.ui.datepicker-fr.js" />
 		
 		<script type="text/javascript"> 
 			$(document).ready(function(){
@@ -68,13 +69,8 @@
 
 			});
 
-			/*
-			$(function(){
-				$("#travelDate").mask("99/99/9999");
-			});
-			*/
-
 			$(function() {
+				$.datepicker.setDefaults($.datepicker.regional["fr"]);
 			    $("#travelDate").datepicker({ dateFormat: 'dd/mm/yy' });
 			});
 			
@@ -210,7 +206,7 @@
 														<tr>
 															<td><label><g:message code="label.travel.date" /> <strong><g:message code="label.common.required" /></strong></label></td>
 															<td><input type="text" size="10" id="travelDate" name="travelDate" 
-																	style="z-index: 10; position: relative;"
+																	style="z-index: 1001; position: relative;"
 																/>
 															</td>
 														</tr>

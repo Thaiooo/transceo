@@ -20,6 +20,11 @@
 		<g:javascript src="jquery/jquery.cycle.all.min.js" />
 		<g:javascript src="jquery/jquery.pngFix.pack.js" />
 		<g:javascript src="jquery/jquery.maskedinput-1.2.2.js" />
+		<g:javascript src="jquery/jquery.ui.datepicker-fr.js" />
+		
+		<script type="text/javascript"> 
+			$.datepicker.setDefaults($.datepicker.regional["fr"]);
+		</script>
 		
 	    <g:layoutHead />
 	</head>

@@ -29,7 +29,7 @@
 	<p>
 		<g:message code="label.travel.date" /> <strong><g:message code="label.common.required" /></strong>
 		<input type="text" class="text" size="10" id="travelDate" name="date" value="<g:formatDate format="dd/MM/yyyy" date="${travelDate}"/>"
-			style="z-index: 10; position: relative;"
+			style="z-index: 1001; position: relative;"
 		/>
 		<label for="info_telephone"><g:message code="label.travel.time" /> <strong><g:message code="label.common.required" /></strong></label>			
 		<g:select name="travelHour" from="${0..23}" value="${travelHour}" noSelection="['':'HH']"/> :
