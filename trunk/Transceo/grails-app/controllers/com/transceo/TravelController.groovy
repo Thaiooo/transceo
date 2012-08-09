@@ -51,15 +51,15 @@ class TravelController {
 		}
 
 		render(
-			view:"/client/reservation/reservationEtape1", 
-			model:[
-				travel:travel, 
-				depart:depart, 
-				destination:destination, 
-				locationDepartId:locationDepartId, 
-				locationDestId:locationDestId,
-				reservationType: reservationType]
-		)
+				view:"/client/reservation/reservationEtape1",
+				model:[
+					travel:travel,
+					depart:depart,
+					destination:destination,
+					locationDepartId:locationDepartId,
+					locationDestId:locationDestId,
+					reservationType: reservationType]
+				)
 	}
 
 	def initBookEtape2 = {
@@ -67,7 +67,7 @@ class TravelController {
 		if(null == travel){
 			redirect(controller: "travel", action: "initBookEtape1")
 		}
-		
+
 		def reservationType
 		if(travel.class.name == Travel.class.name){
 			reservationType = ReservationType.BOOKING.name()
@@ -309,66 +309,81 @@ class TravelController {
 
 		// ===============================================
 		def travel = session[SessionConstant.TRAVEL.name()]
-		travel.creationDate = new Date()
-		
-		// ===============================================
-		def customer
-		def reservationType
 
-		if(travel.class.name == Travel.class.name){
-			reservationType = ReservationType.BOOKING.name()
+		if(travel == null){
+			redirect(controller: "travel", action: "initBookEtape1")
 		}else{
-			reservationType = ReservationType.PRICING.name()
-		}
-		
-		if(params.ADMIN_VIEW == "true"){
-			if(params.customerId != null){
-				customer = Member.get(params.customerId.toLong())
-			}else{
-				if(travel.class.name == Travel.class.name){
-					customer = new Customer()
-				}else{
-					customer = new CustomerQuotation()
-				}
-				customer.properties = params
-				if(!customer.validate()){
-					validate = false
-				}
-			}
-		}else{
-			if(session[SessionConstant.USER.name()] != null){
-				customer = Member.get(session[SessionConstant.USER.name()].id)
-			}else{
-				if(travel.class.name == Travel.class.name){
-					customer = new Customer()
-				}else{
-					customer = new CustomerQuotation()
-				}
-				customer.properties = params
-				if(!customer.validate()){
-					validate = false
-				}
-			}
-		}
-		travel.customer = customer
 
-		// ===============================================
-		if(!validate){
-			if(params.ADMIN_VIEW == "true"){
-				render(view:"/administrator/reservation/reservationEtape2", model:[customer:customer])
-			}else{
-				render(view:"/client/reservation/reservationEtape2", model:[customer:customer, reservationType:reservationType])
-			}
-		}else{
-			travelService.create(travel)
-			session[SessionConstant.TRAVEL.name()] = null
-			if(params.ADMIN_VIEW == "true"){
-				redirect(controller: "administrator", action: "initChooseCustomerType")
-			} else{
+			try{
+				travel.creationDate = new Date()
+
+				// ===============================================
+				def customer
+				def reservationType
+
+				if(travel.class.name == Travel.class.name){
+					reservationType = ReservationType.BOOKING.name()
+				}else{
+					reservationType = ReservationType.PRICING.name()
+				}
+
+				if(params.ADMIN_VIEW == "true"){
+					if(params.customerId != null){
+						customer = Member.get(params.customerId.toLong())
+					}else{
+						if(travel.class.name == Travel.class.name){
+							customer = new Customer()
+						}else{
+							customer = new CustomerQuotation()
+						}
+						customer.properties = params
+						if(!customer.validate()){
+							validate = false
+						}
+					}
+				}else{
+					if(session[SessionConstant.USER.name()] != null){
+						customer = Member.get(session[SessionConstant.USER.name()].id)
+					}else{
+						if(travel.class.name == Travel.class.name){
+							customer = new Customer()
+						}else{
+							customer = new CustomerQuotation()
+						}
+						customer.properties = params
+						if(!customer.validate()){
+							validate = false
+						}
+					}
+				}
+				travel.customer = customer
+
+				// ===============================================
+				if(!validate){
+					if(params.ADMIN_VIEW == "true"){
+						render(view:"/administrator/reservation/reservationEtape2", model:[customer:customer])
+					}else{
+						render(view:"/client/reservation/reservationEtape2", model:[customer:customer, reservationType:reservationType])
+					}
+				}else{
+					travelService.create(travel)
+					session[SessionConstant.TRAVEL.name()] = null
+					if(params.ADMIN_VIEW == "true"){
+						redirect(controller: "administrator", action: "initChooseCustomerType")
+					} else{
+						redirect(
+								controller: "common",
+								action: "displayMessage",
+								params:[codeMessage:"message.quotation.confirmation", codeTitle:"title.quotation.confirmation"]
+								)
+					}
+				}
+			}catch (Throwable e) {
+				println "Erreur lors de la creation d'une reservation ou d'un devis:\n" + e.printStackTrace()
 				redirect(
 						controller: "common",
 						action: "displayMessage",
-						params:[codeMessage:"message.quotation.confirmation", codeTitle:"title.quotation.confirmation"]
+						params:[codeMessage:"message.error", codeTitle:"title.message.error"]
 						)
 			}
 		}
