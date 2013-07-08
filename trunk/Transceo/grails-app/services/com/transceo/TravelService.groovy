@@ -1,5 +1,7 @@
 package com.transceo
 
+import java.util.Calendar;
+
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.groovy.grails.commons.ConfigurationHolder;
 
@@ -321,7 +323,8 @@ class TravelService {
 	}
 	
 	private double applySpecialCondition(specialConditions, price){
-		def currentDate = new Date()
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"))
+		def currentDate = cal.getTime()
 		def miles = 0;
 		specialConditions.each{
 			def start = it.startDate
