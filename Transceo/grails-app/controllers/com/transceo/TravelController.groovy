@@ -1,5 +1,7 @@
 package com.transceo
 
+import java.util.Calendar;
+
 import org.apache.commons.lang.StringUtils;
 
 import com.sun.org.apache.xml.internal.security.c14n.helper.C14nHelper;
@@ -136,7 +138,9 @@ class TravelController {
 		// ===============================================
 		def travel = new TravelQuotation()
 		travel.properties = params
-		travel.creationDate = new Date()
+
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"))
+		travel.creationDate = cal.getTime()
 		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
 			travel.travelDate = DateUtils.parseDate(params.date)
 		}else{
@@ -232,7 +236,8 @@ class TravelController {
 		}else{
 			travel.travelDate = DateUtils.parseDateTime(params.date, Integer.valueOf(params.travelHour), Integer.valueOf(params.travelMinute))
 		}
-		travel.creationDate = new Date()
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"))
+		travel.creationDate = cal.getTime()
 
 		// ===============================================
 		def locationDepartId = ""
@@ -315,7 +320,8 @@ class TravelController {
 		}else{
 
 			try{
-				travel.creationDate = new Date()
+				Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"))
+				travel.creationDate = cal.getTime()
 
 				// ===============================================
 				def customer
@@ -420,7 +426,8 @@ class TravelController {
 		// ===============================================
 		def travel = new Travel()
 		travel.properties = params
-		travel.creationDate = new Date()
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"))
+		travel.creationDate = cal.getTime()
 		if(params.travelHour == null || params.travelMinute == null || !params.travelHour.isInteger() || !params.travelMinute.isInteger()){
 			travel.travelDate = DateUtils.parseDate(params.date)
 		}else{
