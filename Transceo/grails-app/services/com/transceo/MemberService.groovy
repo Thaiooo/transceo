@@ -1,5 +1,7 @@
 package com.transceo
 
+import java.util.Calendar;
+
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.groovy.grails.commons.ConfigurationHolder;
 
@@ -31,7 +33,8 @@ class MemberService {
 		
 		def sponsor
 		def Member member = new Member(params)
-		member.subscribeDate = new Date()
+		Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"))
+		member.subscribeDate = cal.getTime()
 		member.activationId = member.subscribeDate.getTime()
 		member.code = "0"
 		member.miles = config.transeo.subscribe.point.toInteger()
